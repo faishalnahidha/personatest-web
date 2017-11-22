@@ -9,8 +9,8 @@ import { withStyles } from 'material-ui/styles';
 
 import 'normalize.css';
 
-import { myTheme } from './theme.js';
-import Header from './components/Header.jsx';
+import { myTheme } from '../theme.js';
+import Header from '../components/Header.jsx';
 
 const styles = theme => ({
   root: {
