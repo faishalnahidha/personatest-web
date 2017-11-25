@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "history": "^4.7.2",
     "material-ui": "^1.0.0-beta.21",
     "material-ui-icons": "^1.0.0-beta.17",
     "meteor-node-stubs": "^0.3.2",
@@ -13,7 +14,9 @@
     "react": "^16.1.1",
     "react-addons-pure-render-mixin": "^15.6.2",
     "react-dom": "^16.1.1",
-    "react-mounter": "^1.2.0"
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "typeface-roboto": "0.0.45"
   },
   "devDependencies": {
     "@meteorjs/eslint-config-meteor": "^1.0.5",

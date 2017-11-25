@@ -1,0 +1,34 @@
+{
+  "question": [
+    {
+      "_id": "1",
+      "type": "EI",
+      "text": "Ketika telefon rumah berbunyi yang anda lakukan adalah :",
+      "answer": [
+        {
+          "text": "Bergegas untuk mengangkat telefon",
+          "value": "E"
+        },
+        {
+          "text": "Berharap orang lain akan me­ngangkat telepon",
+          "value": "I"
+        }
+      ]
+    },
+    {
+      "_id": "2",
+      "type": "SN",
+      "text": "Anda merupakan orang yang lebih :",
+      "answer": [
+        {
+          "text": "Suka melakukan uji coba daripada berimajinasi",
+          "value": "S"
+        },
+        {
+          "text": "Suka berimajinasi daripada melakukan uji coba",
+          "value": "N"
+        }
+      ]
+    }
+  ]
+}
