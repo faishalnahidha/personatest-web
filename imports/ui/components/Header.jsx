@@ -26,7 +26,7 @@ const styles = theme => ({
 class Header extends Component {
   render() {
     return (
-      <AppBar position="static" className={this.props.classes.appBar}>
+      <AppBar className={this.props.classes.appBar}>
         <Toolbar>
           <IconButton
             className={this.props.classes.menuButton}

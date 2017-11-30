@@ -12,7 +12,9 @@ import Question from '../components/Question.jsx';
 
 const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    margin: theme.spacing.unit * 3,
+    marginTop: 80
   },
   paper: {
     padding: 16
@@ -23,7 +25,7 @@ const styles = theme => ({
   }
 });
 
-/* TestContainer represents Persona Test feature */
+/* TestPage represents Persona Test page */
 class TestPage extends Component {
   renderQuestions() {
     return this.props.questions.map(question => (
@@ -56,6 +58,7 @@ TestPage.propTypes = {
 };
 
 export default withTracker(() => {
+  Meteor.subscribe('questions');
   return {
     questions: Questions.find({}).fetch()
   };

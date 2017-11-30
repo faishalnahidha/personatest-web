@@ -16,14 +16,12 @@ import { myTheme } from '../theme.js';
 import Header from '../components/Header.jsx';
 import TestContainer from '../containers/TestContainer.jsx';
 import Question from '../components/Question.jsx';
+import NewPlayerPage from '../pages/NewPlayerPage.jsx';
 
 const styles = theme => ({
   root: {
     marginTop: theme.spacing.unit * 0,
     width: '100%'
-  },
-  pageContainer: {
-    margin: theme.spacing.unit * 3
   }
 });
 
@@ -33,20 +31,16 @@ const hello = () => <h1>Hello</h1>;
 class App extends Component {
   render() {
     const classes = this.props.classes;
+    const isHeaderRoute = !window.location.pathname.includes('new-player');
 
     return (
       <Router>
         <div className={classes.root}>
           <MuiThemeProvider theme={myTheme}>
-            <Grid>
-              <Header />
-            </Grid>
-            <Grid className={classes.pageContainer}>
-              <Switch>
-                <Route exact path="/" component={hello} />
-                <Route path="/test" component={TestContainer} />
-              </Switch>
-            </Grid>
+            {isHeaderRoute && <Header />}
+            <Route exact path="/" component={hello} />
+            <Route path="/test" component={TestContainer} />
+            <Route path="/new-player" component={NewPlayerPage} />
           </MuiThemeProvider>
         </div>
       </Router>
