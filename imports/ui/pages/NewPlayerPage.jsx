@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Meteor } from 'meteor/meteor';
 
 import { NewPlayers } from '../../api/new-players.js';
 
@@ -75,13 +76,13 @@ class NewPlayerPage extends Component {
     const age = this.state.age;
     const sex = this.state.sex;
 
-    //Meteor.call('newPlayers.insert', name, age, sex);
+    Meteor.call('newPlayers.insert', name, age, sex);
 
-    NewPlayers.insert({
-      name: name,
-      age: age,
-      sex: sex
-    });
+    // NewPlayers.insert({
+    //   name: name,
+    //   age: age,
+    //   sex: sex
+    // });
 
     this.setState({
       name: '',
