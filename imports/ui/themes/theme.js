@@ -1,17 +1,12 @@
 import React from 'react';
 import { createMuiTheme } from 'material-ui/styles';
 import { deepPurple, blue, green } from 'material-ui/colors';
-
-const myPrimaryColor = '#311B92';
+import { myPrimaryColor } from './primary-color-palette.js';
+import { mySecondaryColor } from './secondary-color-palette.js';
 
 export const myTheme = createMuiTheme({
   palette: {
-    primary: {
-      ...deepPurple,
-      A400: myPrimaryColor,
-      A500: myPrimaryColor,
-      A800: myPrimaryColor
-    },
-    secondary: green
+    primary: myPrimaryColor,
+    secondary: mySecondaryColor
   }
 });

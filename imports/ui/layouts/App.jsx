@@ -12,7 +12,7 @@ import Grid from 'material-ui/Grid';
 import 'normalize.css';
 import 'typeface-roboto';
 
-import { myTheme } from '../theme.js';
+import { myTheme } from '../themes/theme.js';
 import Header from '../components/Header.jsx';
 import TestContainer from '../containers/TestContainer.jsx';
 import Question from '../components/Question.jsx';
