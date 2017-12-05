@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
+import { Session } from 'meteor/session';
+import { Redirect } from 'react-router';
 
 import { NewPlayers } from '../../api/new-players.js';
 
@@ -51,17 +53,22 @@ class NewPlayerPage extends Component {
     this.state = {
       name: '',
       age: '',
-      sex: undefined
+      sex: undefined,
+      id: null,
+      redirect: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    const value = event.target.value;
-    const name = event.target.name;
-    const isAgeInvalid =
-      name == 'age' && (value < 1 || value > 99) && value != '';
+    /**
+     * name in this event is not state.name, but properties of
+     * input form to identify which input
+     */
+    const { value, name } = event.target,
+      isAgeInvalid = name == 'age' && value != '' && (value < 1 || value > 99);
+
     if (!isAgeInvalid) {
       this.setState({
         [name]: value
@@ -72,27 +79,29 @@ class NewPlayerPage extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    const name = this.state.name.trim();
-    const age = this.state.age;
-    const sex = this.state.sex;
+    const name = this.state.name.trim(),
+      age = this.state.age,
+      sex = this.state.sex,
+      id = Meteor.apply('newPlayers.insert', [name, age, sex], {
+        returnStubValue: true
+      });
 
-    Meteor.call('newPlayers.insert', name, age, sex);
-
-    // NewPlayers.insert({
-    //   name: name,
-    //   age: age,
-    //   sex: sex
-    // });
+    console.log('newPlayerId: ' + id);
 
     this.setState({
-      name: '',
-      age: '',
-      sex: undefined
+      id: id,
+      redirect: true
     });
   }
 
   render() {
     const { classes } = this.props;
+    const { redirect, id } = this.state;
+
+    if (redirect) {
+      return <Redirect to={`/test/${id}`} />;
+    }
+
     return (
       <div className={classes.root}>
         <Grid container spacing={0} justify={'center'} alignItems={'center'}>

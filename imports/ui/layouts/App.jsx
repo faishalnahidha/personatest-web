@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
+} from 'react-router-dom';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { withStyles } from 'material-ui/styles';
@@ -30,17 +35,21 @@ const hello = () => <h1>Hello</h1>;
 // App component - represents the whole app
 class App extends Component {
   render() {
-    const classes = this.props.classes;
-    const isHeaderRoute = !window.location.pathname.includes('new-player');
+    const { classes } = this.props;
+    //const isHeaderRoute = !window.location.pathname.includes('new-player');
 
     return (
       <Router>
         <div className={classes.root}>
           <MuiThemeProvider theme={myTheme}>
-            {isHeaderRoute && <Header />}
             <Route exact path="/" component={hello} />
-            <Route path="/test" component={TestContainer} />
-            <Route path="/new-player" component={NewPlayerPage} />
+            <Route path="/test/new-player" component={NewPlayerPage} />
+            <Route
+              exact
+              path="/test"
+              render={() => <Redirect to="/test/new-player" />}
+            />
+            <Route path="/test/:id" component={TestContainer} />
           </MuiThemeProvider>
         </div>
       </Router>

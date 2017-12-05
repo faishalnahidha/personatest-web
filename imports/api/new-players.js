@@ -6,8 +6,10 @@ export const NewPlayers = new Mongo.Collection('newPlayers');
 
 if (Meteor.isServer) {
   // This code only runs on the server
-  Meteor.publish('newPlayers', function newPlayersPublication() {
-    return NewPlayers.find();
+  Meteor.publish('newPlayers', function newPlayersPublication(newPlayerId) {
+    check(newPlayerId, String);
+
+    return NewPlayers.find({ _id: newPlayerId });
   });
 }
 
@@ -17,10 +19,11 @@ Meteor.methods({
     check(ageInput, String);
     check(sexInput, String);
 
-    NewPlayers.insert({
+    const newPlayerId = NewPlayers.insert({
       name: nameInput,
       age: ageInput,
       sex: sexInput
     });
+    return newPlayerId;
   }
 });
