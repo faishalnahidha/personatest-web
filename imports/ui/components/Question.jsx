@@ -23,20 +23,13 @@ const styles = theme => ({
 });
 
 class Question extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      value: null
-    };
-  }
-
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    //console.log('target.value: ' + event.target.value);
+    this.props.updateNewPlayerData(this.props.index, event.target.value);
   }
 
   render() {
-    const { classes, question } = this.props;
+    const { classes, question, value } = this.props;
 
     return (
       <li className={classes.questionItem}>
@@ -46,22 +39,22 @@ class Question extends Component {
             <FormControlLabel
               control={
                 <Radio
-                  checked={this.state.value === question.answer[0].value}
-                  onChange={this.handleChange}
+                  checked={value === question.answer[0].value}
+                  onChange={this.handleChange.bind(this)}
                   value={question.answer[0].value}
                   name="question-choice"
                   aria-label="A"
                 />
               }
-              label={this.props.question.answer[0].text}
+              label={question.answer[0].text}
             />
           </Grid>
           <Grid item xs={12} sm={6} className={classes.answerBox}>
             <FormControlLabel
               control={
                 <Radio
-                  checked={this.state.value === question.answer[1].value}
-                  onChange={this.handleChange}
+                  checked={value === question.answer[1].value}
+                  onChange={this.handleChange.bind(this)}
                   value={question.answer[1].value}
                   name="question-choice"
                   aria-label="B"

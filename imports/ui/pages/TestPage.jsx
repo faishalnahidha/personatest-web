@@ -39,22 +39,40 @@ class TestPage extends Component {
     super(props);
 
     this.state = {
-      answeredQuestionsCount: 0,
-      questionsAnswers: Array(70).fill(null)
+      answeredCount: 0,
+      answers: Array(70).fill(null)
     };
 
-    this.updateNewPlayerData = this.updateNewPlayerData.bind();
+    this.updateNewPlayerData = this.updateNewPlayerData.bind(this);
   }
 
-  updateNewPlayerData() {}
+  updateNewPlayerData(index, value) {
+    console.log('---------question click----------');
+    const answers = this.state.answers.slice();
+
+    if (answers[index] == null) {
+      let answeredCount = this.state.answeredCount + 1;
+      this.setState({ answeredCount: answeredCount });
+
+      console.log(`answeredCount: ${answeredCount}`);
+      console.log(`state.answeredCount: ${this.state.answeredCount}`);
+    }
+
+    answers[index] = value;
+    this.setState({ answers: answers });
+
+    console.log(`answers[${index}]: ${answers[index]}`);
+    console.log(`state.answers[${index}]: ${this.state.answers[index]}`);
+  }
 
   renderQuestions() {
     return this.props.questions.map((question, index) => (
       <div key={index}>
         <Question
+          index={index}
           question={question}
-          value={this.state.questionsAnswers[index]}
-          onClick={this.updateNewPlayerData.bind(this)}
+          value={this.state.answers[index]}
+          updateNewPlayerData={this.updateNewPlayerData}
         />
         <Divider />
       </div>
@@ -81,6 +99,7 @@ class TestPage extends Component {
      * it redirect to '/test/new-player'
      */
     console.log('loading: ' + loading);
+
     if (!loading && !newPlayerExists) {
       return <Redirect to="/test/new-player" />;
     }
