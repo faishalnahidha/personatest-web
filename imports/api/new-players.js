@@ -22,8 +22,16 @@ Meteor.methods({
     const newPlayerId = NewPlayers.insert({
       name: nameInput,
       age: ageInput,
-      sex: sexInput
+      sex: sexInput,
+      score: 100
     });
     return newPlayerId;
+  },
+
+  'newPlayers.updateAnswers'(newPlayerId, setAnswers) {
+    check(newPlayerId, String);
+    check(setAnswers, Array);
+
+    NewPlayers.update(newPlayerId, { $set: { answers: setAnswers } });
   }
 });

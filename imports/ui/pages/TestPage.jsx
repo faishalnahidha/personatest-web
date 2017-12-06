@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Meteor } from 'meteor/meteor';
 import { Redirect } from 'react-router';
-//import { withTracker } from 'meteor/react-meteor-data';
 
+import { NewPlayers } from '../../api/new-players.js';
 import { Questions } from '../../api/questions.js';
 
 import { withStyles } from 'material-ui/styles';
@@ -39,30 +40,53 @@ class TestPage extends Component {
     super(props);
 
     this.state = {
+      answers: [],
       answeredCount: 0,
-      answers: Array(70).fill(null)
+      newPlayerInitialized: false
     };
 
-    this.updateNewPlayerData = this.updateNewPlayerData.bind(this);
+    this.updateNewPlayerAnswers = this.updateNewPlayerAnswers.bind(this);
   }
 
-  updateNewPlayerData(index, value) {
-    console.log('---------question click----------');
+  componentWillReceiveProps(nextProps) {
+    if (
+      !this.state.newPlayerInitialized &&
+      !nextProps.loading &&
+      nextProps.newPlayerExists &&
+      nextProps.newPlayer.answers
+    ) {
+      console.log('this will be called once');
+      const answers = nextProps.newPlayer.answers;
+      console.log('answers: ' + answers);
+      console.log('answer.lenght: ' + answers.length);
+      this.setState({
+        answers: answers,
+        answeredCount: answers.length,
+        newPlayerInitialized: true
+      });
+    }
+  }
+
+  updateNewPlayerAnswers(index, value) {
+    console.log(`-------question click no.${index + 1}-------`);
+
     const answers = this.state.answers.slice();
 
-    if (answers[index] == null) {
-      let answeredCount = this.state.answeredCount + 1;
-      this.setState({ answeredCount: answeredCount });
+    if (answers[index] === undefined) {
+      console.log('new answer');
+      answers.push(value);
 
-      console.log(`answeredCount: ${answeredCount}`);
-      console.log(`state.answeredCount: ${this.state.answeredCount}`);
+      var answeredCount = this.state.answeredCount + 1;
+      this.setState({ answeredCount });
+    } else {
+      console.log('edited answer');
+      answers[index] = value;
     }
 
-    answers[index] = value;
-    this.setState({ answers: answers });
+    this.setState({ answers });
+    Meteor.call('newPlayers.updateAnswers', this.props.newPlayer._id, answers);
 
     console.log(`answers[${index}]: ${answers[index]}`);
-    console.log(`state.answers[${index}]: ${this.state.answers[index]}`);
   }
 
   renderQuestions() {
@@ -72,7 +96,7 @@ class TestPage extends Component {
           index={index}
           question={question}
           value={this.state.answers[index]}
-          updateNewPlayerData={this.updateNewPlayerData}
+          updateNewPlayerAnswers={this.updateNewPlayerAnswers}
         />
         <Divider />
       </div>
@@ -94,35 +118,39 @@ class TestPage extends Component {
       return true;
     }
 
+    console.log('loading: ' + loading);
     /**
      * if the parameter of '/test/:params' is not exists in newPlayers collection,
      * it redirect to '/test/new-player'
      */
-    console.log('loading: ' + loading);
-
     if (!loading && !newPlayerExists) {
       return <Redirect to="/test/new-player" />;
     }
 
-    return (
-      <div>
-        <Header />
-        <div className={classes.contentRoot}>
-          <Grid container spacing={16} justify={'center'}>
-            <Grid item xs={12} sm={10} md={8} lg={7} xl={6}>
-              <Paper className={classes.paper}>
-                <List>{this.renderQuestions()}</List>
-              </Paper>
+    if (!loading && newPlayerExists) {
+      console.log('answeredCount: ' + this.state.answeredCount);
+      return (
+        <div>
+          <Header />
+          <div className={classes.contentRoot}>
+            <Grid container spacing={16} justify={'center'}>
+              <Grid item xs={12} sm={10} md={8} lg={7} xl={6}>
+                <Paper className={classes.paper}>
+                  <List>{this.renderQuestions()}</List>
+                </Paper>
+              </Grid>
+              <Grid item xs={12} sm={10} md={3} lg={2}>
+                <Paper className={classes.paper}>
+                  <br />
+                </Paper>
+              </Grid>
             </Grid>
-            <Grid item xs={12} sm={10} md={3} lg={2}>
-              <Paper className={classes.paper}>
-                <br />
-              </Paper>
-            </Grid>
-          </Grid>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+
+    return true;
   }
 }
 

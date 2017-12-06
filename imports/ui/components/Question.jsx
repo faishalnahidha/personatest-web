@@ -23,13 +23,31 @@ const styles = theme => ({
 });
 
 class Question extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: props.value
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  // componentWillReceiveProps(nextProps) {
+  //   console.log('nextprops: ' + nextProps.value);
+  //   this.setState({ value: nextProps.value });
+  // }
+
   handleChange(event) {
     //console.log('target.value: ' + event.target.value);
-    this.props.updateNewPlayerData(this.props.index, event.target.value);
+    const { value } = event.target;
+    this.props.updateNewPlayerAnswers(this.props.index, value);
+    this.setState({ value: value });
   }
 
   render() {
-    const { classes, question, value } = this.props;
+    const { classes, question } = this.props;
+    const { value } = this.state;
 
     return (
       <li className={classes.questionItem}>
@@ -40,7 +58,7 @@ class Question extends Component {
               control={
                 <Radio
                   checked={value === question.answer[0].value}
-                  onChange={this.handleChange.bind(this)}
+                  onChange={this.handleChange}
                   value={question.answer[0].value}
                   name="question-choice"
                   aria-label="A"
@@ -54,7 +72,7 @@ class Question extends Component {
               control={
                 <Radio
                   checked={value === question.answer[1].value}
-                  onChange={this.handleChange.bind(this)}
+                  onChange={this.handleChange}
                   value={question.answer[1].value}
                   name="question-choice"
                   aria-label="B"
