@@ -14,6 +14,7 @@ import Divider from 'material-ui/Divider';
 
 import Question from '../components/Question.jsx';
 import Header from '../components/Header.jsx';
+import ProgressPanel from '../components/ProgressPanel.jsx';
 import NewPlayerPage from '../pages/NewPlayerPage.jsx';
 
 const styles = theme => ({
@@ -31,6 +32,15 @@ const styles = theme => ({
     paddingLeft: 0,
     margin: 16,
     marginLeft: 24
+  },
+  mainColumn: {
+    overflowY: 'scroll',
+    height: '100px'
+  },
+  rightColumnContainer: {
+    position: 'sticky',
+    top: 88,
+    padding: 0
   }
 });
 
@@ -89,6 +99,11 @@ class TestPage extends Component {
     console.log(`answers[${index}]: ${answers[index]}`);
   }
 
+  percentage() {
+    let answeredCount = this.state.answeredCount;
+    return Math.floor(answeredCount / 70 * 100);
+  }
+
   renderQuestions() {
     return this.props.questions.map((question, index) => (
       <div key={index}>
@@ -131,7 +146,7 @@ class TestPage extends Component {
       console.log('answeredCount: ' + this.state.answeredCount);
       return (
         <div>
-          <Header />
+          <Header newPlayer={newPlayer.name} score={newPlayer.score} />
           <div className={classes.contentRoot}>
             <Grid container spacing={16} justify={'center'}>
               <Grid item xs={12} sm={10} md={8} lg={7} xl={6}>
@@ -140,9 +155,12 @@ class TestPage extends Component {
                 </Paper>
               </Grid>
               <Grid item xs={12} sm={10} md={3} lg={2}>
-                <Paper className={classes.paper}>
-                  <br />
-                </Paper>
+                <Grid item xs={12} className={classes.rightColumnContainer}>
+                  <Paper className={classes.paper}>
+                    <br />
+                    <ProgressPanel percentage={this.percentage()} />
+                  </Paper>
+                </Grid>
               </Grid>
             </Grid>
           </div>
