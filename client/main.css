@@ -67,3 +67,12 @@ body {
 .CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-trail {
   stroke: transparent;
 }
+
+/* my style for circular progressbar */
+.CircularProgressbar.MyCircularProgressbar .CircularProgressbar-path {
+  stroke: #7474bf;
+}
+
+.CircularProgressbar.MyCircularProgressbar .CircularProgressbar-text {
+  fill: #7474bf;
+}

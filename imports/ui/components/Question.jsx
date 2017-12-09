@@ -9,7 +9,7 @@ import { FormControlLabel, FormHelperText } from 'material-ui/Form';
 
 const styles = theme => ({
   questionItem: {
-    margin: [32, 16]
+    margin: '32px 16px'
   },
   answerBoxContainer: {
     marginTop: 16
@@ -18,7 +18,7 @@ const styles = theme => ({
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: '#B0BEC5', //blueGrey[500]
-    padding: [8, 16]
+    padding: '8px 16px'
   }
 });
 

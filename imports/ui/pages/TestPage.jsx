@@ -14,7 +14,7 @@ import Divider from 'material-ui/Divider';
 
 import Question from '../components/Question.jsx';
 import Header from '../components/Header.jsx';
-import ProgressPanel from '../components/ProgressPanel.jsx';
+import TestProgressPanel from '../components/TestProgressPanel.jsx';
 import NewPlayerPage from '../pages/NewPlayerPage.jsx';
 
 const styles = theme => ({
@@ -25,7 +25,7 @@ const styles = theme => ({
     padding: 8
   },
   paper: {
-    padding: [16, 0],
+    padding: '16px 0',
     borderRadius: 5
   },
   ol: {
@@ -157,8 +157,10 @@ class TestPage extends Component {
               <Grid item xs={12} sm={10} md={3} lg={2}>
                 <Grid item xs={12} className={classes.rightColumnContainer}>
                   <Paper className={classes.paper}>
-                    <br />
-                    <ProgressPanel percentage={this.percentage()} />
+                    <TestProgressPanel
+                      percentage={this.percentage()}
+                      name={newPlayer.name}
+                    />
                   </Paper>
                 </Grid>
               </Grid>
