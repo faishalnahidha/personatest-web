@@ -27,6 +27,7 @@ function QuestionItem(props) {
     classes,
     question,
     updateAnswersToQuestionList,
+    number,
     index,
     value
   } = props;
@@ -38,7 +39,9 @@ function QuestionItem(props) {
 
   return (
     <li className={classes.questionItem}>
-      <Typography type="subheading">{question.text}</Typography>
+      <Typography type="subheading">
+        &nbsp;{number}. {question.text}
+      </Typography>
       <Grid container className={classes.answerBoxContainer} spacing={0}>
         <Grid item xs={12} sm={6} className={classes.answerBox}>
           <FormControlLabel
@@ -74,6 +77,7 @@ function QuestionItem(props) {
 QuestionItem.propTypes = {
   classes: PropTypes.object.isRequired,
   question: PropTypes.object.isRequired,
+  number: PropTypes.number,
   index: PropTypes.number,
   value: PropTypes.string,
   updateAnswersToQuestionList: PropTypes.func

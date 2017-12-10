@@ -9,9 +9,10 @@ import { Questions } from '../../api/questions.js';
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
-import List, { ListItem } from 'material-ui/List';
+import List from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Button from 'material-ui/Button';
+import Snackbar from 'material-ui/Snackbar';
 import NavigateNext from 'material-ui-icons/NavigateNext';
 
 import NewPlayerPage from '../pages/NewPlayerPage.jsx';
@@ -19,6 +20,7 @@ import Header from '../components/Header.jsx';
 import QuestionList from '../components/QuestionList.jsx';
 import TestProgressPanel from '../components/TestProgressPanel.jsx';
 import { smoothScroll } from '../../other/smooth-scroll.js';
+import { secondaryAccentGenerator } from '../../other/secondary-accent.js';
 
 const styles = theme => ({
   contentRoot: {
@@ -46,7 +48,9 @@ const styles = theme => ({
   }
 });
 
-/* TestPage represents Persona Test page UI and interaction */
+const ANSWER_POINTS = 40;
+
+/* TestPage represents Persona Test page user interface and interaction */
 class TestPage extends Component {
   constructor(props) {
     super(props);
@@ -57,9 +61,11 @@ class TestPage extends Component {
       answeredCount: 0,
       score: 0,
       newPlayerInitialized: false,
-      questionPage: 0
+      questionPage: 0,
+      openSnackbar: false
     };
 
+    this.secondaryAccent = null;
     this.updateAnswersPerPage = this.updateAnswersPerPage.bind(this);
     this.handleButtonBerikutnya = this.handleButtonBerikutnya.bind(this);
   }
@@ -89,6 +95,10 @@ class TestPage extends Component {
         questionPage: questionPage,
         newPlayerInitialized: true
       });
+
+      this.secondaryAccent = secondaryAccentGenerator(
+        nextProps.newPlayer.name.charAt(2).toUpperCase()
+      );
     }
   }
 
@@ -101,23 +111,7 @@ class TestPage extends Component {
     const answersPerPage = this.state.answersPerPage.slice();
 
     /**
-     * Jika index pada array answers tidak ada alias melebihi panjangnya
-     * answers yang sebenarnya, berarti itu merupakan answer baru
-     * yang perlu di-push ke answers. Jika index ada maka hanya
-     * perlu di-edit
-     */
-    // if (answers[index] === undefined) {
-    //   console.log('new answer');
-    //   answers.push(value);
-    //   var answeredCount = this.state.answeredCount + 1;
-    //   this.setState({ answeredCount });
-    // } else {
-    //   console.log('edited answer');
-    //   answers[index] = value;
-    // }
-
-    /**
-     * Jika nilai array dengan index tersebut === null,
+     * Jika nilai array dengan index tersebut == null,
      * berarti merupakan jawaban baru maka answeredCount
      * perlu ditambah
      */
@@ -149,18 +143,23 @@ class TestPage extends Component {
     const { answersPerPage } = this.state;
 
     if (answersPerPage.indexOf(null) === -1) {
-      const score = this.addScore(40);
+      const score = this.addScore(ANSWER_POINTS);
       const questionPage = this.state.questionPage + 1;
       const answerPerPageCopy = answersPerPage.slice();
       const blankAnswers = Array(7).fill(null);
 
-      this.setState({ score, questionPage, answersPerPage: blankAnswers });
-      //window.scrollTo(0, 0);
+      this.setState({
+        score,
+        questionPage,
+        answersPerPage: blankAnswers,
+        openSnackbar: true
+      });
       smoothScroll.scrollTo('top', 80);
-
       this.updateAnswers(answerPerPageCopy, score);
     } else {
       alert('Anda belum menjawab semua pertanyaan!');
+      // smoothScroll.scrollTo('top', 80);
+      // this.setState({ openSnackbar: true });
     }
   }
 
@@ -174,10 +173,6 @@ class TestPage extends Component {
     const numberOfQuestionsPerPage = 7;
     const questionStartIndex = questionPage * numberOfQuestionsPerPage;
     const questionEndIndex = questionStartIndex + numberOfQuestionsPerPage;
-
-    // console.log(
-    //   questionPage + ' | ' + questionStartIndex + ' | ' + questionEndIndex
-    // );
 
     const questionsPerPage = this.props.questions.slice(
       questionStartIndex,
@@ -220,10 +215,14 @@ class TestPage extends Component {
 
     if (!loading && newPlayerExists) {
       return (
-        <div>
-          <Header newPlayer={newPlayer.name} score={this.state.score} />
+        <div id="top">
+          <Header
+            newPlayer={newPlayer.name}
+            score={this.state.score}
+            secondaryAccent={this.secondaryAccent}
+          />
           <div className={classes.contentRoot}>
-            <Grid container spacing={16} justify={'center'} id="top">
+            <Grid container spacing={16} justify={'center'}>
               <Grid item xs={12} sm={10} md={8} lg={7} xl={6}>
                 <Paper className={classes.paper}>
                   <Grid container spacing={0} justify={'center'}>
@@ -262,6 +261,23 @@ class TestPage extends Component {
               </Grid>
             </Grid>
           </div>
+          <Snackbar
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center'
+            }}
+            open={this.state.openSnackbar}
+            onRequestClose={() => this.setState({ openSnackbar: false })}
+            autoHideDuration={2500}
+            message={
+              <span>
+                {newPlayer.name}, skor anda:
+                <span style={{ color: this.secondaryAccent }}>
+                  &ensp;+ {ANSWER_POINTS}
+                </span>
+              </span>
+            }
+          />
         </div>
       );
     }

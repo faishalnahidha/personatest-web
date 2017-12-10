@@ -10,13 +10,14 @@ function QuestionList(props) {
     props.updateAnswersToTestPage(index, value);
   };
 
-  const { questionsPerPage, answersPerPage } = props;
+  const { questionsPerPage, questionStartIndex, answersPerPage } = props;
   console.log('answersThisPage: ' + answersPerPage);
 
   return questionsPerPage.map((question, index) => (
     <div key={index}>
       <QuestionItem
         index={index}
+        number={questionStartIndex + index + 1}
         question={question}
         value={answersPerPage[index]}
         updateAnswersToQuestionList={updateAnswersHere.bind(this)}

@@ -19,8 +19,8 @@ function TestProgressPanel(props) {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={16} justify="center">
-        <Grid item xs={10}>
+      <Grid container spacing={16} justify="center" alignItems="center">
+        <Grid item xs={6} sm={4} md={10}>
           <Typography type="headline" align="center">
             Hai {name}!
           </Typography>
@@ -28,7 +28,7 @@ function TestProgressPanel(props) {
             <i>Progress</i> anda di tes ini adalah:
           </Typography>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={4} sm={2} md={10}>
           <CircularProgressbar
             className="MyCircularProgressbar"
             percentage={percentage}

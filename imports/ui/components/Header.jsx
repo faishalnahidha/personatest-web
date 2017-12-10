@@ -11,9 +11,10 @@ import IconButton from 'material-ui/IconButton';
 import Popover from 'material-ui/Popover';
 import Avatar from 'material-ui/Avatar';
 import Chip from 'material-ui/Chip';
+import Divider from 'material-ui/Divider';
 import Menu from 'material-ui-icons/Menu';
 
-import AvatarChipPopover from '../components/AvatarChipPopover.jsx';
+// import AvatarChipPopover from '../components/AvatarChipPopover.jsx';
 
 const styles = theme => ({
   flex: {
@@ -28,10 +29,7 @@ const styles = theme => ({
   },
   avatar: {
     width: 32,
-    height: 32,
-    //background: 'linear-gradient(to right, #50c9c3, #96deda)'
-    //backgroundColor: 'rgba(255, 255, 255, 0.5)'
-    backgroundColor: '#20e3b2'
+    height: 32
   },
   chip: {
     height: 32,
@@ -42,7 +40,10 @@ const styles = theme => ({
     color: '#fff'
   },
   popoverPaper: {
-    width: 200
+    minWidth: 200
+  },
+  chipPopover: {
+    margin: theme.spacing.unit
   }
 });
 
@@ -51,29 +52,37 @@ class Header extends Component {
     super(props);
 
     this.state = {
-      chipOpen: false,
-      anchorEl: null
+      openChip: false
     };
-
-    this.handleChipClick = this.handleChipClick.bind(this);
-    this.handleChipClose = this.handleChipClose.bind(this);
   }
 
-  handleChipClick() {
-    this.setState({
-      chipOpen: true,
-      anchorEl: findDOMNode(this.refs.chip)
-    });
+  componentDidMount() {
+    this.chipPopoverAchorEl = findDOMNode(this.refs.chip);
   }
 
-  handleChipClose() {
-    this.setState({
-      chipOpen: false
-    });
+  AvatarChipPopover() {
+    const { newPlayer, score, classes, secondaryAccent } = this.props;
+
+    return (
+      <div>
+        <Typography
+          type="title"
+          align="center"
+          className={classes.chipPopover}
+          style={{ color: secondaryAccent }}
+        >
+          {newPlayer}
+        </Typography>
+        <Divider />
+        <Typography type="body1" align="center" className={classes.chipPopover}>
+          Skor : {score}
+        </Typography>
+      </div>
+    );
   }
 
   render() {
-    const { classes, newPlayer, score } = this.props;
+    const { classes, newPlayer, score, secondaryAccent } = this.props;
     const avatarLetter = newPlayer.charAt(0);
 
     return (
@@ -94,19 +103,26 @@ class Header extends Component {
             ref="chip"
             className={classes.chip}
             classes={{ label: classes.chipLabel }}
-            avatar={<Avatar className={classes.avatar}>{avatarLetter}</Avatar>}
+            avatar={
+              <Avatar
+                className={classes.avatar}
+                style={{ backgroundColor: secondaryAccent }}
+              >
+                {avatarLetter}
+              </Avatar>
+            }
             label={this.props.score}
-            onClick={this.handleChipClick}
+            onClick={() => this.setState({ openChip: true })}
           />
           <Popover
-            open={this.state.chipOpen}
-            anchorEl={this.state.anchorEl}
-            anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+            open={this.state.openChip}
+            anchorEl={this.chipPopoverAchorEl}
+            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            onRequestClose={this.handleChipClose}
+            onRequestClose={() => this.setState({ openChip: false })}
             classes={{ paper: classes.popoverPaper }}
           >
-            <AvatarChipPopover name={newPlayer} score={score} />
+            {this.AvatarChipPopover()}
           </Popover>
         </Toolbar>
       </AppBar>
