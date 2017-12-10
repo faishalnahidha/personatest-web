@@ -12,8 +12,6 @@ import Popover from 'material-ui/Popover';
 import Avatar from 'material-ui/Avatar';
 import Chip from 'material-ui/Chip';
 import Menu from 'material-ui-icons/Menu';
-import AccountCircle from 'material-ui-icons/AccountCircle';
-import Face from 'material-ui-icons/Face';
 
 import AvatarChipPopover from '../components/AvatarChipPopover.jsx';
 
@@ -38,7 +36,7 @@ const styles = theme => ({
   chip: {
     height: 32,
     color: 'fff',
-    backgroundColor: 'rgba(255, 255, 255, 0.5)'
+    backgroundColor: 'rgba(255, 255, 255, 0.25)'
   },
   chipLabel: {
     color: '#fff'

@@ -28,10 +28,20 @@ Meteor.methods({
     return newPlayerId;
   },
 
-  'newPlayers.updateAnswers'(newPlayerId, setAnswers) {
+  'newPlayers.updateAnswers'(newPlayerId, setAnswers, setScore) {
     check(newPlayerId, String);
     check(setAnswers, Array);
+    check(setScore, Number);
 
-    NewPlayers.update(newPlayerId, { $set: { answers: setAnswers } });
+    NewPlayers.update(newPlayerId, {
+      $set: { answers: setAnswers, score: setScore }
+    });
+  },
+
+  'newPlayers.updateScore'(newPlayerId, setScore) {
+    check(newPlayerId, String);
+    check(setScore, Number);
+
+    NewPlayers.update(newPlayerId, { $set: { score: setScore } });
   }
 });

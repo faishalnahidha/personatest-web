@@ -27,16 +27,18 @@ class Question extends Component {
     super(props);
 
     this.state = {
-      value: props.value
+      value: undefined
     };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   console.log('nextprops: ' + nextProps.value);
-  //   this.setState({ value: nextProps.value });
-  // }
+  componentWillReceiveProps(nextProps) {
+    //console.log('nextprops: ' + nextProps.value);
+    if (nextProps.value !== this.state.value) {
+      this.setState({ value: nextProps.value });
+    }
+  }
 
   handleChange(event) {
     //console.log('target.value: ' + event.target.value);
@@ -48,6 +50,9 @@ class Question extends Component {
   render() {
     const { classes, question } = this.props;
     const { value } = this.state;
+
+    // console.log('index: ' + this.props.index);
+    // console.log('question.state.value: ' + this.state.value);
 
     return (
       <li className={classes.questionItem}>

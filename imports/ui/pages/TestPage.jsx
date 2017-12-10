@@ -11,27 +11,24 @@ import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import List, { ListItem } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
+import Button from 'material-ui/Button';
+import NavigateNext from 'material-ui-icons/NavigateNext';
 
-import Question from '../components/Question.jsx';
-import Header from '../components/Header.jsx';
-import TestProgressPanel from '../components/TestProgressPanel.jsx';
 import NewPlayerPage from '../pages/NewPlayerPage.jsx';
+import Header from '../components/Header.jsx';
+import Question from '../components/Question.jsx';
+import TestProgressPanel from '../components/TestProgressPanel.jsx';
 
 const styles = theme => ({
   contentRoot: {
     flexGrow: 1,
     margin: 0,
     marginTop: 80,
-    padding: 8
+    padding: theme.spacing.unit * 1
   },
   paper: {
     padding: '16px 0',
     borderRadius: 5
-  },
-  ol: {
-    paddingLeft: 0,
-    margin: 16,
-    marginLeft: 24
   },
   mainColumn: {
     overflowY: 'scroll',
@@ -41,6 +38,10 @@ const styles = theme => ({
     position: 'sticky',
     top: 88,
     padding: 0
+  },
+  buttonBerikutnya: {
+    width: '100%',
+    marginBottom: theme.spacing.unit * 1
   }
 });
 
@@ -52,29 +53,46 @@ class TestPage extends Component {
     this.state = {
       answers: [],
       answeredCount: 0,
-      newPlayerInitialized: false
+      score: 0,
+      newPlayerInitialized: false,
+      questionPage: 0,
+      nextQuestionPage: false
     };
 
     this.updateNewPlayerAnswers = this.updateNewPlayerAnswers.bind(this);
+    this.handleButtonBerikutnya = this.handleButtonBerikutnya.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     if (
       !this.state.newPlayerInitialized &&
       !nextProps.loading &&
-      nextProps.newPlayerExists &&
-      nextProps.newPlayer.answers
+      nextProps.newPlayerExists
     ) {
       console.log('this will be called once');
-      const answers = nextProps.newPlayer.answers;
+      const answers = nextProps.newPlayer.answers
+        ? nextProps.newPlayer.answers
+        : [];
+      const questionPage = Math.floor(answers.length / 7);
+      const score = nextProps.newPlayer.score;
+
       console.log('answers: ' + answers);
       console.log('answer.lenght: ' + answers.length);
+      console.log('questionPage: ' + questionPage);
+      console.log('score: ' + nextProps.newPlayer.score);
+
       this.setState({
         answers: answers,
         answeredCount: answers.length,
+        score: score,
+        questionPage: questionPage,
         newPlayerInitialized: true
       });
     }
+  }
+
+  addScore(amount) {
+    return this.state.score + amount;
   }
 
   updateNewPlayerAnswers(index, value) {
@@ -94,9 +112,27 @@ class TestPage extends Component {
     }
 
     this.setState({ answers });
-    Meteor.call('newPlayers.updateAnswers', this.props.newPlayer._id, answers);
 
     console.log(`answers[${index}]: ${answers[index]}`);
+  }
+
+  handleButtonBerikutnya() {
+    const { answers } = this.state;
+
+    if (answers.length % 7 == 0) {
+      const questionPage = this.state.questionPage + 1,
+        score = this.addScore(40);
+      this.setState({ score, questionPage });
+
+      Meteor.call(
+        'newPlayers.updateAnswers',
+        this.props.newPlayer._id,
+        answers,
+        score
+      );
+    } else {
+      alert('Anda belum menjawab semua pertanyaan!');
+    }
   }
 
   percentage() {
@@ -105,12 +141,26 @@ class TestPage extends Component {
   }
 
   renderQuestions() {
-    return this.props.questions.map((question, index) => (
+    const { answers, questionPage } = this.state,
+      questionsPerPage = 7,
+      questionStartIndex = questionPage * questionsPerPage,
+      questionEndIndex = questionStartIndex + questionsPerPage;
+
+    // console.log(
+    //   questionPage + ' | ' + questionStartIndex + ' | ' + questionEndIndex
+    // );
+
+    const questionsItemsPerPage = this.props.questions.slice(
+      questionStartIndex,
+      questionEndIndex
+    );
+
+    return questionsItemsPerPage.map((question, index) => (
       <div key={index}>
         <Question
-          index={index}
+          index={questionStartIndex + index}
           question={question}
-          value={this.state.answers[index]}
+          value={answers[questionStartIndex + index]}
           updateNewPlayerAnswers={this.updateNewPlayerAnswers}
         />
         <Divider />
@@ -121,7 +171,6 @@ class TestPage extends Component {
   render() {
     const {
       loading,
-      questions,
       newPlayer,
       newPlayerExists,
       isNewPlayer,
@@ -143,25 +192,47 @@ class TestPage extends Component {
     }
 
     if (!loading && newPlayerExists) {
-      console.log('answeredCount: ' + this.state.answeredCount);
+      //console.log('answeredCount: ' + this.state.answeredCount);
+      //console.log('answeres: ' + this.state.answers);
       return (
         <div>
-          <Header newPlayer={newPlayer.name} score={newPlayer.score} />
+          <Header newPlayer={newPlayer.name} score={this.state.score} />
           <div className={classes.contentRoot}>
             <Grid container spacing={16} justify={'center'}>
               <Grid item xs={12} sm={10} md={8} lg={7} xl={6}>
                 <Paper className={classes.paper}>
-                  <List>{this.renderQuestions()}</List>
+                  <Grid container spacing={0} justify={'center'}>
+                    <Grid item xs={12}>
+                      <List>{this.renderQuestions()}</List>
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={5} style={{ padding: 16 }}>
+                      <Button
+                        raised
+                        color="primary"
+                        onClick={this.handleButtonBerikutnya}
+                        className={classes.buttonBerikutnya}
+                      >
+                        Berikutnya
+                        <NavigateNext style={{ marginLeft: 8 }} />
+                      </Button>
+                    </Grid>
+                  </Grid>
                 </Paper>
               </Grid>
               <Grid item xs={12} sm={10} md={3} lg={2}>
-                <Grid item xs={12} className={classes.rightColumnContainer}>
-                  <Paper className={classes.paper}>
-                    <TestProgressPanel
-                      percentage={this.percentage()}
-                      name={newPlayer.name}
-                    />
-                  </Paper>
+                <Grid
+                  container
+                  spacing={0}
+                  className={classes.rightColumnContainer}
+                >
+                  <Grid item xs={12}>
+                    <Paper className={classes.paper}>
+                      <TestProgressPanel
+                        percentage={this.percentage()}
+                        name={newPlayer.name}
+                      />
+                    </Paper>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>

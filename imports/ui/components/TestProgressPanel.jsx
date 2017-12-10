@@ -43,7 +43,7 @@ function TestProgressPanel(props) {
 TestProgressPanel.propTypes = {
   classes: PropTypes.object.isRequired,
   percentage: PropTypes.number.isRequired,
-  answeredCount: PropTypes.number.isRequired
+  name: PropTypes.string.isRequired
 };
 
 export default withStyles(styles)(TestProgressPanel);
