@@ -2,25 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
-import { createContainer } from 'meteor/react-meteor-data';
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { withStyles } from 'material-ui/styles';
-import Grid from 'material-ui/Grid';
 
 import 'normalize.css';
 import 'typeface-roboto';
 
 import { myTheme } from '../themes/theme.js';
-import Header from '../components/Header.jsx';
 import TestContainer from '../containers/TestContainer.jsx';
-import Question from '../components/Question.jsx';
 import NewPlayerPage from '../pages/NewPlayerPage.jsx';
 
 const styles = theme => ({

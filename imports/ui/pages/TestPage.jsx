@@ -16,8 +16,9 @@ import NavigateNext from 'material-ui-icons/NavigateNext';
 
 import NewPlayerPage from '../pages/NewPlayerPage.jsx';
 import Header from '../components/Header.jsx';
-import Question from '../components/Question.jsx';
+import QuestionList from '../components/QuestionList.jsx';
 import TestProgressPanel from '../components/TestProgressPanel.jsx';
+import { smoothScroll } from '../../other/smooth-scroll.js';
 
 const styles = theme => ({
   contentRoot: {
@@ -51,15 +52,15 @@ class TestPage extends Component {
     super(props);
 
     this.state = {
-      answers: [],
+      answers: [], // make an empty array
+      answersPerPage: Array(7).fill(null), // make array[0..6] filled by null
       answeredCount: 0,
       score: 0,
       newPlayerInitialized: false,
-      questionPage: 0,
-      nextQuestionPage: false
+      questionPage: 0
     };
 
-    this.updateNewPlayerAnswers = this.updateNewPlayerAnswers.bind(this);
+    this.updateAnswersPerPage = this.updateAnswersPerPage.bind(this);
     this.handleButtonBerikutnya = this.handleButtonBerikutnya.bind(this);
   }
 
@@ -91,45 +92,73 @@ class TestPage extends Component {
     }
   }
 
-  addScore(amount) {
-    return this.state.score + amount;
+  addScore(point) {
+    return this.state.score + point;
   }
 
-  updateNewPlayerAnswers(index, value) {
+  updateAnswersPerPage(index, value) {
     console.log(`-------question click no.${index + 1}-------`);
+    const answersPerPage = this.state.answersPerPage.slice();
 
-    const answers = this.state.answers.slice();
+    /**
+     * Jika index pada array answers tidak ada alias melebihi panjangnya
+     * answers yang sebenarnya, berarti itu merupakan answer baru
+     * yang perlu di-push ke answers. Jika index ada maka hanya
+     * perlu di-edit
+     */
+    // if (answers[index] === undefined) {
+    //   console.log('new answer');
+    //   answers.push(value);
+    //   var answeredCount = this.state.answeredCount + 1;
+    //   this.setState({ answeredCount });
+    // } else {
+    //   console.log('edited answer');
+    //   answers[index] = value;
+    // }
 
-    if (answers[index] === undefined) {
-      console.log('new answer');
-      answers.push(value);
-
-      var answeredCount = this.state.answeredCount + 1;
+    /**
+     * Jika nilai array dengan index tersebut === null,
+     * berarti merupakan jawaban baru maka answeredCount
+     * perlu ditambah
+     */
+    if (answersPerPage[index] == null) {
+      console.log('new answer!');
+      const answeredCount = this.state.answeredCount + 1;
       this.setState({ answeredCount });
-    } else {
-      console.log('edited answer');
-      answers[index] = value;
     }
 
-    this.setState({ answers });
+    answersPerPage[index] = value;
+    this.setState({ answersPerPage });
+  }
 
-    console.log(`answers[${index}]: ${answers[index]}`);
+  updateAnswers(answerPerPage, score) {
+    const answers = this.state.answers.slice();
+    const newAnswers = answers.concat(answerPerPage);
+
+    this.setState({ answers: newAnswers });
+
+    Meteor.call(
+      'newPlayers.updateAnswers',
+      this.props.newPlayer._id,
+      newAnswers,
+      score
+    );
   }
 
   handleButtonBerikutnya() {
-    const { answers } = this.state;
+    const { answersPerPage } = this.state;
 
-    if (answers.length % 7 == 0) {
-      const questionPage = this.state.questionPage + 1,
-        score = this.addScore(40);
-      this.setState({ score, questionPage });
+    if (answersPerPage.indexOf(null) === -1) {
+      const score = this.addScore(40);
+      const questionPage = this.state.questionPage + 1;
+      const answerPerPageCopy = answersPerPage.slice();
+      const blankAnswers = Array(7).fill(null);
 
-      Meteor.call(
-        'newPlayers.updateAnswers',
-        this.props.newPlayer._id,
-        answers,
-        score
-      );
+      this.setState({ score, questionPage, answersPerPage: blankAnswers });
+      //window.scrollTo(0, 0);
+      smoothScroll.scrollTo('top', 80);
+
+      this.updateAnswers(answerPerPageCopy, score);
     } else {
       alert('Anda belum menjawab semua pertanyaan!');
     }
@@ -141,31 +170,29 @@ class TestPage extends Component {
   }
 
   renderQuestions() {
-    const { answers, questionPage } = this.state,
-      questionsPerPage = 7,
-      questionStartIndex = questionPage * questionsPerPage,
-      questionEndIndex = questionStartIndex + questionsPerPage;
+    const { questionPage, answersPerPage } = this.state;
+    const numberOfQuestionsPerPage = 7;
+    const questionStartIndex = questionPage * numberOfQuestionsPerPage;
+    const questionEndIndex = questionStartIndex + numberOfQuestionsPerPage;
 
     // console.log(
     //   questionPage + ' | ' + questionStartIndex + ' | ' + questionEndIndex
     // );
 
-    const questionsItemsPerPage = this.props.questions.slice(
+    const questionsPerPage = this.props.questions.slice(
       questionStartIndex,
       questionEndIndex
     );
 
-    return questionsItemsPerPage.map((question, index) => (
-      <div key={index}>
-        <Question
-          index={questionStartIndex + index}
-          question={question}
-          value={answers[questionStartIndex + index]}
-          updateNewPlayerAnswers={this.updateNewPlayerAnswers}
-        />
-        <Divider />
-      </div>
-    ));
+    return (
+      <QuestionList
+        key={questionPage}
+        questionsPerPage={questionsPerPage}
+        questionStartIndex={questionStartIndex}
+        answersPerPage={answersPerPage}
+        updateAnswersToTestPage={this.updateAnswersPerPage}
+      />
+    );
   }
 
   render() {
@@ -177,7 +204,7 @@ class TestPage extends Component {
       classes
     } = this.props;
 
-    // if the path is '/test/new-player' don't redirect
+    /* if the path is '/test/new-player' don't redirect */
     if (isNewPlayer) {
       return true;
     }
@@ -192,13 +219,11 @@ class TestPage extends Component {
     }
 
     if (!loading && newPlayerExists) {
-      //console.log('answeredCount: ' + this.state.answeredCount);
-      //console.log('answeres: ' + this.state.answers);
       return (
         <div>
           <Header newPlayer={newPlayer.name} score={this.state.score} />
           <div className={classes.contentRoot}>
-            <Grid container spacing={16} justify={'center'}>
+            <Grid container spacing={16} justify={'center'} id="top">
               <Grid item xs={12} sm={10} md={8} lg={7} xl={6}>
                 <Paper className={classes.paper}>
                   <Grid container spacing={0} justify={'center'}>
