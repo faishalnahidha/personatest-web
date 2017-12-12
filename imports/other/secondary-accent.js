@@ -1,20 +1,13 @@
-const colors = ['#FC466B', '#FFD200', '#20e3b2', '#12D8FA', '#74ebd5'];
-
-const vividSublime = ['Q', 'A', 'Z', 'W', 'S', 'X'];
-const learningAndLeading = ['E', 'D', 'C', 'R', 'F', 'V'];
-const subu = ['T', 'G', 'B', 'Y', 'H', 'N'];
-const stripe = ['U', 'J', 'M', 'I', 'K', 'O'];
-
-export const secondaryAccentGenerator = joker => {
-  if (vividSublime.indexOf(joker) > 0) {
-    return colors[0];
-  } else if (learningAndLeading.indexOf(joker) > 0) {
-    return colors[1];
-  } else if (subu.indexOf(joker) > 0) {
-    return colors[2];
-  } else if (stripe.indexOf(joker) > 0) {
-    return colors[3];
+export const secondaryAccentGenerator = jokerFactor => {
+  if (['Q', 'A', 'Z', 'W', 'S', 'X', '1'].indexOf(jokerFactor) > 0) {
+    return '#FC466B'; // vividSublime
+  } else if (['E', 'D', 'C', 'R', 'F', 'V', '2'].indexOf(jokerFactor) > 0) {
+    return '#FFD200'; // learningAndLeading
+  } else if (['T', 'G', 'B', 'Y', 'H', 'N', '3'].indexOf(jokerFactor) > 0) {
+    return '#20e3b2'; // subu
+  } else if (['U', 'J', 'M', 'I', 'K', 'O', '4'].indexOf(jokerFactor) > 0) {
+    return '#12D8FA'; // stripe
   } else {
-    return colors[4];
+    return '#74ebd5'; // digitalWater
   }
 };

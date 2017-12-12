@@ -97,7 +97,7 @@ class TestPage extends Component {
       });
 
       this.secondaryAccent = secondaryAccentGenerator(
-        nextProps.newPlayer.name.charAt(2).toUpperCase()
+        nextProps.newPlayer._id.charAt(0).toUpperCase()
       );
     }
   }
