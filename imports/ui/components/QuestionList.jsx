@@ -5,26 +5,40 @@ import Divider from 'material-ui/Divider';
 
 import QuestionItem from '../components/QuestionItem.jsx';
 
-function QuestionList(props) {
-  const updateAnswersHere = (index, value) => {
-    props.updateAnswersToTestPage(index, value);
-  };
+class QuestionList extends Component {
+  componentDidMount() {
+    console.log('didMount');
+  }
 
-  const { questionsPerPage, questionStartIndex, answersPerPage } = props;
-  console.log('answersThisPage: ' + answersPerPage);
+  componentWillEnter(callback) {
+    console.log('willEnter');
+  }
 
-  return questionsPerPage.map((question, index) => (
-    <div key={index}>
-      <QuestionItem
-        index={index}
-        number={questionStartIndex + index + 1}
-        question={question}
-        value={answersPerPage[index]}
-        updateAnswersToQuestionList={updateAnswersHere.bind(this)}
-      />
-      <Divider />
-    </div>
-  ));
+  componentWillUnmount() {
+    console.log('willUnmount');
+  }
+
+  updateAnswersHere(index, value) {
+    this.props.updateAnswersToTestPage(index, value);
+  }
+
+  render() {
+    const { questionsPerPage, questionStartIndex, answersPerPage } = this.props;
+    console.log('answersThisPage: ' + answersPerPage);
+
+    return questionsPerPage.map((question, index) => (
+      <div key={index} ref="container">
+        <QuestionItem
+          index={index}
+          number={questionStartIndex + index + 1}
+          question={question}
+          value={answersPerPage[index]}
+          updateAnswersToQuestionList={this.updateAnswersHere.bind(this)}
+        />
+        <Divider />
+      </div>
+    ));
+  }
 }
 
 QuestionList.propTypes = {

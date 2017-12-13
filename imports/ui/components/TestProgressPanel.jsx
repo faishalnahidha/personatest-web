@@ -6,7 +6,6 @@ import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 import CircularProgressbar from 'react-circular-progressbar';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group/';
 
 const styles = theme => ({
   root: {

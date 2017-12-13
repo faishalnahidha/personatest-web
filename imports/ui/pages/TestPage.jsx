@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { Redirect } from 'react-router';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
+import { CSSTransitionGroup } from 'react-transition-group';
+//import TransitionGroup from 'react-addons-transition-group';
 
 import { NewPlayers } from '../../api/new-players.js';
 import { Questions } from '../../api/questions.js';
@@ -9,11 +12,14 @@ import { Questions } from '../../api/questions.js';
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
+import { CircularProgress } from 'material-ui/Progress';
 import List from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Button from 'material-ui/Button';
 import Snackbar from 'material-ui/Snackbar';
 import NavigateNext from 'material-ui-icons/NavigateNext';
+
+import '../stylesheets/animate.css';
 
 import NewPlayerPage from '../pages/NewPlayerPage.jsx';
 import Header from '../components/Header.jsx';
@@ -45,6 +51,10 @@ const styles = theme => ({
   buttonBerikutnya: {
     width: '100%',
     marginBottom: theme.spacing.unit * 1
+  },
+  circularProgress: {
+    marginTop: 128,
+    marginBottom: 128
   }
 });
 
@@ -180,13 +190,42 @@ class TestPage extends Component {
     );
 
     return (
-      <QuestionList
-        key={questionPage}
-        questionsPerPage={questionsPerPage}
-        questionStartIndex={questionStartIndex}
-        answersPerPage={answersPerPage}
-        updateAnswersToTestPage={this.updateAnswersPerPage}
-      />
+      <Grid container spacing={0} justify={'center'}>
+        <Grid item xs={12}>
+          <CSSTransitionGroup
+            transitionName={{
+              enter: 'animated',
+              enterActive: 'fadeInUp',
+              appear: 'animated',
+              appearActive: 'fadeInUp'
+            }}
+            transitionAppear={true}
+            transitionLeave={false}
+            transitionAppearTimeout={1000}
+            transitionEnterTimeout={1000}
+          >
+            <List key={questionPage}>
+              <QuestionList
+                questionsPerPage={questionsPerPage}
+                questionStartIndex={questionStartIndex}
+                answersPerPage={answersPerPage}
+                updateAnswersToTestPage={this.updateAnswersPerPage}
+              />
+            </List>
+          </CSSTransitionGroup>
+        </Grid>
+        <Grid item xs={12} sm={6} md={5} style={{ padding: 16 }}>
+          <Button
+            raised
+            color="primary"
+            onClick={this.handleButtonBerikutnya}
+            className={this.props.classes.buttonBerikutnya}
+          >
+            Berikutnya
+            <NavigateNext style={{ marginLeft: 8 }} />
+          </Button>
+        </Grid>
+      </Grid>
     );
   }
 
@@ -213,7 +252,7 @@ class TestPage extends Component {
       return <Redirect to="/test/new-player" />;
     }
 
-    if (!loading && newPlayerExists) {
+    if (newPlayerExists) {
       return (
         <div id="top">
           <Header
@@ -222,25 +261,30 @@ class TestPage extends Component {
             secondaryAccent={this.secondaryAccent}
           />
           <div className={classes.contentRoot}>
-            <Grid container spacing={16} justify={'center'}>
+            <Grid container spacing={16} justify="center">
               <Grid item xs={12} sm={10} md={8} lg={7} xl={6}>
                 <Paper className={classes.paper}>
-                  <Grid container spacing={0} justify={'center'}>
-                    <Grid item xs={12}>
-                      <List>{this.renderQuestions()}</List>
+                  {/* <Grid container spacing={0} justify="center">
+                    <CircularProgress
+                      size={50}
+                      className={classes.circularProgress}
+                    />
+                  </Grid> */}
+                  {loading ? (
+                    <Grid
+                      container
+                      spacing={0}
+                      justify="center"
+                      alignItems="center"
+                    >
+                      <CircularProgress
+                        size={50}
+                        className={classes.circularProgress}
+                      />
                     </Grid>
-                    <Grid item xs={12} sm={6} md={5} style={{ padding: 16 }}>
-                      <Button
-                        raised
-                        color="primary"
-                        onClick={this.handleButtonBerikutnya}
-                        className={classes.buttonBerikutnya}
-                      >
-                        Berikutnya
-                        <NavigateNext style={{ marginLeft: 8 }} />
-                      </Button>
-                    </Grid>
-                  </Grid>
+                  ) : (
+                    this.renderQuestions()
+                  )}
                 </Paper>
               </Grid>
               <Grid item xs={12} sm={10} md={3} lg={2}>
