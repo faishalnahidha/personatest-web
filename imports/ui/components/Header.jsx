@@ -14,7 +14,7 @@ import Chip from 'material-ui/Chip';
 import Divider from 'material-ui/Divider';
 import Menu from 'material-ui-icons/Menu';
 
-// import AvatarChipPopover from '../components/AvatarChipPopover.jsx';
+import anime from 'animejs';
 
 const styles = theme => ({
   flex: {
@@ -60,6 +60,18 @@ class Header extends Component {
     this.chipPopoverAchorEl = findDOMNode(this.refs.chip);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.score !== this.props.score) {
+      console.log('nextProps');
+      const animateScore = anime({
+        targets: '#animateScore',
+        label: nextProps.score,
+        round: 1,
+        easing: 'easeInOutExpo'
+      });
+    }
+  }
+
   AvatarChipPopover() {
     const { newPlayer, score, classes, secondaryAccent } = this.props;
 
@@ -101,6 +113,7 @@ class Header extends Component {
 
           <Chip
             ref="chip"
+            id="animateScore"
             className={classes.chip}
             classes={{ label: classes.chipLabel }}
             avatar={

@@ -8,6 +8,7 @@ import { NewPlayers } from '../../api/new-players.js';
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
+import Divider from 'material-ui/Divider';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
@@ -24,18 +25,21 @@ const styles = theme => ({
     display: 'flex',
     width: '100vw',
     height: '100vh',
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    left: 0,
-    bottom: 0,
     justifyContent: 'center',
     alignItems: 'center',
     background: 'linear-gradient(45deg, #7474bf, #348ac7)'
   },
   paper: {
     padding: theme.spacing.unit * 4,
-    paddingTop: theme.spacing.unit * 8
+    borderRadius: 5
+  },
+  divider: {
+    margin: '24px -32px 0'
+  },
+  radioButtonContainer: {
+    display: 'flex',
+    marginTop: theme.spacing.unit * 1,
+    justifyContent: 'center'
   },
   button: {
     width: '100%',
@@ -52,11 +56,12 @@ class NewPlayerPage extends Component {
     this.state = {
       name: '',
       age: '',
-      sex: undefined,
+      sex: null,
       id: null,
       redirect: false
     };
 
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -104,95 +109,81 @@ class NewPlayerPage extends Component {
     return (
       <div className={classes.root}>
         <Grid container spacing={0} justify={'center'} alignItems={'center'}>
-          <Grid item xs={11} sm={9} md={6} lg={5} xl={4}>
+          <Grid item xs={11} sm={6} md={3}>
             <Paper className={classes.paper}>
               <form onSubmit={this.handleSubmit}>
-                <Grid container>
-                  <Grid item xs={12}>
-                    <Typography type="headline" align="center">
-                      Selamat datang di Persona Test
-                    </Typography>
-                  </Grid>
+                <Grid item xs={12}>
+                  <Typography type="headline" align="center">
+                    Selamat datang di Persona Test
+                  </Typography>
                 </Grid>
-                <Grid container>
-                  <Grid item xs={12}>
-                    <Typography type="subheading" align="center">
-                      Silahkan isi profil anda
-                    </Typography>
-                  </Grid>
+                <Grid item xs={12} style={{ marginTop: 16 }}>
+                  <Typography type="caption" align="center">
+                    Silahkan isi profil anda
+                  </Typography>
                 </Grid>
-                <Grid container>
-                  <Grid item xs={12}>
-                    <TextField
-                      required
-                      fullWidth
-                      name="name"
-                      label="Nama"
-                      value={this.state.name}
-                      onChange={this.handleChange.bind(this)}
-                      margin="normal"
-                    />
-                  </Grid>
+                <Divider className={classes.divider} />
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    name="name"
+                    label="Nama"
+                    value={this.state.name}
+                    onChange={this.handleChange}
+                    margin="normal"
+                  />
                 </Grid>
-                <Grid
-                  container
-                  spacing={24}
-                  alignItems={'flex-end'}
-                  justify={'center'}
-                >
-                  <Grid item xs={12} sm={6}>
-                    <TextField
-                      required
-                      fullWidth
-                      name="age"
-                      label="Usia"
-                      value={this.state.age}
-                      onChange={this.handleChange.bind(this)}
-                      type="number"
-                      max="99"
-                      min="1"
-                      margin="normal"
-                    />
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <FormControlLabel
-                      control={
-                        <Radio
-                          name="sex"
-                          checked={this.state.sex === 'Laki-laki'}
-                          onChange={this.handleChange.bind(this)}
-                          value={'Laki-laki'}
-                          aria-label="L"
-                        />
-                      }
-                      label="Laki-laki"
-                    />
-                    <FormControlLabel
-                      control={
-                        <Radio
-                          name="sex"
-                          checked={this.state.sex === 'Perempuan'}
-                          onChange={this.handleChange.bind(this)}
-                          value={'Perempuan'}
-                          aria-label="P"
-                        />
-                      }
-                      label="Perempuan"
-                    />
-                  </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    name="age"
+                    label="Usia"
+                    value={this.state.age}
+                    onChange={this.handleChange}
+                    type="number"
+                    max="99"
+                    min="1"
+                    margin="normal"
+                  />
                 </Grid>
-                <Grid container justify={'flex-end'}>
-                  <Grid item xs={12} sm={3}>
-                    <Button
-                      raised
-                      className={classes.button}
-                      color="primary"
-                      type="submit"
-                      value="Submit"
-                    >
-                      OK
-                    </Button>
-                  </Grid>
+                <Grid item xs={12} className={classes.radioButtonContainer}>
+                  <FormControlLabel
+                    control={
+                      <Radio
+                        name="sex"
+                        checked={this.state.sex === 'Laki-laki'}
+                        onChange={this.handleChange.bind(this)}
+                        value={'Laki-laki'}
+                        aria-label="L"
+                      />
+                    }
+                    label="Laki-laki"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Radio
+                        name="sex"
+                        checked={this.state.sex === 'Perempuan'}
+                        onChange={this.handleChange.bind(this)}
+                        value={'Perempuan'}
+                        aria-label="P"
+                      />
+                    }
+                    label="Perempuan"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Button
+                    raised
+                    className={classes.button}
+                    color="primary"
+                    type="submit"
+                    value="Submit"
+                  >
+                    OK
+                  </Button>
                 </Grid>
               </form>
             </Paper>
