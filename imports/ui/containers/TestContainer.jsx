@@ -9,10 +9,6 @@ import TestPage from '../pages/TestPage.jsx';
 const TestContainer = withTracker(({ match }) => {
   const id = match.params.id;
 
-  if (id == 'new-player') {
-    return { isNewPlayer: true };
-  }
-
   const newPlayerHandle = Meteor.subscribe('newPlayers', id);
   console.log('-----------------------');
   console.log('id:' + id);

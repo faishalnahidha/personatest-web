@@ -19,7 +19,7 @@ function HomePage(props) {
   return (
     <div className={classes.root}>
       <Grid container spacing={0} justify="center" alignItems="center">
-        <Button raised color="primary" href="/test/new-player">
+        <Button raised color="primary" href="/new-player">
           Mulai Persona Test
         </Button>
       </Grid>

@@ -16,6 +16,14 @@ const styles = theme => ({
 function TestProgressPanel(props) {
   const { classes, percentage, name } = props;
 
+  const percentageCopy = () => {
+    if (percentage === 100) {
+      return percentage - 1;
+    } else {
+      return percentage;
+    }
+  };
+
   return (
     <div className={classes.root}>
       <Grid container spacing={16} justify="center" alignItems="center">
@@ -30,7 +38,7 @@ function TestProgressPanel(props) {
         <Grid item xs={4} sm={2} md={10}>
           <CircularProgressbar
             className="MyCircularProgressbar"
-            percentage={percentage}
+            percentage={percentageCopy()}
             initialAnimation="true"
           />
         </Grid>

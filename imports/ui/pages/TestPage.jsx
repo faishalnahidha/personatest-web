@@ -7,7 +7,6 @@ import { CSSTransitionGroup } from 'react-transition-group';
 //import TransitionGroup from 'react-addons-transition-group';
 
 import { NewPlayers } from '../../api/new-players.js';
-import { Questions } from '../../api/questions.js';
 
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
@@ -59,6 +58,8 @@ const styles = theme => ({
 });
 
 const ANSWER_POINTS = 40;
+const QUESTIONS_PER_PAGE = 7;
+const LAST_PAGE = 9;
 
 /* TestPage represents Persona Test page user interface and interaction */
 class TestPage extends Component {
@@ -66,7 +67,6 @@ class TestPage extends Component {
     super(props);
 
     this.state = {
-      answers: [], // make an empty array
       answersPerPage: Array(7).fill(null), // make array[0..6] filled by null
       answeredCount: 0,
       score: 0,
@@ -87,33 +87,47 @@ class TestPage extends Component {
       nextProps.newPlayerExists
     ) {
       console.log('this will be called once');
-      const answers = nextProps.newPlayer.answers
-        ? nextProps.newPlayer.answers
-        : [];
-      const questionPage = Math.floor(answers.length / 7);
-      const score = nextProps.newPlayer.score;
-
-      console.log('answers: ' + answers);
-      console.log('answer.lenght: ' + answers.length);
-      console.log('questionPage: ' + questionPage);
+      console.log('answers: ' + nextProps.newPlayer.answers);
       console.log('score: ' + nextProps.newPlayer.score);
 
+      this.initializeState(nextProps);
+
       this.setState({
-        answers: answers,
-        answeredCount: answers.length,
-        score: score,
-        questionPage: questionPage,
         newPlayerInitialized: true
       });
 
       this.secondaryAccent = secondaryAccentGenerator(
         nextProps.newPlayer._id.charAt(0).toUpperCase()
       );
+
+      return true;
+    }
+
+    if (
+      nextProps.newPlayerExists &&
+      nextProps.newPlayer.answers &&
+      nextProps.newPlayer.answers.length !== this.state.answeredCount
+    ) {
+      console.log('initializeState called');
+      this.initializeState(nextProps);
+      return true;
     }
   }
 
-  addScore(point) {
-    return this.state.score + point;
+  initializeState(nextProps) {
+    const answers = nextProps.newPlayer.answers
+      ? nextProps.newPlayer.answers
+      : [];
+    const questionPage = Math.floor(answers.length / 7);
+    const score = nextProps.newPlayer.score;
+    const blankAnswers = Array(7).fill(null);
+
+    this.setState({
+      answersPerPage: blankAnswers,
+      answeredCount: answers.length,
+      score: score,
+      questionPage: questionPage
+    });
   }
 
   updateAnswersPerPage(index, value) {
@@ -136,7 +150,9 @@ class TestPage extends Component {
   }
 
   updateAnswers(answerPerPage, score) {
-    const answers = this.state.answers.slice();
+    const answers = this.props.newPlayer.answers
+      ? this.props.newPlayer.answers.slice()
+      : [];
     const newAnswers = answers.concat(answerPerPage);
 
     this.setState({ answers: newAnswers });
@@ -152,20 +168,29 @@ class TestPage extends Component {
   handleButtonBerikutnya() {
     const { answersPerPage } = this.state;
 
+    /**
+     * answersPerPage.indexOf(null) === -1 --> untuk mencari adakah
+     * nilai null dalam array answersPerPage, -1 berarti tidak ada
+     * null dan boleh ke halaman berikutnya
+     */
     if (answersPerPage.indexOf(null) === -1) {
       const score = this.addScore(ANSWER_POINTS);
-      const questionPage = this.state.questionPage + 1;
+      var questionPage = this.state.questionPage + 1;
       const answerPerPageCopy = answersPerPage.slice();
       const blankAnswers = Array(7).fill(null);
 
       this.setState({
-        score,
-        questionPage,
+        score: score,
+        questionPage: questionPage,
         answersPerPage: blankAnswers,
         openSnackbar: true
       });
       smoothScroll.scrollTo('top', 80);
       this.updateAnswers(answerPerPageCopy, score);
+
+      if (questionPage > LAST_PAGE) {
+        return <Redirect to={`/result/${this.props.newPlayer._id}`} />;
+      }
     } else {
       alert('Anda belum menjawab semua pertanyaan!');
       // smoothScroll.scrollTo('top', 80);
@@ -173,16 +198,20 @@ class TestPage extends Component {
     }
   }
 
+  addScore(point) {
+    return this.state.score + point;
+  }
+
   percentage() {
-    let answeredCount = this.state.answeredCount;
+    const answeredCount = this.state.answeredCount;
     return Math.floor(answeredCount / 70 * 100);
   }
 
   renderQuestions() {
     const { questionPage, answersPerPage } = this.state;
-    const numberOfQuestionsPerPage = 7;
-    const questionStartIndex = questionPage * numberOfQuestionsPerPage;
-    const questionEndIndex = questionStartIndex + numberOfQuestionsPerPage;
+
+    const questionStartIndex = questionPage * QUESTIONS_PER_PAGE;
+    const questionEndIndex = questionStartIndex + QUESTIONS_PER_PAGE;
 
     const questionsPerPage = this.props.questions.slice(
       questionStartIndex,
@@ -221,7 +250,9 @@ class TestPage extends Component {
             onClick={this.handleButtonBerikutnya}
             className={this.props.classes.buttonBerikutnya}
           >
-            Berikutnya
+            {questionPage < LAST_PAGE ? 'Berikutnya' : 'Lihat Hasil'} ({
+              questionPage
+            })
             <NavigateNext style={{ marginLeft: 8 }} />
           </Button>
         </Grid>
@@ -230,18 +261,7 @@ class TestPage extends Component {
   }
 
   render() {
-    const {
-      loading,
-      newPlayer,
-      newPlayerExists,
-      isNewPlayer,
-      classes
-    } = this.props;
-
-    /* if the path is '/test/new-player' don't redirect */
-    if (isNewPlayer) {
-      return true;
-    }
+    const { loading, newPlayer, newPlayerExists, classes } = this.props;
 
     console.log('loading: ' + loading);
     /**
@@ -249,7 +269,11 @@ class TestPage extends Component {
      * it redirect to '/test/new-player'
      */
     if (!loading && !newPlayerExists) {
-      return <Redirect to="/test/new-player" />;
+      return <Redirect to="/new-player" />;
+    }
+
+    if (this.state.questionPage > LAST_PAGE) {
+      return <Redirect to={`/result/${this.props.newPlayer._id}`} />;
     }
 
     if (newPlayerExists) {
@@ -262,7 +286,7 @@ class TestPage extends Component {
           />
           <div className={classes.contentRoot}>
             <Grid container spacing={16} justify="center">
-              <Grid item xs={12} sm={10} md={8} lg={7} xl={6}>
+              <Grid item xs={12} sm={10} md={8} lg={6}>
                 <Paper className={classes.paper}>
                   {/* <Grid container spacing={0} justify="center">
                     <CircularProgress
@@ -326,7 +350,11 @@ class TestPage extends Component {
       );
     }
 
-    return true;
+    return (
+      <Grid container spacing={0} justify="center" alignItems="center">
+        <CircularProgress size={50} className={classes.circularProgress} />
+      </Grid>
+    );
   }
 }
 

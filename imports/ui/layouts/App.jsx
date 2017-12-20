@@ -19,6 +19,7 @@ import '../stylesheets/circular-progressbar.css';
 import { myTheme } from '../themes/theme.js';
 import HomePage from '../pages/HomePage.jsx';
 import TestContainer from '../containers/TestContainer.jsx';
+import ResultContainer from '../containers/ResultContainer.jsx';
 import NewPlayerPage from '../pages/NewPlayerPage.jsx';
 
 const styles = theme => ({
@@ -37,9 +38,9 @@ class App extends Component {
     //const isHeaderRoute = !window.location.pathname.includes('new-player');
 
     return (
-      <Router>
-        <div className={classes.root}>
-          <MuiThemeProvider theme={myTheme}>
+      <div className={classes.root}>
+        <MuiThemeProvider theme={myTheme}>
+          <Router>
             <CSSTransitionGroup
               transitionName="fade"
               transitionAppear={true}
@@ -49,21 +50,21 @@ class App extends Component {
             >
               <Route exact path="/" component={HomePage} key="home" />
               <Route
-                path="/test/new-player"
+                path="/new-player"
                 component={NewPlayerPage}
                 key="newPlayer"
               />
-              <Route
-                exact
-                path="/test"
-                render={() => <Redirect to="/test/new-player" />}
-                key="newPlayerRedirect"
-              />
               <Route path="/test/:id" component={TestContainer} key="test" />
+              <Route
+                path="/result/:id"
+                component={ResultContainer}
+                key="result"
+              />
+              {/* <Route path="/result/" component={ResultContainer} key="result" /> */}
             </CSSTransitionGroup>
-          </MuiThemeProvider>
-        </div>
-      </Router>
+          </Router>
+        </MuiThemeProvider>
+      </div>
     );
   }
 }

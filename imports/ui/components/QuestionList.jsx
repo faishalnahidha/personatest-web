@@ -14,10 +14,6 @@ class QuestionList extends Component {
     console.log('willEnter');
   }
 
-  componentWillUnmount() {
-    console.log('willUnmount');
-  }
-
   updateAnswersHere(index, value) {
     this.props.updateAnswersToTestPage(index, value);
   }

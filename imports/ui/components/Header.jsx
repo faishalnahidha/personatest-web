@@ -62,7 +62,11 @@ class Header extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.score !== this.props.score) {
-      console.log('nextProps');
+      // console.log(
+      //   `thisPropsScore: ${this.props.score} | nextPropsScore: ${
+      //     nextProps.score
+      //   }`
+      // );
       const animateScore = anime({
         targets: '#animateScore',
         label: nextProps.score,
