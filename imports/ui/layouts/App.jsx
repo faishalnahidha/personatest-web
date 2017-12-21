@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
+} from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -14,13 +19,11 @@ import { withStyles } from 'material-ui/styles';
 import 'normalize.css';
 import 'typeface-roboto';
 import '../stylesheets/transition.css';
-import '../stylesheets/circular-progressbar.css';
 
 import { myTheme } from '../themes/theme.js';
 import HomePage from '../pages/HomePage.jsx';
-import TestContainer from '../containers/TestContainer.jsx';
-import ResultContainer from '../containers/ResultContainer.jsx';
-import NewPlayerPage from '../pages/NewPlayerPage.jsx';
+import TesContainer from '../containers/TesContainer.jsx';
+import MulaiTesPage from '../pages/MulaiTesPage.jsx';
 
 const styles = theme => ({
   root: {
@@ -48,18 +51,27 @@ class App extends Component {
               transitionEnterTimeout={300}
               transitionLeaveTimeout={300}
             >
-              <Route exact path="/" component={HomePage} key="home" />
-              <Route
-                path="/new-player"
-                component={NewPlayerPage}
-                key="newPlayer"
-              />
-              <Route path="/test/:id" component={TestContainer} key="test" />
-              <Route
-                path="/result/:id"
-                component={ResultContainer}
-                key="result"
-              />
+              <Switch>
+                <Route exact path="/" component={HomePage} key="home" />
+                <Route
+                  path="/mulai-tes"
+                  component={MulaiTesPage}
+                  key="mulaiTes"
+                />
+                <Route path="/tes/:id" component={TesContainer} key="tes" />
+                <Route
+                  path="/hasil-tes/:id"
+                  component={TesContainer}
+                  key="hasil"
+                />
+                <Redirect from="*" to="/" />
+                {/* <Route path="/test/:id" component={TestContainer} key="test" />
+                <Route
+                  path="/result/:id"
+                  component={ResultContainer}
+                  key="result"
+                /> */}
+              </Switch>
               {/* <Route path="/result/" component={ResultContainer} key="result" /> */}
             </CSSTransitionGroup>
           </Router>

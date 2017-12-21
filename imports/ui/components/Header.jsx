@@ -6,12 +6,12 @@ import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import Popover from 'material-ui/Popover';
 import Avatar from 'material-ui/Avatar';
 import Chip from 'material-ui/Chip';
 import Divider from 'material-ui/Divider';
+import { CircularProgress } from 'material-ui/Progress';
 import Menu from 'material-ui-icons/Menu';
 
 import anime from 'animejs';
@@ -44,6 +44,9 @@ const styles = theme => ({
   },
   chipPopover: {
     margin: theme.spacing.unit
+  },
+  linearProgress: {
+    top: 64
   }
 });
 
@@ -77,7 +80,7 @@ class Header extends Component {
   }
 
   AvatarChipPopover() {
-    const { newPlayer, score, classes, secondaryAccent } = this.props;
+    const { newPlayerName, score, classes, secondaryAccent } = this.props;
 
     return (
       <div>
@@ -87,7 +90,7 @@ class Header extends Component {
           className={classes.chipPopover}
           style={{ color: secondaryAccent }}
         >
-          {newPlayer}
+          {newPlayerName}
         </Typography>
         <Divider />
         <Typography type="body1" align="center" className={classes.chipPopover}>
@@ -98,8 +101,8 @@ class Header extends Component {
   }
 
   render() {
-    const { classes, newPlayer, score, secondaryAccent } = this.props;
-    const avatarLetter = newPlayer.charAt(0);
+    const { classes, newPlayerName, score, secondaryAccent } = this.props;
+    const avatarLetter = newPlayerName.charAt(0);
 
     return (
       <AppBar className={classes.appBar}>
@@ -114,29 +117,32 @@ class Header extends Component {
           <Typography type="title" color="inherit" className={classes.flex}>
             Persona Test
           </Typography>
-
-          <Chip
-            ref="chip"
-            id="animateScore"
-            className={classes.chip}
-            classes={{ label: classes.chipLabel }}
-            avatar={
-              <Avatar
-                className={classes.avatar}
-                style={{ backgroundColor: secondaryAccent }}
-              >
-                {avatarLetter}
-              </Avatar>
-            }
-            label={this.props.score}
-            onClick={() => this.setState({ openChip: true })}
-          />
+          {newPlayerName === ' ' ? (
+            <CircularProgress color="accent" size={32} />
+          ) : (
+            <Chip
+              ref="chip"
+              id="animateScore"
+              className={classes.chip}
+              classes={{ label: classes.chipLabel }}
+              avatar={
+                <Avatar
+                  className={classes.avatar}
+                  style={{ backgroundColor: secondaryAccent }}
+                >
+                  {avatarLetter}
+                </Avatar>
+              }
+              label={this.props.score}
+              onClick={() => this.setState({ openChip: true })}
+            />
+          )}
           <Popover
             open={this.state.openChip}
             anchorEl={this.chipPopoverAchorEl}
             anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            onRequestClose={() => this.setState({ openChip: false })}
+            onClose={() => this.setState({ openChip: false })}
             classes={{ paper: classes.popoverPaper }}
           >
             {this.AvatarChipPopover()}
@@ -148,7 +154,10 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  newPlayerName: PropTypes.string,
+  score: PropTypes.number,
+  secondaryAccent: PropTypes.string
 };
 
 export default withStyles(styles)(Header);

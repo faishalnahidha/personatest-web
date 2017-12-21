@@ -94,7 +94,6 @@ class MainResult extends Component {
 
   render() {
     const { classes, content } = this.props;
-    console.log(this.attribute[0]);
 
     return (
       <Paper className={classes.paper}>
@@ -155,7 +154,7 @@ class MainResult extends Component {
               {content.name.toUpperCase()}
             </Typography>
             <br />
-            {Parser(content.summary, {
+            {Parser(content.content.summary, {
               replace: domNode => {
                 if (domNode.name === 'p') {
                   return (

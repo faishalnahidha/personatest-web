@@ -4,7 +4,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Questions } from '../../api/questions.js';
 import { NewPlayers } from '../../api/new-players.js';
 
-import TestPage from '../pages/TestPage.jsx';
+import TestPage from '../pages/TesPage.jsx';
 
 const TestContainer = withTracker(({ match }) => {
   const id = match.params.id;
@@ -37,6 +37,6 @@ const TestContainer = withTracker(({ match }) => {
       newPlayerExists
     };
   }
-})(TestPage);
+})(TesPage);
 
 export default TestContainer;

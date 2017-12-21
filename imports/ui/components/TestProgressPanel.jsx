@@ -7,6 +7,8 @@ import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 import CircularProgressbar from 'react-circular-progressbar';
 
+import '../stylesheets/circular-progressbar.css';
+
 const styles = theme => ({
   root: {
     padding: theme.spacing.unit * 2

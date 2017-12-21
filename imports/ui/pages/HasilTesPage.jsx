@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
+
+import { PublicContents } from '../../api/public-contents.js';
+
 import Parser from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
 
@@ -10,10 +13,8 @@ import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import { CircularProgress } from 'material-ui/Progress';
 
-import Header from '../components/Header.jsx';
 import MainResult from '../components/MainResult.jsx';
 import TestProgressPanel from '../components/TestProgressPanel.jsx';
-import { secondaryAccentGenerator } from '../../other/secondary-accent.js';
 
 const styles = theme => ({
   contentRoot: {
@@ -33,40 +34,33 @@ const styles = theme => ({
   }
 });
 
-class ResultPage extends Component {
-  componentWillReceiveProps(nextProps) {
-    if (!nextProps.loading && nextProps.newPlayerExists) {
-      this.secondaryAccent = secondaryAccentGenerator(
-        nextProps.newPlayer._id.charAt(0).toUpperCase()
-      );
-
-      return true;
-    }
+class HasilTesPage extends Component {
+  constructor(props) {
+    super(props);
   }
 
   render() {
-    const {
-      loading,
-      newPlayer,
-      newPlayerExists,
-      publicContent,
-      classes
-    } = this.props;
+    const { resultLoading, resultContents, newPlayer, classes } = this.props;
 
-    console.log('loading: ' + loading);
+    console.log('resultLoading? ' + resultLoading);
 
-    if (!loading && newPlayerExists) {
+    if (!resultLoading) {
+      const mainType = PublicContents.findOne({ _id: newPlayer.result.type });
+      const altType1 = PublicContents.findOne({
+        _id: newPlayer.result.alternativeType1
+      });
+      const altType2 = PublicContents.findOne({
+        _id: newPlayer.result.alternativeType2
+      });
+
+      //console.log('resultContents: ' + JSON.stringify(resultContents));
+
       return (
         <div>
-          <Header
-            newPlayer={newPlayer.name}
-            score={newPlayer.score}
-            secondaryAccent={this.secondaryAccent}
-          />
           <div className={classes.contentRoot}>
             <Grid container spacing={16} justify="center">
               <Grid item xs={12} sm={10} md={8} lg={6}>
-                <MainResult content={publicContent} />
+                <MainResult content={mainType} />
               </Grid>
               <Grid item xs={12} sm={10} md={3} lg={2}>
                 <Grid
@@ -94,4 +88,11 @@ class ResultPage extends Component {
   }
 }
 
-export default withStyles(styles)(ResultPage);
+HasilTesPage.propTypes = {
+  classes: PropTypes.object.isRequired,
+  resultLoading: PropTypes.bool,
+  //resultContents: PropTypes.array,
+  newPlayer: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(HasilTesPage);

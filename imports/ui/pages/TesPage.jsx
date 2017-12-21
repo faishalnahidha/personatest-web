@@ -20,12 +20,11 @@ import NavigateNext from 'material-ui-icons/NavigateNext';
 
 import '../stylesheets/animate.css';
 
-import NewPlayerPage from '../pages/NewPlayerPage.jsx';
 import Header from '../components/Header.jsx';
 import QuestionList from '../components/QuestionList.jsx';
 import TestProgressPanel from '../components/TestProgressPanel.jsx';
-import { smoothScroll } from '../../other/smooth-scroll.js';
-import { secondaryAccentGenerator } from '../../other/secondary-accent.js';
+import { smoothScroll } from '../../lib/smooth-scroll.js';
+import { determineTestResult } from '../../lib/determine-test-result.js';
 
 const styles = theme => ({
   contentRoot: {
@@ -35,7 +34,7 @@ const styles = theme => ({
     padding: theme.spacing.unit * 1
   },
   paper: {
-    padding: '16px 0',
+    padding: 0,
     borderRadius: 5
   },
   mainColumn: {
@@ -49,7 +48,7 @@ const styles = theme => ({
   },
   buttonBerikutnya: {
     width: '100%',
-    marginBottom: theme.spacing.unit * 1
+    marginBottom: theme.spacing.unit * 2
   },
   circularProgress: {
     marginTop: 128,
@@ -61,77 +60,54 @@ const ANSWER_POINTS = 40;
 const QUESTIONS_PER_PAGE = 7;
 const LAST_PAGE = 9;
 
-/* TestPage represents Persona Test page user interface and interaction */
-class TestPage extends Component {
+/* TesPage represents Persona Test page user interface and interaction */
+class TesPage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       answersPerPage: Array(7).fill(null), // make array[0..6] filled by null
       answeredCount: 0,
-      score: 0,
-      newPlayerInitialized: false,
       questionPage: 0,
       openSnackbar: false
     };
 
+    this.newPlayerAnswersInitialized = false;
     this.secondaryAccent = null;
     this.updateAnswersPerPage = this.updateAnswersPerPage.bind(this);
     this.handleButtonBerikutnya = this.handleButtonBerikutnya.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidMount() {
+    const { newPlayer } = this.props;
+    this.updateSomeState(newPlayer);
+  }
+
+  componentWillReceiveProps({ newPlayer }) {
     if (
-      !this.state.newPlayerInitialized &&
-      !nextProps.loading &&
-      nextProps.newPlayerExists
+      newPlayer.answers &&
+      newPlayer.answers.length !== this.state.answeredCount
     ) {
-      console.log('this will be called once');
-      console.log('answers: ' + nextProps.newPlayer.answers);
-      console.log('score: ' + nextProps.newPlayer.score);
-
-      this.initializeState(nextProps);
-
-      this.setState({
-        newPlayerInitialized: true
-      });
-
-      this.secondaryAccent = secondaryAccentGenerator(
-        nextProps.newPlayer._id.charAt(0).toUpperCase()
-      );
-
-      return true;
-    }
-
-    if (
-      nextProps.newPlayerExists &&
-      nextProps.newPlayer.answers &&
-      nextProps.newPlayer.answers.length !== this.state.answeredCount
-    ) {
-      console.log('initializeState called');
-      this.initializeState(nextProps);
+      console.log('updateSomeState called');
+      this.updateSomeState(newPlayer);
       return true;
     }
   }
 
-  initializeState(nextProps) {
-    const answers = nextProps.newPlayer.answers
-      ? nextProps.newPlayer.answers
-      : [];
+  updateSomeState(newPlayer) {
+    const answers = newPlayer.answers ? newPlayer.answers : [];
     const questionPage = Math.floor(answers.length / 7);
-    const score = nextProps.newPlayer.score;
     const blankAnswers = Array(7).fill(null);
 
     this.setState({
       answersPerPage: blankAnswers,
       answeredCount: answers.length,
-      score: score,
       questionPage: questionPage
     });
   }
 
   updateAnswersPerPage(index, value) {
-    console.log(`-------question click no.${index + 1}-------`);
+    console.log(`>> question click no.${index + 1} <<`);
     const answersPerPage = this.state.answersPerPage.slice();
 
     /**
@@ -140,7 +116,6 @@ class TestPage extends Component {
      * perlu ditambah
      */
     if (answersPerPage[index] == null) {
-      console.log('new answer!');
       const answeredCount = this.state.answeredCount + 1;
       this.setState({ answeredCount });
     }
@@ -149,13 +124,21 @@ class TestPage extends Component {
     this.setState({ answersPerPage });
   }
 
+  /**
+   *
+   * @param {array} answerPerPage
+   * @param {number} score
+   * updateAnswers() adalah fungsi untuk mengupdate
+   * database yaitu newPlayers collection
+   */
   updateAnswers(answerPerPage, score) {
-    const answers = this.props.newPlayer.answers
-      ? this.props.newPlayer.answers.slice()
-      : [];
+    const { newPlayer } = this.props;
+    const answers = newPlayer.answers ? newPlayer.answers.slice() : [];
+    /**
+     * Menggabungkan array answers (answers yang sekarang)
+     * dengan answerPerPage (7 answer tambahan)
+     */
     const newAnswers = answers.concat(answerPerPage);
-
-    this.setState({ answers: newAnswers });
 
     Meteor.call(
       'newPlayers.updateAnswers',
@@ -163,6 +146,18 @@ class TestPage extends Component {
       newAnswers,
       score
     );
+
+    return newAnswers;
+  }
+
+  updateResult(answers) {
+    if (answers.length === 70) {
+      const result = determineTestResult(answers);
+
+      Meteor.call('newPlayers.updateResult', this.props.newPlayer._id, result);
+    } else {
+      throw new Meteor.Error('answers not full!');
+    }
   }
 
   handleButtonBerikutnya() {
@@ -170,7 +165,7 @@ class TestPage extends Component {
 
     /**
      * answersPerPage.indexOf(null) === -1 --> untuk mencari adakah
-     * nilai null dalam array answersPerPage, -1 berarti tidak ada
+     * nilai null dalam array answersPerPage. -1 berarti tidak ada
      * null dan boleh ke halaman berikutnya
      */
     if (answersPerPage.indexOf(null) === -1) {
@@ -180,16 +175,22 @@ class TestPage extends Component {
       const blankAnswers = Array(7).fill(null);
 
       this.setState({
-        score: score,
         questionPage: questionPage,
         answersPerPage: blankAnswers,
         openSnackbar: true
       });
-      smoothScroll.scrollTo('top', 80);
-      this.updateAnswers(answerPerPageCopy, score);
 
+      smoothScroll.scrollTo('top', 80);
+      const answers = this.updateAnswers(answerPerPageCopy, score);
+
+      /**
+       * Jika questionPage sudah melebihi LAST_PAGE, berarti
+       * tes sudah selesai. Saatnya menghitung hasil tes lalu
+       * mengupdate data result di newPlayers collection
+       */
       if (questionPage > LAST_PAGE) {
-        return <Redirect to={`/result/${this.props.newPlayer._id}`} />;
+        this.updateResult(answers);
+        return true;
       }
     } else {
       alert('Anda belum menjawab semua pertanyaan!');
@@ -199,7 +200,7 @@ class TestPage extends Component {
   }
 
   addScore(point) {
-    return this.state.score + point;
+    return this.props.newPlayer.score + point;
   }
 
   percentage() {
@@ -261,110 +262,85 @@ class TestPage extends Component {
   }
 
   render() {
-    const { loading, newPlayer, newPlayerExists, classes } = this.props;
+    const { questionLoading, newPlayer, classes } = this.props;
 
-    console.log('loading: ' + loading);
-    /**
-     * if the parameter of '/test/:params' is not exists in newPlayers collection,
-     * it redirect to '/test/new-player'
-     */
-    if (!loading && !newPlayerExists) {
-      return <Redirect to="/new-player" />;
-    }
+    // console.log('questionLoading: ' + questionLoading);
 
-    if (this.state.questionPage > LAST_PAGE) {
-      return <Redirect to={`/result/${this.props.newPlayer._id}`} />;
-    }
-
-    if (newPlayerExists) {
-      return (
-        <div id="top">
-          <Header
-            newPlayer={newPlayer.name}
-            score={this.state.score}
-            secondaryAccent={this.secondaryAccent}
-          />
-          <div className={classes.contentRoot}>
-            <Grid container spacing={16} justify="center">
-              <Grid item xs={12} sm={10} md={8} lg={6}>
-                <Paper className={classes.paper}>
-                  {/* <Grid container spacing={0} justify="center">
+    return (
+      <div id="top">
+        <div className={classes.contentRoot}>
+          <Grid container spacing={16} justify="center">
+            <Grid item xs={12} sm={10} md={8} lg={6}>
+              <Paper className={classes.paper}>
+                {questionLoading ? (
+                  <Grid
+                    container
+                    spacing={0}
+                    justify="center"
+                    alignItems="center"
+                  >
                     <CircularProgress
                       size={50}
                       className={classes.circularProgress}
                     />
-                  </Grid> */}
-                  {loading ? (
-                    <Grid
-                      container
-                      spacing={0}
-                      justify="center"
-                      alignItems="center"
-                    >
-                      <CircularProgress
-                        size={50}
-                        className={classes.circularProgress}
-                      />
-                    </Grid>
-                  ) : (
-                    this.renderQuestions()
-                  )}
-                </Paper>
-              </Grid>
-              <Grid item xs={12} sm={10} md={3} lg={2}>
-                <Grid
-                  container
-                  spacing={0}
-                  className={classes.rightColumnContainer}
-                >
-                  <Grid item xs={12}>
-                    <Paper className={classes.paper}>
-                      <TestProgressPanel
-                        percentage={this.percentage()}
-                        name={newPlayer.name}
-                      />
-                    </Paper>
                   </Grid>
+                ) : (
+                  this.renderQuestions()
+                )}
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={10} md={3} lg={2}>
+              <Grid
+                container
+                spacing={0}
+                className={classes.rightColumnContainer}
+              >
+                <Grid item xs={12}>
+                  <Paper className={classes.paper}>
+                    <TestProgressPanel
+                      percentage={this.percentage()}
+                      name={newPlayer.name}
+                    />
+                  </Paper>
                 </Grid>
               </Grid>
             </Grid>
-          </div>
-          <Snackbar
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'center'
-            }}
-            open={this.state.openSnackbar}
-            onRequestClose={() => this.setState({ openSnackbar: false })}
-            autoHideDuration={2500}
-            message={
-              <span>
-                {newPlayer.name}, skor anda:
-                <span style={{ color: this.secondaryAccent }}>
-                  &ensp;+ {ANSWER_POINTS}
-                </span>
-              </span>
-            }
-          />
+          </Grid>
         </div>
-      );
-    }
-
-    return (
-      <Grid container spacing={0} justify="center" alignItems="center">
-        <CircularProgress size={50} className={classes.circularProgress} />
-      </Grid>
+        {/* Snackbar code here */}
+        <Snackbar
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center'
+          }}
+          open={this.state.openSnackbar}
+          onClose={() => this.setState({ openSnackbar: false })}
+          autoHideDuration={2500}
+          message={
+            <span>
+              {newPlayer.name}, skor anda:
+              <span style={{ color: this.props.secondaryAccent }}>
+                &ensp;+ {ANSWER_POINTS}
+              </span>
+            </span>
+          }
+        />
+      </div>
     );
+
+    // return (
+    //   <Grid container spacing={0} justify="center" alignItems="center">
+    //     <CircularProgress size={50} className={classes.circularProgress} />
+    //   </Grid>
+    // );
   }
 }
 
-TestPage.propTypes = {
+TesPage.propTypes = {
   classes: PropTypes.object.isRequired,
-  loading: PropTypes.bool,
+  questionLoading: PropTypes.bool,
   questions: PropTypes.array,
-  newPlayer: PropTypes.object,
-  newPlayerExists: PropTypes.bool,
-  isNewPlayer: PropTypes.bool
+  newPlayer: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(TestPage);
+export default withStyles(styles)(TesPage);

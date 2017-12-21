@@ -49,7 +49,7 @@ const styles = theme => ({
 
 // NewPlayerPage represents page for submitting username
 // before do Persona Test
-class NewPlayerPage extends Component {
+class MulaiTesPage extends Component {
   constructor(props) {
     super(props);
 
@@ -103,7 +103,7 @@ class NewPlayerPage extends Component {
     const { redirect, id } = this.state;
 
     if (redirect) {
-      return <Redirect to={`/test/${id}`} />;
+      return <Redirect to={`/tes/${id}`} />;
     }
 
     return (
@@ -194,8 +194,8 @@ class NewPlayerPage extends Component {
   }
 }
 
-NewPlayerPage.propTypes = {
+MulaiTesPage.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(NewPlayerPage);
+export default withStyles(styles)(MulaiTesPage);
