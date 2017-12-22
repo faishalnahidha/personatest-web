@@ -8,6 +8,9 @@ import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
+import Button from 'material-ui/Button';
+import IconButton from 'material-ui/IconButton';
+import Share from 'material-ui-icons/Share';
 
 import { personalityColor } from '../themes/personality-color.js';
 
@@ -38,7 +41,12 @@ const styles = theme => ({
     color: '#FFF'
   },
   textContainer: {
+    position: 'relative',
     padding: theme.spacing.unit * 2
+  },
+  buttonsContainer: {
+    position: 'absolute',
+    bottom: 8
   }
 });
 
@@ -147,24 +155,48 @@ class MainResult extends Component {
             </div>
           </Grid>
           <Grid item xs={12} sm={12} md={5} className={classes.textContainer}>
-            <Typography type="caption" gutterBottom>
-              Tipe kepribadian Anda:
-            </Typography>
-            <Typography type="title" gutterBottom>
-              {content.name.toUpperCase()}
-            </Typography>
-            <br />
-            {Parser(content.content.summary, {
-              replace: domNode => {
-                if (domNode.name === 'p') {
-                  return (
-                    <Typography paragraph>
-                      {domToReact(domNode.children)}
-                    </Typography>
-                  );
-                }
-              }
-            })}
+            <Grid
+              container
+              alignContent="space-between"
+              spacing={0}
+              style={{ height: '100%' }}
+            >
+              <Grid item xs={12}>
+                <Typography type="caption" gutterBottom>
+                  Tipe kepribadian Anda:
+                </Typography>
+                <Typography type="title" gutterBottom>
+                  {content.name.toUpperCase()}
+                </Typography>
+                <br />
+                {Parser(content.content.summary, {
+                  replace: domNode => {
+                    if (domNode.name === 'p') {
+                      return (
+                        <Typography paragraph>
+                          {domToReact(domNode.children)}
+                        </Typography>
+                      );
+                    }
+                  }
+                })}
+              </Grid>
+              <Grid item xs={12}>
+                <Grid
+                  container
+                  justify="space-between"
+                  spacing={0}
+                  style={{ marginBottom: -8 }}
+                >
+                  <IconButton dense color="primary">
+                    <Share />
+                  </IconButton>
+                  <Button dense color="primary">
+                    Baca Lebih Lanjut
+                  </Button>
+                </Grid>
+              </Grid>
+            </Grid>
             {/* <div dangerouslySetInnerHTML={{ __html: content.summary }} /> */}
           </Grid>
         </Grid>
