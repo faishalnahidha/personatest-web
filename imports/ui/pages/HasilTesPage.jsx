@@ -11,9 +11,11 @@ import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
+import Divider from 'material-ui/Divider';
 import { CircularProgress } from 'material-ui/Progress';
 
-import MainResult from '../components/MainResult.jsx';
+import MainResultCard from '../components/MainResultCard.jsx';
+import AlternativeResultCard from '../components/AlternativeResultCard.jsx';
 import TestProgressPanel from '../components/TestProgressPanel.jsx';
 
 const styles = theme => ({
@@ -31,6 +33,12 @@ const styles = theme => ({
     position: 'sticky',
     top: 88,
     padding: 0
+  },
+  altResultCardContainer: {
+    padding: theme.spacing.unit
+  },
+  bandingkanText: {
+    margin: '48px 8px 16px 8px'
   }
 });
 
@@ -59,9 +67,42 @@ class HasilTesPage extends Component {
         <div>
           <div className={classes.contentRoot}>
             <Grid container spacing={16} justify="center">
+              {/* Main column*/}
               <Grid item xs={12} sm={10} md={8} lg={6}>
-                <MainResult content={mainType} />
+                <Grid container spacing={0}>
+                  <MainResultCard content={mainType} />
+                  <Grid item xs={12}>
+                    <Typography
+                      type="subheading"
+                      className={classes.bandingkanText}
+                    >
+                      Bandingkan dengan tipe kepribadian lain
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Divider style={{ marginBottom: 16 }} />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={6}
+                    className={classes.altResultCardContainer}
+                  >
+                    <AlternativeResultCard content={altType1} />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={6}
+                    className={classes.altResultCardContainer}
+                  >
+                    <AlternativeResultCard content={altType2} />
+                  </Grid>
+                </Grid>
               </Grid>
+              {/* Right column*/}
               <Grid item xs={12} sm={10} md={3} lg={2}>
                 <Grid
                   container

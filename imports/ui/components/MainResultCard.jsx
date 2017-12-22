@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { findDOMNode } from 'react-dom';
+//import { findDOMNode } from 'react-dom';
 import Parser from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
 
@@ -14,43 +14,63 @@ import Share from 'material-ui-icons/Share';
 
 import { personalityColor } from '../themes/personality-color.js';
 
+/* theme.spacing.unit = 8px */
 const styles = theme => ({
-  contentRoot: {
-    flexGrow: 1,
-    margin: 0,
-    marginTop: 80,
-    padding: theme.spacing.unit * 1
-  },
   paper: {
+    position: 'relative',
     padding: 0,
     borderRadius: 5,
     overflow: 'hidden'
   },
   pictureDummy: {
-    minHeight: 450,
-    position: 'relative'
+    position: 'relative',
+    [theme.breakpoints.up('md')]: {
+      minHeight: 450
+    },
+    [theme.breakpoints.down('md')]: {
+      minHeight: 350
+    }
   },
   textInsidePictureContainer: {
     position: 'absolute',
-    top: 20,
-    right: 16,
-    bottom: 16,
-    left: 16
+    [theme.breakpoints.up('md')]: {
+      top: 24,
+      right: 16,
+      textAlign: 'right'
+    },
+    [theme.breakpoints.down('md')]: {
+      top: 16,
+      left: 16,
+      textAlign: 'left'
+    }
   },
   textInsidePicture: {
     color: '#FFF'
   },
   textContainer: {
-    position: 'relative',
     padding: theme.spacing.unit * 2
   },
-  buttonsContainer: {
+  buttonContainer: {
+    padding: theme.spacing.unit * 1
+  },
+  shareFloatingButton: {
     position: 'absolute',
-    bottom: 8
+    [theme.breakpoints.up('md')]: {
+      bottom: 24,
+      left: '58.33%',
+      marginLeft: -28
+    },
+    [theme.breakpoints.down('md')]: {
+      top: 350,
+      right: 16,
+      marginTop: -28
+    }
+
+    //background: 'linear-gradient(45deg, #7474bf, #348ac7)'
   }
 });
 
-class MainResult extends Component {
+class MainResultCard extends Component {
   constructor(props) {
     super(props);
 
@@ -115,53 +135,45 @@ class MainResult extends Component {
             style={{ backgroundColor: this.pictureBgColor }}
           >
             <div className={classes.textInsidePictureContainer}>
-              <Typography
-                type="display1"
-                gutterBottom
-                align="right"
-                className={classes.textInsidePicture}
-              >
+              <Typography type="display1" className={classes.textInsidePicture}>
                 {content._id}
               </Typography>
               <br />
               <Typography
                 type="subheading"
-                align="right"
                 className={classes.textInsidePicture}
+                style={{ marginTop: 3 }}
               >
                 {this.attribute[0]}
               </Typography>
               <Typography
                 type="subheading"
-                align="right"
                 className={classes.textInsidePicture}
               >
                 {this.attribute[1]}
               </Typography>
               <Typography
                 type="subheading"
-                align="right"
                 className={classes.textInsidePicture}
               >
                 {this.attribute[2]}
               </Typography>
               <Typography
                 type="subheading"
-                align="right"
                 className={classes.textInsidePicture}
               >
                 {this.attribute[3]}
               </Typography>
             </div>
           </Grid>
-          <Grid item xs={12} sm={12} md={5} className={classes.textContainer}>
+          <Grid item xs={12} sm={12} md={5}>
             <Grid
               container
               alignContent="space-between"
               spacing={0}
               style={{ height: '100%' }}
             >
-              <Grid item xs={12}>
+              <Grid item xs={12} className={classes.textContainer}>
                 <Typography type="caption" gutterBottom>
                   Tipe kepribadian Anda:
                 </Typography>
@@ -181,16 +193,11 @@ class MainResult extends Component {
                   }
                 })}
               </Grid>
-              <Grid item xs={12}>
-                <Grid
-                  container
-                  justify="space-between"
-                  spacing={0}
-                  style={{ marginBottom: -8 }}
-                >
-                  <IconButton dense color="primary">
+              <Grid item xs={12} className={classes.buttonContainer}>
+                <Grid container justify="flex-end" spacing={0}>
+                  {/* <IconButton dense color="primary">
                     <Share />
-                  </IconButton>
+                  </IconButton> */}
                   <Button dense color="primary">
                     Baca Lebih Lanjut
                   </Button>
@@ -200,13 +207,21 @@ class MainResult extends Component {
             {/* <div dangerouslySetInnerHTML={{ __html: content.summary }} /> */}
           </Grid>
         </Grid>
+        <Button
+          fab
+          color="primary"
+          aria-label="share"
+          className={classes.shareFloatingButton}
+        >
+          <Share />
+        </Button>
       </Paper>
     );
   }
 }
 
-MainResult.propTypes = {
+MainResultCard.propTypes = {
   classes: PropTypes.object.isRequired,
-  content: PropTypes.object
+  content: PropTypes.object.isRequired
 };
-export default withStyles(styles)(MainResult);
+export default withStyles(styles)(MainResultCard);

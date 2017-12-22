@@ -19,16 +19,25 @@ if (Meteor.isServer) {
     check(id2, String);
     check(id3, String);
 
+    /**
+     * Hanya mencari 3 obyek sesuai parameter id1, id2, dan id3
+     */
     const query = {
       _id: { $in: [id1, id2, id3] }
     };
 
     /**
      * Hanya menampilkan field tertentu yaitu:
-     * _id, name, type, dan content.summary
+     * _id, name, type, shortDescription, dan content.summary
      */
     const options = {
-      fields: { _id: 1, name: 1, type: 1, 'content.summary': 1 }
+      fields: {
+        _id: 1,
+        name: 1,
+        type: 1,
+        shortDescription: 1,
+        'content.summary': 1
+      }
     };
 
     return PublicContents.find(query, options);

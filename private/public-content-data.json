@@ -4,6 +4,8 @@
       "_id": "ESTJ",
       "name": "The Supervisor",
       "type": "SJ",
+      "shortDescription":
+        "Administrator yang berbakat dan tak tertandingi dalam keahlian manajerial",
       "content": {
         "summary":
           "<p>ESTJ adalah seorang yang memiliki cara berpikir yang praktis dan terorganisir, ia tidak tertarik pada hal-hal yang teoritis dan pemikiran abstrak.</p><p>Loyal dan pekerja keras. Suka bila diberi tanggungjawab, wewenang, atau pun kekuasaan. Sangat berbakat dalam mengorganisir dan menjalankan aktivitas. Seorang yang menghargai kedamaian dan jaminan kehidupan.</p>",
@@ -17,6 +19,8 @@
       "_id": "ISTJ",
       "name": "The Inspector",
       "type": "SJ",
+      "shortDescription":
+        "Seorang yang cermat, teliti, berdedikasi tinggi, dan bertanggung jawab dalam menjalankan tugas",
       "content": {
         "summary":
           "<p>Jika Anda adalah seorang ISTJ, maka Anda adalah seorang yang serius dan pendiam. Sangat teliti, bertanggung jawab, dan dapat dipercaya. Tertarik pada kehidupan yang damai dan terjamin. Biasanya tertarik untuk mendukung dan mempromosikan tradisi yang berlaku di masyarakat secara umum.</p><p>Terorganisir dan pekerja keras, mereka bekerja secara konsisten untuk mencapai tujuan yang diinginkan. Memiliki tingkat konsentrasi yang tinggi, mereka biasanya dapat menyelesaikan tugas apa pun setelah memfokuskan pikiran mereka pada tugas tersebut.</p>",
@@ -30,6 +34,8 @@
       "_id": "ESFJ",
       "name": "The Provider",
       "type": "SJ",
+      "shortDescription":
+        "Seorang yang simpatik, memiliki banyak teman, dan sangat bersemangat dalam menolong orang lain",
       "content": {
         "summary":
           "<p>Berhati lembut, terkenal baik, dan teliti. Suka melayani orang lain, seseorang dengan kepribadian ESFJ cenderung menempatkan kebutuhan orang lain di atas kebutuhan diri sendiri.</p><p>ESFJ menyukai tradisi dan kehidupan yang terjamin. Mereka mempunyai rasa tanggungjawab yang tinggi dalam pekerjaan. Mereka juga membutuhkan dukungan positif dari orang-orang di sekitarnya untuk mencapai potensi terbaik.</p>",
@@ -43,6 +49,8 @@
       "_id": "ISFJ",
       "name": "The Protector",
       "type": "SJ",
+      "shortDescription":
+        "Seorang yang berbakat dalam mengasuh, suka menolong, setia, dan murah hati",
       "content": {
         "summary":
           "<p>Cenderung pendiam, namun ramah. Terampil dalam menindaklanjuti sebuah pekerjaan dan orang yang teliti. Seorang dengan tipe kepribadian ISFJ menghormati tradisi dan menyukai kehidupan yang terjamin. Mereka mampu bekerja dengan stabil dan berpikir praktis.</p><p>Suka mengamati orang-orang di sekitarnya dan sangat peka dengan perasaan orang lain. Biasanya seorang ISFJ akan menempatkan kebutuhan orang lain di atas kebutuhannya sendiri. Mereka senang melayani dan peduli dengan kesejahteraan orang lain.</p>",
@@ -56,6 +64,8 @@
       "_id": "ESTP",
       "name": "The Promoter",
       "type": "SP",
+      "shortDescription":
+        "Seorang negosiator berbakat yang bersemangat, cekatan, dan berjiwa petualang",
       "content": {
         "summary":
           "<p>Ramah, cepat beradaptasi, dan enerjik. ESTP adalah seseorang yang lebih suka langsung beraksi daripada berpikir panjang, sehingga segera mendapatkan hasil. Mereka adalah orang yang suka mengambil risiko dengan gaya hidup yang serba cepat.</p><p>ESTP sangat setia dengan teman-teman dekat mereka, dan memiliki keahlian bergaul dengan banyak orang. Namun mereka biasanya kurang menghargai hukum dan peraturan yang berlaku jika itu menghambat pekerjaan mereka.</p>",
@@ -69,6 +79,8 @@
       "_id": "ISTP",
       "name": "The Crafter",
       "type": "SP",
+      "shortDescription":
+        "Seorang yang berbakat dalam melakukan praktik atau uji coba dengan berbagai macam perkakas, perabotan, dan alat-alat mekanik",
       "content": {
         "summary":
           "<p>Cenderung pendiam dan suka menyempatkan waktu untuk sendiri. Mereka yang bertipe ISTP sangat berbakat dengan sesuatu yang berhubungan dengan mesin, mekanik, dan alat-alat. Mandiri dan analitis, mereka berbakat dalam menemukan solusi untuk menangani masalah-masalah praktis.</p><p>ISTP mungkin tidak terlalu mempedulikan peraturan dan hukum yang berlaku, jika hal tersebut menghalangi mereka untuk menuntaskan pekerjaan. Biasanya menyukai olahraga ekstrim dan setia dengan teman-teman dekat mereka.</p>",
@@ -82,6 +94,8 @@
       "_id": "ESFP",
       "name": "The Performer",
       "type": "SP",
+      "shortDescription":
+        "Seorang bersemangat dan enerjik yang memberikan aura menyenangkan pada lingkungan sekitarnya",
       "content": {
         "summary":
           "<p>Supel dan suka bersenang-senang, ESFP membuat suasana menjadi lebih menyenangkan untuk orang lain dengan gairah dan kegembiraan mereka. Mereka menyukai pengalaman baru, dan fokus pada apa yang sedang dilakukan saat ini.</p><p>Seorang ESFP umumnya tidak suka teori dan analisis panjang. Namun, mereka suka melayani orang lain dan suka menjadi pusat perhatian ketika berada di antara orang-orang.</p>",
@@ -95,6 +109,8 @@
       "_id": "ISFP",
       "name": "The Composer",
       "type": "SP",
+      "shortDescription":
+        "Seorang berjiwa seni yang suka mencari pengalaman dan petualangan baru",
       "content": {
         "summary":
           "<p>Cenderung pendiam, serius, sensitif, namun ramah. Seorang ISFP tidak menyukai konflik, dan tidak suka melakukan sesuatu yang mungkin akan menimbulkan konflik. Selain itu mereka juga tidak tertarik untuk memimpin dan mengontrol orang lain.</p><p>ISFP adalah orang yang loyal dan setia, mengapresiasi keindahan dan estetika, serta menghargai keunikan dan kreativitas. Mereka fleksibel dan berpikiran terbuka, dan menikmati apa yang sedang dilakukan saat ini.</p>",
@@ -108,6 +124,8 @@
       "_id": "ENTJ",
       "name": "The Commander",
       "type": "NT",
+      "shortDescription":
+        "Pemimpin tegas, kreatif, dan berkemauan keras yang selalu menemukan jalan untuk mencapai tujuan",
       "content": {
         "summary":
           "<p>ENTJ adalah seorang yang tegas dan blak-blakan. Mereka memiliki hasrat untuk menjadi pemimpin. Sangat berbakat dalam memahami masalah-masalah organisasi dan membuat solusi penyelesaiannya.</p><p>Cerdas dan berpengetahuan luas, tipe kepribadian MBTI ini biasanya berbakat dalam berbicara di depan publik. Mereka menghargai pengetahuan dan kompetensi, namun biasanya kurang memiliki kesabaran terhadap sesuatu yang tidak efisien dan tidak terorganisir dengan baik.</p>",
@@ -121,6 +139,8 @@
       "_id": "INTJ",
       "name": "The Mastermind",
       "type": "NT",
+      "shortDescription":
+        "Pemikir strategi visioner yang selalu memiliki perencanaan kreatif untuk segala sesuatu",
       "content": {
         "summary":
           "<p>Mandiri, analitis, tekun, dan memiliki pemikiran yang orisinil. INTJ sangat berbakat mengimplementasikan teori menjadi sebuah perencanaan yang matang. Mereka sangat menghargai pengetahuan, kompetensi, dan organisasi.</p><p>INTJ adalah seorang yang visioner dan pemikir jangka panjang. Memiliki standar yang sangat tinggi dalam performa mereka, dan terhadap orang lain di sekitarnya. Mereka juga seorang pemimpin alami, namun akan mengikuti pemimpin yang ada jika mereka mempercayai pemimpin tersebut.</p>",
@@ -134,6 +154,8 @@
       "_id": "ENTP",
       "name": "The Inventor",
       "type": "NT",
+      "shortDescription":
+        "Pemikir cerdas yang selalu tertantang untuk melakukan perdebatan dan diskusi-diskusi intelektual",
       "content": {
         "summary":
           "<p>Kreatif, banyak akal, dan cerdik. Seorang ENTP biasanya memiliki keahlian di berbagai bidang. Suka memperdebatkan suatu permasalahan dan mungkin merasa memiliki sesuatu yang lebih dibandingkan orang lain. Mereka sangat senang dengan ide dan proyek baru, namun seringkali menghindari rutinitas.</p><p>Umumnya tegas dan blak-blakan. ENTP senang bergaul dengan banyak orang. Mereka juga sangat berbakat dalam memahami suatu konsep dan menggunakan logika untuk menemukan solusi permasalahan.</p>",
@@ -147,6 +169,8 @@
       "_id": "INTP",
       "name": "The Thinker",
       "type": "NT",
+      "shortDescription":
+        "Pemikir inovatif yang memiliki sifat haus akan ilmu ­pengetahuan",
       "content": {
         "summary":
           "<p>INTP adalah pemikir yang kreatif, logis, dan orisinil. Mereka sangat menyukai teori-teori dan ide, serta berbakat untuk mengubah teori menjadi pemahaman yang dapat dimengerti. Mereka menghargai pengetahuan, kompetensi, dan logika.</p><p>Tipe kepribadian MBTI ini cenderung pendiam dan lebih suka menyempatkan waktu untuk sendiri. Agak sulit untuk mengenal mereka secara akrab. Karena individualistis, mereka tidak memiliki keinginan untuk memimpin maupun mengikuti orang lain.</p>",
@@ -160,6 +184,7 @@
       "_id": "ENFJ",
       "name": "The Mentor",
       "type": "NF",
+      "shortDescription": "Pemimpin yang berkarisma dan pembicara yang memikat",
       "content": {
         "summary":
           "<p>Seorang yang populer dan sensitif, ENFJ memiliki bakat alami untuk berhubungan dengan orang lain. Mereka memiliki fokus dan keingintahuan tentang bagaimana manusia berfikir (akal) dan merasakan (perasaan). Mereka melihat segalanya melalui perspektif kemanusiaan dan tidak menyukai analisis yang mengabaikan kemanusiaan.</p><p>ENFJ biasanya tidak suka sendirian. Mereka sangat berbakat dalam menangani masalah orang lain dan memimpin kelompok diskusi. Suka melayani orang lain, dan bisa jadi menempatkan kebutuhan orang lain di atas kebutuhan diri sendiri.</p>",
@@ -173,6 +198,8 @@
       "_id": "INFJ",
       "name": "The Counselor",
       "type": "NF",
+      "shortDescription":
+        "Seorang pendiam dan visioner yang memiliki banyak ide-ide kreatif",
       "content": {
         "summary":
           "<p>Pendiam, memiliki pemikiran orisinil, dan sensitif. Seorang INFJ cenderung terpaku pada suatu pekerjaan, sampai pekerjaan itu selesai. Selain itu mereka juga sangat memperhatikan perasaan orang lain.</p><p>Tipe kepribadian INFJ memiliki nilai-nilai keyakinan yang kuat dan menganut secara teguh keyakinan tersebut. Seringkali dihormati karena kegigihannya untuk melakukan hal yang benar. Umumnya mereka lebih suka bergerak secara individual, daripada menjadi pemimpin atau menjadi pengikut orang lain.</p>",
@@ -186,6 +213,8 @@
       "_id": "ENFP",
       "name": "The Champion",
       "type": "NF",
+      "shortDescription":
+        "Seorang yang bersemangat, kreatif, berjiwa bebas, dan selalu membawa suasana gembira",
       "content": {
         "summary":
           "<p>Kamu yang memiliki tipe kepribadian ENFP adalah seorang yang bersemangat, idealis, dan kreatif. Dapat menguasai berbagai keahlian yang menarik bagi mereka, dan sangat baik dalam berhubungan dengan orang lain.</p><p>ENFP hidup dengan nilai-nilai yang sesuai dengan nilai-nilai pribadinya. Mereka berpikiran terbuka dan fleksibel, serta memiliki berbagai minat dan keahlian.</p>",
@@ -199,6 +228,8 @@
       "_id": "INFP",
       "name": "The Dreamer",
       "type": "NF",
+      "shortDescription":
+        "Seorang yang puitis dan senang untuk menolong orang lain",
       "content": {
         "summary":
           "<p>Pendiam, idealis, dan suka merenung, seorang bertipe INFP memiliki dorongan kemanusiaan yang kuat. Mereka memiliki nilai-nilai keyakinan yang teguh dan menganut secara patuh keyakinan tersebut.</p><p>Sangat setia, cepat beradaptasi, dan santai. Biasanya, INFP merupakan seorang yang memiliki bakat menulis. Selain itu mereka cepat melihat berbagai kemungkinan. Tipe kepribadian ini juga senang untuk membantu dan memahami permasalahan orang lain.</p>",
