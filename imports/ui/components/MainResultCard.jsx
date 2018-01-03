@@ -9,6 +9,7 @@ import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
+import Tooltip from 'material-ui/Tooltip';
 import IconButton from 'material-ui/IconButton';
 import Share from 'material-ui-icons/Share';
 
@@ -19,7 +20,7 @@ const styles = theme => ({
   paper: {
     position: 'relative',
     padding: 0,
-    borderRadius: 5,
+    borderRadius: 4,
     overflow: 'hidden'
   },
   pictureDummy: {
@@ -34,7 +35,7 @@ const styles = theme => ({
   textInsidePictureContainer: {
     position: 'absolute',
     [theme.breakpoints.up('md')]: {
-      top: 24,
+      top: 20,
       right: 16,
       textAlign: 'right'
     },
@@ -51,7 +52,13 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2
   },
   buttonContainer: {
-    padding: theme.spacing.unit * 1
+    padding: theme.spacing.unit * 1,
+    [theme.breakpoints.up('md')]: {
+      justifyContent: 'flex-end'
+    },
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'flex-start'
+    }
   },
   shareFloatingButton: {
     position: 'absolute',
@@ -65,7 +72,6 @@ const styles = theme => ({
       right: 16,
       marginTop: -28
     }
-
     //background: 'linear-gradient(45deg, #7474bf, #348ac7)'
   }
 });
@@ -135,14 +141,14 @@ class MainResultCard extends Component {
             style={{ backgroundColor: this.pictureBgColor }}
           >
             <div className={classes.textInsidePictureContainer}>
-              <Typography type="display1" className={classes.textInsidePicture}>
+              <Typography type="display2" className={classes.textInsidePicture}>
                 {content._id}
               </Typography>
               <br />
               <Typography
                 type="subheading"
                 className={classes.textInsidePicture}
-                style={{ marginTop: 3 }}
+                style={{ marginTop: 8 }}
               >
                 {this.attribute[0]}
               </Typography>
@@ -177,7 +183,7 @@ class MainResultCard extends Component {
                 <Typography type="caption" gutterBottom>
                   Tipe kepribadian Anda:
                 </Typography>
-                <Typography type="title" gutterBottom>
+                <Typography type="headline" gutterBottom>
                   {content.name.toUpperCase()}
                 </Typography>
                 <br />
@@ -193,8 +199,8 @@ class MainResultCard extends Component {
                   }
                 })}
               </Grid>
-              <Grid item xs={12} className={classes.buttonContainer}>
-                <Grid container justify="flex-end" spacing={0}>
+              <Grid item xs={12}>
+                <Grid container spacing={0} className={classes.buttonContainer}>
                   {/* <IconButton dense color="primary">
                     <Share />
                   </IconButton> */}
@@ -207,14 +213,16 @@ class MainResultCard extends Component {
             {/* <div dangerouslySetInnerHTML={{ __html: content.summary }} /> */}
           </Grid>
         </Grid>
-        <Button
-          fab
-          color="primary"
-          aria-label="share"
-          className={classes.shareFloatingButton}
-        >
-          <Share />
-        </Button>
+        <Tooltip id="tooltip-share" title="Share" placement="right">
+          <Button
+            fab
+            color="primary"
+            aria-label="share"
+            className={classes.shareFloatingButton}
+          >
+            <Share />
+          </Button>
+        </Tooltip>
       </Paper>
     );
   }

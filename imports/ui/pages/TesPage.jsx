@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { Redirect } from 'react-router';
+import classnames from 'classnames';
 import TransitionGroup from 'react-transition-group/TransitionGroup';
 import { CSSTransitionGroup } from 'react-transition-group';
 //import TransitionGroup from 'react-addons-transition-group';
@@ -23,28 +24,44 @@ import '../stylesheets/animate.css';
 import Header from '../components/Header.jsx';
 import QuestionList from '../components/QuestionList.jsx';
 import TestProgressPanel from '../components/TestProgressPanel.jsx';
+import { drawerWidth } from '../components/MenuDrawer.jsx';
 import { smoothScroll } from '../../lib/smooth-scroll.js';
 import { determineTestResult } from '../../lib/determine-test-result.js';
 
 const styles = theme => ({
   contentRoot: {
-    flexGrow: 1,
     margin: 0,
-    marginTop: 80,
-    padding: theme.spacing.unit * 1
+    padding: theme.spacing.unit * 2,
+    [theme.breakpoints.up('md')]: {
+      marginTop: 96
+    },
+    [theme.breakpoints.down('md')]: {
+      marginTop: 80
+    }
   },
   paper: {
     padding: 0,
-    borderRadius: 5
+    borderRadius: 4
   },
-  mainColumn: {
-    overflowY: 'scroll',
-    height: '100px'
+  mainColumnContainer: {
+    margin: 0,
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    })
   },
-  rightColumnContainer: {
+  mainColumnContainerShift: {
+    [theme.breakpoints.up('lg')]: {
+      marginLeft: drawerWidth
+    },
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen
+    })
+  },
+  stickyPanel: {
     position: 'sticky',
-    top: 88,
-    padding: 0
+    top: 104
   },
   buttonBerikutnya: {
     width: '100%',
@@ -126,8 +143,8 @@ class TesPage extends Component {
 
   /**
    *
-   * @param {array} answerPerPage
-   * @param {number} score
+   * @param {Array} answerPerPage
+   * @param {Number} score
    * updateAnswers() adalah fungsi untuk mengupdate
    * database yaitu newPlayers collection
    */
@@ -180,7 +197,7 @@ class TesPage extends Component {
         openSnackbar: true
       });
 
-      smoothScroll.scrollTo('top', 80);
+      smoothScroll.scrollTo('top', 96);
       const answers = this.updateAnswers(answerPerPageCopy, score);
 
       /**
@@ -251,9 +268,7 @@ class TesPage extends Component {
             onClick={this.handleButtonBerikutnya}
             className={this.props.classes.buttonBerikutnya}
           >
-            {questionPage < LAST_PAGE ? 'Berikutnya' : 'Lihat Hasil'} ({
-              questionPage
-            })
+            {questionPage < LAST_PAGE ? 'Berikutnya' : 'Lihat Hasil'}
             <NavigateNext style={{ marginLeft: 8 }} />
           </Button>
         </Grid>
@@ -262,7 +277,7 @@ class TesPage extends Component {
   }
 
   render() {
-    const { questionLoading, newPlayer, classes } = this.props;
+    const { questionLoading, newPlayer, isDrawerOpen, classes } = this.props;
 
     // console.log('questionLoading: ' + questionLoading);
 
@@ -270,7 +285,17 @@ class TesPage extends Component {
       <div id="top">
         <div className={classes.contentRoot}>
           <Grid container spacing={16} justify="center">
-            <Grid item xs={12} sm={10} md={8} lg={6}>
+            {/* main column */}
+            <Grid
+              item
+              xs={12}
+              sm={10}
+              md={8}
+              lg={6}
+              className={classnames(classes.mainColumnContainer, {
+                [classes.mainColumnContainerShift]: isDrawerOpen
+              })}
+            >
               <Paper className={classes.paper}>
                 {questionLoading ? (
                   <Grid
@@ -289,19 +314,19 @@ class TesPage extends Component {
                 )}
               </Paper>
             </Grid>
+            {/* right column */}
             <Grid item xs={12} sm={10} md={3} lg={2}>
               <Grid
                 container
-                spacing={0}
-                className={classes.rightColumnContainer}
+                spacing={16}
+                justify="center"
+                className={classes.stickyPanel}
               >
-                <Grid item xs={12}>
-                  <Paper className={classes.paper}>
-                    <TestProgressPanel
-                      percentage={this.percentage()}
-                      name={newPlayer.name}
-                    />
-                  </Paper>
+                <Grid item xs={12} sm={6} md={12}>
+                  <TestProgressPanel
+                    percentage={this.percentage()}
+                    name={newPlayer.name}
+                  />
                 </Grid>
               </Grid>
             </Grid>

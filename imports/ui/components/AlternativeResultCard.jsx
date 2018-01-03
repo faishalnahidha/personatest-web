@@ -17,7 +17,7 @@ import { personalityColor } from '../themes/personality-color.js';
 
 const styles = theme => ({
   card: {
-    borderRadius: 5,
+    borderRadius: 4,
     overflow: 'hidden'
   },
   media: {
@@ -29,13 +29,13 @@ const styles = theme => ({
   greyText: {
     color: 'rgba(0,0,0,0.54)'
   },
-  expand: {
+  expandButton: {
     transform: 'rotate(0deg)',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest
     })
   },
-  expandOpen: {
+  expandButtonOpen: {
     transform: 'rotate(180deg)'
   },
   flexGrow: {
@@ -48,7 +48,7 @@ class AlternativeResultCard extends Component {
     super(props);
 
     this.state = {
-      expanded: false
+      isExpand: false
     };
 
     this.pictureBgColor = (() => {
@@ -69,7 +69,7 @@ class AlternativeResultCard extends Component {
   }
 
   handleExpandClick() {
-    this.setState({ expanded: !this.state.expanded });
+    this.setState({ isExpand: !this.state.isExpand });
   }
 
   render() {
@@ -96,25 +96,25 @@ class AlternativeResultCard extends Component {
         </CardContent>
         <CardActions className={classes.action}>
           <Button dense color="primary">
-            Bagikan
+            Baca
           </Button>
           <Button dense color="primary">
-            Baca
+            Bagikan
           </Button>
           <div className={classes.flexGrow} />
           <IconButton
-            className={classnames(classes.expand, {
-              [classes.expandOpen]: this.state.expanded
+            className={classnames(classes.expandButton, {
+              [classes.expandButtonOpen]: this.state.isExpand
             })}
             onClick={this.handleExpandClick}
-            aria-expanded={this.state.expanded}
+            aria-expanded={this.state.isExpand}
             aria-label="Show more"
           >
             <ExpandMoreIcon />
           </IconButton>
         </CardActions>
-        <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-          <CardContent>
+        <Collapse in={this.state.isExpand} timeout="auto" unmountOnExit>
+          <CardContent style={{ paddingBottom: 8 }}>
             {Parser(content.content.summary, {
               replace: domNode => {
                 if (domNode.name === 'p') {

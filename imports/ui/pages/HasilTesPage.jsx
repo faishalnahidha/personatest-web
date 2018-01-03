@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
+import classnames from 'classnames';
 
 import { PublicContents } from '../../api/public-contents.js';
 
@@ -9,7 +10,6 @@ import domToReact from 'html-react-parser/lib/dom-to-react';
 
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 import { CircularProgress } from 'material-ui/Progress';
@@ -17,22 +17,40 @@ import { CircularProgress } from 'material-ui/Progress';
 import MainResultCard from '../components/MainResultCard.jsx';
 import AlternativeResultCard from '../components/AlternativeResultCard.jsx';
 import TestProgressPanel from '../components/TestProgressPanel.jsx';
+import TestResultPanel from '../components/TestResultPanel.jsx';
+import { drawerWidth } from '../components/MenuDrawer.jsx';
 
 const styles = theme => ({
   contentRoot: {
-    flexGrow: 1,
     margin: 0,
-    marginTop: 80,
-    padding: theme.spacing.unit * 1
+    padding: theme.spacing.unit * 2,
+    [theme.breakpoints.up('md')]: {
+      marginTop: 96
+    },
+    [theme.breakpoints.down('md')]: {
+      marginTop: 80
+    }
   },
-  paper: {
-    padding: '16px 0',
-    borderRadius: 5
+  mainColumnContainer: {
+    margin: 0,
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    })
+  },
+  mainColumnContainerShift: {
+    [theme.breakpoints.up('lg')]: {
+      marginLeft: drawerWidth
+    },
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen
+    })
   },
   rightColumnContainer: {
-    position: 'sticky',
-    top: 88,
-    padding: 0
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing.unit
+    }
   },
   altResultCardContainer: {
     padding: theme.spacing.unit
@@ -48,11 +66,18 @@ class HasilTesPage extends Component {
   }
 
   render() {
-    const { resultLoading, resultContents, newPlayer, classes } = this.props;
+    const {
+      resultLoading,
+      resultContents,
+      newPlayer,
+      isDrawerOpen,
+      classes
+    } = this.props;
 
-    console.log('resultLoading? ' + resultLoading);
+    //console.log('resultLoading? ' + resultLoading);
+    console.log('drawerWidth: ' + drawerWidth);
 
-    if (!resultLoading) {
+    if (!resultLoading && newPlayer.result) {
       const mainType = PublicContents.findOne({ _id: newPlayer.result.type });
       const altType1 = PublicContents.findOne({
         _id: newPlayer.result.alternativeType1
@@ -61,14 +86,21 @@ class HasilTesPage extends Component {
         _id: newPlayer.result.alternativeType2
       });
 
-      //console.log('resultContents: ' + JSON.stringify(resultContents));
-
       return (
         <div>
           <div className={classes.contentRoot}>
             <Grid container spacing={16} justify="center">
               {/* Main column*/}
-              <Grid item xs={12} sm={10} md={8} lg={6}>
+              <Grid
+                item
+                xs={12}
+                sm={10}
+                md={8}
+                lg={6}
+                className={classnames(classes.mainColumnContainer, {
+                  [classes.mainColumnContainerShift]: isDrawerOpen
+                })}
+              >
                 <Grid container spacing={0}>
                   <MainResultCard content={mainType} />
                   <Grid item xs={12}>
@@ -104,20 +136,24 @@ class HasilTesPage extends Component {
               </Grid>
               {/* Right column*/}
               <Grid item xs={12} sm={10} md={3} lg={2}>
-                <Grid
-                  container
-                  spacing={0}
-                  className={classes.rightColumnContainer}
-                >
-                  <Grid item xs={12}>
-                    <Paper className={classes.paper}>
+                <div className={classes.rightColumnContainer}>
+                  <Grid container spacing={16} justify="center">
+                    <Grid item xs={12} sm={6} md={12}>
+                      <TestResultPanel
+                        result={newPlayer.result}
+                        playerName={newPlayer.name}
+                        personalityType={`${mainType.name} (${mainType._id})`}
+                        personalityColorType={mainType.type}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={12}>
                       <TestProgressPanel
-                        percentage={10}
+                        percentage={100}
                         name={newPlayer.name}
                       />
-                    </Paper>
+                    </Grid>
                   </Grid>
-                </Grid>
+                </div>
               </Grid>
             </Grid>
           </div>
@@ -132,8 +168,9 @@ class HasilTesPage extends Component {
 HasilTesPage.propTypes = {
   classes: PropTypes.object.isRequired,
   resultLoading: PropTypes.bool,
-  //resultContents: PropTypes.array,
-  newPlayer: PropTypes.object.isRequired
+  resultContents: PropTypes.array,
+  newPlayer: PropTypes.object.isRequired,
+  isDrawerOpen: PropTypes.bool.isRequired
 };
 
 export default withStyles(styles)(HasilTesPage);

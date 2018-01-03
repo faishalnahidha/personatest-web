@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { findDOMNode } from 'react-dom';
 
 import { withStyles } from 'material-ui/styles';
@@ -17,8 +16,6 @@ import Menu from 'material-ui-icons/Menu';
 
 import anime from 'animejs';
 
-import { drawerWidth } from '../components/MenuDrawer.jsx';
-
 const styles = theme => ({
   flex: {
     flex: 1
@@ -27,39 +24,8 @@ const styles = theme => ({
     marginLeft: -12,
     marginRight: 20
   },
-  hide: {
-    display: 'none'
-  },
   appBar: {
-    background:
-      'linear-gradient(90deg, rgba(116,116,191,1), rgba(52,138,199,1))',
-    transition: theme.transitions.create(['margin', 'width', 'box-shadow'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
-  },
-  appBarTop: {
-    //backgroundColor: 'transparent',
-    boxShadow: 'none'
-  },
-  appBarDown: {},
-  appBarShift: {
-    [theme.breakpoints.up('lg')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-      transition: theme.transitions.create(['margin', 'width'], {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen
-      })
-    }
-  },
-  toolbar: {
-    // [theme.breakpoints.up('md')]: {
-    //   minHeight: 72
-    // },
-    // [theme.breakpoints.down('md')]: {
-    //   minHeight: 64
-    // }
+    background: 'linear-gradient(45deg, #7474bf, #348ac7)'
   },
   avatar: {
     width: 32,
@@ -84,21 +50,17 @@ const styles = theme => ({
   }
 });
 
-class Header extends Component {
+class HeaderMobile extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      openChip: false,
-      isScroll: false
+      openChip: false
     };
   }
 
   componentDidMount() {
     this.chipPopoverAchorEl = findDOMNode(this.refs.chip);
-    document.addEventListener('scroll', () => {
-      this.handleScroll();
-    });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -114,13 +76,6 @@ class Header extends Component {
         round: 1,
         easing: 'easeInOutExpo'
       });
-    }
-  }
-
-  handleScroll() {
-    const isScroll = window.scrollY > 50;
-    if (isScroll !== this.state.isTop) {
-      this.setState({ isScroll });
     }
   }
 
@@ -146,40 +101,21 @@ class Header extends Component {
   }
 
   render() {
-    const {
-      classes,
-      headerTitle,
-      newPlayerName,
-      score,
-      secondaryAccent,
-      isDrawerOpen,
-      handleDrawerOpen
-    } = this.props;
-    const { isScroll } = this.state;
+    const { classes, newPlayerName, score, secondaryAccent } = this.props;
     const avatarLetter = newPlayerName.charAt(0);
 
     return (
-      <AppBar
-        className={classnames(classes.appBar, {
-          [classes.appBarTop]: !isScroll,
-          [classes.appBarDown]: isScroll,
-          [classes.appBarShift]: isDrawerOpen
-        })}
-      >
-        <Toolbar className={classes.toolbar}>
+      <AppBar className={classes.appBar}>
+        <Toolbar>
           <IconButton
-            className={classnames(
-              classes.menuButton,
-              isDrawerOpen && classes.hide
-            )}
+            className={classes.menuButton}
             color="contrast"
             aria-label="Menu"
-            onClick={handleDrawerOpen}
           >
             <Menu />
           </IconButton>
           <Typography type="title" color="inherit" className={classes.flex}>
-            {headerTitle}
+            Persona Test
           </Typography>
           {newPlayerName === ' ' ? (
             <CircularProgress color="accent" size={32} />
@@ -217,12 +153,11 @@ class Header extends Component {
   }
 }
 
-Header.propTypes = {
+HeaderMobile.propTypes = {
   classes: PropTypes.object.isRequired,
-  headerTitle: PropTypes.string.isRequired,
   newPlayerName: PropTypes.string,
   score: PropTypes.number,
   secondaryAccent: PropTypes.string
 };
 
-export default withStyles(styles)(Header);
+export default withStyles(styles)(HeaderMobile);

@@ -2,3 +2,12 @@ body {
   background-color: #fafafa;
   font-family: Roboto !important;
 }
+
+::-moz-selection {
+  /* Code for Firefox */
+  background: #bfbfff;
+}
+
+::selection {
+  background: #bfbfff;
+}

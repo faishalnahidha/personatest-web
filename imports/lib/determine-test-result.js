@@ -99,9 +99,10 @@ export const determineTestResult = answers => {
    * yang mempunyai nilai terkecil kedua
    */
   const attributeCountDiff2 = attributeCountDiff.slice();
-  attributeCountDiff2.splice(a, 1);
-  const b = attributeCountDiff.indexOf(Math.min(...attributeCountDiff2));
+  attributeCountDiff2[a] = 999;
   console.log('attributeDiff2: ' + attributeCountDiff2);
+
+  const b = attributeCountDiff2.indexOf(Math.min(...attributeCountDiff2));
 
   /**
    * 4 baris code di bawah ini untuk menentukan dua tipe kepribadian alternatif
