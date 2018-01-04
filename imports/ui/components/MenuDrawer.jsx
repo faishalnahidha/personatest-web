@@ -10,6 +10,8 @@ import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
 
+import MenuDrawerList from '../components/MenuDrawerList.jsx';
+
 /* drawer width for large(lg) screen and above */
 export const drawerWidth = 256;
 
@@ -20,13 +22,14 @@ const styles = theme => ({
     left: 0,
     height: '100vh',
     width: drawerWidth,
+    background: theme.palette.background.paper,
     [theme.breakpoints.up('lg')]: {
       width: drawerWidth
     },
-    [theme.breakpoints.down('lg')]: {
+    [theme.breakpoints.down('md')]: {
       width: 320
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('xs')]: {
       width: 280
     }
   },
@@ -63,6 +66,7 @@ function MenuDrawer(props) {
           </IconButton>
         </div>
         <Divider />
+        <MenuDrawerList />
       </div>
     </Drawer>
   );
@@ -83,14 +87,15 @@ function MenuDrawer(props) {
           <Typography type="title">Persona Web</Typography>
         </div>
         <Divider />
+        <MenuDrawerList />
       </div>
     </Drawer>
   );
 
   return (
     <div className={classes.drawer}>
-      <Hidden lgDown>{drawerDesktop}</Hidden>
       <Hidden lgUp>{drawerMobile}</Hidden>
+      <Hidden mdDown>{drawerDesktop}</Hidden>
     </div>
   );
 }
