@@ -26,13 +26,9 @@ const TesContainer = withTracker(({ match }) => {
   console.log('newPlayerExists: ' + newPlayerExists);
 
   if (newPlayerExists) {
-    console.log('enter newPlayerExist');
-
     const isTestFinished = newPlayer.answers && newPlayer.answers.length === 70; // 70 is completed answers
 
     if (isTestFinished) {
-      console.log('enter TestFinished');
-
       let result = null;
 
       if (newPlayer.result) {
@@ -62,7 +58,6 @@ const TesContainer = withTracker(({ match }) => {
         isTestFinished
       };
     } else {
-      console.log('enter TestNotFInished');
       const questionsHandle = Meteor.subscribe('questions');
 
       return {

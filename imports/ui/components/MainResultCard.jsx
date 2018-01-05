@@ -28,7 +28,7 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       minHeight: 450
     },
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       minHeight: 350
     }
   },
@@ -39,7 +39,7 @@ const styles = theme => ({
       right: 16,
       textAlign: 'right'
     },
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       top: 16,
       left: 16,
       textAlign: 'left'
@@ -56,7 +56,7 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       justifyContent: 'flex-end'
     },
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       justifyContent: 'flex-start'
     }
   },
@@ -67,7 +67,7 @@ const styles = theme => ({
       left: '58.33%',
       marginLeft: -28
     },
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       top: 350,
       right: 16,
       marginTop: -28

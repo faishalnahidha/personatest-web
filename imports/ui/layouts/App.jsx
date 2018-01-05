@@ -23,6 +23,7 @@ import '../stylesheets/transition.css';
 import { myTheme } from '../themes/theme.js';
 import HomePage from '../pages/HomePage.jsx';
 import TesContainer from '../containers/TesContainer.jsx';
+import PublicContentLayout from '../layouts/PublicContentLayout.jsx';
 import MulaiTesPage from '../pages/MulaiTesPage.jsx';
 
 const styles = theme => ({
@@ -38,7 +39,6 @@ const hello = () => <h1>Hello</h1>;
 class App extends Component {
   render() {
     const { classes } = this.props;
-    //const isHeaderRoute = !window.location.pathname.includes('new-player');
 
     return (
       <div className={classes.root}>
@@ -54,25 +54,19 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={HomePage} key="home" />
                 <Route
+                  exact
                   path="/mulai-tes"
                   component={MulaiTesPage}
                   key="mulaiTes"
                 />
-                <Route path="/tes/:id" component={TesContainer} key="tes" />
                 <Route
-                  path="/hasil-tes/:id"
-                  component={TesContainer}
-                  key="hasil"
+                  path="/artikel"
+                  component={PublicContentLayout}
+                  key="public"
                 />
+                <Route path="/tes/:id" component={TesContainer} key="tes" />
                 <Redirect from="*" to="/" />
-                {/* <Route path="/test/:id" component={TestContainer} key="test" />
-                <Route
-                  path="/result/:id"
-                  component={ResultContainer}
-                  key="result"
-                /> */}
               </Switch>
-              {/* <Route path="/result/" component={ResultContainer} key="result" /> */}
             </CSSTransitionGroup>
           </Router>
         </MuiThemeProvider>

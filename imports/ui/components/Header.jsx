@@ -117,6 +117,12 @@ class Header extends Component {
     }
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('scroll', () => {
+      this.handleScroll();
+    });
+  }
+
   handleScroll() {
     const isScroll = window.scrollY > 50;
     if (isScroll !== this.state.isTop) {
@@ -124,26 +130,57 @@ class Header extends Component {
     }
   }
 
-  AvatarChipPopover() {
-    const { newPlayerName, score, classes, secondaryAccent } = this.props;
+  renderRightIcon() {
+    const { newPlayerName, classes, secondaryAccent } = this.props;
 
-    return (
-      <div>
-        <Typography
-          type="title"
-          align="center"
-          className={classes.chipPopover}
-          style={{ color: secondaryAccent }}
-        >
-          {newPlayerName}
-        </Typography>
-        <Divider />
-        <Typography type="body1" align="center" className={classes.chipPopover}>
-          Skor : {score}
-        </Typography>
-      </div>
-    );
+    if (newPlayerName == undefined) {
+      return;
+    } else if (newPlayerName === ' ') {
+      return <CircularProgress color="accent" size={32} />;
+    } else {
+      const avatarLetter = newPlayerName.charAt(0);
+
+      return (
+        <Chip
+          ref="chip"
+          id="animateScore"
+          className={classes.chip}
+          classes={{ label: classes.chipLabel }}
+          avatar={
+            <Avatar
+              className={classes.avatar}
+              style={{ backgroundColor: secondaryAccent }}
+            >
+              {avatarLetter}
+            </Avatar>
+          }
+          label={this.props.score}
+          onClick={() => this.setState({ openChip: true })}
+        />
+      );
+    }
   }
+
+  AvatarChipPopover = () => (
+    <div>
+      <Typography
+        type="title"
+        align="center"
+        className={this.props.classes.chipPopover}
+        style={{ color: this.props.secondaryAccent }}
+      >
+        {this.props.newPlayerName}
+      </Typography>
+      <Divider />
+      <Typography
+        type="body1"
+        align="center"
+        className={this.props.classes.chipPopover}
+      >
+        Skor : {this.props.score}
+      </Typography>
+    </div>
+  );
 
   render() {
     const {
@@ -156,7 +193,8 @@ class Header extends Component {
       handleDrawerOpen
     } = this.props;
     const { isScroll } = this.state;
-    const avatarLetter = newPlayerName.charAt(0);
+
+    const avatarLetter = newPlayerName ? newPlayerName.charAt(0) : ' ';
 
     return (
       <AppBar
@@ -181,26 +219,7 @@ class Header extends Component {
           <Typography type="title" color="inherit" className={classes.flex}>
             {headerTitle}
           </Typography>
-          {newPlayerName === ' ' ? (
-            <CircularProgress color="accent" size={32} />
-          ) : (
-            <Chip
-              ref="chip"
-              id="animateScore"
-              className={classes.chip}
-              classes={{ label: classes.chipLabel }}
-              avatar={
-                <Avatar
-                  className={classes.avatar}
-                  style={{ backgroundColor: secondaryAccent }}
-                >
-                  {avatarLetter}
-                </Avatar>
-              }
-              label={this.props.score}
-              onClick={() => this.setState({ openChip: true })}
-            />
-          )}
+          {this.renderRightIcon()}
           <Popover
             open={this.state.openChip}
             anchorEl={this.chipPopoverAchorEl}
@@ -209,7 +228,7 @@ class Header extends Component {
             onClose={() => this.setState({ openChip: false })}
             classes={{ paper: classes.popoverPaper }}
           >
-            {this.AvatarChipPopover()}
+            <this.AvatarChipPopover />
           </Popover>
         </Toolbar>
       </AppBar>

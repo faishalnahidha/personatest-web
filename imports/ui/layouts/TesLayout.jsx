@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ReactiveVar } from 'meteor/reactive-var';
 import classnames from 'classnames';
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch
-} from 'react-router-dom';
+import { Session } from 'meteor/session';
+import { Route, Redirect, Switch } from 'react-router-dom';
 
 import { withStyles } from 'material-ui/styles';
 
@@ -57,18 +52,15 @@ class TesLayout extends Component {
     this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
   }
 
-  componentDidMount() {
-    Session.set('drawerWidth', drawerWidth);
-  }
+  componentDidMount() {}
 
   componentWillReceiveProps(nextProps) {
     if (!this.newPlayerInitialized && nextProps.newPlayerExists) {
-      console.log('this will be called once');
-
       this.secondaryAccent = secondaryAccentGenerator(
         nextProps.newPlayer._id.charAt(0).toUpperCase()
       );
 
+      Session.set('newPlayer', nextProps.newPlayer);
       this.newPlayerInitialized = true;
     }
 
@@ -132,14 +124,12 @@ class TesLayout extends Component {
 
     const { score, isDrawerOpen } = this.state;
 
-    console.log('isDrawerOpen? ' + isDrawerOpen);
-
     const headerTitle = (() => {
       if (!loading) {
         if (isTestFinished) {
           return 'Hasil Tes';
         } else {
-          return 'Persona Tes';
+          return 'Persona Test';
         }
       } else {
         return '';

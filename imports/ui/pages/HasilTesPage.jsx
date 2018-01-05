@@ -27,7 +27,7 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       marginTop: 96
     },
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       marginTop: 80
     }
   },
@@ -48,7 +48,7 @@ const styles = theme => ({
     })
   },
   rightColumnContainer: {
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       padding: theme.spacing.unit
     }
   },
@@ -74,9 +74,6 @@ class HasilTesPage extends Component {
       classes
     } = this.props;
 
-    //console.log('resultLoading? ' + resultLoading);
-    console.log('drawerWidth: ' + drawerWidth);
-
     if (!resultLoading && newPlayer.result) {
       const mainType = PublicContents.findOne({ _id: newPlayer.result.type });
       const altType1 = PublicContents.findOne({
@@ -87,76 +84,71 @@ class HasilTesPage extends Component {
       });
 
       return (
-        <div>
-          <div className={classes.contentRoot}>
-            <Grid container spacing={16} justify="center">
-              {/* Main column*/}
-              <Grid
-                item
-                xs={12}
-                sm={10}
-                md={8}
-                lg={6}
-                className={classnames(classes.mainColumnContainer, {
-                  [classes.mainColumnContainerShift]: isDrawerOpen
-                })}
-              >
-                <Grid container spacing={0}>
-                  <MainResultCard content={mainType} />
-                  <Grid item xs={12}>
-                    <Typography
-                      type="subheading"
-                      className={classes.bandingkanText}
-                    >
-                      Bandingkan dengan tipe kepribadian lain
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Divider style={{ marginBottom: 16 }} />
-                  </Grid>
-                  <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    md={6}
-                    className={classes.altResultCardContainer}
+        <div className={classes.contentRoot}>
+          <Grid container spacing={16} justify="center">
+            {/* Main column*/}
+            <Grid
+              item
+              xs={12}
+              sm={10}
+              md={8}
+              lg={6}
+              className={classnames(classes.mainColumnContainer, {
+                [classes.mainColumnContainerShift]: isDrawerOpen
+              })}
+            >
+              <Grid container spacing={0}>
+                <MainResultCard content={mainType} />
+                <Grid item xs={12}>
+                  <Typography
+                    type="subheading"
+                    className={classes.bandingkanText}
                   >
-                    <AlternativeResultCard content={altType1} />
-                  </Grid>
-                  <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    md={6}
-                    className={classes.altResultCardContainer}
-                  >
-                    <AlternativeResultCard content={altType2} />
-                  </Grid>
+                    Bandingkan dengan tipe kepribadian lain
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Divider style={{ marginBottom: 16 }} />
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  sm={12}
+                  md={6}
+                  className={classes.altResultCardContainer}
+                >
+                  <AlternativeResultCard content={altType1} />
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  sm={12}
+                  md={6}
+                  className={classes.altResultCardContainer}
+                >
+                  <AlternativeResultCard content={altType2} />
                 </Grid>
               </Grid>
-              {/* Right column*/}
-              <Grid item xs={12} sm={10} md={3} lg={2}>
-                <div className={classes.rightColumnContainer}>
-                  <Grid container spacing={16} justify="center">
-                    <Grid item xs={12} sm={6} md={12}>
-                      <TestResultPanel
-                        result={newPlayer.result}
-                        playerName={newPlayer.name}
-                        personalityType={`${mainType.name} (${mainType._id})`}
-                        personalityColorType={mainType.type}
-                      />
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={12}>
-                      <TestProgressPanel
-                        percentage={100}
-                        name={newPlayer.name}
-                      />
-                    </Grid>
-                  </Grid>
-                </div>
-              </Grid>
             </Grid>
-          </div>
+            {/* Right column*/}
+            <Grid item xs={12} sm={10} md={3} lg={2}>
+              <div className={classes.rightColumnContainer}>
+                <Grid container spacing={16} justify="center">
+                  <Grid item xs={12} sm={6} md={12}>
+                    <TestResultPanel
+                      result={newPlayer.result}
+                      playerName={newPlayer.name}
+                      personalityType={`${mainType.name} (${mainType._id})`}
+                      personalityColorType={mainType.type}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6} md={12}>
+                    <TestProgressPanel percentage={100} name={newPlayer.name} />
+                  </Grid>
+                </Grid>
+              </div>
+            </Grid>
+          </Grid>
         </div>
       );
     }
