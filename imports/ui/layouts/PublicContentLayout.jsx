@@ -58,6 +58,7 @@ class PublicContentLayout extends Component {
   handleDrawerOpen() {
     const isDrawerOpen = !this.state.isDrawerOpen;
     this.setState({ isDrawerOpen });
+    Session.set({ isDrawerOpen });
   }
 
   render() {
@@ -84,8 +85,8 @@ class PublicContentLayout extends Component {
         <Switch>
           <Route
             path="/artikel/:id"
-            //component={PublicContentPageContainer}
-            component={props => (
+            // component={PublicContentPageContainer}
+            render={props => (
               <PublicContentPageContainer
                 isDrawerOpen={isDrawerOpen}
                 {...props}
