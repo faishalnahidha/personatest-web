@@ -38,7 +38,7 @@ const TesContainer = withTracker(({ match }) => {
         Meteor.call('newPlayers.updateResult', newPlayer._id, result);
       }
 
-      console.log('newPlayer: ' + JSON.stringify(newPlayer));
+      //console.log('newPlayer: ' + JSON.stringify(newPlayer));
       //console.log('result: ' + JSON.stringify(result));
       const { type, alternativeType1, alternativeType2 } = result;
 
@@ -49,10 +49,13 @@ const TesContainer = withTracker(({ match }) => {
         alternativeType2
       );
 
+      Session.set('newPlayerId', newPlayer._id);
+
       return {
         loading,
         newPlayerExists,
         newPlayer,
+        resultContentHandle,
         resultLoading: !resultContentHandle.ready(),
         resultContents: PublicContents.find({}).fetch(),
         isTestFinished
@@ -64,6 +67,7 @@ const TesContainer = withTracker(({ match }) => {
         loading,
         newPlayerExists,
         newPlayer,
+        questionsHandle,
         questionLoading: !questionsHandle.ready(),
         questions: Questions.find({}).fetch(),
         isTestFinished

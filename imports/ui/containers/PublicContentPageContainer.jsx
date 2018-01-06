@@ -6,8 +6,8 @@ import { PublicContents } from '../../api/public-contents.js';
 
 import PublicContentPage from '../pages/PublicContentPage.jsx';
 
-const PublicContentPageContainer = withTracker(({ match }) => {
-  const id = match.params.id.toUpperCase();
+const PublicContentPageContainer = withTracker(({ match, isDrawerOpen }) => {
+  const id = match.params.id.toString().toUpperCase();
   console.log('id: ' + id);
 
   const publicContentHandle = Meteor.subscribe('publicContents', id);
@@ -20,7 +20,7 @@ const PublicContentPageContainer = withTracker(({ match }) => {
     loading,
     publicContent,
     publicContentExists,
-    isDrawerOpen: Session.get('isDrawerOpen')
+    isDrawerOpen: isDrawerOpen
   };
 })(PublicContentPage);
 

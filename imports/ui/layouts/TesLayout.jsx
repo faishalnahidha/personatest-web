@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 import { Session } from 'meteor/session';
 import { Route, Redirect, Switch } from 'react-router-dom';
@@ -45,7 +46,9 @@ class TesLayout extends Component {
 
     this.state = {
       score: 0,
-      isDrawerOpen: false
+      isDrawerOpen: Session.get('isDrawerOpen')
+        ? Session.get('isDrawerOpen')
+        : false
     };
 
     this.newPlayerInitialized = false;
@@ -70,6 +73,16 @@ class TesLayout extends Component {
     ) {
       const score = nextProps.newPlayer.score;
       this.setState({ score });
+    }
+  }
+
+  componentWillUnmount() {
+    Session.set('isDrawerOpen', this.state.isDrawerOpen);
+    if (this.props.resultContentHandle) {
+      this.props.resultContentHandle.stop();
+    }
+    if (this.props.questionHandle) {
+      this.props.questionHandle.stop();
     }
   }
 

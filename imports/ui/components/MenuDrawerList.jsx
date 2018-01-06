@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Session } from 'meteor/session';
 import { Link } from 'react-router-dom';
 
 import { withStyles } from 'material-ui/styles';
@@ -9,7 +10,8 @@ import ListSubheader from 'material-ui/List/ListSubheader';
 import Collapse from 'material-ui/transitions/Collapse';
 import Divider from 'material-ui/Divider';
 import HomeIcon from 'material-ui-icons/Home';
-import AssignmentIndIcon from 'material-ui-icons/AssignmentInd';
+import AssignmentIcon from 'material-ui-icons/Assignment';
+import AssignmentTurnedInIcon from 'material-ui-icons/AssignmentTurnedIn';
 import ExpandLessIcon from 'material-ui-icons/ExpandLess';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 
@@ -22,6 +24,9 @@ const styles = theme => ({
   },
   divider: {
     margin: '8px 0'
+  },
+  parentSubheading: {
+    backgroundColor: theme.palette.background.paper
   }
 });
 
@@ -43,9 +48,11 @@ class MenuDrawerList extends Component {
 
   render() {
     const { classes } = this.props;
+    const newPlayerId = Session.get('newPlayerId');
 
     return (
       <List className={classes.root}>
+        {/* List utama */}
         <ListItem button component={Link} to="/">
           <ListItemIcon>
             <HomeIcon />
@@ -54,13 +61,25 @@ class MenuDrawerList extends Component {
         </ListItem>
         <ListItem button component={Link} to="/mulai-tes">
           <ListItemIcon>
-            <AssignmentIndIcon />
+            <AssignmentIcon />
           </ListItemIcon>
-          <ListItemText inset primary="Mulai Tes" />
+          <ListItemText inset primary="Mulai Tes Baru" />
         </ListItem>
+        {newPlayerId ? (
+          <ListItem button component={Link} to={`/tes/${newPlayerId}`}>
+            <ListItemIcon>
+              <AssignmentTurnedInIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="Hasil Tes" />
+          </ListItem>
+        ) : (
+          ''
+        )}
         <Divider className={classes.divider} />
 
-        <ListSubheader>Artikel</ListSubheader>
+        <ListSubheader className={classes.parentSubheading}>
+          Artikel
+        </ListSubheader>
         <ListItem button onClick={this.handleClick('personaListOpen')}>
           <ListItemText primary="Persona" />
         </ListItem>

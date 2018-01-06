@@ -51,6 +51,7 @@ const styles = theme => ({
   paper: {
     position: 'relative',
     padding: 0,
+    paddingBottom: theme.spacing.unit * 2,
     borderRadius: 4,
     overflow: 'hidden'
   },

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
 import { PublicContents } from '../../api/public-contents.js';

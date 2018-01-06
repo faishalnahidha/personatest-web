@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 //import { findDOMNode } from 'react-dom';
 import Parser from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
@@ -204,7 +205,12 @@ class MainResultCard extends Component {
                   {/* <IconButton dense color="primary">
                     <Share />
                   </IconButton> */}
-                  <Button dense color="primary">
+                  <Button
+                    dense
+                    color="primary"
+                    component={Link}
+                    to={`/artikel/${content._id.toString().toLowerCase()}`}
+                  >
                     Baca Lebih Lanjut
                   </Button>
                 </Grid>
@@ -213,7 +219,7 @@ class MainResultCard extends Component {
             {/* <div dangerouslySetInnerHTML={{ __html: content.summary }} /> */}
           </Grid>
         </Grid>
-        <Tooltip id="tooltip-share" title="Share" placement="right">
+        <Tooltip id="tooltip-share" title="Bagikan" placement="right">
           <Button
             fab
             color="primary"

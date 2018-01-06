@@ -42,18 +42,22 @@ class PublicContentLayout extends Component {
 
     this.state = {
       score: 0,
-      isDrawerOpen: false
+      isDrawerOpen: Session.get('isDrawerOpen')
+        ? Session.get('isDrawerOpen')
+        : false
     };
 
     this.newPlayerInitialized = false;
     this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
+  }
+
+  componentWillUnmount() {
     Session.set('isDrawerOpen', this.state.isDrawerOpen);
   }
 
   handleDrawerOpen() {
     const isDrawerOpen = !this.state.isDrawerOpen;
     this.setState({ isDrawerOpen });
-    Session.set('isDrawerOpen', isDrawerOpen);
   }
 
   render() {
@@ -78,7 +82,16 @@ class PublicContentLayout extends Component {
           handleDrawerOpen={this.handleDrawerOpen}
         />
         <Switch>
-          <Route path="/artikel/:id" component={PublicContentPageContainer} />
+          <Route
+            path="/artikel/:id"
+            //component={PublicContentPageContainer}
+            component={props => (
+              <PublicContentPageContainer
+                isDrawerOpen={isDrawerOpen}
+                {...props}
+              />
+            )}
+          />
         </Switch>
         <Footer />
       </div>

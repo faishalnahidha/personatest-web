@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { findDOMNode } from 'react-dom';
+import Session from 'meteor/session';
 
 import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
@@ -103,11 +104,6 @@ class Header extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.score !== this.props.score) {
-      // console.log(
-      //   `thisPropsScore: ${this.props.score} | nextPropsScore: ${
-      //     nextProps.score
-      //   }`
-      // );
       const animateScore = anime({
         targets: '#animateScore',
         label: nextProps.score,

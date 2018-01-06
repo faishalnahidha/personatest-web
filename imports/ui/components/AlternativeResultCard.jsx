@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 //import { findDOMNode } from 'react-dom';
 import classnames from 'classnames';
 import Parser from 'html-react-parser';
@@ -95,7 +96,12 @@ class AlternativeResultCard extends Component {
           </Typography>
         </CardContent>
         <CardActions className={classes.action}>
-          <Button dense color="primary">
+          <Button
+            dense
+            color="primary"
+            component={Link}
+            to={`/artikel/${content._id}`}
+          >
             Baca
           </Button>
           <Button dense color="primary">
