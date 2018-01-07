@@ -81,7 +81,7 @@ class MenuDrawerList extends Component {
           Artikel
         </ListSubheader>
         <ListItem button onClick={this.handleClick('personaListOpen')}>
-          <ListItemText primary="Persona" />
+          <ListItemText primary="Pengenalan" />
         </ListItem>
         <Collapse
           component="li"
@@ -91,13 +91,15 @@ class MenuDrawerList extends Component {
         >
           <List disablePadding>
             <ListItem button className={classes.nestedList}>
-              <Typography>Pengenalan</Typography>
+              <Typography>
+                Mengenali <em>Passion</em>
+              </Typography>
             </ListItem>
             <ListItem button className={classes.nestedList}>
               <Typography>Sekilas Tentang Pengelompokan Kepribadian</Typography>
             </ListItem>
             <ListItem button className={classes.nestedList}>
-              <Typography>Huruf-Huruf Myers-Briggs</Typography>
+              <Typography>Pengelompokan Kepribadian Myers-Briggs</Typography>
             </ListItem>
             <ListItem button className={classes.nestedList}>
               <Typography>Kunjungan ke Perusahaan Persona</Typography>
@@ -115,16 +117,36 @@ class MenuDrawerList extends Component {
           unmountOnExit
         >
           <List disablePadding>
-            <ListItem button className={classes.nestedList}>
+            <ListItem
+              button
+              className={classes.nestedList}
+              component={Link}
+              to="/artikel/gold"
+            >
               <Typography>Gold [SJ]</Typography>
             </ListItem>
-            <ListItem button className={classes.nestedList}>
+            <ListItem
+              button
+              className={classes.nestedList}
+              component={Link}
+              to="/artikel/red"
+            >
               <Typography>Red [SP]</Typography>
             </ListItem>
-            <ListItem button className={classes.nestedList}>
+            <ListItem
+              button
+              className={classes.nestedList}
+              component={Link}
+              to="/artikel/blue"
+            >
               <Typography>Blue [NT]</Typography>
             </ListItem>
-            <ListItem button className={classes.nestedList}>
+            <ListItem
+              button
+              className={classes.nestedList}
+              component={Link}
+              to="/artikel/green"
+            >
               <Typography>Green [NF]</Typography>
             </ListItem>
           </List>

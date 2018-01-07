@@ -188,7 +188,7 @@ class MainResultCard extends Component {
                   {content.name.toUpperCase()}
                 </Typography>
                 <br />
-                {Parser(content.content.summary, {
+                {Parser(content.summary, {
                   replace: domNode => {
                     if (domNode.name === 'p') {
                       return (

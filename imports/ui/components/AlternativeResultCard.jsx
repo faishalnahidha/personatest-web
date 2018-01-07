@@ -121,7 +121,7 @@ class AlternativeResultCard extends Component {
         </CardActions>
         <Collapse in={this.state.isExpand} timeout="auto" unmountOnExit>
           <CardContent style={{ paddingBottom: 8 }}>
-            {Parser(content.content.summary, {
+            {Parser(content.summary, {
               replace: domNode => {
                 if (domNode.name === 'p') {
                   return (

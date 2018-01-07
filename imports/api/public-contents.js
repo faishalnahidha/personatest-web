@@ -26,7 +26,7 @@ if (Meteor.isServer) {
 
     /**
      * Hanya menampilkan field tertentu yaitu:
-     * _id, name, type, shortDescription, dan content.summary
+     * _id, name, type, shortDescription, dan summary
      */
     const options = {
       fields: {
@@ -34,7 +34,7 @@ if (Meteor.isServer) {
         name: 1,
         type: 1,
         shortDescription: 1,
-        'content.summary': 1
+        summary: 1
       }
     };
 

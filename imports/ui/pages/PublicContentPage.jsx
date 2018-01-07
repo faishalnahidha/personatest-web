@@ -10,6 +10,7 @@ import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 import { CircularProgress } from 'material-ui/Progress';
+import { grey } from 'material-ui/colors';
 
 import TestProgressPanel from '../components/TestProgressPanel.jsx';
 import TestResultPanel from '../components/TestResultPanel.jsx';
@@ -57,7 +58,8 @@ const styles = theme => ({
   },
   pictureDummy: {
     position: 'relative',
-    minHeight: 350
+    minHeight: 350,
+    marginBottom: 25
   },
   textContainer: {
     padding: theme.spacing.unit * 2,
@@ -66,8 +68,18 @@ const styles = theme => ({
       paddingRight: '10%'
     }
   },
+  shortDescription: {
+    color: grey[700],
+    fontSize: 21,
+    fontWeight: 300,
+    fontStyle: 'italic'
+  },
   orderedList: {
-    paddingLeft: 0
+    paddingLeft: 20
+  },
+  divider: {
+    maxWidth: '62%',
+    margin: '16px 0'
   }
 });
 
@@ -126,16 +138,30 @@ class PublicContentPage extends Component {
                     className={classes.pictureDummy}
                     style={{ backgroundColor: pictureBgColor }}
                   />
+                  {publicContent.shortDescription !== '' ? (
+                    <Grid item xs={12} className={classes.textContainer}>
+                      <Typography className={classes.shortDescription}>
+                        {publicContent.shortDescription}
+                      </Typography>
+                      <Divider className={classes.divider} />
+                    </Grid>
+                  ) : (
+                    ''
+                  )}
                   <Grid item xs={12} className={classes.textContainer}>
-                    <br />
-                  </Grid>
-                  <Grid item xs={12} className={classes.textContainer}>
-                    <Typography type="headline">
-                      Tentang {publicContent.name}
-                    </Typography>
-                    <br />
-                    {Parser(publicContent.content.summary, {
+                    {Parser(publicContent.content, {
                       replace: domNode => {
+                        if (domNode.name === 'h2') {
+                          return (
+                            <div>
+                              <Typography type="headline" component="h2">
+                                {domToReact(domNode.children)}
+                              </Typography>
+                              <br />
+                            </div>
+                          );
+                        }
+
                         if (domNode.name === 'p') {
                           return (
                             <Typography paragraph>
@@ -143,37 +169,19 @@ class PublicContentPage extends Component {
                             </Typography>
                           );
                         }
-                      }
-                    })}
-                    {Parser(publicContent.content.about, {
-                      replace: domNode => {
-                        if (domNode.name === 'p') {
+
+                        if (domNode.name === 'ol') {
                           return (
-                            <Typography paragraph>
-                              {domToReact(domNode.children)}
-                            </Typography>
-                          );
-                        } else if (domNode.name === 'li') {
-                          return (
-                            <Typography type="body1" gutterBottom>
-                              <li>{domToReact(domNode.children)}</li>
-                            </Typography>
+                            <ol className={classes.orderedList}>
+                              <Typography>
+                                {domToReact(domNode.children)}
+                              </Typography>
+                            </ol>
                           );
                         }
-                      }
-                    })}
-                  </Grid>
-                  <Grid item xs={12} className={classes.textContainer}>
-                    <Typography type="headline">Keseluruhan</Typography>
-                    <br />
-                    {Parser(publicContent.content.overall, {
-                      replace: domNode => {
-                        if (domNode.name === 'p') {
-                          return (
-                            <Typography paragraph>
-                              {domToReact(domNode.children)}
-                            </Typography>
-                          );
+
+                        if (domNode.name === 'hr') {
+                          return <Divider className={classes.divider} />;
                         }
                       }
                     })}
