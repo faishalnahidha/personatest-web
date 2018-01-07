@@ -30,6 +30,111 @@ const styles = theme => ({
   }
 });
 
+const pengenalanList = [
+  {
+    text: 'Mengenali Passion',
+    linkTo: '#1'
+  },
+  {
+    text: 'Sekilas Tentang Pengelompokan Kepribadian',
+    linkTo: '#2'
+  },
+  {
+    text: 'Pengelompokan Kepribadian Myers-Briggs',
+    linkTo: '#3'
+  },
+  {
+    text: 'Kunjungan ke Perusahaan Persona',
+    linkTo: '#4'
+  }
+];
+
+const warnaKepribadianList = [
+  {
+    text: 'Gold [SJ]',
+    linkTo: '/artikel/gold'
+  },
+  {
+    text: 'Red [SP]',
+    linkTo: '/artikel/red'
+  },
+  {
+    text: 'Blue [NT]',
+    linkTo: '/artikel/blue'
+  },
+  {
+    text: 'Green [NF]',
+    linkTo: '/artikel/green'
+  }
+];
+
+const tipeKepribadianList = [
+  {
+    text: 'The Supervisor (ESTJ)',
+    linkTo: '/artikel/estj'
+  },
+  {
+    text: 'The Inspector (ISTJ)',
+    linkTo: '/artikel/istj'
+  },
+  {
+    text: 'The Provider (ESFJ)',
+    linkTo: '/artikel/esfj'
+  },
+  {
+    text: 'The Protector (ISFJ)',
+    linkTo: '/artikel/isfj'
+  },
+  {
+    text: 'The Promoter (ESTP)',
+    linkTo: '/artikel/estp'
+  },
+  {
+    text: 'The Crafter (ISTP)',
+    linkTo: '/artikel/istp'
+  },
+  {
+    text: 'The Performer (ESFP)',
+    linkTo: '/artikel/esfp'
+  },
+  {
+    text: 'The Composer (ISFP)',
+    linkTo: '/artikel/isfp'
+  },
+  {
+    text: 'The Commander (ENTJ)',
+    linkTo: '/artikel/entj'
+  },
+  {
+    text: 'The Mastermind (INTJ)',
+    linkTo: '/artikel/intj'
+  },
+  {
+    text: 'The Inventor (ENTP)',
+    linkTo: '/artikel/entp'
+  },
+  {
+    text: 'The Thinker (INTP)',
+    linkTo: '/artikel/intp'
+  },
+  {
+    text: 'The Mentor (ENFJ)',
+    linkTo: '/artikel/enfj'
+  },
+  {
+    text: 'The Counselor (INFJ)',
+    linkTo: '/artikel/infj'
+  },
+  {
+    text: 'The Champion (ENFP)',
+    linkTo: '/artikel/enfp'
+  },
+  {
+    text: 'The Dreamer (INFP)',
+    linkTo: '/artikel/infp'
+  }
+];
+
 class MenuDrawerList extends Component {
   constructor(props) {
     super(props);
@@ -45,6 +150,29 @@ class MenuDrawerList extends Component {
     event.preventDefault();
     this.setState({ [name]: !this.state[name] });
   };
+
+  handleTap = () => {
+    console.log('tapped');
+    if (this.props.handleDrawerOpen) {
+      this.props.handleDrawerOpen();
+    }
+  };
+
+  mapSubList(list) {
+    return list.map(listItem => (
+      <div key={listItem.linkTo} ref="listItemContainer">
+        <ListItem
+          button
+          className={this.props.classes.nestedList}
+          component={Link}
+          to={listItem.linkTo}
+          onTouchEnd={this.handleTap}
+        >
+          <Typography>{listItem.text}</Typography>
+        </ListItem>
+      </div>
+    ));
+  }
 
   render() {
     const { classes } = this.props;
@@ -80,6 +208,7 @@ class MenuDrawerList extends Component {
         <ListSubheader className={classes.parentSubheading}>
           Artikel
         </ListSubheader>
+        {/* List Pengenalan */}
         <ListItem button onClick={this.handleClick('personaListOpen')}>
           <ListItemText primary="Pengenalan" />
         </ListItem>
@@ -89,24 +218,9 @@ class MenuDrawerList extends Component {
           timeout="auto"
           unmountOnExit
         >
-          <List disablePadding>
-            <ListItem button className={classes.nestedList}>
-              <Typography>
-                Mengenali <em>Passion</em>
-              </Typography>
-            </ListItem>
-            <ListItem button className={classes.nestedList}>
-              <Typography>Sekilas Tentang Pengelompokan Kepribadian</Typography>
-            </ListItem>
-            <ListItem button className={classes.nestedList}>
-              <Typography>Pengelompokan Kepribadian Myers-Briggs</Typography>
-            </ListItem>
-            <ListItem button className={classes.nestedList}>
-              <Typography>Kunjungan ke Perusahaan Persona</Typography>
-            </ListItem>
-          </List>
+          <List disablePadding>{this.mapSubList(pengenalanList)}</List>
         </Collapse>
-
+        {/* List Warna Kepribadian */}
         <ListItem button onClick={this.handleClick('warnaListOpen')}>
           <ListItemText primary="Warna Kepribadian" />
         </ListItem>
@@ -116,42 +230,9 @@ class MenuDrawerList extends Component {
           timeout="auto"
           unmountOnExit
         >
-          <List disablePadding>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/gold"
-            >
-              <Typography>Gold [SJ]</Typography>
-            </ListItem>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/red"
-            >
-              <Typography>Red [SP]</Typography>
-            </ListItem>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/blue"
-            >
-              <Typography>Blue [NT]</Typography>
-            </ListItem>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/green"
-            >
-              <Typography>Green [NF]</Typography>
-            </ListItem>
-          </List>
+          <List disablePadding>{this.mapSubList(warnaKepribadianList)}</List>
         </Collapse>
-
+        {/* List Tipe Kepribadian */}
         <ListItem button onClick={this.handleClick('tipeListOpen')}>
           <ListItemText primary="Tipe Kepribadian" />
           {/* {this.state.tipeListOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />} */}
@@ -162,152 +243,15 @@ class MenuDrawerList extends Component {
           timeout="auto"
           unmountOnExit
         >
-          <List disablePadding>
-            <ListSubheader className={classes.nestedList}>
-              Gold [SJ]
-            </ListSubheader>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/estj"
-            >
-              <Typography>The Supervisor (ESTJ)</Typography>
-            </ListItem>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/istj"
-            >
-              <Typography>The Inspector (ISTJ)</Typography>
-            </ListItem>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/esfj"
-            >
-              <Typography>The Provider (ESFJ)</Typography>
-            </ListItem>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/isfj"
-            >
-              <Typography>The Protector (ISFJ)</Typography>
-            </ListItem>
-            <ListSubheader className={classes.nestedList}>
-              Red [SP]
-            </ListSubheader>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/estp"
-            >
-              <Typography>The Promoter (ESTP)</Typography>
-            </ListItem>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/istp"
-            >
-              <Typography>The Crafter (ISTP)</Typography>
-            </ListItem>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/esfp"
-            >
-              <Typography>The Performer (ESFP)</Typography>
-            </ListItem>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/isfp"
-            >
-              <Typography>The Composer (ISFP)</Typography>
-            </ListItem>
-            <ListSubheader className={classes.nestedList}>
-              Blue [NT]
-            </ListSubheader>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/entj"
-            >
-              <Typography>The Commander (ENTJ)</Typography>
-            </ListItem>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/intj"
-            >
-              <Typography>The Mastermind (INTJ)</Typography>
-            </ListItem>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/entp"
-            >
-              <Typography>The Inventor (ENTP)</Typography>
-            </ListItem>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/intp"
-            >
-              <Typography>The Thinker (INTP)</Typography>
-            </ListItem>
-            <ListSubheader className={classes.nestedList}>
-              Green [NF]
-            </ListSubheader>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/enfj"
-            >
-              <Typography>The Mentor (ENFJ)</Typography>
-            </ListItem>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/infj"
-            >
-              <Typography>The Counselor (INFJ)</Typography>
-            </ListItem>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/enfp"
-            >
-              <Typography>The Champion (ENFP)</Typography>
-            </ListItem>
-            <ListItem
-              button
-              className={classes.nestedList}
-              component={Link}
-              to="/artikel/infp"
-            >
-              <Typography>The Dreamer (INFP)</Typography>
-            </ListItem>
-          </List>
+          <List disablePadding>{this.mapSubList(tipeKepribadianList)}</List>
         </Collapse>
       </List>
     );
   }
 }
+
+MenuDrawerList.propTypes = {
+  handleDrawerOpen: PropTypes.func
+};
 
 export default withStyles(styles)(MenuDrawerList);

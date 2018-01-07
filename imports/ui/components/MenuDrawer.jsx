@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import { withStyles } from 'material-ui/styles';
 import Hidden from 'material-ui/Hidden';
@@ -88,7 +87,7 @@ function MenuDrawer(props) {
           <Typography type="title">Persona Web</Typography>
         </div>
         <Divider />
-        <MenuDrawerList />
+        <MenuDrawerList handleDrawerOpen={handleDrawerOpen.bind(this)} />
       </div>
     </Drawer>
   );
