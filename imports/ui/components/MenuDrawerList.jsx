@@ -152,8 +152,8 @@ class MenuDrawerList extends Component {
   };
 
   handleTap = () => {
-    console.log('tapped');
     if (this.props.handleDrawerOpen) {
+      console.log('tapped');
       this.props.handleDrawerOpen();
     }
   };
@@ -166,7 +166,7 @@ class MenuDrawerList extends Component {
           className={this.props.classes.nestedList}
           component={Link}
           to={listItem.linkTo}
-          onTouchEnd={this.handleTap}
+          onClick={this.handleTap}
         >
           <Typography>{listItem.text}</Typography>
         </ListItem>

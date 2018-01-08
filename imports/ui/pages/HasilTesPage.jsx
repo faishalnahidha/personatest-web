@@ -55,7 +55,7 @@ const styles = theme => ({
     padding: theme.spacing.unit
   },
   bandingkanText: {
-    margin: '48px 8px 16px 8px'
+    margin: '128px 8px 16px 8px'
   }
 });
 

@@ -8,7 +8,7 @@
     "animejs": "^2.2.0",
     "classnames": "^2.2.5",
     "html-react-parser": "^0.4.1",
-    "material-ui": "^1.0.0-beta.26",
+    "material-ui": "^1.0.0-beta.27",
     "material-ui-icons": "^1.0.0-beta.17",
     "meteor-node-stubs": "^0.3.2",
     "normalize.css": "^7.0.0",

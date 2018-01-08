@@ -21,16 +21,22 @@ const styles = theme => ({
   paper: {
     position: 'relative',
     padding: 0,
-    borderRadius: 4,
-    overflow: 'hidden'
+    borderRadius: 4
   },
-  pictureDummy: {
+  pictureContainer: {
     position: 'relative',
+    display: 'flex',
+    justifyContent: 'center',
     [theme.breakpoints.up('md')]: {
-      minHeight: 450
+      minHeight: 450,
+      borderTopLeftRadius: 4,
+      borderBottomLeftRadius: 4
     },
     [theme.breakpoints.down('sm')]: {
-      minHeight: 350
+      minHeight: 350,
+      borderTopLeftRadius: 4,
+      borderTopRightRadius: 4,
+      overflow: 'hidden'
     }
   },
   textInsidePictureContainer: {
@@ -74,6 +80,24 @@ const styles = theme => ({
       marginTop: -28
     }
     //background: 'linear-gradient(45deg, #7474bf, #348ac7)'
+  },
+  image: {
+    position: 'absolute',
+    zIndex: 2,
+    [theme.breakpoints.up('xl')]: {
+      width: 400
+    },
+    [theme.breakpoints.down('lg')]: {
+      width: 380
+    },
+    [theme.breakpoints.down('sm')]: {
+      top: '-20%',
+      width: '70%'
+    },
+    [theme.breakpoints.down('xs')]: {
+      top: 0,
+      width: '100%'
+    }
   }
 });
 
@@ -138,9 +162,15 @@ class MainResultCard extends Component {
             xs={12}
             sm={12}
             md={7}
-            className={classes.pictureDummy}
+            className={classes.pictureContainer}
             style={{ backgroundColor: this.pictureBgColor }}
           >
+            {console.log(process.env.PUBLIC_URL)}
+            <img
+              src={`/img/illustration/${content.resultImage}.png`}
+              alt={content.resultImage}
+              className={classes.image}
+            />
             <div className={classes.textInsidePictureContainer}>
               <Typography type="display2" className={classes.textInsidePicture}>
                 {content._id}

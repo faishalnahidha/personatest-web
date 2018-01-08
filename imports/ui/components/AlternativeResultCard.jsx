@@ -22,7 +22,14 @@ const styles = theme => ({
     overflow: 'hidden'
   },
   media: {
-    height: 200
+    position: 'relative',
+    display: 'flex',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    height: 200,
+    [theme.breakpoints.up('xl')]: {
+      height: 250
+    }
   },
   action: {
     marginBottom: -4
@@ -41,6 +48,23 @@ const styles = theme => ({
   },
   flexGrow: {
     flex: '1 1 auto'
+  },
+  image: {
+    position: 'absolute',
+    top: '-33%',
+    zIndex: 2,
+    [theme.breakpoints.up('xl')]: {
+      width: '80%'
+    },
+    [theme.breakpoints.down('lg')]: {
+      width: '90%'
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '50%'
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: '100%'
+    }
   }
 });
 
@@ -78,15 +102,21 @@ class AlternativeResultCard extends Component {
 
     return (
       <Card className={classes.card}>
-        <CardMedia
+        {/* <CardMedia
           className={classes.media}
-          image="#"
-          style={{ backgroundColor: this.pictureBgColor }}
-        />
-        {/* <div
-          className={classes.media}
+          image={`/img/illustration/${content.resultImage}.png`}
           style={{ backgroundColor: this.pictureBgColor }}
         /> */}
+        <div
+          className={classes.media}
+          style={{ backgroundColor: this.pictureBgColor }}
+        >
+          <img
+            src={`/img/illustration/${content.resultImage}.png`}
+            alt={content.resultImage}
+            className={classes.image}
+          />
+        </div>
         <CardContent>
           <Typography type="headline" component="h2" gutterBottom>
             {content._id} | {content.name}
