@@ -55,7 +55,18 @@ const styles = theme => ({
     padding: theme.spacing.unit
   },
   bandingkanText: {
-    margin: '128px 8px 16px 8px'
+    marginBottom: 16,
+    marginLeft: 8,
+    marginRight: 8,
+    [theme.breakpoints.up('xl')]: {
+      marginTop: 200
+    },
+    [theme.breakpoints.down('lg')]: {
+      marginTop: 140
+    },
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 80
+    }
   }
 });
 

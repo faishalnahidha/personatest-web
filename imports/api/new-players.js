@@ -14,15 +14,13 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  'newPlayers.insert'(nameInput, ageInput, sexInput) {
+  'newPlayers.insert'(nameInput, ageInput) {
     check(nameInput, String);
     check(ageInput, String);
-    check(sexInput, String);
 
     const newPlayerId = NewPlayers.insert({
       name: nameInput,
       age: ageInput,
-      sex: sexInput,
       score: 100
     });
     return newPlayerId;

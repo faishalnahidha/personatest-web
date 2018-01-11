@@ -32,8 +32,8 @@ const styles = theme => ({
 
 const pengenalanList = [
   {
-    text: 'Mengenali Passion',
-    linkTo: '#1'
+    text: 'Mengenali Diri Sendiri',
+    linkTo: '/artikel/mengenali-diri-sendiri'
   },
   {
     text: 'Sekilas Tentang Pengelompokan Kepribadian',
@@ -140,7 +140,7 @@ class MenuDrawerList extends Component {
     super(props);
 
     this.state = {
-      personaListOpen: false,
+      pengenalanListOpen: false,
       tipeListOpen: false,
       warnaListOpen: false
     };
@@ -181,40 +181,48 @@ class MenuDrawerList extends Component {
     return (
       <List className={classes.root}>
         {/* List utama */}
-        <ListItem button component={Link} to="/">
+        <ListItem button component={Link} to="/" onClick={this.handleTap}>
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
           <ListItemText inset primary="Beranda" />
         </ListItem>
-        <ListItem button component={Link} to="/mulai-tes">
+        <ListItem
+          button
+          component={Link}
+          to="/mulai-tes"
+          onClick={this.handleTap}
+        >
           <ListItemIcon>
             <AssignmentIcon />
           </ListItemIcon>
           <ListItemText inset primary="Mulai Tes Baru" />
         </ListItem>
         {newPlayerId ? (
-          <ListItem button component={Link} to={`/tes/${newPlayerId}`}>
+          <ListItem
+            button
+            component={Link}
+            to={`/tes/${newPlayerId}`}
+            onClick={this.handleTap}
+          >
             <ListItemIcon>
               <AssignmentTurnedInIcon />
             </ListItemIcon>
             <ListItemText inset primary="Hasil Tes" />
           </ListItem>
-        ) : (
-          ''
-        )}
+        ) : null}
         <Divider className={classes.divider} />
 
         <ListSubheader className={classes.parentSubheading}>
           Artikel
         </ListSubheader>
         {/* List Pengenalan */}
-        <ListItem button onClick={this.handleClick('personaListOpen')}>
+        <ListItem button onClick={this.handleClick('pengenalanListOpen')}>
           <ListItemText primary="Pengenalan" />
         </ListItem>
         <Collapse
           component="li"
-          in={this.state.personaListOpen}
+          in={this.state.pengenalanListOpen}
           timeout="auto"
           unmountOnExit
         >

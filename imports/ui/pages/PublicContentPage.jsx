@@ -56,16 +56,22 @@ const styles = theme => ({
     borderRadius: 4,
     overflow: 'hidden'
   },
-  pictureDummy: {
-    position: 'relative',
-    minHeight: 350,
-    marginBottom: 25
+  pictureContainer: {
+    marginBottom: theme.spacing.unit
+  },
+  displayTextContainer: {
+    marginTop: theme.spacing.unit * 6,
+    padding: theme.spacing.unit * 2,
+    [theme.breakpoints.up('sm')]: {
+      paddingLeft: '15%',
+      paddingRight: '10%'
+    }
   },
   textContainer: {
     padding: theme.spacing.unit * 2,
     [theme.breakpoints.up('sm')]: {
       paddingLeft: '15%',
-      paddingRight: '10%'
+      paddingRight: '12%'
     }
   },
   shortDescription: {
@@ -80,6 +86,31 @@ const styles = theme => ({
   divider: {
     maxWidth: '62%',
     margin: '16px 0'
+  },
+  image: {
+    [theme.breakpoints.up('sm')]: {
+      width: '100%'
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: '130%',
+      marginLeft: -40
+    }
+  },
+  blockquote: {
+    margin: '32px 0',
+    padding: 1,
+    paddingLeft: theme.spacing.unit * 3,
+    borderLeft: '2px solid transparent',
+    borderImage: 'linear-gradient(to bottom right, #7474bf 0%, #348ac7 100%)',
+    borderImageSlice: 1
+    //background:
+    //  'linear-gradient(135deg, rgba(116,116,191,.1), rgba(52,138,199,.1))'
+  },
+  blockquoteText: {
+    color: grey[700],
+    fontSize: 15,
+    fontWeight: 300,
+    fontStyle: 'italic'
   }
 });
 
@@ -132,12 +163,24 @@ class PublicContentPage extends Component {
             >
               <Paper className={classes.paper}>
                 <Grid container spacing={0}>
-                  <Grid
-                    item
-                    xs={12}
-                    className={classes.pictureDummy}
-                    style={{ backgroundColor: pictureBgColor }}
-                  />
+                  {publicContent.contentMainImage !== null ? (
+                    <Grid item xs={12} className={classes.pictureContainer}>
+                      <img
+                        src={`/img/content-feature/${
+                          publicContent.contentMainImage
+                        }`}
+                        alt={`MBTI ${publicContent._id} ${publicContent.name}`}
+                        className={classes.image}
+                      />
+                    </Grid>
+                  ) : (
+                    <Grid item xs={12} className={classes.displayTextContainer}>
+                      <Typography type="display2" gutterBottom>
+                        {publicContent.name}
+                      </Typography>
+                    </Grid>
+                  )}
+
                   {publicContent.shortDescription !== '' ? (
                     <Grid item xs={12} className={classes.textContainer}>
                       <Typography className={classes.shortDescription}>
@@ -145,9 +188,7 @@ class PublicContentPage extends Component {
                       </Typography>
                       <Divider className={classes.divider} />
                     </Grid>
-                  ) : (
-                    ''
-                  )}
+                  ) : null}
                   <Grid item xs={12} className={classes.textContainer}>
                     {Parser(publicContent.content, {
                       replace: domNode => {
@@ -177,6 +218,16 @@ class PublicContentPage extends Component {
                                 {domToReact(domNode.children)}
                               </Typography>
                             </ol>
+                          );
+                        }
+
+                        if (domNode.name === 'blockquote') {
+                          return (
+                            <div className={classes.blockquote}>
+                              <Typography className={classes.blockquoteText}>
+                                {domToReact(domNode.children)}
+                              </Typography>
+                            </div>
                           );
                         }
 

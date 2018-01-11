@@ -34,8 +34,7 @@ if (Meteor.isServer) {
         name: 1,
         type: 1,
         shortDescription: 1,
-        summary: 1,
-        resultImage: 1
+        summary: 1
       }
     };
 

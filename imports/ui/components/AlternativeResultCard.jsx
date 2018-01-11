@@ -112,8 +112,8 @@ class AlternativeResultCard extends Component {
           style={{ backgroundColor: this.pictureBgColor }}
         >
           <img
-            src={`/img/illustration/${content.resultImage}.png`}
-            alt={content.resultImage}
+            src={`/img/illustration/mbti-illust-trans-bg-${content._id.toLowerCase()}.png`}
+            alt={`MBTI ${content._id} ${content.name}`}
             className={classes.image}
           />
         </div>

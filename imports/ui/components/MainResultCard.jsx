@@ -69,6 +69,7 @@ const styles = theme => ({
   },
   shareFloatingButton: {
     position: 'absolute',
+    background: 'linear-gradient(45deg, #7474bf, #348ac7)',
     [theme.breakpoints.up('md')]: {
       bottom: 24,
       left: '58.33%',
@@ -79,7 +80,6 @@ const styles = theme => ({
       right: 16,
       marginTop: -28
     }
-    //background: 'linear-gradient(45deg, #7474bf, #348ac7)'
   },
   image: {
     position: 'absolute',
@@ -165,10 +165,10 @@ class MainResultCard extends Component {
             className={classes.pictureContainer}
             style={{ backgroundColor: this.pictureBgColor }}
           >
-            {console.log(process.env.PUBLIC_URL)}
             <img
-              src={`/img/illustration/${content.resultImage}.png`}
-              alt={content.resultImage}
+              src={`/img/illustration/mbti-illust-trans-bg-${content._id.toLowerCase()}.png`}
+              //src="/img/illustration/mbti-illust-trans-bg-intp.png"
+              alt={`MBTI ${content._id} ${content.name}`}
               className={classes.image}
             />
             <div className={classes.textInsidePictureContainer}>
@@ -239,14 +239,13 @@ class MainResultCard extends Component {
                     dense
                     color="primary"
                     component={Link}
-                    to={`/artikel/${content._id.toString().toLowerCase()}`}
+                    to={`/artikel/${content._id.toLowerCase()}`}
                   >
                     Baca Lebih Lanjut
                   </Button>
                 </Grid>
               </Grid>
             </Grid>
-            {/* <div dangerouslySetInnerHTML={{ __html: content.summary }} /> */}
           </Grid>
         </Grid>
         <Tooltip id="tooltip-share" title="Bagikan" placement="right">
