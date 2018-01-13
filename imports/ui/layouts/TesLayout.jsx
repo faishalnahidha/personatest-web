@@ -18,7 +18,7 @@ const styles = theme => ({
   headerExpand: {
     position: 'absolute',
     width: '100%',
-    height: 200,
+    height: 256,
     top: 0,
     zIndex: -1,
     //background: '#7474bf'

@@ -15,7 +15,7 @@ const styles = theme => ({
   headerExpand: {
     position: 'absolute',
     width: '100%',
-    height: 200,
+    height: 256,
     top: 0,
     zIndex: -1,
     background: 'linear-gradient(90deg, #7474bf, #348ac7)',

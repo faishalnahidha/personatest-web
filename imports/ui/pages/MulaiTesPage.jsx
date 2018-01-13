@@ -14,14 +14,15 @@ import Divider from 'material-ui/Divider';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
-import Radio, { RadioGroup } from 'material-ui/Radio';
-import {
-  FormLabel,
-  FormControl,
-  FormControlLabel,
-  FormHelperText
-} from 'material-ui/Form';
-import { grey, blueGrey } from 'material-ui/colors';
+import IconButton from 'material-ui/IconButton';
+// import {
+//   FormLabel,
+//   FormControl,
+//   FormControlLabel,
+//   FormHelperText
+// } from 'material-ui/Form';
+import { grey } from 'material-ui/colors';
+import ArrowBack from 'material-ui-icons/ArrowBack';
 
 import { myPrimaryColor } from '../themes/primary-color-palette.js';
 
@@ -32,89 +33,122 @@ const styles = theme => ({
     width: '100%',
     height: '100vh',
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: grey[50]
-    //background: 'linear-gradient(90deg, #7474bf, #348ac7)'
+    alignItems: 'center'
+    //backgroundColor: myPrimaryColor[900]
+    // background: 'linear-gradient(240deg,  #7474bf, #348ac7, #44449B)'
+    // background:
+    //   'linear-gradient(90deg, rgba(116,116,191,1), rgba(52,138,199,1))'
+  },
+  background: {
+    zIndex: -10,
+    position: 'fixed',
+    width: '100%',
+    height: '100%',
+
+    backgroundPosition: 'center',
+    backgroundImage: 'url("/img/mulai-tes-bg-bw-kraken.jpg")',
+    backgroundAttachment: 'fixed',
+    [theme.breakpoints.up('md')]: {
+      backgroundSize: '100% auto'
+    },
+    [theme.breakpoints.down('sm')]: {
+      backgroundSize: 'auto 100%'
+    }
   },
   paper: {
     overflow: 'hidden',
-    borderRadius: 4
-    //background: 'linear-gradient(135deg, #7474bf, #348ac7)'
-    //backgroundColor: 'transparent'
+    borderRadius: 4,
+    backgroundColor: 'rgba(255,255,255,.75)'
   },
   paperContentContainer: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
-    [theme.breakpoints.up('md')]: {
-      padding: theme.spacing.unit * 6
-    },
-    [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing.unit * 4
-    }
-    // [theme.breakpoints.down('xs')]: {
-    //   padding: theme.spacing.unit * 2
-    // }
+    justifyContent: 'center'
   },
   formContainer: {
-    backgroundColor: 'rgba(255,255,255,.1)',
-    [theme.breakpoints.up('md')]: {
-      height: 480
+    justifyContent: 'center',
+
+    [theme.breakpoints.up('lg')]: {
+      height: 600,
+      margin: 'auto 96px'
+    },
+    [theme.breakpoints.down('md')]: {
+      height: 600,
+      margin: 'auto 80px'
     },
     [theme.breakpoints.down('sm')]: {
-      height: 'auto'
+      height: 'auto',
+      margin: theme.spacing.unit * 4
     }
   },
   petunjukContainer: {
-    //color: '#fff'
-    //backgroundColor: myPrimaryColor[500],
+    position: 'relative',
     [theme.breakpoints.up('md')]: {
-      height: 480
+      padding: theme.spacing.unit * 6,
+      height: 600
     },
     [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing.unit * 3,
       height: 'auto'
     },
-
-    // background:
-    //   'linear-gradient(90deg, rgba(116,116,191,1), rgba(52,138,199,1))'
-    // height: 480,
-    position: 'relative',
-    backgroundSize: 'auto',
-    backgroundPosition: 'center',
-    backgroundImage: 'url("/img/mulai-tes-bg.jpg")',
-    backgroundAttachment: 'fixed'
+    backgroundColor: 'rgba(255,255,255,1)'
+    // backgroundSize: 'auto',
+    // backgroundPosition: 'left',
+    // backgroundImage: 'url("/img/mulai-tes-bg-bw-kraken.jpg")',
+    // backgroundAttachment: 'fixed'
   },
-  petunjuk: {
+  petunjukContent: {
     zIndex: 2
   },
   overlay: {
     height: '100%',
     width: '100%',
+    // background:
+    //   'linear-gradient(30deg, rgba(116,116,191,1), rgba(52,138,199,.625))',
     background:
-      'linear-gradient(30deg, rgba(116,116,191,1), rgba(52,138,199,.625))',
+      'linear-gradient(30deg, rgba(255,255,255,.92), rgba(255,255,255,.66))',
     position: 'absolute',
     top: 0,
-    left: 0
-  },
-  divider: {
-    margin: '24px -32px 0'
-  },
-  radioButtonContainer: {
-    display: 'flex',
-    marginTop: theme.spacing.unit * 1,
-    justifyContent: 'center'
+    left: 0,
+    zIndex: -9
   },
   button: {
     width: '100%',
     marginTop: theme.spacing.unit * 4,
     background: 'linear-gradient(90deg, #7474bf, #348ac7)'
   },
-  subText: {
-    color: myPrimaryColor[400],
-    fontSize: 23
+  backButton: {
+    position: 'absolute',
+    top: 16,
+    left: 16
   },
-  whiteText: {
-    color: '#fff'
+  displayText: {
+    fontWeight: 300,
+    [theme.breakpoints.up('md')]: {
+      fontSize: 45
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 34
+    }
+  },
+  subText: {
+    fontWeight: 300,
+    fontSize: 24
+  },
+  purpleText: {
+    color: myPrimaryColor[500]
+  },
+  leftContentParagraph: {
+    fontWeight: 400,
+    color: grey[800],
+    [theme.breakpoints.up('md')]: {
+      marginTop: theme.spacing.unit * 2,
+      width: '66%'
+    },
+    [theme.breakpoints.down('sm')]: {
+      marginTop: theme.spacing.unit,
+      width: '100%'
+    }
   }
 });
 
@@ -125,7 +159,6 @@ class MulaiTesPage extends Component {
     super(props);
 
     this.state = {
-      name: '',
       age: '',
       //sex: null,
       id: null,
@@ -179,8 +212,10 @@ class MulaiTesPage extends Component {
 
     return (
       <div className={classes.root}>
+        <div className={classes.background} />
+        <div className={classes.overlay} />
         <Grid container spacing={0} justify={'center'} alignItems={'center'}>
-          <Grid item xs={11} sm={6} md={9} lg={7} xl={5}>
+          <Grid item xs={11} sm={6} md={11} lg={10} xl={7}>
             <Paper className={classes.paper}>
               <Grid container spacing={0}>
                 <Grid
@@ -193,17 +228,31 @@ class MulaiTesPage extends Component {
                     classes.petunjukContainer
                   )}
                 >
-                  <div className={classes.overlay} />
-                  <div className={classes.petunjuk}>
+                  {/* <div className={classes.overlay} /> */}
+                  <div className={classes.petunjukContent}>
+                    <Hidden smDown>
+                      <IconButton
+                        color="primary"
+                        className={classes.backButton}
+                        aria-label="Back to previous page "
+                      >
+                        <ArrowBack />
+                      </IconButton>
+                    </Hidden>
                     <Typography
-                      type="display1"
                       color="primary"
-                      className={classes.whiteText}
+                      className={classnames(
+                        classes.displayText,
+                        classes.purpleText
+                      )}
                     >
                       Selamat datang
                     </Typography>
                     <Typography
-                      className={classnames(classes.subText, classes.whiteText)}
+                      className={classnames(
+                        classes.subText,
+                        classes.purpleText
+                      )}
                       gutterBottom
                     >
                       di Persona Test
@@ -211,20 +260,23 @@ class MulaiTesPage extends Component {
                     <Hidden xsDown>
                       <Typography
                         type="body1"
-                        style={{ marginTop: 8 }}
                         gutterBottom
-                        className={classes.whiteText}
+                        className={classnames(classes.leftContentParagraph)}
                       >
-                        Pilih satu di antara dua pilihan jawaban pada kolom di
-                        bawah baris pertanyaan. Tidak ada jawaban benar ataupun
-                        salah pada pertanyaan yang disediakan.
-                      </Typography>
-                      <Typography type="body1" className={classes.whiteText}>
-                        <strong>Kejujuran anda </strong>dalam menjawab
-                        pertanyaan-­pertanyaan akan menentukan keakuratan dari
-                        hasil analisis kepribadian anda.
+                        <strong>Pilih satu </strong>di antara dua pilihan
+                        jawaban pada kolom di bawah baris pertanyaan. Tidak ada
+                        jawaban benar ataupun salah pada pertanyaan yang
+                        disediakan.
                       </Typography>
                     </Hidden>
+                    <Typography
+                      type="body1"
+                      className={classnames(classes.leftContentParagraph)}
+                    >
+                      <strong>Kejujuran anda </strong>dalam menjawab
+                      pertanyaan-pertanyaan akan menentukan keakuratan dari
+                      hasil analisis kepribadian anda.
+                    </Typography>
                   </div>
                 </Grid>
                 <Grid item xs={12} sm={12} md={5}>
@@ -244,8 +296,6 @@ class MulaiTesPage extends Component {
                         fullWidth
                         name="name"
                         label="Nama"
-                        value={this.state.name}
-                        onChange={this.handleChange}
                         margin="normal"
                       />
                       <TextField

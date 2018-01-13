@@ -21,10 +21,11 @@ import 'typeface-roboto';
 import '../stylesheets/transition.css';
 
 import { myTheme } from '../themes/theme.js';
-import HomePage from '../pages/HomePage.jsx';
 import TesContainer from '../containers/TesContainer.jsx';
 import PublicContentLayout from '../layouts/PublicContentLayout.jsx';
 import MulaiTesPage from '../pages/MulaiTesPage.jsx';
+import HomePage from '../pages/HomePage.jsx';
+import OtentikasiPage from '../pages/OtentikasiPage.jsx';
 
 // App component - represents the whole app
 class App extends Component {
@@ -45,6 +46,12 @@ class App extends Component {
               >
                 <Switch>
                   <Route exact path="/" component={HomePage} key="home" />
+                  <Route
+                    exact
+                    path="/masuk"
+                    component={OtentikasiPage}
+                    key="masuk"
+                  />
                   <Route
                     exact
                     path="/mulai-tes"
