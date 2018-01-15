@@ -4,13 +4,11 @@ import { Meteor } from 'meteor/meteor';
 import { Redirect } from 'react-router';
 import classnames from 'classnames';
 
-import { NewPlayers } from '../../api/new-players.js';
-
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import Hidden from 'material-ui/Hidden';
-import Divider from 'material-ui/Divider';
+// import Divider from 'material-ui/Divider';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
@@ -24,7 +22,8 @@ import IconButton from 'material-ui/IconButton';
 import { grey } from 'material-ui/colors';
 import ArrowBack from 'material-ui-icons/ArrowBack';
 
-import { myPrimaryColor } from '../themes/primary-color-palette.js';
+// import { NewPlayers } from '../../api/new-players';
+import { myPrimaryColor } from '../themes/primary-color-palette';
 
 const styles = theme => ({
   root: {
@@ -33,8 +32,8 @@ const styles = theme => ({
     width: '100%',
     height: '100vh',
     justifyContent: 'center',
-    alignItems: 'center'
-    //backgroundColor: myPrimaryColor[900]
+    alignItems: 'center',
+    // backgroundColor: myPrimaryColor[900]
     // background: 'linear-gradient(240deg,  #7474bf, #348ac7, #44449B)'
     // background:
     //   'linear-gradient(90deg, rgba(116,116,191,1), rgba(52,138,199,1))'
@@ -49,107 +48,106 @@ const styles = theme => ({
     backgroundImage: 'url("/img/mulai-tes-bg-bw-kraken.jpg")',
     backgroundAttachment: 'fixed',
     [theme.breakpoints.up('md')]: {
-      backgroundSize: '100% auto'
+      backgroundSize: '100% auto',
     },
     [theme.breakpoints.down('sm')]: {
-      backgroundSize: 'auto 100%'
-    }
+      backgroundSize: 'auto 100%',
+    },
   },
   paper: {
     overflow: 'hidden',
     borderRadius: 4,
-    backgroundColor: 'rgba(255,255,255,.75)'
+    backgroundColor: 'rgba(255,255,255,.75)',
   },
   paperContentContainer: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   formContainer: {
     justifyContent: 'center',
 
     [theme.breakpoints.up('lg')]: {
       height: 600,
-      margin: 'auto 96px'
+      margin: 'auto 96px',
     },
     [theme.breakpoints.down('md')]: {
       height: 600,
-      margin: 'auto 80px'
+      margin: 'auto 80px',
     },
     [theme.breakpoints.down('sm')]: {
       height: 'auto',
-      margin: theme.spacing.unit * 4
-    }
+      margin: theme.spacing.unit * 4,
+    },
   },
   petunjukContainer: {
     position: 'relative',
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing.unit * 6,
-      height: 600
+      height: 600,
     },
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing.unit * 3,
-      height: 'auto'
+      height: 'auto',
     },
-    backgroundColor: 'rgba(255,255,255,1)'
+    backgroundColor: 'rgba(255,255,255,1)',
     // backgroundSize: 'auto',
     // backgroundPosition: 'left',
     // backgroundImage: 'url("/img/mulai-tes-bg-bw-kraken.jpg")',
     // backgroundAttachment: 'fixed'
   },
   petunjukContent: {
-    zIndex: 2
+    zIndex: 2,
   },
   overlay: {
     height: '100%',
     width: '100%',
     // background:
     //   'linear-gradient(30deg, rgba(116,116,191,1), rgba(52,138,199,.625))',
-    background:
-      'linear-gradient(30deg, rgba(255,255,255,.92), rgba(255,255,255,.66))',
+    background: 'linear-gradient(30deg, rgba(255,255,255,.92), rgba(255,255,255,.66))',
     position: 'absolute',
     top: 0,
     left: 0,
-    zIndex: -9
+    zIndex: -9,
   },
   button: {
     width: '100%',
     marginTop: theme.spacing.unit * 4,
-    background: 'linear-gradient(90deg, #7474bf, #348ac7)'
+    background: 'linear-gradient(90deg, #7474bf, #348ac7)',
   },
   backButton: {
     position: 'absolute',
     top: 16,
-    left: 16
+    left: 16,
   },
   displayText: {
     fontWeight: 300,
     [theme.breakpoints.up('md')]: {
-      fontSize: 45
+      fontSize: 45,
     },
     [theme.breakpoints.down('sm')]: {
-      fontSize: 34
-    }
+      fontSize: 34,
+    },
   },
   subText: {
     fontWeight: 300,
-    fontSize: 24
+    fontSize: 24,
   },
   purpleText: {
-    color: myPrimaryColor[500]
+    color: myPrimaryColor[500],
   },
   leftContentParagraph: {
     fontWeight: 400,
     color: grey[800],
     [theme.breakpoints.up('md')]: {
       marginTop: theme.spacing.unit * 2,
-      width: '66%'
+      width: '66%',
     },
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing.unit,
-      width: '100%'
-    }
-  }
+      width: '100%',
+    },
+  },
 });
 
 // NewPlayerPage represents page for submitting username
@@ -160,9 +158,8 @@ class MulaiTesPage extends Component {
 
     this.state = {
       age: '',
-      //sex: null,
       id: null,
-      redirect: false
+      redirect: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -174,12 +171,12 @@ class MulaiTesPage extends Component {
      * name in this event is not state.name, but properties of
      * input form to identify which input
      */
-    const { value, name } = event.target,
-      isAgeInvalid = name == 'age' && value != '' && (value < 1 || value > 99);
+    const { value, name } = event.target;
+    const isAgeInvalid = name === 'age' && value !== '' && (value < 1 || value > 99);
 
     if (!isAgeInvalid) {
       this.setState({
-        [name]: value
+        [name]: value,
       });
     }
   }
@@ -187,18 +184,18 @@ class MulaiTesPage extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    const name = this.state.name.trim(),
-      age = this.state.age,
-      sex = this.state.sex,
-      id = Meteor.apply('newPlayers.insert', [name, age, sex], {
-        returnStubValue: true
-      });
+    // const name = ReactDOM.findDOMNode(this.refs.nameInput).value.trim();
+    const name = this.nameInput.value.trim();
+    const { age } = this.state;
+    const id = Meteor.apply('newPlayers.insert', [name, age], {
+      returnStubValue: true,
+    });
 
-    console.log('newPlayerId: ' + id);
+    console.log(`newPlayerId: ${id}`);
 
     this.setState({
-      id: id,
-      redirect: true
+      id,
+      redirect: true,
     });
   }
 
@@ -214,7 +211,7 @@ class MulaiTesPage extends Component {
       <div className={classes.root}>
         <div className={classes.background} />
         <div className={classes.overlay} />
-        <Grid container spacing={0} justify={'center'} alignItems={'center'}>
+        <Grid container spacing={0} justify="center" alignItems="center">
           <Grid item xs={11} sm={6} md={11} lg={10} xl={7}>
             <Paper className={classes.paper}>
               <Grid container spacing={0}>
@@ -223,10 +220,7 @@ class MulaiTesPage extends Component {
                   xs={12}
                   sm={12}
                   md={7}
-                  className={classnames(
-                    classes.paperContentContainer,
-                    classes.petunjukContainer
-                  )}
+                  className={classnames(classes.paperContentContainer, classes.petunjukContainer)}
                 >
                   {/* <div className={classes.overlay} /> */}
                   <div className={classes.petunjukContent}>
@@ -241,18 +235,12 @@ class MulaiTesPage extends Component {
                     </Hidden>
                     <Typography
                       color="primary"
-                      className={classnames(
-                        classes.displayText,
-                        classes.purpleText
-                      )}
+                      className={classnames(classes.displayText, classes.purpleText)}
                     >
                       Selamat datang
                     </Typography>
                     <Typography
-                      className={classnames(
-                        classes.subText,
-                        classes.purpleText
-                      )}
+                      className={classnames(classes.subText, classes.purpleText)}
                       gutterBottom
                     >
                       di Persona Test
@@ -263,29 +251,21 @@ class MulaiTesPage extends Component {
                         gutterBottom
                         className={classnames(classes.leftContentParagraph)}
                       >
-                        <strong>Pilih satu </strong>di antara dua pilihan
-                        jawaban pada kolom di bawah baris pertanyaan. Tidak ada
-                        jawaban benar ataupun salah pada pertanyaan yang
-                        disediakan.
+                        <strong>Pilih satu </strong>di antara dua pilihan jawaban pada kolom di
+                        bawah baris pertanyaan. Tidak ada jawaban benar ataupun salah pada
+                        pertanyaan yang disediakan.
                       </Typography>
                     </Hidden>
-                    <Typography
-                      type="body1"
-                      className={classnames(classes.leftContentParagraph)}
-                    >
-                      <strong>Kejujuran anda </strong>dalam menjawab
-                      pertanyaan-pertanyaan akan menentukan keakuratan dari
-                      hasil analisis kepribadian anda.
+                    <Typography type="body1" className={classnames(classes.leftContentParagraph)}>
+                      <strong>Kejujuran anda </strong>dalam menjawab pertanyaan-pertanyaan akan
+                      menentukan keakuratan dari hasil analisis kepribadian anda.
                     </Typography>
                   </div>
                 </Grid>
                 <Grid item xs={12} sm={12} md={5}>
                   <form
                     onSubmit={this.handleSubmit}
-                    className={classnames(
-                      classes.paperContentContainer,
-                      classes.formContainer
-                    )}
+                    className={classnames(classes.paperContentContainer, classes.formContainer)}
                   >
                     <div>
                       <Typography type="caption" gutterBottom>
@@ -294,9 +274,12 @@ class MulaiTesPage extends Component {
                       <TextField
                         required
                         fullWidth
-                        name="name"
+                        type="text"
                         label="Nama"
                         margin="normal"
+                        inputRef={(c) => {
+                          this.nameInput = c;
+                        }}
                       />
                       <TextField
                         required
@@ -332,7 +315,7 @@ class MulaiTesPage extends Component {
 }
 
 MulaiTesPage.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(MulaiTesPage);

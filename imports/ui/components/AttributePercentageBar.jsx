@@ -7,54 +7,45 @@ import Typography from 'material-ui/Typography';
 
 const styles = theme => ({
   root: {
-    width: '100%'
+    width: '100%',
   },
   lineContainer: {
     position: 'relative',
     color: '#fff',
-    fontSize: 12
+    fontSize: 12,
   },
   lineLabel: {
     position: 'absolute',
     top: '50%',
     marginTop: -7,
     left: 12,
-    right: 12
+    right: 12,
   },
   labelContainer: {
     marginBottom: 16,
     paddingLeft: 4,
-    paddingRight: 4
+    paddingRight: 4,
   },
   leftLabel: {
-    float: 'left'
+    float: 'left',
   },
   rightLabel: {
-    float: 'right'
-  }
+    float: 'right',
+  },
 });
 
 class AttributePercentageBar extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   percentage() {
     const { leftPercent, rightPercent } = this.props;
     if (leftPercent >= rightPercent) {
       return leftPercent;
-    } else {
-      return rightPercent;
     }
+    return rightPercent;
   }
 
   render() {
     const {
-      classes,
-      leftPercent,
-      rightPercent,
-      leftAttribute,
-      rightAttribute
+      classes, leftPercent, rightPercent, leftAttribute, rightAttribute,
     } = this.props;
     return (
       <div className={classes.root}>
@@ -64,9 +55,7 @@ class AttributePercentageBar extends Component {
             strokeWidth="12"
             strokeColor="#7474bf"
             trailWidth="12"
-            style={
-              rightPercent > leftPercent ? { transform: 'rotate(180deg)' } : {}
-            }
+            style={rightPercent > leftPercent ? { transform: 'rotate(180deg)' } : {}}
           />
           <div className={classes.lineLabel}>
             <span style={{ float: 'left' }}>{`${leftPercent}%`}</span>
@@ -80,11 +69,7 @@ class AttributePercentageBar extends Component {
           <Typography type="caption" align="left" className={classes.leftLabel}>
             {leftAttribute}
           </Typography>
-          <Typography
-            type="caption"
-            align="right"
-            className={classes.rightLabel}
-          >
+          <Typography type="caption" align="right" className={classes.rightLabel}>
             {rightAttribute}
           </Typography>
         </div>
@@ -98,7 +83,7 @@ AttributePercentageBar.propTypes = {
   leftPercent: PropTypes.number.isRequired,
   rightPercent: PropTypes.number.isRequired,
   leftAttribute: PropTypes.string.isRequired,
-  rightAttribute: PropTypes.string.isRequired
+  rightAttribute: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(AttributePercentageBar);

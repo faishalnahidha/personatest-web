@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-//import { findDOMNode } from 'react-dom';
 import Parser from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
 
@@ -21,7 +20,7 @@ const styles = theme => ({
   paper: {
     position: 'relative',
     padding: 0,
-    borderRadius: 4
+    borderRadius: 4,
   },
   pictureContainer: {
     position: 'relative',
@@ -30,42 +29,42 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       minHeight: 450,
       borderTopLeftRadius: 4,
-      borderBottomLeftRadius: 4
+      borderBottomLeftRadius: 4,
     },
     [theme.breakpoints.down('sm')]: {
       minHeight: 350,
       borderTopLeftRadius: 4,
       borderTopRightRadius: 4,
-      overflow: 'hidden'
-    }
+      overflow: 'hidden',
+    },
   },
   textInsidePictureContainer: {
     position: 'absolute',
     [theme.breakpoints.up('md')]: {
       top: 20,
       right: 16,
-      textAlign: 'right'
+      textAlign: 'right',
     },
     [theme.breakpoints.down('sm')]: {
       top: 16,
       left: 16,
-      textAlign: 'left'
-    }
+      textAlign: 'left',
+    },
   },
   textInsidePicture: {
-    color: '#FFF'
+    color: '#FFF',
   },
   textContainer: {
-    padding: theme.spacing.unit * 2
+    padding: theme.spacing.unit * 2,
   },
   buttonContainer: {
     padding: theme.spacing.unit * 1,
     [theme.breakpoints.up('md')]: {
-      justifyContent: 'flex-end'
+      justifyContent: 'flex-end',
     },
     [theme.breakpoints.down('sm')]: {
-      justifyContent: 'flex-start'
-    }
+      justifyContent: 'flex-start',
+    },
   },
   shareFloatingButton: {
     position: 'absolute',
@@ -73,32 +72,32 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       bottom: 24,
       left: '58.33%',
-      marginLeft: -28
+      marginLeft: -28,
     },
     [theme.breakpoints.down('sm')]: {
       top: 350,
       right: 16,
-      marginTop: -28
-    }
+      marginTop: -28,
+    },
   },
   image: {
     position: 'absolute',
     zIndex: 2,
     [theme.breakpoints.up('xl')]: {
-      width: 400
+      width: 400,
     },
     [theme.breakpoints.down('lg')]: {
-      width: 380
+      width: 380,
     },
     [theme.breakpoints.down('sm')]: {
       top: '-20%',
-      width: '70%'
+      width: '70%',
     },
     [theme.breakpoints.down('xs')]: {
       top: 0,
-      width: '100%'
-    }
-  }
+      width: '100%',
+    },
+  },
 });
 
 class MainResultCard extends Component {
@@ -107,7 +106,7 @@ class MainResultCard extends Component {
 
     this.attribute = (() => {
       const letterType = this.props.content._id;
-      let attribute = [];
+      const attribute = [];
 
       if (letterType.charAt(0) === 'E') {
         attribute.push('Extroverted');
@@ -145,9 +144,8 @@ class MainResultCard extends Component {
         return personalityColor.red;
       } else if (type === 'NT') {
         return personalityColor.blue;
-      } else {
-        return personalityColor.green;
       }
+      return personalityColor.green;
     })();
   }
 
@@ -167,7 +165,7 @@ class MainResultCard extends Component {
           >
             <img
               src={`/img/illustration/mbti-illust-trans-bg-${content._id.toLowerCase()}.png`}
-              //src="/img/illustration/mbti-illust-trans-bg-intp.png"
+              // src="/img/illustration/mbti-illust-trans-bg-intp.png"
               alt={`MBTI ${content._id} ${content.name}`}
               className={classes.image}
             />
@@ -183,33 +181,19 @@ class MainResultCard extends Component {
               >
                 {this.attribute[0]}
               </Typography>
-              <Typography
-                type="subheading"
-                className={classes.textInsidePicture}
-              >
+              <Typography type="subheading" className={classes.textInsidePicture}>
                 {this.attribute[1]}
               </Typography>
-              <Typography
-                type="subheading"
-                className={classes.textInsidePicture}
-              >
+              <Typography type="subheading" className={classes.textInsidePicture}>
                 {this.attribute[2]}
               </Typography>
-              <Typography
-                type="subheading"
-                className={classes.textInsidePicture}
-              >
+              <Typography type="subheading" className={classes.textInsidePicture}>
                 {this.attribute[3]}
               </Typography>
             </div>
           </Grid>
           <Grid item xs={12} sm={12} md={5}>
-            <Grid
-              container
-              alignContent="space-between"
-              spacing={0}
-              style={{ height: '100%' }}
-            >
+            <Grid container alignContent="space-between" spacing={0} style={{ height: '100%' }}>
               <Grid item xs={12} className={classes.textContainer}>
                 <Typography type="caption" gutterBottom>
                   Tipe kepribadian Anda:
@@ -219,15 +203,12 @@ class MainResultCard extends Component {
                 </Typography>
                 <br />
                 {Parser(content.summary, {
-                  replace: domNode => {
+                  replace: (domNode) => {
                     if (domNode.name === 'p') {
-                      return (
-                        <Typography paragraph>
-                          {domToReact(domNode.children)}
-                        </Typography>
-                      );
+                      return <Typography paragraph>{domToReact(domNode.children)}</Typography>;
                     }
-                  }
+                    return null;
+                  },
                 })}
               </Grid>
               <Grid item xs={12}>
@@ -249,12 +230,7 @@ class MainResultCard extends Component {
           </Grid>
         </Grid>
         <Tooltip id="tooltip-share" title="Bagikan" placement="right">
-          <Button
-            fab
-            color="primary"
-            aria-label="share"
-            className={classes.shareFloatingButton}
-          >
+          <Button fab color="primary" aria-label="share" className={classes.shareFloatingButton}>
             <Share />
           </Button>
         </Tooltip>
@@ -265,6 +241,6 @@ class MainResultCard extends Component {
 
 MainResultCard.propTypes = {
   classes: PropTypes.object.isRequired,
-  content: PropTypes.object.isRequired
+  content: PropTypes.object.isRequired,
 };
 export default withStyles(styles)(MainResultCard);

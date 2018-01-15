@@ -12,127 +12,127 @@ import Divider from 'material-ui/Divider';
 import HomeIcon from 'material-ui-icons/Home';
 import AssignmentIcon from 'material-ui-icons/Assignment';
 import AssignmentTurnedInIcon from 'material-ui-icons/AssignmentTurnedIn';
-import ExpandLessIcon from 'material-ui-icons/ExpandLess';
-import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
+// import ExpandLessIcon from 'material-ui-icons/ExpandLess';
+// import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 
 const styles = theme => ({
   root: {
-    width: '100%'
+    width: '100%',
   },
   nestedList: {
-    paddingLeft: theme.spacing.unit * 4
+    paddingLeft: theme.spacing.unit * 4,
   },
   divider: {
-    margin: '8px 0'
+    margin: '8px 0',
   },
   parentSubheading: {
-    backgroundColor: theme.palette.background.paper
-  }
+    backgroundColor: theme.palette.background.paper,
+  },
 });
 
 const pengenalanList = [
   {
     text: 'Mengenali Diri Sendiri',
-    linkTo: '/artikel/mengenali-diri-sendiri'
+    linkTo: '/artikel/mengenali-diri-sendiri',
   },
   {
     text: 'Sekilas Tentang Pengelompokan Kepribadian',
-    linkTo: '#2'
+    linkTo: '#2',
   },
   {
     text: 'Pengelompokan Kepribadian Myers-Briggs',
-    linkTo: '#3'
+    linkTo: '#3',
   },
   {
     text: 'Kunjungan ke Perusahaan Persona',
-    linkTo: '#4'
-  }
+    linkTo: '#4',
+  },
 ];
 
 const warnaKepribadianList = [
   {
     text: 'Gold [SJ]',
-    linkTo: '/artikel/gold'
+    linkTo: '/artikel/gold',
   },
   {
     text: 'Red [SP]',
-    linkTo: '/artikel/red'
+    linkTo: '/artikel/red',
   },
   {
     text: 'Blue [NT]',
-    linkTo: '/artikel/blue'
+    linkTo: '/artikel/blue',
   },
   {
     text: 'Green [NF]',
-    linkTo: '/artikel/green'
-  }
+    linkTo: '/artikel/green',
+  },
 ];
 
 const tipeKepribadianList = [
   {
     text: 'The Supervisor (ESTJ)',
-    linkTo: '/artikel/estj'
+    linkTo: '/artikel/estj',
   },
   {
     text: 'The Inspector (ISTJ)',
-    linkTo: '/artikel/istj'
+    linkTo: '/artikel/istj',
   },
   {
     text: 'The Provider (ESFJ)',
-    linkTo: '/artikel/esfj'
+    linkTo: '/artikel/esfj',
   },
   {
     text: 'The Protector (ISFJ)',
-    linkTo: '/artikel/isfj'
+    linkTo: '/artikel/isfj',
   },
   {
     text: 'The Promoter (ESTP)',
-    linkTo: '/artikel/estp'
+    linkTo: '/artikel/estp',
   },
   {
     text: 'The Crafter (ISTP)',
-    linkTo: '/artikel/istp'
+    linkTo: '/artikel/istp',
   },
   {
     text: 'The Performer (ESFP)',
-    linkTo: '/artikel/esfp'
+    linkTo: '/artikel/esfp',
   },
   {
     text: 'The Composer (ISFP)',
-    linkTo: '/artikel/isfp'
+    linkTo: '/artikel/isfp',
   },
   {
     text: 'The Commander (ENTJ)',
-    linkTo: '/artikel/entj'
+    linkTo: '/artikel/entj',
   },
   {
     text: 'The Mastermind (INTJ)',
-    linkTo: '/artikel/intj'
+    linkTo: '/artikel/intj',
   },
   {
     text: 'The Inventor (ENTP)',
-    linkTo: '/artikel/entp'
+    linkTo: '/artikel/entp',
   },
   {
     text: 'The Thinker (INTP)',
-    linkTo: '/artikel/intp'
+    linkTo: '/artikel/intp',
   },
   {
     text: 'The Mentor (ENFJ)',
-    linkTo: '/artikel/enfj'
+    linkTo: '/artikel/enfj',
   },
   {
     text: 'The Counselor (INFJ)',
-    linkTo: '/artikel/infj'
+    linkTo: '/artikel/infj',
   },
   {
     text: 'The Champion (ENFP)',
-    linkTo: '/artikel/enfp'
+    linkTo: '/artikel/enfp',
   },
   {
     text: 'The Dreamer (INFP)',
-    linkTo: '/artikel/infp'
-  }
+    linkTo: '/artikel/infp',
+  },
 ];
 
 class MenuDrawerList extends Component {
@@ -142,25 +142,25 @@ class MenuDrawerList extends Component {
     this.state = {
       pengenalanListOpen: false,
       tipeListOpen: false,
-      warnaListOpen: false
+      warnaListOpen: false,
     };
   }
 
-  handleClick = name => event => {
+  handleClick = name => (event) => {
     event.preventDefault();
     this.setState({ [name]: !this.state[name] });
   };
 
   handleTap = () => {
-    if (this.props.handleDrawerOpen) {
+    if (this.props.handleDrawerClose) {
       console.log('tapped');
-      this.props.handleDrawerOpen();
+      this.props.handleDrawerClose();
     }
   };
 
   mapSubList(list) {
     return list.map(listItem => (
-      <div key={listItem.linkTo} ref="listItemContainer">
+      <div key={listItem.linkTo}>
         <ListItem
           button
           className={this.props.classes.nestedList}
@@ -187,24 +187,14 @@ class MenuDrawerList extends Component {
           </ListItemIcon>
           <ListItemText inset primary="Beranda" />
         </ListItem>
-        <ListItem
-          button
-          component={Link}
-          to="/mulai-tes"
-          onClick={this.handleTap}
-        >
+        <ListItem button component={Link} to="/mulai-tes" onClick={this.handleTap}>
           <ListItemIcon>
             <AssignmentIcon />
           </ListItemIcon>
           <ListItemText inset primary="Mulai Tes Baru" />
         </ListItem>
         {newPlayerId ? (
-          <ListItem
-            button
-            component={Link}
-            to={`/tes/${newPlayerId}`}
-            onClick={this.handleTap}
-          >
+          <ListItem button component={Link} to={`/tes/${newPlayerId}`} onClick={this.handleTap}>
             <ListItemIcon>
               <AssignmentTurnedInIcon />
             </ListItemIcon>
@@ -213,31 +203,19 @@ class MenuDrawerList extends Component {
         ) : null}
         <Divider className={classes.divider} />
 
-        <ListSubheader className={classes.parentSubheading}>
-          Artikel
-        </ListSubheader>
+        <ListSubheader className={classes.parentSubheading}>Artikel</ListSubheader>
         {/* List Pengenalan */}
         <ListItem button onClick={this.handleClick('pengenalanListOpen')}>
           <ListItemText primary="Pengenalan" />
         </ListItem>
-        <Collapse
-          component="li"
-          in={this.state.pengenalanListOpen}
-          timeout="auto"
-          unmountOnExit
-        >
+        <Collapse component="li" in={this.state.pengenalanListOpen} timeout="auto" unmountOnExit>
           <List disablePadding>{this.mapSubList(pengenalanList)}</List>
         </Collapse>
         {/* List Warna Kepribadian */}
         <ListItem button onClick={this.handleClick('warnaListOpen')}>
           <ListItemText primary="Warna Kepribadian" />
         </ListItem>
-        <Collapse
-          component="li"
-          in={this.state.warnaListOpen}
-          timeout="auto"
-          unmountOnExit
-        >
+        <Collapse component="li" in={this.state.warnaListOpen} timeout="auto" unmountOnExit>
           <List disablePadding>{this.mapSubList(warnaKepribadianList)}</List>
         </Collapse>
         {/* List Tipe Kepribadian */}
@@ -245,12 +223,7 @@ class MenuDrawerList extends Component {
           <ListItemText primary="Tipe Kepribadian" />
           {/* {this.state.tipeListOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />} */}
         </ListItem>
-        <Collapse
-          component="li"
-          in={this.state.tipeListOpen}
-          timeout="auto"
-          unmountOnExit
-        >
+        <Collapse component="li" in={this.state.tipeListOpen} timeout="auto" unmountOnExit>
           <List disablePadding>{this.mapSubList(tipeKepribadianList)}</List>
         </Collapse>
       </List>
@@ -259,7 +232,8 @@ class MenuDrawerList extends Component {
 }
 
 MenuDrawerList.propTypes = {
-  handleDrawerOpen: PropTypes.func
+  classes: PropTypes.object.isRequired,
+  handleDrawerClose: PropTypes.func,
 };
 
 export default withStyles(styles)(MenuDrawerList);

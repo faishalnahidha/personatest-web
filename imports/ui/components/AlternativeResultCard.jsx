@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-//import { findDOMNode } from 'react-dom';
+// import { findDOMNode } from 'react-dom';
 import classnames from 'classnames';
 import Parser from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
@@ -19,7 +19,7 @@ import { personalityColor } from '../themes/personality-color.js';
 const styles = theme => ({
   card: {
     borderRadius: 4,
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   media: {
     position: 'relative',
@@ -28,44 +28,44 @@ const styles = theme => ({
     overflow: 'hidden',
     height: 200,
     [theme.breakpoints.up('xl')]: {
-      height: 250
-    }
+      height: 250,
+    },
   },
   action: {
-    marginBottom: -4
+    marginBottom: -4,
   },
   greyText: {
-    color: 'rgba(0,0,0,0.54)'
+    color: 'rgba(0,0,0,0.54)',
   },
   expandButton: {
     transform: 'rotate(0deg)',
     transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest
-    })
+      duration: theme.transitions.duration.shortest,
+    }),
   },
   expandButtonOpen: {
-    transform: 'rotate(180deg)'
+    transform: 'rotate(180deg)',
   },
   flexGrow: {
-    flex: '1 1 auto'
+    flex: '1 1 auto',
   },
   image: {
     position: 'absolute',
     top: '-33%',
     zIndex: 2,
     [theme.breakpoints.up('xl')]: {
-      width: '80%'
+      width: '80%',
     },
     [theme.breakpoints.down('lg')]: {
-      width: '90%'
+      width: '90%',
     },
     [theme.breakpoints.down('sm')]: {
-      width: '50%'
+      width: '50%',
     },
     [theme.breakpoints.down('xs')]: {
-      width: '100%'
-    }
-  }
+      width: '100%',
+    },
+  },
 });
 
 class AlternativeResultCard extends Component {
@@ -73,7 +73,7 @@ class AlternativeResultCard extends Component {
     super(props);
 
     this.state = {
-      isExpand: false
+      isExpand: false,
     };
 
     this.pictureBgColor = (() => {
@@ -81,13 +81,16 @@ class AlternativeResultCard extends Component {
 
       if (type === 'SJ') {
         return personalityColor.gold;
-      } else if (type === 'SP') {
-        return personalityColor.red;
-      } else if (type === 'NT') {
-        return personalityColor.blue;
-      } else {
-        return personalityColor.green;
       }
+
+      if (type === 'SP') {
+        return personalityColor.red;
+      }
+
+      if (type === 'NT') {
+        return personalityColor.blue;
+      }
+      return personalityColor.green;
     })();
 
     this.handleExpandClick = this.handleExpandClick.bind(this);
@@ -107,10 +110,7 @@ class AlternativeResultCard extends Component {
           image={`/img/illustration/${content.resultImage}.png`}
           style={{ backgroundColor: this.pictureBgColor }}
         /> */}
-        <div
-          className={classes.media}
-          style={{ backgroundColor: this.pictureBgColor }}
-        >
+        <div className={classes.media} style={{ backgroundColor: this.pictureBgColor }}>
           <img
             src={`/img/illustration/mbti-illust-trans-bg-${content._id.toLowerCase()}.png`}
             alt={`MBTI ${content._id} ${content.name}`}
@@ -121,17 +121,10 @@ class AlternativeResultCard extends Component {
           <Typography type="headline" component="h2" gutterBottom>
             {content._id} | {content.name}
           </Typography>
-          <Typography className={classes.greyText}>
-            {content.shortDescription}
-          </Typography>
+          <Typography className={classes.greyText}>{content.shortDescription}</Typography>
         </CardContent>
         <CardActions className={classes.action}>
-          <Button
-            dense
-            color="primary"
-            component={Link}
-            to={`/artikel/${content._id}`}
-          >
+          <Button dense color="primary" component={Link} to={`/artikel/${content._id}`}>
             Baca
           </Button>
           <Button dense color="primary">
@@ -140,7 +133,7 @@ class AlternativeResultCard extends Component {
           <div className={classes.flexGrow} />
           <IconButton
             className={classnames(classes.expandButton, {
-              [classes.expandButtonOpen]: this.state.isExpand
+              [classes.expandButtonOpen]: this.state.isExpand,
             })}
             onClick={this.handleExpandClick}
             aria-expanded={this.state.isExpand}
@@ -152,15 +145,12 @@ class AlternativeResultCard extends Component {
         <Collapse in={this.state.isExpand} timeout="auto" unmountOnExit>
           <CardContent style={{ paddingBottom: 8 }}>
             {Parser(content.summary, {
-              replace: domNode => {
+              replace: (domNode) => {
                 if (domNode.name === 'p') {
-                  return (
-                    <Typography paragraph>
-                      {domToReact(domNode.children)}
-                    </Typography>
-                  );
+                  return <Typography paragraph>{domToReact(domNode.children)}</Typography>;
                 }
-              }
+                return null;
+              },
             })}
           </CardContent>
         </Collapse>
@@ -171,7 +161,7 @@ class AlternativeResultCard extends Component {
 
 AlternativeResultCard.propTypes = {
   classes: PropTypes.object.isRequired,
-  content: PropTypes.object.isRequired
+  content: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(AlternativeResultCard);

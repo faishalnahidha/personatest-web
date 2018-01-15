@@ -12,13 +12,17 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 2,
     backgroundColor: grey[300],
     width: '100%',
-    minHeight: 200
-  }
+    minHeight: 200,
+  },
 });
 
 function Footer(props) {
   const { classes } = props;
   return <div className={classes.footer} />;
 }
+
+Footer.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(Footer);

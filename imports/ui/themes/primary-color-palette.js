@@ -13,5 +13,5 @@ export const myPrimaryColor = {
   A200: '#bfbfff',
   A400: '#8c8cff',
   A700: '#7373ff',
-  contrastDefaultColor: 'light'
+  contrastDefaultColor: 'light',
 };

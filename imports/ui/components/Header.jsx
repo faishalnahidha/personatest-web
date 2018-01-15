@@ -22,26 +22,25 @@ import { drawerWidth } from '../components/MenuDrawer.jsx';
 
 const styles = theme => ({
   flex: {
-    flex: 1
+    flex: 1,
   },
   menuButton: {
     marginLeft: -12,
-    marginRight: 20
+    marginRight: 20,
   },
   hide: {
-    display: 'none'
+    display: 'none',
   },
   appBar: {
-    background:
-      'linear-gradient(90deg, rgba(116,116,191,1), rgba(52,138,199,1))',
+    background: 'linear-gradient(90deg, rgba(116,116,191,1), rgba(52,138,199,1))',
     transition: theme.transitions.create(['margin', 'width', 'box-shadow'], {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
+      duration: theme.transitions.duration.leavingScreen,
+    }),
   },
   appBarTop: {
-    //backgroundColor: 'transparent',
-    boxShadow: 'none'
+    // backgroundColor: 'transparent',
+    boxShadow: 'none',
   },
   appBarDown: {},
   appBarShift: {
@@ -50,9 +49,9 @@ const styles = theme => ({
       marginLeft: drawerWidth,
       transition: theme.transitions.create(['margin', 'width'], {
         easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen
-      })
-    }
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+    },
   },
   toolbar: {
     // [theme.breakpoints.up('md')]: {
@@ -64,25 +63,25 @@ const styles = theme => ({
   },
   avatar: {
     width: 32,
-    height: 32
+    height: 32,
   },
   chip: {
     height: 32,
     color: 'fff',
-    backgroundColor: 'rgba(255, 255, 255, 0.25)'
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
   },
   chipLabel: {
-    color: '#fff'
+    color: '#fff',
   },
   popoverPaper: {
-    minWidth: 200
+    minWidth: 200,
   },
   chipPopover: {
-    margin: theme.spacing.unit
+    margin: theme.spacing.unit,
   },
   linearProgress: {
-    top: 64
-  }
+    top: 64,
+  },
 });
 
 class Header extends Component {
@@ -91,12 +90,12 @@ class Header extends Component {
 
     this.state = {
       openChip: false,
-      isScroll: false
+      isScroll: false,
     };
   }
 
   componentDidMount() {
-    this.chipPopoverAchorEl = findDOMNode(this.refs.chip);
+    this.chipPopoverAchorEl = this.chip;
     document.addEventListener('scroll', () => {
       this.handleScroll();
     });
@@ -108,7 +107,7 @@ class Header extends Component {
         targets: '#animateScore',
         label: nextProps.score,
         round: 1,
-        easing: 'easeInOutExpo'
+        easing: 'easeInOutExpo',
       });
     }
   }
@@ -126,37 +125,6 @@ class Header extends Component {
     }
   }
 
-  renderRightIcon() {
-    const { newPlayerName, classes, secondaryAccent } = this.props;
-
-    if (newPlayerName == undefined) {
-      return;
-    } else if (newPlayerName === ' ') {
-      return <CircularProgress color="accent" size={32} />;
-    } else {
-      const avatarLetter = newPlayerName.charAt(0);
-
-      return (
-        <Chip
-          ref="chip"
-          id="animateScore"
-          className={classes.chip}
-          classes={{ label: classes.chipLabel }}
-          avatar={
-            <Avatar
-              className={classes.avatar}
-              style={{ backgroundColor: secondaryAccent }}
-            >
-              {avatarLetter}
-            </Avatar>
-          }
-          label={this.props.score}
-          onClick={() => this.setState({ openChip: true })}
-        />
-      );
-    }
-  }
-
   AvatarChipPopover = () => (
     <div>
       <Typography
@@ -168,44 +136,60 @@ class Header extends Component {
         {this.props.newPlayerName}
       </Typography>
       <Divider />
-      <Typography
-        type="body1"
-        align="center"
-        className={this.props.classes.chipPopover}
-      >
+      <Typography type="body1" align="center" className={this.props.classes.chipPopover}>
         Skor : {this.props.score}
       </Typography>
     </div>
   );
 
+  renderRightIcon() {
+    const { newPlayerName, classes, secondaryAccent } = this.props;
+
+    if (newPlayerName === undefined) {
+      return '';
+    } else if (newPlayerName === ' ') {
+      return <CircularProgress color="accent" size={32} />;
+    }
+    const avatarLetter = newPlayerName.charAt(0);
+
+    return (
+      <Chip
+        ref={(node) => {
+          this.chip = node;
+        }}
+        id="animateScore"
+        className={classes.chip}
+        classes={{ label: classes.chipLabel }}
+        avatar={
+          <Avatar className={classes.avatar} style={{ backgroundColor: secondaryAccent }}>
+            {avatarLetter}
+          </Avatar>
+        }
+        label={this.props.score}
+        onClick={() => this.setState({ openChip: true })}
+      />
+    );
+  }
+
   render() {
     const {
-      classes,
-      headerTitle,
-      newPlayerName,
-      score,
-      secondaryAccent,
-      isDrawerOpen,
-      handleDrawerOpen
+      classes, headerTitle, isDrawerOpen, handleDrawerOpen,
     } = this.props;
     const { isScroll } = this.state;
 
-    const avatarLetter = newPlayerName ? newPlayerName.charAt(0) : ' ';
+    // const avatarLetter = newPlayerName ? newPlayerName.charAt(0) : ' ';
 
     return (
       <AppBar
         className={classnames(classes.appBar, {
           [classes.appBarTop]: !isScroll,
           [classes.appBarDown]: isScroll,
-          [classes.appBarShift]: isDrawerOpen
+          [classes.appBarShift]: isDrawerOpen,
         })}
       >
         <Toolbar className={classes.toolbar}>
           <IconButton
-            className={classnames(
-              classes.menuButton,
-              isDrawerOpen && classes.hide
-            )}
+            className={classnames(classes.menuButton, isDrawerOpen && classes.hide)}
             color="contrast"
             aria-label="Menu"
             onClick={handleDrawerOpen}
@@ -237,7 +221,9 @@ Header.propTypes = {
   headerTitle: PropTypes.string.isRequired,
   newPlayerName: PropTypes.string,
   score: PropTypes.number,
-  secondaryAccent: PropTypes.string
+  secondaryAccent: PropTypes.string,
+  isDrawerOpen: PropTypes.bool.isRequired,
+  handleDrawerOpen: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Header);

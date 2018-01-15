@@ -12,7 +12,7 @@ import TesPage from '../pages/TesPage.jsx';
 import HasilTesPage from '../pages/HasilTesPage.jsx';
 import MenuDrawer, { drawerWidth } from '../components/MenuDrawer.jsx';
 import Footer from '../components/Footer.jsx';
-import { secondaryAccentGenerator } from '../../lib/secondary-accent.js';
+import { secondaryAccentGenerator } from '../../lib/secondary-accent';
 
 const styles = theme => ({
   headerExpand: {
@@ -21,12 +21,12 @@ const styles = theme => ({
     height: 256,
     top: 0,
     zIndex: -1,
-    //background: '#7474bf'
+    // background: '#7474bf'
     background: 'linear-gradient(90deg, #7474bf, #348ac7)',
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
+      duration: theme.transitions.duration.leavingScreen,
+    }),
   },
   headerExpandShift: {
     [theme.breakpoints.up('lg')]: {
@@ -34,10 +34,10 @@ const styles = theme => ({
       marginLeft: drawerWidth,
       transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen
-      })
-    }
-  }
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+    },
+  },
 });
 
 class TesLayout extends Component {
@@ -46,9 +46,7 @@ class TesLayout extends Component {
 
     this.state = {
       score: 0,
-      isDrawerOpen: Session.get('isDrawerOpen')
-        ? Session.get('isDrawerOpen')
-        : false
+      isDrawerOpen: Session.get('isDrawerOpen') ? Session.get('isDrawerOpen') : false,
     };
 
     this.newPlayerInitialized = false;
@@ -58,21 +56,16 @@ class TesLayout extends Component {
   componentDidMount() {}
 
   componentWillReceiveProps(nextProps) {
+    const { newPlayer } = nextProps;
     if (!this.newPlayerInitialized && nextProps.newPlayerExists) {
-      this.secondaryAccent = secondaryAccentGenerator(
-        nextProps.newPlayer._id.charAt(0).toUpperCase()
-      );
+      this.secondaryAccent = secondaryAccentGenerator(newPlayer._id.charAt(0).toUpperCase());
 
       Session.set('newPlayer', nextProps.newPlayer);
       this.newPlayerInitialized = true;
     }
 
-    if (
-      nextProps.newPlayerExists &&
-      nextProps.newPlayer.score != this.state.score
-    ) {
-      const score = nextProps.newPlayer.score;
-      this.setState({ score });
+    if (nextProps.newPlayerExists && nextProps.newPlayer.score !== this.state.score) {
+      this.setState({ score: newPlayer.score });
     }
   }
 
@@ -97,7 +90,7 @@ class TesLayout extends Component {
       newPlayer,
       questions,
       resultContents,
-      isTestFinished
+      isTestFinished,
     } = this.props;
 
     if (isTestFinished) {
@@ -109,30 +102,21 @@ class TesLayout extends Component {
           isDrawerOpen={this.state.isDrawerOpen}
         />
       );
-    } else {
-      return (
-        <TesPage
-          newPlayer={newPlayer}
-          questionLoading={questionLoading}
-          questions={questions}
-          secondaryAccent={this.secondaryAccent}
-          isDrawerOpen={this.state.isDrawerOpen}
-        />
-      );
     }
+    return (
+      <TesPage
+        newPlayer={newPlayer}
+        questionLoading={questionLoading}
+        questions={questions}
+        secondaryAccent={this.secondaryAccent}
+        isDrawerOpen={this.state.isDrawerOpen}
+      />
+    );
   }
 
   render() {
     const {
-      loading,
-      questionLoading,
-      resultLoading,
-      newPlayerExists,
-      newPlayer,
-      questions,
-      resultContents,
-      isTestFinished,
-      classes
+      loading, newPlayerExists, newPlayer, isTestFinished, classes,
     } = this.props;
 
     const { score, isDrawerOpen } = this.state;
@@ -141,12 +125,10 @@ class TesLayout extends Component {
       if (!loading) {
         if (isTestFinished) {
           return 'Hasil Tes';
-        } else {
-          return 'Persona Test';
         }
-      } else {
-        return '';
+        return 'Persona Test';
       }
+      return '';
     })();
 
     return (
@@ -161,13 +143,10 @@ class TesLayout extends Component {
         />
         <div
           className={classnames(classes.headerExpand, {
-            [classes.headerExpandShift]: isDrawerOpen
+            [classes.headerExpandShift]: isDrawerOpen,
           })}
         />
-        <MenuDrawer
-          isOpen={isDrawerOpen}
-          handleDrawerOpen={this.handleDrawerOpen}
-        />
+        <MenuDrawer isOpen={isDrawerOpen} handleDrawerOpen={this.handleDrawerOpen} />
         {newPlayerExists ? this.renderChildPage() : ''}
         <Footer />
       </div>
@@ -176,11 +155,17 @@ class TesLayout extends Component {
 }
 
 TesLayout.propTypes = {
-  loading: PropTypes.bool,
-  questionLoading: PropTypes.bool,
-  newPlayerExists: PropTypes.bool,
+  classes: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
+  newPlayerExists: PropTypes.bool.isRequired,
   newPlayer: PropTypes.object,
-  questions: PropTypes.array
+  questionLoading: PropTypes.bool,
+  questionHandle: PropTypes.object,
+  questions: PropTypes.array,
+  resultLoading: PropTypes.bool,
+  resultContentHandle: PropTypes.object,
+  resultContents: PropTypes.array,
+  isTestFinished: PropTypes.bool,
 };
 
 export default withStyles(styles)(TesLayout);

@@ -22,79 +22,79 @@ const styles = theme => ({
     margin: 0,
     padding: theme.spacing.unit * 2,
     [theme.breakpoints.up('md')]: {
-      marginTop: 96
+      marginTop: 96,
     },
     [theme.breakpoints.down('sm')]: {
-      marginTop: 80
-    }
+      marginTop: 80,
+    },
   },
   mainColumnContainer: {
     margin: 0,
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
+      duration: theme.transitions.duration.leavingScreen,
+    }),
   },
   mainColumnContainerShift: {
     [theme.breakpoints.up('lg')]: {
-      marginLeft: drawerWidth
+      marginLeft: drawerWidth,
     },
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    })
+      duration: theme.transitions.duration.enteringScreen,
+    }),
   },
   rightColumnContainer: {
     [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing.unit
-    }
+      padding: theme.spacing.unit,
+    },
   },
   paper: {
     position: 'relative',
     padding: 0,
     paddingBottom: theme.spacing.unit * 2,
     borderRadius: 4,
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   pictureContainer: {
-    marginBottom: theme.spacing.unit
+    marginBottom: theme.spacing.unit,
   },
   displayTextContainer: {
     marginTop: theme.spacing.unit * 6,
     padding: theme.spacing.unit * 2,
     [theme.breakpoints.up('sm')]: {
       paddingLeft: '15%',
-      paddingRight: '10%'
-    }
+      paddingRight: '10%',
+    },
   },
   textContainer: {
     padding: theme.spacing.unit * 2,
     [theme.breakpoints.up('sm')]: {
       paddingLeft: '15%',
-      paddingRight: '12%'
-    }
+      paddingRight: '12%',
+    },
   },
   shortDescription: {
     color: grey[700],
     fontSize: 21,
     fontWeight: 300,
-    fontStyle: 'italic'
+    fontStyle: 'italic',
   },
   orderedList: {
-    paddingLeft: 20
+    paddingLeft: 20,
   },
   divider: {
     maxWidth: '62%',
-    margin: '16px 0'
+    margin: '16px 0',
   },
   image: {
     [theme.breakpoints.up('sm')]: {
-      width: '100%'
+      width: '100%',
     },
     [theme.breakpoints.down('xs')]: {
       width: '130%',
-      marginLeft: -40
-    }
+      marginLeft: -40,
+    },
   },
   blockquote: {
     margin: '32px 0',
@@ -102,30 +102,22 @@ const styles = theme => ({
     paddingLeft: theme.spacing.unit * 3,
     borderLeft: '2px solid transparent',
     borderImage: 'linear-gradient(to bottom right, #7474bf 0%, #348ac7 100%)',
-    borderImageSlice: 1
-    //background:
+    borderImageSlice: 1,
+    // background:
     //  'linear-gradient(135deg, rgba(116,116,191,.1), rgba(52,138,199,.1))'
   },
   blockquoteText: {
     color: grey[700],
     fontSize: 15,
     fontWeight: 300,
-    fontStyle: 'italic'
-  }
+    fontStyle: 'italic',
+  },
 });
 
 class PublicContentPage extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const {
-      loading,
-      publicContent,
-      publicContentExists,
-      isDrawerOpen,
-      classes
+      loading, publicContent, publicContentExists, isDrawerOpen, classes,
     } = this.props;
 
     if (!publicContentExists) {
@@ -142,15 +134,14 @@ class PublicContentPage extends Component {
           return personalityColor.red;
         } else if (type === 'NT') {
           return personalityColor.blue;
-        } else {
-          return personalityColor.green;
         }
+        return personalityColor.green;
       })();
 
       return (
         <div className={classes.contentRoot}>
           <Grid container spacing={16} justify="center">
-            {/* Main column*/}
+            {/* Main column */}
             <Grid
               item
               xs={12}
@@ -158,7 +149,7 @@ class PublicContentPage extends Component {
               md={8}
               lg={6}
               className={classnames(classes.mainColumnContainer, {
-                [classes.mainColumnContainerShift]: isDrawerOpen
+                [classes.mainColumnContainerShift]: isDrawerOpen,
               })}
             >
               <Paper className={classes.paper}>
@@ -166,9 +157,7 @@ class PublicContentPage extends Component {
                   {publicContent.contentMainImage !== null ? (
                     <Grid item xs={12} className={classes.pictureContainer}>
                       <img
-                        src={`/img/content-feature/${
-                          publicContent.contentMainImage
-                        }`}
+                        src={`/img/content-feature/${publicContent.contentMainImage}`}
                         alt={`MBTI ${publicContent._id} ${publicContent.name}`}
                         className={classes.image}
                       />
@@ -191,7 +180,7 @@ class PublicContentPage extends Component {
                   ) : null}
                   <Grid item xs={12} className={classes.textContainer}>
                     {Parser(publicContent.content, {
-                      replace: domNode => {
+                      replace: (domNode) => {
                         if (domNode.name === 'h2') {
                           return (
                             <div>
@@ -204,19 +193,13 @@ class PublicContentPage extends Component {
                         }
 
                         if (domNode.name === 'p') {
-                          return (
-                            <Typography paragraph>
-                              {domToReact(domNode.children)}
-                            </Typography>
-                          );
+                          return <Typography paragraph>{domToReact(domNode.children)}</Typography>;
                         }
 
                         if (domNode.name === 'ol') {
                           return (
                             <ol className={classes.orderedList}>
-                              <Typography>
-                                {domToReact(domNode.children)}
-                              </Typography>
+                              <Typography>{domToReact(domNode.children)}</Typography>
                             </ol>
                           );
                         }
@@ -234,7 +217,9 @@ class PublicContentPage extends Component {
                         if (domNode.name === 'hr') {
                           return <Divider className={classes.divider} />;
                         }
-                      }
+
+                        return null;
+                      },
                     })}
                   </Grid>
                 </Grid>
@@ -254,7 +239,7 @@ PublicContentPage.propTypes = {
   loading: PropTypes.bool,
   publicContent: PropTypes.object,
   publicContentExists: PropTypes.bool,
-  isDrawerOpen: PropTypes.bool.isRequired
+  isDrawerOpen: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(PublicContentPage);

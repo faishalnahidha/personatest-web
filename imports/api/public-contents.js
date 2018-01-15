@@ -6,13 +6,13 @@ export const PublicContents = new Mongo.Collection('publicContents');
 
 if (Meteor.isServer) {
   // This code only runs on the server
-  Meteor.publish('publicContents', function(id) {
+  Meteor.publish('publicContents', (id) => {
     check(id, String);
 
     return PublicContents.find({ _id: id });
   });
 
-  Meteor.publish('publicContents.forResult', function(id1, id2, id3) {
+  Meteor.publish('publicContents.forResult', (id1, id2, id3) => {
     check(id1, String);
     check(id2, String);
     check(id3, String);
@@ -21,7 +21,7 @@ if (Meteor.isServer) {
      * Hanya mencari 3 obyek sesuai parameter id1, id2, dan id3
      */
     const query = {
-      _id: { $in: [id1, id2, id3] }
+      _id: { $in: [id1, id2, id3] },
     };
 
     /**
@@ -34,8 +34,8 @@ if (Meteor.isServer) {
         name: 1,
         type: 1,
         shortDescription: 1,
-        summary: 1
-      }
+        summary: 1,
+      },
     };
 
     return PublicContents.find(query, options);

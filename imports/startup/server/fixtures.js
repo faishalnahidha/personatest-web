@@ -8,7 +8,7 @@ Meteor.startup(() => {
   if (Questions.find().count() === 0) {
     const questionData = Assets.getText('question-data.json');
 
-    JSON.parse(questionData).question.forEach(question => {
+    JSON.parse(questionData).question.forEach((question) => {
       Questions.insert(question);
     });
   }
@@ -16,7 +16,7 @@ Meteor.startup(() => {
   if (PublicContents.find().count() === 0) {
     const publicContentData = Assets.getText('public-content-data.json');
 
-    JSON.parse(publicContentData).publicContent.forEach(publicContent => {
+    JSON.parse(publicContentData).publicContent.forEach((publicContent) => {
       PublicContents.insert(publicContent);
     });
   }
@@ -99,7 +99,7 @@ Meteor.startup(() => {
         'F',
         'F',
         'J',
-        'P'
+        'P',
       ],
       result: {
         extrovert: 10,
@@ -112,8 +112,8 @@ Meteor.startup(() => {
         perceiving: 20,
         type: 'INFJ',
         alternativeType1: 'INTJ',
-        alternativeType2: 'ISFJ'
-      }
+        alternativeType2: 'ISFJ',
+      },
     };
     NewPlayers.insert(megumiKato);
   }

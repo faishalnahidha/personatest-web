@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
-import { Redirect } from 'react-router';
+import { Accounts } from 'meteor/accounts-base';
+import { withHistory, Link, Redirect } from 'react-router';
 import classnames from 'classnames';
 
 import { withStyles } from 'material-ui/styles';
@@ -13,8 +14,8 @@ import Typography from 'material-ui/Typography';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
-import Radio, { RadioGroup } from 'material-ui/Radio';
-import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
+// import Radio, { RadioGroup } from 'material-ui/Radio';
+// import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
 // import {
 //   FormLabel,
 //   FormControl,
@@ -22,10 +23,9 @@ import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
 //   FormHelperText
 // } from 'material-ui/Form';
 import { grey } from 'material-ui/colors';
-import { fade } from 'material-ui/styles/colorManipulator';
 import ArrowBack from 'material-ui-icons/ArrowBack';
 
-import { myPrimaryColor } from '../themes/primary-color-palette.js';
+// import { myPrimaryColor } from '../themes/primary-color-palette';
 
 const styles = theme => ({
   root: {
@@ -35,8 +35,8 @@ const styles = theme => ({
     height: '100vh',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: grey[100]
-    //background: 'linear-gradient(240deg,  #7474bf, #348ac7, #44449B)'
+    backgroundColor: grey[100],
+    // background: 'linear-gradient(240deg,  #7474bf, #348ac7, #44449B)'
   },
   background: {
     zIndex: -10,
@@ -48,21 +48,21 @@ const styles = theme => ({
     backgroundAttachment: 'fixed',
 
     [theme.breakpoints.up('md')]: {
-      backgroundSize: '100% auto'
+      backgroundSize: '100% auto',
     },
     [theme.breakpoints.down('sm')]: {
-      backgroundSize: 'auto 100%'
-    }
+      backgroundSize: 'auto 100%',
+    },
   },
   paper: {
     overflow: 'hidden',
     borderRadius: 4,
-    backgroundColor: 'rgba(255,255,255,.75)'
+    backgroundColor: 'rgba(255,255,255,.75)',
   },
   paperContentContainer: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   leftContentContainer: {
     position: 'relative',
@@ -72,97 +72,95 @@ const styles = theme => ({
     backgroundAttachment: 'fixed',
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing.unit * 6,
-      height: 600
+      height: 600,
     },
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing.unit * 3,
-      height: 'auto'
-    }
+      height: 'auto',
+    },
   },
   leftContent: {
-    zIndex: 2
+    zIndex: 2,
   },
   rightContentContainer: {
     position: 'relative',
     [theme.breakpoints.up('md')]: {
-      height: 600
+      height: 600,
     },
     [theme.breakpoints.down('sm')]: {
-      height: 428
-    }
+      height: 428,
+    },
   },
   formContainer: {
     justifyContent: 'center',
 
     [theme.breakpoints.up('lg')]: {
       height: '100%',
-      margin: 'auto 96px'
+      margin: 'auto 96px',
     },
     [theme.breakpoints.down('md')]: {
       height: '100%',
-      margin: 'auto 80px'
+      margin: 'auto 80px',
     },
     [theme.breakpoints.down('sm')]: {
-      margin: theme.spacing.unit * 4
-    }
+      margin: theme.spacing.unit * 4,
+    },
   },
   overlay: {
     height: '100%',
     width: '100%',
-    background:
-      'linear-gradient(30deg, rgba(116,116,191,1), rgba(52,138,199,.75))',
+    background: 'linear-gradient(30deg, rgba(116,116,191,1), rgba(52,138,199,.75))',
     position: 'absolute',
     top: 0,
-    left: 0
+    left: 0,
   },
   overlayBackground: {
     height: '100%',
     width: '100%',
-    background:
-      'linear-gradient(30deg, rgba(255,255,255,.92), rgba(255,255,255,.66))',
+    background: 'linear-gradient(30deg, rgba(255,255,255,.92), rgba(255,255,255,.66))',
     position: 'absolute',
     top: 0,
     left: 0,
-    zIndex: -9
+    zIndex: -9,
   },
   tabs: {
     position: 'absolute',
     width: '100%',
-    top: 0
+    top: 0,
   },
   button: {
     width: '100%',
     marginTop: theme.spacing.unit * 4,
-    background: 'linear-gradient(90deg, #7474bf, #348ac7)'
+    background: 'linear-gradient(90deg, #7474bf, #348ac7)',
   },
   backButton: {
     position: 'absolute',
     top: 16,
-    left: 16
+    left: 16,
   },
   displayText: {
     fontWeight: 100,
     [theme.breakpoints.up('md')]: {
-      fontSize: 45
+      fontSize: 45,
     },
     [theme.breakpoints.down('sm')]: {
-      fontSize: 34
-    }
+      fontSize: 34,
+    },
   },
   whiteText: {
-    color: '#fff'
+    color: '#fff',
   },
   leftContentParagraph: {
     fontWeight: 300,
     [theme.breakpoints.up('md')]: {
       marginTop: theme.spacing.unit * 2,
-      width: '66%'
+      width: '66%',
     },
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing.unit,
-      width: '100%'
-    }
-  }
+      width: '100%',
+    },
+  },
 });
 
 function TabContainer(props) {
@@ -175,33 +173,51 @@ class OtentikasiPage extends Component {
 
     this.state = {
       id: null,
+      errors: null,
       redirect: false,
-      tab: 0
+      tab: 0,
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitMasuk = this.handleSubmitMasuk.bind(this);
   }
 
   handleTabChange = (event, value) => {
     this.setState({ tab: value });
   };
 
-  handleSubmit(event) {
+  handleSubmitMasuk(event) {
     event.preventDefault();
 
-    const name = this.state.name.trim(),
-      age = this.state.age,
-      sex = this.state.sex,
-      id = Meteor.apply('newPlayers.insert', [name, age, sex], {
-        returnStubValue: true
-      });
+    const email = this.email.value;
+    const password = this.email.value;
+    // const errors = {};
 
-    console.log('newPlayerId: ' + id);
+    // if (!email) {
+    //   errors.email = 'pages.authPageSignIn.emailRequired';
+    // }
+    // if (!password) {
+    //   errors.password = 'pages.authPageSignIn.passwordRequired';
+    // }
 
-    this.setState({
-      id: id,
-      redirect: true
+    // this.setState({ errors });
+    // if (Object.keys(errors).length) {
+    //   return;
+    // }
+
+    Meteor.loginWithPassword(email, password, (err) => {
+      if (err) {
+        let { errors } = this.state;
+        errors = err.reason;
+        this.setState({ errors });
+      } else {
+        this.context.router.push('/');
+      }
     });
+
+    // this.setState({
+    //   id: id,
+    //   redirect: true
+    // });
   }
 
   render() {
@@ -216,7 +232,7 @@ class OtentikasiPage extends Component {
       <div className={classes.root}>
         <div className={classes.background} />
         <div className={classes.overlayBackground} />
-        <Grid container spacing={0} justify={'center'} alignItems={'center'}>
+        <Grid container spacing={0} justify="center" alignItems="center">
           <Grid item xs={11} sm={6} md={11} lg={10} xl={7}>
             <Paper className={classes.paper}>
               <Grid container spacing={0}>
@@ -227,7 +243,7 @@ class OtentikasiPage extends Component {
                   md={7}
                   className={classnames(
                     classes.paperContentContainer,
-                    classes.leftContentContainer
+                    classes.leftContentContainer,
                   )}
                 >
                   <div className={classes.overlay} />
@@ -241,25 +257,16 @@ class OtentikasiPage extends Component {
                         <ArrowBack />
                       </IconButton>
                     </Hidden>
-                    <Typography
-                      className={classnames(
-                        classes.displayText,
-                        classes.whiteText
-                      )}
-                    >
+                    <Typography className={classnames(classes.displayText, classes.whiteText)}>
                       Kenali Dirimu
                     </Typography>
                     <Hidden smUp>
                       <Typography
                         type="body1"
                         gutterBottom
-                        className={classnames(
-                          classes.whiteText,
-                          classes.rightContentParagraph
-                        )}
+                        className={classnames(classes.whiteText, classes.rightContentParagraph)}
                       >
-                        Temukan kepribadian, potensi, dan bakat alami Anda
-                        sekarang.
+                        Temukan kepribadian, potensi, dan bakat alami Anda sekarang.
                       </Typography>
                     </Hidden>
                     <Hidden xsDown>
@@ -267,15 +274,11 @@ class OtentikasiPage extends Component {
                         type="body1"
                         style={{ marginTop: 16 }}
                         gutterBottom
-                        className={classnames(
-                          classes.whiteText,
-                          classes.leftContentParagraph
-                        )}
+                        className={classnames(classes.whiteText, classes.leftContentParagraph)}
                       >
-                        Bergabunglah dengan Persona yang akan memandu Anda dalam
-                        menemukan kepribadian, potensi, dan bakat alami Anda.
-                        Segera kenali diri Anda dan perjuangkan hidup Anda
-                        sekarang!
+                        Bergabunglah dengan Persona yang akan memandu Anda dalam menemukan
+                        kepribadian, potensi, dan bakat alami Anda. Segera kenali diri Anda dan
+                        perjuangkan hidup Anda sekarang!
                       </Typography>
                     </Hidden>
                   </div>
@@ -287,7 +290,7 @@ class OtentikasiPage extends Component {
                   md={5}
                   className={classnames(
                     classes.rightContentContainer,
-                    classes.paperContentContainer
+                    classes.paperContentContainer,
                   )}
                 >
                   <Tabs
@@ -306,10 +309,7 @@ class OtentikasiPage extends Component {
                     <TabContainer>
                       <form
                         onSubmit={this.handleSubmit}
-                        className={classnames(
-                          classes.formContainer,
-                          classes.paperContentContainer
-                        )}
+                        className={classnames(classes.formContainer, classes.paperContentContainer)}
                       >
                         {/* <FormControl
                           className={classes.formControl}
@@ -358,18 +358,9 @@ class OtentikasiPage extends Component {
                     <TabContainer>
                       <form
                         onSubmit={this.handleSubmit}
-                        className={classnames(
-                          classes.formContainer,
-                          classes.paperContentContainer
-                        )}
+                        className={classnames(classes.formContainer, classes.paperContentContainer)}
                       >
-                        <TextField
-                          required
-                          fullWidth
-                          name="name"
-                          label="Nama"
-                          margin="normal"
-                        />
+                        <TextField required fullWidth name="name" label="Nama" margin="normal" />
                         <TextField
                           required
                           fullWidth
@@ -418,7 +409,7 @@ class OtentikasiPage extends Component {
 }
 
 OtentikasiPage.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(OtentikasiPage);

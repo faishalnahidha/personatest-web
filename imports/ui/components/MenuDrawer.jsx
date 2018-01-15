@@ -24,44 +24,40 @@ const styles = theme => ({
     width: drawerWidth,
     background: theme.palette.background.paper,
     [theme.breakpoints.up('lg')]: {
-      width: drawerWidth
+      width: drawerWidth,
     },
     [theme.breakpoints.down('md')]: {
-      width: 320
+      width: 320,
     },
     [theme.breakpoints.down('xs')]: {
-      width: 280
-    }
+      width: 280,
+    },
   },
   drawerHeader: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: '0 16px',
-    ...theme.mixins.toolbar
+    ...theme.mixins.toolbar,
   },
   chevronButton: {
-    marginRight: -16
-  }
+    marginRight: -16,
+  },
 });
 
 function MenuDrawer(props) {
   const { isOpen, handleDrawerOpen, classes } = props;
 
+  const handleDrawerClose = () => {
+    handleDrawerOpen();
+  };
+
   const drawerDesktop = (
-    <Drawer
-      type="persistent"
-      classes={{ paper: classes.drawerPaper }}
-      anchor="left"
-      open={isOpen}
-    >
+    <Drawer type="persistent" classes={{ paper: classes.drawerPaper }} anchor="left" open={isOpen}>
       <div className={classes.drawerInner}>
         <div className={classes.drawerHeader}>
           <Typography type="title">Persona Web</Typography>
-          <IconButton
-            onClick={handleDrawerOpen}
-            className={classes.chevronButton}
-          >
+          <IconButton onClick={handleDrawerClose} className={classes.chevronButton}>
             <ChevronLeftIcon />
           </IconButton>
         </div>
@@ -77,9 +73,9 @@ function MenuDrawer(props) {
       classes={{ paper: classes.drawerPaper }}
       anchor="left"
       open={isOpen}
-      onClose={handleDrawerOpen}
+      onClose={handleDrawerClose}
       ModalProps={{
-        keepMounted: true // Better open performance on mobile.
+        keepMounted: true, // Better open performance on mobile.
       }}
     >
       <div className={classes.drawerInner}>
@@ -87,7 +83,7 @@ function MenuDrawer(props) {
           <Typography type="title">Persona Web</Typography>
         </div>
         <Divider />
-        <MenuDrawerList handleDrawerOpen={handleDrawerOpen.bind(this)} />
+        <MenuDrawerList handleDrawerClose={handleDrawerClose} />
       </div>
     </Drawer>
   );
@@ -101,8 +97,9 @@ function MenuDrawer(props) {
 }
 
 MenuDrawer.propTypes = {
+  classes: PropTypes.object.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  handleDrawerOpen: PropTypes.func
+  handleDrawerOpen: PropTypes.func,
 };
 
 export default withStyles(styles)(MenuDrawer);

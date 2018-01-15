@@ -13,5 +13,5 @@ export const mySecondaryColor = {
   A200: '#c9ffea',
   A400: '#96ffd5',
   A700: '#7cffcb',
-  contrastDefaultColor: 'dark'
+  contrastDefaultColor: 'dark',
 };

@@ -6,7 +6,7 @@ export const NewPlayers = new Mongo.Collection('newPlayers');
 
 if (Meteor.isServer) {
   // This code only runs on the server
-  Meteor.publish('newPlayers', function(newPlayerId) {
+  Meteor.publish('newPlayers', (newPlayerId) => {
     check(newPlayerId, String);
 
     return NewPlayers.find({ _id: newPlayerId });
@@ -21,7 +21,7 @@ Meteor.methods({
     const newPlayerId = NewPlayers.insert({
       name: nameInput,
       age: ageInput,
-      score: 100
+      score: 100,
     });
     return newPlayerId;
   },
@@ -32,7 +32,7 @@ Meteor.methods({
     check(setScore, Number);
 
     NewPlayers.update(newPlayerId, {
-      $set: { answers: setAnswers, score: setScore }
+      $set: { answers: setAnswers, score: setScore },
     });
   },
 
@@ -48,5 +48,5 @@ Meteor.methods({
     check(setResult, Object);
 
     NewPlayers.update(newPlayerId, { $set: { result: setResult } });
-  }
+  },
 });

@@ -6,5 +6,5 @@ export const personalityColor = {
   blue: '#3498db',
   blue2: '#2980b9',
   gold: '#f1c40f',
-  gold2: '#E87E04'
+  gold2: '#E87E04',
 };

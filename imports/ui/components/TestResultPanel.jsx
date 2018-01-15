@@ -15,32 +15,28 @@ import { getFirstName } from '../../lib/get-first-name.js';
 const styles = theme => ({
   paper: {
     padding: theme.spacing.unit * 2,
-    borderRadius: 4
+    borderRadius: 4,
   },
   headContainer: {
-    marginBottom: theme.spacing.unit * 2
+    marginBottom: theme.spacing.unit * 2,
   },
   barContainer: {},
   bar: {
-    margin: '8px 0'
+    margin: '8px 0',
   },
   personalityText: {
-    color: 'rgba(0,0,0,0.87)'
+    color: 'rgba(0,0,0,0.87)',
   },
   divider: {
-    margin: '16px -16px'
+    margin: '16px -16px',
   },
   avatar: {
     width: 56,
-    height: 56
-  }
+    height: 56,
+  },
 });
 
 class TestResultPanel extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   personalityColorTypeText() {
     const { personalityColorType } = this.props;
 
@@ -53,10 +49,14 @@ class TestResultPanel extends Component {
     } else if (personalityColorType === 'NF') {
       return 'GREEN [NF]';
     }
+
+    return null;
   }
 
   render() {
-    const { classes, result, playerName, personalityType } = this.props;
+    const {
+      classes, result, playerName, personalityType,
+    } = this.props;
     return (
       <Paper className={classes.paper}>
         <Grid container spacing={0} justify="space-around" alignItems="center">
@@ -64,11 +64,7 @@ class TestResultPanel extends Component {
             <Grid container spacing={0} justify="center">
               <Avatar className={classes.avatar}>S</Avatar>
               <Grid item xs={12} style={{ marginTop: 8 }}>
-                <Tooltip
-                  id="tooltip-personality"
-                  title="Tipe Kepribadian"
-                  placement="right"
-                >
+                <Tooltip id="tooltip-personality" title="Tipe Kepribadian" placement="right">
                   <Typography type="body2" align="center">
                     {personalityType.toUpperCase()}
                   </Typography>
@@ -126,7 +122,7 @@ TestResultPanel.propTypes = {
   result: PropTypes.object.isRequired,
   playerName: PropTypes.string.isRequired,
   personalityType: PropTypes.string,
-  personalityColorType: PropTypes.string
+  personalityColorType: PropTypes.string,
 };
 
 export default withStyles(styles)(TestResultPanel);

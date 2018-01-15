@@ -21,8 +21,8 @@ const styles = theme => ({
     background: 'linear-gradient(90deg, #7474bf, #348ac7)',
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
+      duration: theme.transitions.duration.leavingScreen,
+    }),
   },
   headerExpandShift: {
     [theme.breakpoints.up('lg')]: {
@@ -30,10 +30,10 @@ const styles = theme => ({
       marginLeft: drawerWidth,
       transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen
-      })
-    }
-  }
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+    },
+  },
 });
 
 class PublicContentLayout extends Component {
@@ -42,9 +42,7 @@ class PublicContentLayout extends Component {
 
     this.state = {
       score: 0,
-      isDrawerOpen: Session.get('isDrawerOpen')
-        ? Session.get('isDrawerOpen')
-        : false
+      isDrawerOpen: Session.get('isDrawerOpen') ? Session.get('isDrawerOpen') : false,
     };
 
     this.newPlayerInitialized = false;
@@ -75,23 +73,15 @@ class PublicContentLayout extends Component {
         />
         <div
           className={classnames(classes.headerExpand, {
-            [classes.headerExpandShift]: isDrawerOpen
+            [classes.headerExpandShift]: isDrawerOpen,
           })}
         />
-        <MenuDrawer
-          isOpen={isDrawerOpen}
-          handleDrawerOpen={this.handleDrawerOpen}
-        />
+        <MenuDrawer isOpen={isDrawerOpen} handleDrawerOpen={this.handleDrawerOpen} />
         <Switch>
           <Route
             path="/artikel/:id"
             // component={PublicContentPageContainer}
-            render={props => (
-              <PublicContentPageContainer
-                isDrawerOpen={isDrawerOpen}
-                {...props}
-              />
-            )}
+            render={props => <PublicContentPageContainer isDrawerOpen={isDrawerOpen} {...props} />}
           />
         </Switch>
         <Footer />
@@ -99,5 +89,9 @@ class PublicContentLayout extends Component {
     );
   }
 }
+
+PublicContentLayout.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(PublicContentLayout);

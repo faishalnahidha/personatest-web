@@ -48,8 +48,7 @@
     {
       "_id": "4",
       "type": "TF",
-      "text":
-        "Ketika berhubungan dengan orang lain, anda termasuk orang yang lebih :",
+      "text": "Ketika berhubungan dengan orang lain, anda termasuk orang yang lebih :",
       "answer": [
         {
           "text": "Tegas daripada lembut",
@@ -232,8 +231,7 @@
       "text": "Dalam menghadapi permasalahan, anda cenderung :",
       "answer": [
         {
-          "text":
-            "Mencari solusi dari pengalaman atau yang ada pada masyarakat pada umumnya",
+          "text": "Mencari solusi dari pengalaman atau yang ada pada masyarakat pada umumnya",
           "value": "S"
         },
         {
@@ -372,8 +370,7 @@
           "value": "T"
         },
         {
-          "text":
-            "Mencari titik kesepahaman di an­tara perbedaan pendapat yang ada",
+          "text": "Mencari titik kesepahaman di an­tara perbedaan pendapat yang ada",
           "value": "F"
         }
       ]
@@ -429,13 +426,11 @@
       "text": "Saat berbicara dengan orang lain, apakah anda cenderung :",
       "answer": [
         {
-          "text":
-            "Suka mengungkapkan secara spontan apa yang sedang ada di pikiran",
+          "text": "Suka mengungkapkan secara spontan apa yang sedang ada di pikiran",
           "value": "E"
         },
         {
-          "text":
-            "Umumnya lebih suka mendengarkan dahulu, baru berbicara untuk merespon",
+          "text": "Umumnya lebih suka mendengarkan dahulu, baru berbicara untuk merespon",
           "value": "I"
         }
       ]
@@ -473,8 +468,7 @@
     {
       "_id": "32",
       "type": "TF",
-      "text":
-        "Ketika memimpin sebuah tim, terhadap rekan kerja anda cenderung :",
+      "text": "Ketika memimpin sebuah tim, terhadap rekan kerja anda cenderung :",
       "answer": [
         {
           "text": "Tegas dan disiplin",
@@ -511,8 +505,7 @@
           "value": "J"
         },
         {
-          "text":
-            "Percaya solusi akan muncul dengan sendirinya ketika anda telah berjalan",
+          "text": "Percaya solusi akan muncul dengan sendirinya ketika anda telah berjalan",
           "value": "P"
         }
       ]
@@ -542,8 +535,7 @@
           "value": "E"
         },
         {
-          "text":
-            "Seorang yang membutuhkan privasi, atau banyak meluangkan waktu sendiri",
+          "text": "Seorang yang membutuhkan privasi, atau banyak meluangkan waktu sendiri",
           "value": "I"
         }
       ]
@@ -656,8 +648,7 @@
     {
       "_id": "44",
       "type": "SN",
-      "text":
-        "Ketika mendengarkan orang berbicara, anda biasanya fokus untuk : ",
+      "text": "Ketika mendengarkan orang berbicara, anda biasanya fokus untuk : ",
       "answer": [
         {
           "text": "Mengamati apa yang dikatakan secara gamblang atau tersurat",
@@ -914,8 +905,7 @@
     {
       "_id": "61",
       "type": "TF",
-      "text":
-        "Anda biasanya lebih terpengaruh pada pembicara yang menggunakan :",
+      "text": "Anda biasanya lebih terpengaruh pada pembicara yang menggunakan :",
       "answer": [
         {
           "text": "Bukti yang meyakinkan",
@@ -993,8 +983,7 @@
       "text": "Lebih mudah untuk anda :",
       "answer": [
         {
-          "text":
-            "Segera praktik bersama teman-teman untuk mengerjakan sesuatu",
+          "text": "Segera praktik bersama teman-teman untuk mengerjakan sesuatu",
           "value": "S"
         },
         {

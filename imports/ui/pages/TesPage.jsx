@@ -5,9 +5,7 @@ import { Redirect } from 'react-router';
 import classnames from 'classnames';
 import TransitionGroup from 'react-transition-group/TransitionGroup';
 import { CSSTransitionGroup } from 'react-transition-group';
-//import TransitionGroup from 'react-addons-transition-group';
-
-import { NewPlayers } from '../../api/new-players.js';
+// import TransitionGroup from 'react-addons-transition-group';
 
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
@@ -18,6 +16,8 @@ import Divider from 'material-ui/Divider';
 import Button from 'material-ui/Button';
 import Snackbar from 'material-ui/Snackbar';
 import NavigateNext from 'material-ui-icons/NavigateNext';
+
+import { NewPlayers } from '../../api/new-players.js';
 
 import '../stylesheets/animate.css';
 
@@ -33,44 +33,44 @@ const styles = theme => ({
     margin: 0,
     padding: theme.spacing.unit * 2,
     [theme.breakpoints.up('md')]: {
-      marginTop: 96
+      marginTop: 96,
     },
     [theme.breakpoints.down('md')]: {
-      marginTop: 80
-    }
+      marginTop: 80,
+    },
   },
   paper: {
     padding: 0,
-    borderRadius: 4
+    borderRadius: 4,
   },
   mainColumnContainer: {
     margin: 0,
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
+      duration: theme.transitions.duration.leavingScreen,
+    }),
   },
   mainColumnContainerShift: {
     [theme.breakpoints.up('lg')]: {
-      marginLeft: drawerWidth
+      marginLeft: drawerWidth,
     },
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    })
+      duration: theme.transitions.duration.enteringScreen,
+    }),
   },
   stickyPanel: {
     position: 'sticky',
-    top: 104
+    top: 104,
   },
   buttonBerikutnya: {
     width: '100%',
-    marginBottom: theme.spacing.unit * 2
+    marginBottom: theme.spacing.unit * 2,
   },
   circularProgress: {
     marginTop: 128,
-    marginBottom: 128
-  }
+    marginBottom: 128,
+  },
 });
 
 const ANSWER_POINTS = 40;
@@ -86,7 +86,7 @@ class TesPage extends Component {
       answersPerPage: Array(7).fill(null), // make array[0..6] filled by null
       answeredCount: 0,
       questionPage: 0,
-      openSnackbar: false
+      openSnackbar: false,
     };
 
     this.newPlayerAnswersInitialized = false;
@@ -101,13 +101,9 @@ class TesPage extends Component {
   }
 
   componentWillReceiveProps({ newPlayer }) {
-    if (
-      newPlayer.answers &&
-      newPlayer.answers.length !== this.state.answeredCount
-    ) {
+    if (newPlayer.answers && newPlayer.answers.length !== this.state.answeredCount) {
       console.log('updateSomeState called');
       this.updateSomeState(newPlayer);
-      return true;
     }
   }
 
@@ -119,7 +115,7 @@ class TesPage extends Component {
     this.setState({
       answersPerPage: blankAnswers,
       answeredCount: answers.length,
-      questionPage: questionPage
+      questionPage,
     });
   }
 
@@ -157,12 +153,7 @@ class TesPage extends Component {
      */
     const newAnswers = answers.concat(answerPerPage);
 
-    Meteor.call(
-      'newPlayers.updateAnswers',
-      this.props.newPlayer._id,
-      newAnswers,
-      score
-    );
+    Meteor.call('newPlayers.updateAnswers', this.props.newPlayer._id, newAnswers, score);
 
     return newAnswers;
   }
@@ -187,14 +178,14 @@ class TesPage extends Component {
      */
     if (answersPerPage.indexOf(null) === -1) {
       const score = this.addScore(ANSWER_POINTS);
-      var questionPage = this.state.questionPage + 1;
+      const questionPage = this.state.questionPage + 1;
       const answerPerPageCopy = answersPerPage.slice();
       const blankAnswers = Array(7).fill(null);
 
       this.setState({
-        questionPage: questionPage,
+        questionPage,
         answersPerPage: blankAnswers,
-        openSnackbar: true
+        openSnackbar: true,
       });
 
       smoothScroll.scrollTo('top', 96);
@@ -207,7 +198,7 @@ class TesPage extends Component {
        */
       if (questionPage > LAST_PAGE) {
         this.updateResult(answers);
-        return true;
+        // return true;
       }
     } else {
       alert('Anda belum menjawab semua pertanyaan!');
@@ -221,8 +212,8 @@ class TesPage extends Component {
   }
 
   percentage() {
-    const answeredCount = this.state.answeredCount;
-    return Math.floor(answeredCount / 70 * 100);
+    const { answeredCount } = this.state;
+    return Math.floor((answeredCount / 70) * 100);
   }
 
   renderQuestions() {
@@ -231,22 +222,19 @@ class TesPage extends Component {
     const questionStartIndex = questionPage * QUESTIONS_PER_PAGE;
     const questionEndIndex = questionStartIndex + QUESTIONS_PER_PAGE;
 
-    const questionsPerPage = this.props.questions.slice(
-      questionStartIndex,
-      questionEndIndex
-    );
+    const questionsPerPage = this.props.questions.slice(questionStartIndex, questionEndIndex);
 
     return (
-      <Grid container spacing={0} justify={'center'}>
+      <Grid container spacing={0} justify="center">
         <Grid item xs={12}>
           <CSSTransitionGroup
             transitionName={{
               enter: 'animated',
               enterActive: 'fadeInUp',
               appear: 'animated',
-              appearActive: 'fadeInUp'
+              appearActive: 'fadeInUp',
             }}
-            transitionAppear={true}
+            transitionAppear
             transitionLeave={false}
             transitionAppearTimeout={1000}
             transitionEnterTimeout={1000}
@@ -277,7 +265,9 @@ class TesPage extends Component {
   }
 
   render() {
-    const { questionLoading, newPlayer, isDrawerOpen, classes } = this.props;
+    const {
+      questionLoading, newPlayer, isDrawerOpen, classes,
+    } = this.props;
 
     // console.log('questionLoading: ' + questionLoading);
 
@@ -293,21 +283,13 @@ class TesPage extends Component {
               md={8}
               lg={6}
               className={classnames(classes.mainColumnContainer, {
-                [classes.mainColumnContainerShift]: isDrawerOpen
+                [classes.mainColumnContainerShift]: isDrawerOpen,
               })}
             >
               <Paper className={classes.paper}>
                 {questionLoading ? (
-                  <Grid
-                    container
-                    spacing={0}
-                    justify="center"
-                    alignItems="center"
-                  >
-                    <CircularProgress
-                      size={50}
-                      className={classes.circularProgress}
-                    />
+                  <Grid container spacing={0} justify="center" alignItems="center">
+                    <CircularProgress size={50} className={classes.circularProgress} />
                   </Grid>
                 ) : (
                   this.renderQuestions()
@@ -316,17 +298,9 @@ class TesPage extends Component {
             </Grid>
             {/* right column */}
             <Grid item xs={12} sm={10} md={3} lg={2}>
-              <Grid
-                container
-                spacing={16}
-                justify="center"
-                className={classes.stickyPanel}
-              >
+              <Grid container spacing={16} justify="center" className={classes.stickyPanel}>
                 <Grid item xs={12} sm={6} md={12}>
-                  <TestProgressPanel
-                    percentage={this.percentage()}
-                    name={newPlayer.name}
-                  />
+                  <TestProgressPanel percentage={this.percentage()} name={newPlayer.name} />
                 </Grid>
               </Grid>
             </Grid>
@@ -336,7 +310,7 @@ class TesPage extends Component {
         <Snackbar
           anchorOrigin={{
             vertical: 'bottom',
-            horizontal: 'center'
+            horizontal: 'center',
           }}
           open={this.state.openSnackbar}
           onClose={() => this.setState({ openSnackbar: false })}
@@ -344,9 +318,7 @@ class TesPage extends Component {
           message={
             <span>
               {newPlayer.name}, skor anda:
-              <span style={{ color: this.props.secondaryAccent }}>
-                &ensp;+ {ANSWER_POINTS}
-              </span>
+              <span style={{ color: this.props.secondaryAccent }}>&ensp;+ {ANSWER_POINTS}</span>
             </span>
           }
         />
@@ -365,7 +337,9 @@ TesPage.propTypes = {
   classes: PropTypes.object.isRequired,
   questionLoading: PropTypes.bool,
   questions: PropTypes.array,
-  newPlayer: PropTypes.object.isRequired
+  newPlayer: PropTypes.object.isRequired,
+  isDrawerOpen: PropTypes.bool,
+  secondaryAccent: PropTypes.string,
 };
 
 export default withStyles(styles)(TesPage);

@@ -13,8 +13,8 @@ import { getFirstName } from '../../lib/get-first-name.js';
 const styles = theme => ({
   paper: {
     padding: theme.spacing.unit * 2,
-    borderRadius: 4
-  }
+    borderRadius: 4,
+  },
 });
 
 function TestProgressPanel(props) {
@@ -23,9 +23,8 @@ function TestProgressPanel(props) {
   const percentageCopy = () => {
     if (percentage === 100) {
       return percentage - 1;
-    } else {
-      return percentage;
     }
+    return percentage;
   };
 
   return (
@@ -58,7 +57,7 @@ function TestProgressPanel(props) {
 TestProgressPanel.propTypes = {
   classes: PropTypes.object.isRequired,
   percentage: PropTypes.number.isRequired,
-  name: PropTypes.string
+  name: PropTypes.string,
 };
 
 export default withStyles(styles)(TestProgressPanel);

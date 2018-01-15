@@ -9,31 +9,25 @@ import { FormControlLabel } from 'material-ui/Form';
 
 const styles = theme => ({
   questionItem: {
-    margin: '32px 16px'
+    margin: '32px 16px',
   },
   answerBoxContainer: {
-    marginTop: theme.spacing.unit * 2 //16px
+    marginTop: theme.spacing.unit * 2, // 16px
   },
   answerBox: {
     borderStyle: 'solid',
     borderWidth: 1,
-    borderColor: '#B0BEC5', //blueGrey[500]
-    padding: '8px 16px'
-  }
+    borderColor: '#B0BEC5', // blueGrey[500]
+    padding: '8px 16px',
+  },
 });
 
 function QuestionItem(props) {
   const {
-    classes,
-    question,
-    updateAnswersToQuestionList,
-    number,
-    index,
-    value
+    classes, question, updateAnswersToQuestionList, number, index, value,
   } = props;
 
-  const handleChange = event => {
-    //console.log('target.value: ' + event.target.value);
+  const handleChange = (event) => {
     updateAnswersToQuestionList(index, event.target.value);
   };
 
@@ -48,7 +42,7 @@ function QuestionItem(props) {
             control={
               <Radio
                 checked={value === question.answer[0].value}
-                onChange={handleChange.bind(this)}
+                onChange={handleChange}
                 value={question.answer[0].value}
                 aria-label="A"
               />
@@ -80,7 +74,7 @@ QuestionItem.propTypes = {
   number: PropTypes.number,
   index: PropTypes.number,
   value: PropTypes.string,
-  updateAnswersToQuestionList: PropTypes.func
+  updateAnswersToQuestionList: PropTypes.func,
 };
 
 export default withStyles(styles)(QuestionItem);

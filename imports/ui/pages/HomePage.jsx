@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
@@ -13,8 +14,8 @@ const styles = theme => ({
     display: 'flex',
     height: '100vh',
     alignItems: 'center',
-    padding: 0
-  }
+    padding: 0,
+  },
 });
 
 function HomePage(props) {
@@ -31,5 +32,9 @@ function HomePage(props) {
     </div>
   );
 }
+
+HomePage.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(HomePage);
