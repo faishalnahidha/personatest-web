@@ -21,6 +21,7 @@ import PublicContentLayout from '../layouts/PublicContentLayout.jsx';
 import MulaiTesPage from '../pages/MulaiTesPage.jsx';
 import HomePage from '../pages/HomePage.jsx';
 import OtentikasiPage from '../pages/OtentikasiPage.jsx';
+import TemporaryDrawer from '../pages/TemporaryDrawer.jsx';
 
 // App component - represents the whole app
 function App(props) {
@@ -38,10 +39,11 @@ function App(props) {
             >
               <Switch>
                 <Route exact path="/" component={HomePage} key="home" />
-                <Route exact path="/masuk" component={OtentikasiPage} key="masuk" />
+                <Route exact path="/otentikasi" component={OtentikasiPage} key="otentikasi" />
                 <Route exact path="/mulai-tes" component={MulaiTesPage} key="mulaiTes" />
                 <Route path="/artikel" component={PublicContentLayout} key="public" />
                 <Route path="/tes/:id" component={TesContainer} key="tes" />
+                <Route exact path="/temporary" component={TemporaryDrawer} key="temporary" />
                 <Redirect from="*" to="/" />
               </Switch>
             </CSSTransitionGroup>

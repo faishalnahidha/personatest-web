@@ -21,7 +21,6 @@ const styles = theme => ({
     top: 0,
     left: 0,
     height: '100vh',
-    width: drawerWidth,
     background: theme.palette.background.paper,
     [theme.breakpoints.up('lg')]: {
       width: drawerWidth,
@@ -41,7 +40,7 @@ const styles = theme => ({
     ...theme.mixins.toolbar,
   },
   chevronButton: {
-    marginRight: -16,
+    marginRight: theme.spacing.unit * -2,
   },
 });
 

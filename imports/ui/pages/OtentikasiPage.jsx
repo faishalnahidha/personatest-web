@@ -220,6 +220,11 @@ class OtentikasiPage extends Component {
     // });
   }
 
+  handleBackButton = () => {
+    console.log('back');
+    this.props.history.go(-1);
+  };
+
   render() {
     const { classes } = this.props;
     const { redirect, id } = this.state;
@@ -252,7 +257,8 @@ class OtentikasiPage extends Component {
                       <IconButton
                         color="contrast"
                         className={classes.backButton}
-                        aria-label="Back to previous page "
+                        aria-label="Back to previous page"
+                        onClick={this.handleBackButton}
                       >
                         <ArrowBack />
                       </IconButton>
@@ -410,6 +416,7 @@ class OtentikasiPage extends Component {
 
 OtentikasiPage.propTypes = {
   classes: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(OtentikasiPage);

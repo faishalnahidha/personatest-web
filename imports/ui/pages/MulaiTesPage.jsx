@@ -199,6 +199,11 @@ class MulaiTesPage extends Component {
     });
   }
 
+  handleBackButton = () => {
+    console.log('back');
+    this.props.history.go(-1);
+  };
+
   render() {
     const { classes } = this.props;
     const { redirect, id } = this.state;
@@ -228,7 +233,8 @@ class MulaiTesPage extends Component {
                       <IconButton
                         color="primary"
                         className={classes.backButton}
-                        aria-label="Back to previous page "
+                        aria-label="Back to previous page"
+                        onClick={this.handleBackButton}
                       >
                         <ArrowBack />
                       </IconButton>
@@ -316,6 +322,7 @@ class MulaiTesPage extends Component {
 
 MulaiTesPage.propTypes = {
   classes: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(MulaiTesPage);

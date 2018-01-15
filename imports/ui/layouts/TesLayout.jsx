@@ -121,6 +121,10 @@ class TesLayout extends Component {
 
     const { score, isDrawerOpen } = this.state;
 
+    if (!loading && !newPlayerExists) {
+      return <Redirect to="/mulai-tes" />;
+    }
+
     const headerTitle = (() => {
       if (!loading) {
         if (isTestFinished) {

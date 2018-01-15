@@ -28,6 +28,9 @@ function HomePage(props) {
         <Button raised color="primary" href="/mulai-tes">
           Mulai Persona Test
         </Button>
+        <Button raised color="accent" href="/otentikasi">
+          Masuk
+        </Button>
       </Grid>
     </div>
   );
