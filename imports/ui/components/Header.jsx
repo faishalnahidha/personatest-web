@@ -222,8 +222,8 @@ Header.propTypes = {
   newPlayerName: PropTypes.string,
   score: PropTypes.number,
   secondaryAccent: PropTypes.string,
-  isDrawerOpen: PropTypes.bool.isRequired,
-  handleDrawerOpen: PropTypes.func.isRequired,
+  isDrawerOpen: PropTypes.bool,
+  handleDrawerOpen: PropTypes.func,
 };
 
 export default withStyles(styles)(Header);

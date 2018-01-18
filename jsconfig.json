@@ -3,5 +3,8 @@
     "target": "es6",
     "module": "es6"
   },
-  "exclude": ["node_modules", ".meteor"]
+  "exclude": [
+    "node_modules",
+    ".meteor"
+  ]
 }

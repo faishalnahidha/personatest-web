@@ -16,6 +16,7 @@ import 'typeface-roboto';
 import '../stylesheets/transition.css';
 
 import { myTheme } from '../themes/theme';
+import BaseLayout from '../layouts/BaseLayout.jsx';
 import TesContainer from '../containers/TesContainer.jsx';
 import PublicContentLayout from '../layouts/PublicContentLayout.jsx';
 import MulaiTesPage from '../pages/MulaiTesPage.jsx';

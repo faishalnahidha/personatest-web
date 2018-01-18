@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { withStyles } from 'material-ui/styles';
@@ -11,29 +11,59 @@ import MenuDrawer, { drawerWidth } from '../components/MenuDrawer.jsx';
 
 const styles = theme => ({
   root: {
-    display: 'flex',
-    height: '100vh',
-    alignItems: 'center',
     padding: 0,
+  },
+  introSection: {
+    position: 'relative',
+    width: '100%',
+    height: '100vh',
+    background: 'linear-gradient(90deg, #7474bf, #348ac7)',
   },
 });
 
-function HomePage(props) {
-  const { classes } = props;
+class HomePage extends Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div className={classes.root}>
-      <Header headerTitle="Persona Web" />
-      <Grid container spacing={0} justify="center" alignItems="center">
-        <Button raised color="primary" href="/mulai-tes">
-          Mulai Persona Test
-        </Button>
-        <Button raised color="accent" href="/otentikasi">
-          Masuk
-        </Button>
-      </Grid>
-    </div>
-  );
+    this.state = {
+      isDrawerOpen: false,
+    };
+  }
+
+  handleDrawerOpen = () => {
+    const isDrawerOpen = !this.state.isDrawerOpen;
+    this.setState({ isDrawerOpen });
+  };
+
+  render() {
+    const { classes } = this.props;
+    const { isDrawerOpen } = this.state;
+
+    return (
+      <div className={classes.root}>
+        <Header headerTitle="" handleDrawerOpen={this.handleDrawerOpen} />
+        <MenuDrawer
+          isOpen={isDrawerOpen}
+          handleDrawerOpen={this.handleDrawerOpen}
+          forceMobileDrawer
+        />
+        <Grid
+          container
+          spacing={0}
+          justify="center"
+          alignItems="center"
+          className={classes.introSection}
+        >
+          <Button raised color="default" href="/mulai-tes">
+            Mulai Persona Test
+          </Button>
+          <Button color="default" href="/otentikasi">
+            Masuk
+          </Button>
+        </Grid>
+      </div>
+    );
+  }
 }
 
 HomePage.propTypes = {

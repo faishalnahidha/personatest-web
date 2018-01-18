@@ -121,6 +121,8 @@ class TesLayout extends Component {
 
     const { score, isDrawerOpen } = this.state;
 
+    // console.log(`newPlayer: ${Session.get('newPlayer').name}`);
+
     if (!loading && !newPlayerExists) {
       return <Redirect to="/mulai-tes" />;
     }

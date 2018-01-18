@@ -45,7 +45,9 @@ const styles = theme => ({
 });
 
 function MenuDrawer(props) {
-  const { isOpen, handleDrawerOpen, classes } = props;
+  const {
+    isOpen, handleDrawerOpen, forceMobileDrawer, classes,
+  } = props;
 
   const handleDrawerClose = () => {
     handleDrawerOpen();
@@ -87,6 +89,10 @@ function MenuDrawer(props) {
     </Drawer>
   );
 
+  if (forceMobileDrawer) {
+    return <div className={classes.drawer}>{drawerMobile}</div>;
+  }
+
   return (
     <div className={classes.drawer}>
       <Hidden lgUp>{drawerMobile}</Hidden>
@@ -99,6 +105,7 @@ MenuDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
   isOpen: PropTypes.bool.isRequired,
   handleDrawerOpen: PropTypes.func,
+  forceMobileDrawer: PropTypes.bool,
 };
 
 export default withStyles(styles)(MenuDrawer);
