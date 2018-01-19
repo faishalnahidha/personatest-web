@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Session } from 'meteor/session';
 import { withTracker } from 'meteor/react-meteor-data';
 
 import { PublicContents } from '../../api/public-contents.js';
@@ -19,6 +20,7 @@ const PublicContentPageContainer = withTracker(({ match, isDrawerOpen }) => {
     publicContent,
     publicContentExists,
     isDrawerOpen,
+    isTestFinished: Session.get('currentNewPlayer_isTestFinished'),
   };
 })(PublicContentPage);
 

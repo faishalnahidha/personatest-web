@@ -39,7 +39,7 @@ const styles = theme => ({
 class PublicContentLayout extends Component {
   constructor(props) {
     super(props);
-
+    console.log(`in Constructor Session.isDrawerOpen? ${Session.get('isDrawerOpen')}`);
     this.state = {
       score: 0,
       isDrawerOpen: Session.get('isDrawerOpen') ? Session.get('isDrawerOpen') : false,
@@ -56,12 +56,12 @@ class PublicContentLayout extends Component {
   handleDrawerOpen() {
     const isDrawerOpen = !this.state.isDrawerOpen;
     this.setState({ isDrawerOpen });
-    Session.set({ isDrawerOpen });
   }
 
   render() {
     const { classes } = this.props;
     const { score, isDrawerOpen } = this.state;
+    // console.log(`Session.currentNewPlayer_id: ${Session.get('currentNewPlayer_id')}`);
 
     return (
       <div className={classes.root}>
@@ -80,7 +80,6 @@ class PublicContentLayout extends Component {
         <Switch>
           <Route
             path="/artikel/:id"
-            // component={PublicContentPageContainer}
             render={props => <PublicContentPageContainer isDrawerOpen={isDrawerOpen} {...props} />}
           />
         </Switch>

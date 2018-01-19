@@ -38,6 +38,7 @@ class HomePage extends Component {
   render() {
     const { classes } = this.props;
     const { isDrawerOpen } = this.state;
+    console.log(`Session.get(newPlayerId): ${Session.get('newPlayerId')}`);
 
     return (
       <div className={classes.root}>

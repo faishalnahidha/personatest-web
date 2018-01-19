@@ -12,7 +12,6 @@ import Paper from 'material-ui/Paper';
 import Hidden from 'material-ui/Hidden';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
-import Tabs, { Tab } from 'material-ui/Tabs';
 import Button from 'material-ui/Button';
 import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
@@ -245,31 +244,32 @@ const personalityTypes = [
   },
 ];
 
-class OtentikasiPage extends Component {
+class DaftarPage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      id: null,
       errors: null,
-      redirect: false,
-      tab: 0,
+      // redirect: false,
       username: '',
       name: '',
       personalityType: '',
     };
+
+    this.newPlayerInitialized = false;
   }
 
-  componentDidMount() {
-    if (Session.get('newPlayer') !== undefined) {
-      this.newPlayer = Session.get('newPlayer');
+  componentWillReceiveProps(nextProps) {
+    const { newPlayer } = nextProps;
+    if (!this.newPlayerInitialized && nextProps.newPlayerExists) {
+      const autoUsername = newPlayer.name.replace(/\s/g, '');
 
-      const autoUsername = this.newPlayer.name.replace(/\s/g, '');
-      const name = Object.assign(this.newPlayer.name);
-
-      console.log(`username: ${autoUsername}`);
-      console.log(`name: ${name}`);
-      // this.setState({ username: autoUsername, name });
+      this.setState({
+        username: autoUsername,
+        name: newPlayer.name,
+        personalityType: newPlayer.result.type,
+      });
+      this.newPlayerInitialized = true;
     }
   }
 
@@ -277,45 +277,6 @@ class OtentikasiPage extends Component {
     this.setState({
       [name]: event.target.value,
     });
-  };
-
-  handleTabChange = (event, value) => {
-    this.setState({ tab: value });
-  };
-
-  handleSubmitMasuk = (event) => {
-    event.preventDefault();
-
-    const email = this.emailMasuk.value;
-    const password = this.passwordMasuk.value;
-    // const errors = {};
-
-    // if (!email) {
-    //   errors.email = 'pages.authPageSignIn.emailRequired';
-    // }
-    // if (!password) {
-    //   errors.password = 'pages.authPageSignIn.passwordRequired';
-    // }
-
-    // this.setState({ errors });
-    // if (Object.keys(errors).length) {
-    //   return;
-    // }
-
-    Meteor.loginWithPassword(email, password, (err) => {
-      if (err) {
-        let { errors } = this.state;
-        errors = err.reason;
-        this.setState({ errors });
-      } else {
-        this.props.history.go(-1);
-      }
-    });
-
-    // this.setState({
-    //   id: id,
-    //   redirect: true
-    // });
   };
 
   handleSubmitDaftar = (event) => {
@@ -326,9 +287,9 @@ class OtentikasiPage extends Component {
     const password = this.passwordDaftar.value;
     const confirmPassword = this.konfirmasiPasswordDaftar.value;
     const name = this.state.name.trim();
-    const personalityType = Object.assign(this.state.personalityType);
+    const personalityType = this.state.personalityType.toUpperCase();
 
-    const testResult = Session.get('newPlayer').result;
+    const testResult = Object.assign(this.props.newPlayer.result);
 
     this.setState({ errors: 'test' });
 
@@ -365,11 +326,12 @@ class OtentikasiPage extends Component {
 
   render() {
     const { classes } = this.props;
-    const { redirect, id } = this.state;
+    const { errors } = this.state;
 
     // if (redirect) {
     //   return <Redirect to={`/tes/${id}`} />;
     // }
+    console.log(`errors: ${errors}`);
 
     return (
       <div className={classes.root}>
@@ -437,174 +399,103 @@ class OtentikasiPage extends Component {
                     classes.paperContentContainer,
                   )}
                 >
-                  <Tabs
-                    textColor="primary"
-                    indicatorColor="primary"
-                    fullWidth
-                    value={this.state.tab}
-                    onChange={this.handleTabChange}
-                    className={classes.tabs}
-                  >
-                    <Tab label="Masuk" />
-                    <Tab label="Daftar" />
-                  </Tabs>
-                  {/* masuk form */}
-                  {this.state.tab === 0 && (
-                    <div className={classes.tabContainer}>
-                      <form
-                        onSubmit={this.handleSubmitMasuk}
-                        className={classnames(classes.formContainer, classes.paperContentContainer)}
+                  <div className={classes.tabContainer}>
+                    <form
+                      onSubmit={this.handleSubmitDaftar}
+                      className={classnames(classes.formContainer, classes.paperContentContainer)}
+                    >
+                      <TextField
+                        id="username-daftar"
+                        required
+                        fullWidth
+                        type="text"
+                        label="Username"
+                        margin="dense"
+                        value={this.state.username}
+                        onChange={this.handleChange('username')}
+                      />
+                      <TextField
+                        id="email-daftar"
+                        required
+                        fullWidth
+                        type="email"
+                        label="Email"
+                        margin="dense"
+                        inputRef={(c) => {
+                          this.emailDaftar = c;
+                        }}
+                      />
+                      <TextField
+                        id="password-daftar"
+                        required
+                        fullWidth
+                        type="password"
+                        label="Password"
+                        margin="dense"
+                        inputRef={(c) => {
+                          this.passwordDaftar = c;
+                        }}
+                      />
+                      <TextField
+                        id="confirm-password-daftar"
+                        required
+                        fullWidth
+                        type="password"
+                        label="Konfirmasi Password"
+                        margin="dense"
+                        inputRef={(c) => {
+                          this.konfirmasiPasswordDaftar = c;
+                        }}
+                      />
+                      <br />
+                      <TextField
+                        id="name-daftar"
+                        required
+                        fullWidth
+                        type="text"
+                        label="Nama Lengkap"
+                        margin="dense"
+                        value={this.state.name}
+                        onChange={this.handleChange('name')}
+                      />
+                      <TextField
+                        id="personality-type-daftar"
+                        required
+                        select
+                        fullWidth
+                        label="Tipe Kepribadian"
+                        value={this.state.personalityType}
+                        onChange={this.handleChange('personalityType')}
+                        SelectProps={{
+                          MenuProps: {
+                            className: classes.menu,
+                          },
+                        }}
+                        helperText={
+                          <Typography type="caption">
+                            Belum tahu tipe kepribadian anda? Klik <a href="/mulai-tes">di sini</a>{' '}
+                          </Typography>
+                        }
+                        margin="dense"
                       >
-                        {/* <FormControl
-                          className={classes.formControl}
-                          fullWidth
-                          required
-                        >
-                          <InputLabel htmlFor="email">Email</InputLabel>
-                          <Input
-                            type="email"
-                            endAdornment={
-                              <InputAdornment position="end">
-                                <MailIcon />
-                              </InputAdornment>
-                            }
-                          />
-                        </FormControl> */}
-                        <TextField
-                          id="email-masuk"
-                          required
-                          fullWidth
-                          type="email"
-                          label="Email"
-                          margin="normal"
-                          inputRef={(c) => {
-                            this.emailMasuk = c;
-                          }}
-                        />
-                        <TextField
-                          id="password-masuk"
-                          required
-                          fullWidth
-                          type="password"
-                          label="Password"
-                          margin="normal"
-                          inputRef={(c) => {
-                            this.passwordMasuk = c;
-                          }}
-                        />
-                        <Button
-                          raised
-                          className={classes.button}
-                          color="primary"
-                          type="submit"
-                          value="Submit"
-                        >
-                          Masuk
-                        </Button>
-                      </form>
-                    </div>
-                  )}
-                  {/* daftar form */}
-                  {this.state.tab === 1 && (
-                    <div className={classes.tabContainer}>
-                      <form
-                        onSubmit={this.handleSubmitDaftar}
-                        className={classnames(classes.formContainer, classes.paperContentContainer)}
-                      >
-                        <TextField
-                          id="username-daftar"
-                          required
-                          fullWidth
-                          type="text"
-                          label="Username"
-                          margin="dense"
-                          value={this.state.username}
-                          onChange={this.handleChange('username')}
-                        />
-                        <TextField
-                          id="email-daftar"
-                          required
-                          fullWidth
-                          type="email"
-                          label="Email"
-                          margin="dense"
-                          inputRef={(c) => {
-                            this.emailDaftar = c;
-                          }}
-                        />
-                        <TextField
-                          id="password-daftar"
-                          required
-                          fullWidth
-                          type="password"
-                          label="Password"
-                          margin="dense"
-                          inputRef={(c) => {
-                            this.passwordDaftar = c;
-                          }}
-                        />
-                        <TextField
-                          id="confirm-password-daftar"
-                          required
-                          fullWidth
-                          type="password"
-                          label="Konfirmasi Password"
-                          margin="dense"
-                          inputRef={(c) => {
-                            this.konfirmasiPasswordDaftar = c;
-                          }}
-                        />
-                        <br />
-                        <TextField
-                          id="name-daftar"
-                          required
-                          fullWidth
-                          type="text"
-                          label="Nama Lengkap"
-                          margin="dense"
-                          value={this.state.name}
-                          onChange={this.handleChange('name')}
-                        />
-                        <TextField
-                          id="personality-type-daftar"
-                          required
-                          select
-                          fullWidth
-                          label="Tipe Kepribadian"
-                          value={this.state.personalityType}
-                          onChange={this.handleChange('personalityType')}
-                          SelectProps={{
-                            MenuProps: {
-                              className: classes.menu,
-                            },
-                          }}
-                          helperText={
-                            <Typography type="caption">
-                              Belum tahu tipe kepribadian anda? Klik{' '}
-                              <a href="/mulai-tes">di sini</a>{' '}
-                            </Typography>
-                          }
-                          margin="dense"
-                        >
-                          {personalityTypes.map(option => (
-                            <MenuItem key={option.value} value={option.value}>
-                              {option.label}
-                            </MenuItem>
-                          ))}
-                        </TextField>
+                        {personalityTypes.map(option => (
+                          <MenuItem key={option.value} value={option.value}>
+                            {option.label}
+                          </MenuItem>
+                        ))}
+                      </TextField>
 
-                        <Button
-                          raised
-                          className={classes.button}
-                          color="primary"
-                          type="submit"
-                          value="Submit"
-                        >
-                          Daftar
-                        </Button>
-                      </form>
-                    </div>
-                  )}
+                      <Button
+                        raised
+                        className={classes.button}
+                        color="primary"
+                        type="submit"
+                        value="Submit"
+                      >
+                        Daftar
+                      </Button>
+                    </form>
+                  </div>
                 </Grid>
               </Grid>
             </Paper>
@@ -615,9 +506,12 @@ class OtentikasiPage extends Component {
   }
 }
 
-OtentikasiPage.propTypes = {
+DaftarPage.propTypes = {
   classes: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
+  // loading: PropTypes.bool.isRequired,
+  newPlayerExists: PropTypes.bool.isRequired,
+  newPlayer: PropTypes.object,
 };
 
-export default withStyles(styles)(OtentikasiPage);
+export default withStyles(styles)(DaftarPage);

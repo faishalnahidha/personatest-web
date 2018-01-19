@@ -25,10 +25,10 @@ const TesContainer = withTracker(({ match }) => {
   console.log(`newPlayerExists: ${newPlayerExists}`);
 
   if (newPlayerExists) {
-    const isTestFinished = newPlayer.answers && newPlayer.answers.length === 70;
     // 70 is completed answers
+    newPlayer.isTestFinished = newPlayer.answers && newPlayer.answers.length === 70;
 
-    if (isTestFinished) {
+    if (newPlayer.isTestFinished) {
       let result = {};
 
       if (newPlayer.result) {
@@ -49,8 +49,6 @@ const TesContainer = withTracker(({ match }) => {
         alternativeType2,
       );
 
-      Session.set('newPlayerId', newPlayer._id);
-
       return {
         loading,
         newPlayerExists,
@@ -58,7 +56,6 @@ const TesContainer = withTracker(({ match }) => {
         resultContentHandle,
         resultLoading: !resultContentHandle.ready(),
         resultContents: PublicContents.find({}).fetch(),
-        isTestFinished,
       };
     }
     const questionsHandle = Meteor.subscribe('questions');
@@ -70,7 +67,6 @@ const TesContainer = withTracker(({ match }) => {
       questionsHandle,
       questionLoading: !questionsHandle.ready(),
       questions: Questions.find({}).fetch(),
-      isTestFinished,
     };
   }
 

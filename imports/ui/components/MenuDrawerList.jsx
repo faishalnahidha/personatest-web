@@ -146,6 +146,8 @@ class MenuDrawerList extends Component {
     };
   }
 
+  componentDidMount() {}
+
   handleClick = name => (event) => {
     event.preventDefault();
     this.setState({ [name]: !this.state[name] });
@@ -176,7 +178,8 @@ class MenuDrawerList extends Component {
 
   render() {
     const { classes } = this.props;
-    const newPlayerId = Session.get('newPlayerId');
+    const newPlayerId = Session.get('currentNewPlayer_id');
+    const isTestFinished = Session.get('currentNewPlayer_isTestFinished');
 
     return (
       <List className={classes.root}>
@@ -193,14 +196,14 @@ class MenuDrawerList extends Component {
           </ListItemIcon>
           <ListItemText inset primary="Mulai Tes Baru" />
         </ListItem>
-        {newPlayerId ? (
+        {isTestFinished && (
           <ListItem button component={Link} to={`/tes/${newPlayerId}`} onClick={this.handleTap}>
             <ListItemIcon>
               <AssignmentTurnedInIcon />
             </ListItemIcon>
             <ListItemText inset primary="Hasil Tes" />
           </ListItem>
-        ) : null}
+        )}
         <Divider className={classes.divider} />
 
         <ListSubheader className={classes.parentSubheading}>Artikel</ListSubheader>

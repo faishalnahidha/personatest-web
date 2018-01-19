@@ -44,6 +44,7 @@ class TesLayout extends Component {
   constructor(props) {
     super(props);
 
+    console.log(`in Constructor Session.isDrawerOpen? ${Session.get('isDrawerOpen')}`);
     this.state = {
       score: 0,
       isDrawerOpen: Session.get('isDrawerOpen') ? Session.get('isDrawerOpen') : false,
@@ -53,15 +54,13 @@ class TesLayout extends Component {
     this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
   }
 
-  componentDidMount() {}
-
   componentWillReceiveProps(nextProps) {
     const { newPlayer } = nextProps;
     if (!this.newPlayerInitialized && nextProps.newPlayerExists) {
       this.secondaryAccent = secondaryAccentGenerator(newPlayer._id.charAt(0).toUpperCase());
-
-      Session.set('newPlayer', nextProps.newPlayer);
       this.newPlayerInitialized = true;
+
+      this.saveNewPlayerSession(newPlayer);
     }
 
     if (nextProps.newPlayerExists && nextProps.newPlayer.score !== this.state.score) {
@@ -71,6 +70,8 @@ class TesLayout extends Component {
 
   componentWillUnmount() {
     Session.set('isDrawerOpen', this.state.isDrawerOpen);
+    console.log(`statusDrawer: ${this.state.isDrawerOpen}`);
+    console.log(`SessionStatusDrawer: ${Session.get('isDrawerOpen')}`);
     if (this.props.resultContentHandle) {
       this.props.resultContentHandle.stop();
     }
@@ -79,21 +80,23 @@ class TesLayout extends Component {
     }
   }
 
+  saveNewPlayerSession(newPlayer) {
+    Session.setPersistent('currentNewPlayer_id', newPlayer._id);
+    Session.setPersistent('currentNewPlayer_isTestFinished', newPlayer.isTestFinished);
+    console.log(`Session.currentNewPlayer_id: ${Session.get('currentNewPlayer_id')}`);
+    console.log(`Session.currentNewPlayer_isTestFinished: ${Session.get('currentNewPlayer_isTestFinished')}`);
+  }
+
   handleDrawerOpen() {
     this.setState({ isDrawerOpen: !this.state.isDrawerOpen });
   }
 
   renderChildPage() {
     const {
-      questionLoading,
-      resultLoading,
-      newPlayer,
-      questions,
-      resultContents,
-      isTestFinished,
+      questionLoading, resultLoading, newPlayer, questions, resultContents,
     } = this.props;
 
-    if (isTestFinished) {
+    if (newPlayer.isTestFinished) {
       return (
         <HasilTesPage
           newPlayer={newPlayer}
@@ -129,7 +132,7 @@ class TesLayout extends Component {
 
     const headerTitle = (() => {
       if (!loading) {
-        if (isTestFinished) {
+        if (newPlayer.isTestFinished) {
           return 'Hasil Tes';
         }
         return 'Persona Test';
@@ -153,7 +156,7 @@ class TesLayout extends Component {
           })}
         />
         <MenuDrawer isOpen={isDrawerOpen} handleDrawerOpen={this.handleDrawerOpen} />
-        {newPlayerExists ? this.renderChildPage() : ''}
+        {newPlayerExists && this.renderChildPage()}
         <Footer />
       </div>
     );

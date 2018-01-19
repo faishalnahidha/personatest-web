@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { Link } from 'react-router-dom';
 import Parser from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
 
@@ -9,6 +10,7 @@ import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
+import Button from 'material-ui/Button';
 import { CircularProgress } from 'material-ui/Progress';
 import { grey } from 'material-ui/colors';
 
@@ -75,7 +77,6 @@ const styles = theme => ({
     },
   },
   shortDescription: {
-    color: grey[700],
     fontSize: 21,
     fontWeight: 300,
     fontStyle: 'italic',
@@ -107,17 +108,28 @@ const styles = theme => ({
     //  'linear-gradient(135deg, rgba(116,116,191,.1), rgba(52,138,199,.1))'
   },
   blockquoteText: {
-    color: grey[700],
     fontSize: 15,
     fontWeight: 300,
     fontStyle: 'italic',
+  },
+  greyText: {
+    color: grey[700],
+  },
+  buttonDaftar: {
+    marginLeft: -16,
+    marginTop: theme.spacing.unit,
   },
 });
 
 class PublicContentPage extends Component {
   render() {
     const {
-      loading, publicContent, publicContentExists, isDrawerOpen, classes,
+      loading,
+      publicContent,
+      publicContentExists,
+      isDrawerOpen,
+      isTestFinished,
+      classes,
     } = this.props;
 
     if (!publicContentExists) {
@@ -170,14 +182,16 @@ class PublicContentPage extends Component {
                     </Grid>
                   )}
 
-                  {publicContent.shortDescription !== '' ? (
+                  {publicContent.shortDescription !== null && (
                     <Grid item xs={12} className={classes.textContainer}>
-                      <Typography className={classes.shortDescription}>
+                      <Typography
+                        className={classnames(classes.shortDescription, classes.greyText)}
+                      >
                         {publicContent.shortDescription}
                       </Typography>
                       <Divider className={classes.divider} />
                     </Grid>
-                  ) : null}
+                  )}
                   <Grid item xs={12} className={classes.textContainer}>
                     {Parser(publicContent.content, {
                       replace: (domNode) => {
@@ -207,7 +221,9 @@ class PublicContentPage extends Component {
                         if (domNode.name === 'blockquote') {
                           return (
                             <div className={classes.blockquote}>
-                              <Typography className={classes.blockquoteText}>
+                              <Typography
+                                className={classnames(classes.blockquoteText, classes.greyText)}
+                              >
                                 {domToReact(domNode.children)}
                               </Typography>
                             </div>
@@ -222,6 +238,25 @@ class PublicContentPage extends Component {
                       },
                     })}
                   </Grid>
+                  {isTestFinished &&
+                    publicContent.article !== 'pengenalan' && (
+                      <Grid item xs={12} className={classes.textContainer}>
+                        <Typography type="body1" className={classes.greyText}>
+                          *Anda dapat melihat deskripsi detail mengenai: kelebihan alami dan
+                          tantangan kepribadian Anda, lingkungan kerja dan bos ideal, serta ratusan
+                          daftar karir yang sesuai dengan tipe kepribadian Anda, dengan mendaftar di
+                          Persona Web
+                        </Typography>
+                        <Button
+                          color="primary"
+                          className={classes.buttonDaftar}
+                          component={Link}
+                          to="/daftar"
+                        >
+                          Daftar Sekarang
+                        </Button>
+                      </Grid>
+                    )}
                 </Grid>
               </Paper>
             </Grid>
@@ -240,6 +275,7 @@ PublicContentPage.propTypes = {
   publicContent: PropTypes.object,
   publicContentExists: PropTypes.bool,
   isDrawerOpen: PropTypes.bool.isRequired,
+  isTestFinished: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(PublicContentPage);
