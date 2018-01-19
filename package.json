@@ -9,7 +9,7 @@
     "bcrypt": "^1.0.3",
     "classnames": "^2.2.5",
     "html-react-parser": "^0.4.1",
-    "material-ui": "^1.0.0-beta.28",
+    "material-ui": "^1.0.0-beta.29",
     "material-ui-icons": "^1.0.0-beta.17",
     "rc-progress": "^2.2.5",
     "react": "^16.2.0",
