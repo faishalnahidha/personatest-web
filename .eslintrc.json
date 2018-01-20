@@ -14,14 +14,8 @@
     "sourceType": "module",
     "allowImportExportEverywhere": true
   },
-  "plugins": [
-    "meteor",
-    "react"
-  ],
-  "extends": [
-    "airbnb",
-    "plugin:meteor/recommended"
-  ],
+  "plugins": ["meteor", "react"],
+  "extends": ["airbnb", "plugin:meteor/recommended"],
   "settings": {
     "import/resolver": "meteor"
   },
@@ -29,22 +23,14 @@
     "no-unused-vars": [
       "warn",
       {
-        "ignore": [
-          "meteor"
-        ]
+        "ignore": ["meteor"]
       }
     ],
-    "linebreak-style": [
-      "error",
-      "windows"
-    ],
+    "linebreak-style": ["error", "windows"],
     "meteor/no-session": "off",
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
-    "import/extensions": [
-      "off",
-      "never"
-    ],
+    "import/extensions": ["off", "never"],
     "no-underscore-dangle": "off",
     "class-methods-use-this": "off",
     "object-shorthand": [
@@ -61,28 +47,22 @@
         "templateInstanceParamName": "instance"
       }
     ],
-    "meteor/template-names": [
-      "off"
-    ],
+    "meteor/template-names": ["off"],
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "react/prop-types": [
       "error",
       {
-        "ignore": [
-          "children"
-        ]
+        "ignore": ["children"]
       }
     ],
     "react/forbid-prop-types": "off",
     "react/require-default-props": "off",
-    "jsx-a11y/no-static-element-interactions": "off"
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/anchor-is-valid": "off"
   }
 }

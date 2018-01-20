@@ -15,14 +15,14 @@ const TesContainer = withTracker(({ match }) => {
   const { id } = match.params;
 
   console.log(`\n------Loading Data: ${n} loops------`);
-  console.log(`newPlayer._id:${id}`);
+  // console.log(`newPlayer._id:${id}`);
 
   const newPlayerHandle = Meteor.subscribe('newPlayers', id);
   const loading = !newPlayerHandle.ready();
   const newPlayer = NewPlayers.findOne({ _id: id });
   const newPlayerExists = !loading && newPlayer !== undefined && newPlayer != null;
 
-  console.log(`newPlayerExists: ${newPlayerExists}`);
+  // console.log(`newPlayerExists: ${newPlayerExists}`);
 
   if (newPlayerExists) {
     // 70 is completed answers

@@ -39,7 +39,7 @@ const styles = theme => ({
 class PublicContentLayout extends Component {
   constructor(props) {
     super(props);
-    console.log(`in Constructor Session.isDrawerOpen? ${Session.get('isDrawerOpen')}`);
+
     this.state = {
       score: 0,
       isDrawerOpen: Session.get('isDrawerOpen') ? Session.get('isDrawerOpen') : false,
@@ -59,10 +59,9 @@ class PublicContentLayout extends Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, user } = this.props;
     const { score, isDrawerOpen } = this.state;
     // console.log(`Session.currentNewPlayer_id: ${Session.get('currentNewPlayer_id')}`);
-
     return (
       <div className={classes.root}>
         <Header
@@ -70,6 +69,7 @@ class PublicContentLayout extends Component {
           isDrawerOpen={isDrawerOpen}
           secondaryAccent={this.secondaryAccent}
           handleDrawerOpen={this.handleDrawerOpen}
+          user={user}
         />
         <div
           className={classnames(classes.headerExpand, {
@@ -80,7 +80,9 @@ class PublicContentLayout extends Component {
         <Switch>
           <Route
             path="/artikel/:id"
-            render={props => <PublicContentPageContainer isDrawerOpen={isDrawerOpen} {...props} />}
+            render={props => (
+              <PublicContentPageContainer isDrawerOpen={isDrawerOpen} user={user} {...props} />
+            )}
           />
         </Switch>
         <Footer />
@@ -91,6 +93,7 @@ class PublicContentLayout extends Component {
 
 PublicContentLayout.propTypes = {
   classes: PropTypes.object.isRequired,
+  user: PropTypes.object,
 };
 
 export default withStyles(styles)(PublicContentLayout);

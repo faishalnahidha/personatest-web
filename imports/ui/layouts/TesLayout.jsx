@@ -43,8 +43,6 @@ const styles = theme => ({
 class TesLayout extends Component {
   constructor(props) {
     super(props);
-
-    console.log(`in Constructor Session.isDrawerOpen? ${Session.get('isDrawerOpen')}`);
     this.state = {
       score: 0,
       isDrawerOpen: Session.get('isDrawerOpen') ? Session.get('isDrawerOpen') : false,
@@ -119,7 +117,7 @@ class TesLayout extends Component {
 
   render() {
     const {
-      loading, newPlayerExists, newPlayer, isTestFinished, classes,
+      user, loading, newPlayerExists, newPlayer, isTestFinished, classes,
     } = this.props;
 
     const { score, isDrawerOpen } = this.state;
@@ -143,8 +141,9 @@ class TesLayout extends Component {
     return (
       <div className={classes.root}>
         <Header
+          user={user}
           headerTitle={headerTitle}
-          newPlayerName={newPlayerExists ? newPlayer.name : ' '}
+          newPlayerName={newPlayerExists ? newPlayer.name : null}
           score={score}
           isDrawerOpen={isDrawerOpen}
           secondaryAccent={this.secondaryAccent}
@@ -165,6 +164,7 @@ class TesLayout extends Component {
 
 TesLayout.propTypes = {
   classes: PropTypes.object.isRequired,
+  user: PropTypes.object,
   loading: PropTypes.bool.isRequired,
   newPlayerExists: PropTypes.bool.isRequired,
   newPlayer: PropTypes.object,

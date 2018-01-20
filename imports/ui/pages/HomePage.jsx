@@ -36,13 +36,13 @@ class HomePage extends Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { user, classes } = this.props;
     const { isDrawerOpen } = this.state;
-    console.log(`Session.get(newPlayerId): ${Session.get('newPlayerId')}`);
+    // console.log(`Session.get(newPlayerId): ${Session.get('newPlayerId')}`);
 
     return (
       <div className={classes.root}>
-        <Header headerTitle="" handleDrawerOpen={this.handleDrawerOpen} />
+        <Header headerTitle="" user={user} handleDrawerOpen={this.handleDrawerOpen} />
         <MenuDrawer
           isOpen={isDrawerOpen}
           handleDrawerOpen={this.handleDrawerOpen}
@@ -58,9 +58,6 @@ class HomePage extends Component {
           <Button raised color="default" href="/mulai-tes">
             Mulai Persona Test
           </Button>
-          <Button color="default" href="/otentikasi">
-            Masuk
-          </Button>
         </Grid>
       </div>
     );
@@ -69,6 +66,7 @@ class HomePage extends Component {
 
 HomePage.propTypes = {
   classes: PropTypes.object.isRequired,
+  user: PropTypes.object,
 };
 
 export default withStyles(styles)(HomePage);

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Session } from 'meteor/session';
-import { Link, Redirect } from 'react-router';
+import { Link, Redirect } from 'react-router-dom';
 import classnames from 'classnames';
 
 import { withStyles } from 'material-ui/styles';
@@ -16,6 +16,7 @@ import Button from 'material-ui/Button';
 import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/Menu/MenuItem';
+import Snackbar from 'material-ui/Snackbar';
 // import Radio, { RadioGroup } from 'material-ui/Radio';
 // import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
 // import {
@@ -110,9 +111,6 @@ const styles = theme => ({
       margin: theme.spacing.unit * 4,
     },
   },
-  tabContainer: {
-    overflowY: 'auto',
-  },
   overlay: {
     height: '100%',
     width: '100%',
@@ -129,12 +127,6 @@ const styles = theme => ({
     top: 0,
     left: 0,
     zIndex: -9,
-  },
-  tabs: {
-    position: 'absolute',
-    width: '100%',
-    top: 0,
-    zIndex: 100,
   },
   button: {
     width: '100%',
@@ -254,6 +246,7 @@ class DaftarPage extends Component {
       username: '',
       name: '',
       personalityType: '',
+      isSnackbarOpen: false,
     };
 
     this.newPlayerInitialized = false;
@@ -262,7 +255,7 @@ class DaftarPage extends Component {
   componentWillReceiveProps(nextProps) {
     const { newPlayer } = nextProps;
     if (!this.newPlayerInitialized && nextProps.newPlayerExists) {
-      const autoUsername = newPlayer.name.replace(/\s/g, '');
+      const autoUsername = newPlayer.name.replace(/\s/g, '').toLowerCase();
 
       this.setState({
         username: autoUsername,
@@ -307,6 +300,7 @@ class DaftarPage extends Component {
           if (err) {
             this.setState({
               errors: err.reason,
+              isSnackbarOpen: true,
             });
             console.log(err.reason);
           } else {
@@ -316,7 +310,10 @@ class DaftarPage extends Component {
       );
     }
 
-    this.setState({ errors: 'Password tidak sama' });
+    if (password !== confirmPassword) {
+      this.setState({ errors: 'Password tidak sama' });
+      this.setState({ isSnackbarOpen: true });
+    }
   };
 
   handleBackButton = () => {
@@ -326,12 +323,12 @@ class DaftarPage extends Component {
 
   render() {
     const { classes } = this.props;
-    const { errors } = this.state;
+    const { errors, isSnackbarOpen } = this.state;
 
     // if (redirect) {
     //   return <Redirect to={`/tes/${id}`} />;
     // }
-    console.log(`errors: ${errors}`);
+    // console.log(`errors: ${errors}`);
 
     return (
       <div className={classes.root}>
@@ -501,6 +498,19 @@ class DaftarPage extends Component {
             </Paper>
           </Grid>
         </Grid>
+        <Snackbar
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center',
+          }}
+          open={isSnackbarOpen}
+          autoHideDuration={6000}
+          onClose={() => this.setState({ isSnackbarOpen: false })}
+          SnackbarContentProps={{
+            'aria-describedby': 'message-id',
+          }}
+          message={<span id="message-id">{this.state.errors}</span>}
+        />
       </div>
     );
   }

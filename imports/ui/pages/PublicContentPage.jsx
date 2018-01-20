@@ -121,156 +121,141 @@ const styles = theme => ({
   },
 });
 
-class PublicContentPage extends Component {
-  render() {
-    const {
-      loading,
-      publicContent,
-      publicContentExists,
-      isDrawerOpen,
-      isTestFinished,
-      classes,
-    } = this.props;
+function PublicContentPage(props) {
+  const {
+    user,
+    loading,
+    publicContent,
+    publicContentExists,
+    isDrawerOpen,
+    isTestFinished,
+    classes,
+  } = props;
 
-    if (!publicContentExists) {
-      return <Typography type="display1">404 Not Found</Typography>;
-    }
-
-    if (publicContentExists) {
-      const pictureBgColor = (() => {
-        const { type } = this.props.publicContent;
-
-        if (type === 'SJ') {
-          return personalityColor.gold;
-        } else if (type === 'SP') {
-          return personalityColor.red;
-        } else if (type === 'NT') {
-          return personalityColor.blue;
-        }
-        return personalityColor.green;
-      })();
-
-      return (
-        <div className={classes.contentRoot}>
-          <Grid container spacing={16} justify="center">
-            {/* Main column */}
-            <Grid
-              item
-              xs={12}
-              sm={10}
-              md={8}
-              lg={6}
-              className={classnames(classes.mainColumnContainer, {
-                [classes.mainColumnContainerShift]: isDrawerOpen,
-              })}
-            >
-              <Paper className={classes.paper}>
-                <Grid container spacing={0}>
-                  {publicContent.contentMainImage !== null ? (
-                    <Grid item xs={12} className={classes.pictureContainer}>
-                      <img
-                        src={`/img/content-feature/${publicContent.contentMainImage}`}
-                        alt={`MBTI ${publicContent._id} ${publicContent.name}`}
-                        className={classes.image}
-                      />
-                    </Grid>
-                  ) : (
-                    <Grid item xs={12} className={classes.displayTextContainer}>
-                      <Typography type="display2" gutterBottom>
-                        {publicContent.name}
-                      </Typography>
-                    </Grid>
-                  )}
-
-                  {publicContent.shortDescription !== null && (
-                    <Grid item xs={12} className={classes.textContainer}>
-                      <Typography
-                        className={classnames(classes.shortDescription, classes.greyText)}
-                      >
-                        {publicContent.shortDescription}
-                      </Typography>
-                      <Divider className={classes.divider} />
-                    </Grid>
-                  )}
-                  <Grid item xs={12} className={classes.textContainer}>
-                    {Parser(publicContent.content, {
-                      replace: (domNode) => {
-                        if (domNode.name === 'h2') {
-                          return (
-                            <div>
-                              <Typography type="headline" component="h2">
-                                {domToReact(domNode.children)}
-                              </Typography>
-                              <br />
-                            </div>
-                          );
-                        }
-
-                        if (domNode.name === 'p') {
-                          return <Typography paragraph>{domToReact(domNode.children)}</Typography>;
-                        }
-
-                        if (domNode.name === 'ol') {
-                          return (
-                            <ol className={classes.orderedList}>
-                              <Typography>{domToReact(domNode.children)}</Typography>
-                            </ol>
-                          );
-                        }
-
-                        if (domNode.name === 'blockquote') {
-                          return (
-                            <div className={classes.blockquote}>
-                              <Typography
-                                className={classnames(classes.blockquoteText, classes.greyText)}
-                              >
-                                {domToReact(domNode.children)}
-                              </Typography>
-                            </div>
-                          );
-                        }
-
-                        if (domNode.name === 'hr') {
-                          return <Divider className={classes.divider} />;
-                        }
-
-                        return null;
-                      },
-                    })}
-                  </Grid>
-                  {isTestFinished &&
-                    publicContent.article !== 'pengenalan' && (
-                      <Grid item xs={12} className={classes.textContainer}>
-                        <Typography type="body1" className={classes.greyText}>
-                          *Anda dapat melihat deskripsi detail mengenai: kelebihan alami dan
-                          tantangan kepribadian Anda, lingkungan kerja dan bos ideal, serta ratusan
-                          daftar karir yang sesuai dengan tipe kepribadian Anda, dengan mendaftar di
-                          Persona Web
-                        </Typography>
-                        <Button
-                          color="primary"
-                          className={classes.buttonDaftar}
-                          component={Link}
-                          to="/daftar"
-                        >
-                          Daftar Sekarang
-                        </Button>
-                      </Grid>
-                    )}
-                </Grid>
-              </Paper>
-            </Grid>
-          </Grid>
-        </div>
-      );
-    }
-
-    return <CircularProgress />;
+  if (!publicContentExists) {
+    return <Typography type="display1">404 Not Found</Typography>;
   }
+
+  if (publicContentExists) {
+    return (
+      <div className={classes.contentRoot}>
+        <Grid container spacing={16} justify="center">
+          {/* Main column */}
+          <Grid
+            item
+            xs={12}
+            sm={10}
+            md={8}
+            lg={6}
+            className={classnames(classes.mainColumnContainer, {
+              [classes.mainColumnContainerShift]: isDrawerOpen,
+            })}
+          >
+            <Paper className={classes.paper}>
+              <Grid container spacing={0}>
+                {publicContent.contentMainImage !== null ? (
+                  <Grid item xs={12} className={classes.pictureContainer}>
+                    <img
+                      src={`/img/content-feature/${publicContent.contentMainImage}`}
+                      alt={`MBTI ${publicContent._id} ${publicContent.name}`}
+                      className={classes.image}
+                    />
+                  </Grid>
+                ) : (
+                  <Grid item xs={12} className={classes.displayTextContainer}>
+                    <Typography type="display2" gutterBottom>
+                      {publicContent.name}
+                    </Typography>
+                  </Grid>
+                )}
+
+                {publicContent.shortDescription !== null && (
+                  <Grid item xs={12} className={classes.textContainer}>
+                    <Typography className={classnames(classes.shortDescription, classes.greyText)}>
+                      {publicContent.shortDescription}
+                    </Typography>
+                    <Divider className={classes.divider} />
+                  </Grid>
+                )}
+                <Grid item xs={12} className={classes.textContainer}>
+                  {Parser(publicContent.content, {
+                    replace: (domNode) => {
+                      if (domNode.name === 'h2') {
+                        return (
+                          <div>
+                            <Typography type="headline" component="h2">
+                              {domToReact(domNode.children)}
+                            </Typography>
+                            <br />
+                          </div>
+                        );
+                      }
+
+                      if (domNode.name === 'p') {
+                        return <Typography paragraph>{domToReact(domNode.children)}</Typography>;
+                      }
+
+                      if (domNode.name === 'ol') {
+                        return (
+                          <ol className={classes.orderedList}>
+                            <Typography>{domToReact(domNode.children)}</Typography>
+                          </ol>
+                        );
+                      }
+
+                      if (domNode.name === 'blockquote') {
+                        return (
+                          <div className={classes.blockquote}>
+                            <Typography
+                              className={classnames(classes.blockquoteText, classes.greyText)}
+                            >
+                              {domToReact(domNode.children)}
+                            </Typography>
+                          </div>
+                        );
+                      }
+
+                      if (domNode.name === 'hr') {
+                        return <Divider className={classes.divider} />;
+                      }
+
+                      return null;
+                    },
+                  })}
+                </Grid>
+                {!user &&
+                  isTestFinished &&
+                  publicContent.article !== 'pengenalan' && (
+                    <Grid item xs={12} className={classes.textContainer}>
+                      <Typography type="body1" className={classes.greyText}>
+                        *Anda dapat melihat deskripsi detail mengenai: kelebihan alami dan tantangan
+                        kepribadian Anda, lingkungan kerja dan bos ideal, serta ratusan daftar karir
+                        yang sesuai dengan tipe kepribadian Anda, dengan mendaftar di Persona Web
+                      </Typography>
+                      <Button
+                        color="primary"
+                        className={classes.buttonDaftar}
+                        component={Link}
+                        to="/daftar"
+                      >
+                        Daftar Sekarang
+                      </Button>
+                    </Grid>
+                  )}
+              </Grid>
+            </Paper>
+          </Grid>
+        </Grid>
+      </div>
+    );
+  }
+
+  return <CircularProgress />;
 }
 
 PublicContentPage.propTypes = {
   classes: PropTypes.object.isRequired,
+  user: PropTypes.object,
   loading: PropTypes.bool,
   publicContent: PropTypes.object,
   publicContentExists: PropTypes.bool,

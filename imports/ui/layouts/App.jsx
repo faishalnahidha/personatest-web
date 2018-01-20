@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
+import { Session } from 'meteor/session';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group';
 
@@ -26,35 +26,66 @@ import TemporaryDrawer from '../pages/TemporaryDrawer.jsx';
 import DaftarPageContainer from '../containers/DaftarPageContainer.jsx';
 
 // App component - represents the whole app
-function App(props) {
-  return (
-    <div>
-      <Reboot>
-        <MuiThemeProvider theme={myTheme}>
-          <Router>
-            <CSSTransitionGroup
-              transitionName="fade"
-              transitionAppear
-              transitionAppearTimeout={300}
-              transitionEnterTimeout={300}
-              transitionLeaveTimeout={300}
-            >
-              <Switch>
-                <Route exact path="/" component={HomePage} key="home" />
-                <Route exact path="/otentikasi" component={OtentikasiPage} key="otentikasi" />
-                <Route exact path="/daftar" component={DaftarPageContainer} key="daftar" />
-                <Route exact path="/mulai-tes" component={MulaiTesPage} key="mulaiTes" />
-                <Route path="/artikel" component={PublicContentLayout} key="public" />
-                <Route path="/tes/:id" component={TesContainer} key="tes" />
-                <Route exact path="/temporary" component={TemporaryDrawer} key="temporary" />
-                <Redirect from="*" to="/" />
-              </Switch>
-            </CSSTransitionGroup>
-          </Router>
-        </MuiThemeProvider>
-      </Reboot>
-    </div>
-  );
+class App extends Component {
+  componentDidMount() {
+    Session.setDefault('isDrawerOpen', false);
+    this.users = Meteor.users;
+  }
+
+  render() {
+    const { user, connected } = this.props;
+
+    if (user) {
+      console.log(`user: ${JSON.stringify(user)}`);
+    }
+    console.log(`connected: ${connected}`);
+    return (
+      <div>
+        <Reboot>
+          <MuiThemeProvider theme={myTheme}>
+            <Router>
+              <CSSTransitionGroup
+                transitionName="fade"
+                transitionAppear
+                transitionAppearTimeout={300}
+                transitionEnterTimeout={300}
+                transitionLeaveTimeout={300}
+              >
+                <Switch>
+                  <Route
+                    exact
+                    path="/"
+                    render={props => <HomePage user={user} {...props} />}
+                    key="home"
+                  />
+                  <Route exact path="/daftar" component={DaftarPageContainer} key="daftar" />
+                  <Route exact path="/mulai-tes" component={MulaiTesPage} key="mulaiTes" />
+                  <Route
+                    path="/artikel"
+                    render={props => <PublicContentLayout user={user} {...props} />}
+                    key="public"
+                  />
+                  <Route
+                    path="/tes/:id"
+                    render={props => <TesContainer user={user} {...props} />}
+                    key="tes"
+                  />
+                  <Route exact path="/temporary" component={TemporaryDrawer} key="temporary" />
+                  <Redirect from="*" to="/" />
+                </Switch>
+              </CSSTransitionGroup>
+            </Router>
+          </MuiThemeProvider>
+        </Reboot>
+      </div>
+    );
+  }
 }
+
+App.propTypes = {
+  user: PropTypes.object, // current meteor user
+  connected: PropTypes.bool, // server connection status
+  // isDrawerOpen: ReactPropTypes.bool, // is drawer open?
+};
 
 export default App;

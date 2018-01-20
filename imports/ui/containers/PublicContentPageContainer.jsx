@@ -8,7 +8,6 @@ import PublicContentPage from '../pages/PublicContentPage.jsx';
 
 const PublicContentPageContainer = withTracker(({ match, isDrawerOpen }) => {
   const id = match.params.id.toString().toUpperCase();
-  console.log(`id: ${id}`);
 
   const publicContentHandle = Meteor.subscribe('publicContents', id);
   const loading = !publicContentHandle.ready();

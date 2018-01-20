@@ -9,7 +9,6 @@ import DaftarPage from '../pages/DaftarPage.jsx';
 const DaftarPageContainer = withTracker(() => {
   const currentNewPlayerId = Session.get('currentNewPlayer_id');
   const isTestFinished = Session.get('currentNewPlayer_isTestFinished');
-  console.log(`Session.get(newPlayerId): ${Session.get('newPlayerId')}`);
 
   const newPlayerHandle = Meteor.subscribe('newPlayers', currentNewPlayerId);
   const loading = !newPlayerHandle.ready();
