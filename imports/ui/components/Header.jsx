@@ -135,12 +135,6 @@ class Header extends Component {
   //   }
   // }
 
-  // componentWillUnmount() {
-  //   document.removeEventListener('scroll', () => {
-  //     this.handleScroll();
-  //   });
-  // }
-
   handleScroll() {
     const isScroll = window.scrollY > 50;
     if (isScroll !== this.state.isTop) {

@@ -27,7 +27,7 @@ import { drawerWidth } from '../components/MenuDrawer.jsx';
 import { smoothScroll } from '../../lib/smooth-scroll.js';
 import { determineTestResult } from '../../lib/determine-test-result.js';
 import { testAnswerPoint } from '../../lib/points-const';
-import {mySecondaryColor} from '../themes/secondary-color-palette';
+import { mySecondaryColor } from '../themes/secondary-color-palette';
 
 const styles = theme => ({
   contentRoot: {
@@ -151,7 +151,7 @@ class TesPage extends Component {
      * dengan answerPerPage (7 answer tambahan)
      */
     const newAnswers = answers.concat(answerPerPage);
-
+    Session.setPersistent('currentNewPlayer_score', score);
     Meteor.call('newPlayers.updateAnswers', this.props.newPlayer._id, newAnswers, score);
 
     return newAnswers;
@@ -160,7 +160,6 @@ class TesPage extends Component {
   updateResult(answers) {
     if (answers.length === 70) {
       const result = determineTestResult(answers);
-
       Meteor.call('newPlayers.updateResult', this.props.newPlayer._id, result);
     } else {
       throw new Meteor.Error('answers not full!');
@@ -197,7 +196,6 @@ class TesPage extends Component {
        */
       if (questionPage > LAST_PAGE) {
         this.updateResult(answers);
-        // return true;
       }
     } else {
       alert('Anda belum menjawab semua pertanyaan!');

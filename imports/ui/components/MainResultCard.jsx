@@ -213,9 +213,6 @@ class MainResultCard extends Component {
               </Grid>
               <Grid item xs={12}>
                 <Grid container spacing={0} className={classes.buttonContainer}>
-                  {/* <IconButton dense color="primary">
-                    <Share />
-                  </IconButton> */}
                   <Button
                     dense
                     color="primary"
@@ -229,7 +226,7 @@ class MainResultCard extends Component {
             </Grid>
           </Grid>
         </Grid>
-        <Tooltip id="tooltip-share" title="Bagikan" placement="right">
+        <Tooltip id="tooltip-share" title="Bagikan" placement="bottom">
           <Button fab color="primary" aria-label="share" className={classes.shareFloatingButton}>
             <Share />
           </Button>

@@ -73,6 +73,9 @@ class TesLayout extends Component {
   saveNewPlayerSession(newPlayer) {
     Session.setPersistent('currentNewPlayer_id', newPlayer._id);
     Session.setPersistent('currentNewPlayer_isTestFinished', newPlayer.isTestFinished);
+    Session.setPersistent('currentNewPlayer_name', newPlayer.name);
+    Session.setPersistent('currentNewPlayer_score', newPlayer.score);
+
     console.log(`Session.currentNewPlayer_id: ${Session.get('currentNewPlayer_id')}`);
     console.log(`Session.currentNewPlayer_isTestFinished: ${Session.get('currentNewPlayer_isTestFinished')}`);
   }

@@ -6,11 +6,8 @@ import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Avatar from 'material-ui/Avatar';
-import Tooltip from 'material-ui/Tooltip';
 
 import AttributePercentageBar from '../components/AttributePercentageBar.jsx';
-
-import { getFirstName } from '../../lib/get-first-name.js';
 
 const styles = theme => ({
   paper: {
@@ -55,20 +52,21 @@ class TestResultPanel extends Component {
 
   render() {
     const {
-      classes, result, playerName, personalityType,
+      classes, result, personalityTypeLetter, personalityTypeName,
     } = this.props;
     return (
       <Paper className={classes.paper}>
         <Grid container spacing={0} justify="space-around" alignItems="center">
           <Grid item xs={12} className={classes.headContainer}>
             <Grid container spacing={0} justify="center">
-              <Avatar className={classes.avatar}>S</Avatar>
+              <Avatar
+                src={`/img/avatar/mbti-avatar-${personalityTypeLetter.toLowerCase()}.png`}
+                className={classes.avatar}
+              />
               <Grid item xs={12} style={{ marginTop: 8 }}>
-                <Tooltip id="tooltip-personality" title="Tipe Kepribadian" placement="right">
-                  <Typography type="body2" align="center">
-                    {personalityType.toUpperCase()}
-                  </Typography>
-                </Tooltip>
+                <Typography type="body2" align="center">
+                  {`${personalityTypeName.toUpperCase()} (${personalityTypeLetter})`}
+                </Typography>
                 <Typography type="caption" align="center">
                   Warna kepribadian: {this.personalityColorTypeText()}
                 </Typography>
@@ -120,8 +118,8 @@ class TestResultPanel extends Component {
 TestResultPanel.propTypes = {
   classes: PropTypes.object.isRequired,
   result: PropTypes.object.isRequired,
-  playerName: PropTypes.string.isRequired,
-  personalityType: PropTypes.string,
+  personalityTypeLetter: PropTypes.string,
+  personalityTypeName: PropTypes.string,
   personalityColorType: PropTypes.string,
 };
 

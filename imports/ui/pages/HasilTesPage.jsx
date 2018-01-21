@@ -120,8 +120,8 @@ function HasilTesPage(props) {
                 <Grid item xs={12} sm={6} md={12}>
                   <TestResultPanel
                     result={newPlayer.result}
-                    playerName={newPlayer.name}
-                    personalityType={`${mainType.name} (${mainType._id})`}
+                    personalityTypeLetter={mainType._id}
+                    personalityTypeName={mainType.name}
                     personalityColorType={mainType.type}
                   />
                 </Grid>
