@@ -2,24 +2,21 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { findDOMNode } from 'react-dom';
-import Session from 'meteor/session';
 
 import { withStyles } from 'material-ui/styles';
-import Hidden from 'material-ui/Hidden';
 import AppBar from 'material-ui/AppBar';
+import Avatar from 'material-ui/Avatar';
+import Hidden from 'material-ui/Hidden';
+import Button from 'material-ui/Button';
+import Divider from 'material-ui/Divider';
+import IconButton from 'material-ui/IconButton';
+import Menu, { MenuItem } from 'material-ui/Menu';
+import Popover from 'material-ui/Popover';
+import Tooltip from 'material-ui/Tooltip';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
-import IconButton from 'material-ui/IconButton';
-import Popover from 'material-ui/Popover';
-import Avatar from 'material-ui/Avatar';
-import Chip from 'material-ui/Chip';
-import Divider from 'material-ui/Divider';
-import Menu, { MenuItem } from 'material-ui/Menu';
-import { CircularProgress } from 'material-ui/Progress';
 import MenuIcon from 'material-ui-icons/Menu';
 import AccountCircle from 'material-ui-icons/AccountCircle';
-import { blueGrey } from 'material-ui/colors';
 
 import anime from 'animejs';
 
@@ -66,7 +63,7 @@ const styles = theme => ({
     width: 32,
     height: 32,
     fontSize: 15,
-    color: blueGrey[800],
+    color: '#348AC7',
     backgroundColor: mySecondaryColor.A700,
   },
   avatarMasuk: {
@@ -90,6 +87,20 @@ const styles = theme => ({
   linearProgress: {
     top: 64,
   },
+  score: {
+    fontSize: 13,
+    letterSpacing: 1,
+    padding: '4px 8px',
+    borderRadius: 11,
+    backgroundColor: 'rgba(255,255,255,.25)',
+    userSelect: 'none',
+    [theme.breakpoints.up('sm')]: {
+      marginRight: 4,
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginRight: 0,
+    },
+  },
 });
 
 const avatarDefaultImagePath = '/img/avatar/';
@@ -99,7 +110,6 @@ class Header extends Component {
     super(props);
 
     this.state = {
-      openChip: false,
       isScroll: false,
       anchorElUserMenu: null,
       isUserMenuOpen: false,
@@ -115,10 +125,10 @@ class Header extends Component {
   }
 
   // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.score !== this.props.score) {
+  //   if (nextProps.newPlayer.score && nextProps.newPlayer.score !== this.props.newPlayer.score) {
   //     const animateScore = anime({
   //       targets: '#animateScore',
-  //       label: nextProps.score,
+  //       label: nextProps.newPlayer.score,
   //       round: 1,
   //       easing: 'easeInOutExpo',
   //     });
@@ -164,54 +174,30 @@ class Header extends Component {
     Meteor.logout();
   };
 
-  AvatarChipPopover = () => (
-    <div>
-      <Typography
-        type="title"
-        align="center"
-        className={this.props.classes.chipPopover}
-        style={{ color: this.props.secondaryAccent }}
-      >
-        {this.props.newPlayerName}
-      </Typography>
-      <Divider />
-      <Typography type="body1" align="center" className={this.props.classes.chipPopover}>
-        Skor : {this.props.score}
-      </Typography>
-    </div>
-  );
-
-  renderRightIcon() {
-    const { newPlayerName, classes, secondaryAccent } = this.props;
-
-    if (newPlayerName === undefined) {
-      return '';
-    } else if (newPlayerName === ' ') {
-      return <CircularProgress color="accent" size={32} />;
-    }
-    const avatarLetter = newPlayerName.charAt(0);
-
+  UserMenu = (props) => {
+    const { isUserMenuOpen, anchorElUserMenu } = this.state;
     return (
-      <Chip
-        ref={(node) => {
-          this.chip = node;
+      <Menu
+        id="user-menu-appbar"
+        anchorEl={anchorElUserMenu}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
         }}
-        id="animateScore"
-        className={classes.chip}
-        classes={{ label: classes.chipLabel }}
-        avatar={
-          <Avatar className={classes.avatar} style={{ backgroundColor: secondaryAccent }}>
-            {avatarLetter}
-          </Avatar>
-        }
-        label={this.props.score}
-        onClick={() => this.setState({ openChip: true })}
-      />
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        open={isUserMenuOpen}
+        onClose={this.handleUserMenuClose}
+      >
+        {props.children}
+      </Menu>
     );
-  }
+  };
 
   renderRightComponents() {
-    const { user, newPlayerName, classes } = this.props;
+    const { user, newPlayer, classes } = this.props;
     const { isUserMenuOpen, anchorElUserMenu } = this.state;
 
     if (user) {
@@ -230,39 +216,36 @@ class Header extends Component {
               className={classes.avatarMasuk}
             />
           </IconButton>
-          <Menu
-            id="user-menu-appbar"
-            anchorEl={anchorElUserMenu}
-            anchorOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            open={isUserMenuOpen}
-            onClose={this.handleUserMenuClose}
-          >
+          <this.UserMenu>
             <MenuItem onClick={this.handleUserMenuClose}>Profil</MenuItem>
             <MenuItem onClick={this.handleUserLogout}>Keluar</MenuItem>
-          </Menu>
+          </this.UserMenu>
         </div>
       );
-    } else if (!user && newPlayerName) {
-      /* Icon dan menu saat user BELUM DAFTAR dan sudah/sedang mengerjakan tes (temp user) */
-      const avatarLetter = newPlayerName.charAt(0);
+    } else if (!user && newPlayer) {
+      /* Icon dan menu saat user BELUM DAFTAR dan sudah/sedang
+         mengerjakan tes (temp user/newPlayer) */
+      const avatarLetter = newPlayer.name.charAt(0);
       return (
         <div>
-          <IconButton>
+          <Tooltip id="tooltip-skor" title="Skor Anda">
+            <span className={classes.score}>{newPlayer.score}</span>
+          </Tooltip>
+          <IconButton
+            aria-owns={isUserMenuOpen ? 'user-menu-appbar' : null}
+            aria-haspopup="true"
+            onClick={this.handleUserMenuOpen}
+          >
             <Avatar className={classes.avatar}>{avatarLetter}</Avatar>
           </IconButton>
+          <this.UserMenu>
+            <MenuItem onClick={this.handleLoginDialogOpen}>Masuk</MenuItem>
+          </this.UserMenu>
         </div>
       );
     }
-
+    /* Icon dan menu saat user BELUM login */
     return (
-      /* Icon dan menu saat user BELUM login */
       <div>
         <Hidden mdUp>
           <IconButton
@@ -283,7 +266,7 @@ class Header extends Component {
             Masuk
           </Button>
         </Hidden>
-        <Menu
+        <this.UserMenu
           id="user-menu-appbar"
           anchorEl={anchorElUserMenu}
           anchorOrigin={{
@@ -298,7 +281,7 @@ class Header extends Component {
           onClose={this.handleUserMenuClose}
         >
           <MenuItem onClick={this.handleLoginDialogOpen}>Masuk</MenuItem>
-        </Menu>
+        </this.UserMenu>
       </div>
     );
   }
@@ -333,17 +316,6 @@ class Header extends Component {
             </Typography>
             {/* {this.renderRightIcon()} */}
             {this.renderRightComponents()}
-
-            <Popover
-              open={this.state.openChip}
-              anchorEl={this.chipPopoverAchorEl}
-              anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-              onClose={() => this.setState({ openChip: false })}
-              classes={{ paper: classes.popoverPaper }}
-            >
-              <this.AvatarChipPopover />
-            </Popover>
           </Toolbar>
         </AppBar>
         <LoginDialog
@@ -360,8 +332,7 @@ Header.propTypes = {
   classes: PropTypes.object.isRequired,
   headerTitle: PropTypes.string.isRequired,
   user: PropTypes.object,
-  newPlayerName: PropTypes.string,
-  score: PropTypes.number,
+  newPlayer: PropTypes.object,
   secondaryAccent: PropTypes.string,
   isDrawerOpen: PropTypes.bool,
   handleDrawerOpen: PropTypes.func,

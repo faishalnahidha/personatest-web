@@ -16,13 +16,11 @@ import 'typeface-roboto';
 import '../stylesheets/transition.css';
 
 import { myTheme } from '../themes/theme';
-import BaseLayout from '../layouts/BaseLayout.jsx';
+import MainLayout from '../layouts/MainLayout.jsx';
 import TesContainer from '../containers/TesContainer.jsx';
 import PublicContentLayout from '../layouts/PublicContentLayout.jsx';
 import MulaiTesPage from '../pages/MulaiTesPage.jsx';
 import HomePage from '../pages/HomePage.jsx';
-import OtentikasiPage from '../pages/OtentikasiPage.jsx';
-import TemporaryDrawer from '../pages/TemporaryDrawer.jsx';
 import DaftarPageContainer from '../containers/DaftarPageContainer.jsx';
 
 // App component - represents the whole app
@@ -60,17 +58,21 @@ class App extends Component {
                   />
                   <Route exact path="/daftar" component={DaftarPageContainer} key="daftar" />
                   <Route exact path="/mulai-tes" component={MulaiTesPage} key="mulaiTes" />
-                  <Route
+                  {/* <Route
                     path="/artikel"
                     render={props => <PublicContentLayout user={user} {...props} />}
                     key="public"
-                  />
+                  /> */}
                   <Route
                     path="/tes/:id"
                     render={props => <TesContainer user={user} {...props} />}
                     key="tes"
                   />
-                  <Route exact path="/temporary" component={TemporaryDrawer} key="temporary" />
+                  <Route
+                    path="/:id"
+                    render={props => <MainLayout user={user} {...props} />}
+                    key="base"
+                  />
                   <Redirect from="*" to="/" />
                 </Switch>
               </CSSTransitionGroup>

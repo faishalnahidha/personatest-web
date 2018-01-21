@@ -21,12 +21,13 @@ import { NewPlayers } from '../../api/new-players.js';
 
 import '../stylesheets/animate.css';
 
-import Header from '../components/Header.jsx';
 import QuestionList from '../components/QuestionList.jsx';
 import TestProgressPanel from '../components/TestProgressPanel.jsx';
 import { drawerWidth } from '../components/MenuDrawer.jsx';
 import { smoothScroll } from '../../lib/smooth-scroll.js';
 import { determineTestResult } from '../../lib/determine-test-result.js';
+import { testAnswerPoint } from '../../lib/points-const';
+import {mySecondaryColor} from '../themes/secondary-color-palette';
 
 const styles = theme => ({
   contentRoot: {
@@ -73,7 +74,7 @@ const styles = theme => ({
   },
 });
 
-const ANSWER_POINTS = 40;
+const ANSWER_POINTS = testAnswerPoint;
 const QUESTIONS_PER_PAGE = 7;
 const LAST_PAGE = 9;
 
@@ -89,8 +90,6 @@ class TesPage extends Component {
       openSnackbar: false,
     };
 
-    this.newPlayerAnswersInitialized = false;
-    this.secondaryAccent = null;
     this.updateAnswersPerPage = this.updateAnswersPerPage.bind(this);
     this.handleButtonBerikutnya = this.handleButtonBerikutnya.bind(this);
   }
@@ -213,7 +212,7 @@ class TesPage extends Component {
 
   percentage() {
     const { answeredCount } = this.state;
-    return Math.floor((answeredCount / 70) * 100);
+    return Math.floor(answeredCount / 70 * 100);
   }
 
   renderQuestions() {
@@ -269,8 +268,6 @@ class TesPage extends Component {
       questionLoading, newPlayer, isDrawerOpen, classes,
     } = this.props;
 
-    // console.log('questionLoading: ' + questionLoading);
-
     return (
       <div id="top">
         <div className={classes.contentRoot}>
@@ -318,7 +315,7 @@ class TesPage extends Component {
           message={
             <span>
               {newPlayer.name}, skor anda:
-              <span style={{ color: this.props.secondaryAccent }}>&ensp;+ {ANSWER_POINTS}</span>
+              <span style={{ color: mySecondaryColor.A700 }}>&ensp;+ {ANSWER_POINTS}</span>
             </span>
           }
         />
@@ -339,7 +336,6 @@ TesPage.propTypes = {
   questions: PropTypes.array,
   newPlayer: PropTypes.object.isRequired,
   isDrawerOpen: PropTypes.bool,
-  secondaryAccent: PropTypes.string,
 };
 
 export default withStyles(styles)(TesPage);

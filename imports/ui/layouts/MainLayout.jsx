@@ -10,12 +10,6 @@ import Header from '../components/Header.jsx';
 import MenuDrawer, { drawerWidth } from '../components/MenuDrawer.jsx';
 import PublicContentPageContainer from '../containers/PublicContentPageContainer.jsx';
 import Footer from '../components/Footer.jsx';
-import TesContainer from '../containers/TesContainer.jsx';
-import PublicContentLayout from '../layouts/PublicContentLayout.jsx';
-import MulaiTesPage from '../pages/MulaiTesPage.jsx';
-import HomePage from '../pages/HomePage.jsx';
-import OtentikasiPage from '../pages/OtentikasiPage.jsx';
-import TemporaryDrawer from '../pages/TemporaryDrawer.jsx';
 
 const styles = theme => ({
   headerExpand: {
@@ -42,39 +36,34 @@ const styles = theme => ({
   },
 });
 
-class BaseLayout extends Component {
+class MainLayout extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      score: 0,
       isDrawerOpen: Session.get('isDrawerOpen') ? Session.get('isDrawerOpen') : false,
     };
 
     this.newPlayerInitialized = false;
-    this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
+    // this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
   }
 
-  componentWillUnmount() {
-    Session.set('isDrawerOpen', this.state.isDrawerOpen);
-  }
-
-  handleDrawerOpen() {
+  handleDrawerOpen = () => {
     const isDrawerOpen = !this.state.isDrawerOpen;
     this.setState({ isDrawerOpen });
     Session.set({ isDrawerOpen });
-  }
+  };
 
   render() {
-    const { classes } = this.props;
-    const { score, isDrawerOpen } = this.state;
+    const { classes, user } = this.props;
+    const { isDrawerOpen } = this.state;
 
     return (
       <div className={classes.root}>
         <Header
+          user={user}
           headerTitle="Artikel"
           isDrawerOpen={isDrawerOpen}
-          secondaryAccent={this.secondaryAccent}
           handleDrawerOpen={this.handleDrawerOpen}
         />
         <div
@@ -86,8 +75,9 @@ class BaseLayout extends Component {
         <Switch>
           <Route
             path="/artikel/:id"
-            // component={PublicContentPageContainer}
-            render={props => <PublicContentPageContainer isDrawerOpen={isDrawerOpen} {...props} />}
+            render={props => (
+              <PublicContentPageContainer user={user} isDrawerOpen={isDrawerOpen} {...props} />
+            )}
           />
         </Switch>
         <Footer />
@@ -96,8 +86,11 @@ class BaseLayout extends Component {
   }
 }
 
-BaseLayout.propTypes = {
+MainLayout.propTypes = {
   classes: PropTypes.object.isRequired,
+  user: PropTypes.object,
+  newPlayerName: PropTypes.string,
+  score: PropTypes.number,
 };
 
-export default withStyles(styles)(BaseLayout);
+export default withStyles(styles)(MainLayout);

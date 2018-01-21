@@ -12,7 +12,6 @@ import TesPage from '../pages/TesPage.jsx';
 import HasilTesPage from '../pages/HasilTesPage.jsx';
 import MenuDrawer, { drawerWidth } from '../components/MenuDrawer.jsx';
 import Footer from '../components/Footer.jsx';
-import { secondaryAccentGenerator } from '../../lib/secondary-accent';
 
 const styles = theme => ({
   headerExpand: {
@@ -44,7 +43,6 @@ class TesLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      score: 0,
       isDrawerOpen: Session.get('isDrawerOpen') ? Session.get('isDrawerOpen') : false,
     };
 
@@ -55,14 +53,8 @@ class TesLayout extends Component {
   componentWillReceiveProps(nextProps) {
     const { newPlayer } = nextProps;
     if (!this.newPlayerInitialized && nextProps.newPlayerExists) {
-      this.secondaryAccent = secondaryAccentGenerator(newPlayer._id.charAt(0).toUpperCase());
       this.newPlayerInitialized = true;
-
       this.saveNewPlayerSession(newPlayer);
-    }
-
-    if (nextProps.newPlayerExists && nextProps.newPlayer.score !== this.state.score) {
-      this.setState({ score: newPlayer.score });
     }
   }
 
@@ -109,7 +101,6 @@ class TesLayout extends Component {
         newPlayer={newPlayer}
         questionLoading={questionLoading}
         questions={questions}
-        secondaryAccent={this.secondaryAccent}
         isDrawerOpen={this.state.isDrawerOpen}
       />
     );
@@ -117,10 +108,10 @@ class TesLayout extends Component {
 
   render() {
     const {
-      user, loading, newPlayerExists, newPlayer, isTestFinished, classes,
+      user, loading, newPlayerExists, newPlayer, classes,
     } = this.props;
 
-    const { score, isDrawerOpen } = this.state;
+    const { isDrawerOpen } = this.state;
 
     // console.log(`newPlayer: ${Session.get('newPlayer').name}`);
 
@@ -138,15 +129,20 @@ class TesLayout extends Component {
       return '';
     })();
 
+    const nameAndScore = (() => {
+      if (newPlayerExists) {
+        return { name: newPlayer.name, score: newPlayer.score };
+      }
+      return null;
+    })();
+
     return (
       <div className={classes.root}>
         <Header
           user={user}
           headerTitle={headerTitle}
-          newPlayerName={newPlayerExists ? newPlayer.name : null}
-          score={score}
+          newPlayer={nameAndScore}
           isDrawerOpen={isDrawerOpen}
-          secondaryAccent={this.secondaryAccent}
           handleDrawerOpen={this.handleDrawerOpen}
         />
         <div
