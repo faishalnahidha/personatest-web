@@ -216,7 +216,7 @@ class Header extends Component {
     } else if (!user && newPlayer) {
       /* Icon dan menu saat user BELUM DAFTAR dan sudah/sedang
          mengerjakan tes (temp user/newPlayer) */
-      const avatarLetter = newPlayer.name.charAt(0);
+      const avatarLetter = newPlayer.name ? newPlayer.name.charAt(0) : ' ';
       return (
         <div>
           <Tooltip id="tooltip-skor" title="Skor Anda">

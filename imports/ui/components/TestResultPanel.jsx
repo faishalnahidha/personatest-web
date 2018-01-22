@@ -17,7 +17,6 @@ const styles = theme => ({
   headContainer: {
     marginBottom: theme.spacing.unit * 2,
   },
-  barContainer: {},
   bar: {
     margin: '8px 0',
   },
@@ -33,9 +32,9 @@ const styles = theme => ({
   },
 });
 
-class TestResultPanel extends Component {
-  personalityColorTypeText() {
-    const { personalityColorType } = this.props;
+function TestResultPanel(props) {
+  const personalityColorTypeText = () => {
+    const { personalityColorType } = props;
 
     if (personalityColorType === 'SJ') {
       return 'GOLD [SJ]';
@@ -48,71 +47,70 @@ class TestResultPanel extends Component {
     }
 
     return null;
-  }
+  };
 
-  render() {
-    const {
-      classes, result, personalityTypeLetter, personalityTypeName,
-    } = this.props;
-    return (
-      <Paper className={classes.paper}>
-        <Grid container spacing={0} justify="space-around" alignItems="center">
-          <Grid item xs={12} className={classes.headContainer}>
-            <Grid container spacing={0} justify="center">
-              <Avatar
-                src={`/img/avatar/mbti-avatar-${personalityTypeLetter.toLowerCase()}.png`}
-                className={classes.avatar}
-              />
-              <Grid item xs={12} style={{ marginTop: 8 }}>
-                <Typography type="body2" align="center">
-                  {`${personalityTypeName.toUpperCase()} (${personalityTypeLetter})`}
-                </Typography>
-                <Typography type="caption" align="center">
-                  Warna kepribadian: {this.personalityColorTypeText()}
-                </Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item xs={10} sm={10} md={12} className={classes.barContainer}>
-            <Grid container spacing={0}>
-              <Grid item xs={12} className={classes.bar}>
-                <AttributePercentageBar
-                  leftPercent={result.extrovert}
-                  rightPercent={result.introvert}
-                  leftAttribute="Extroverted"
-                  rightAttribute="Introverted"
-                />
-              </Grid>
-              <Grid item xs={12} className={classes.bar}>
-                <AttributePercentageBar
-                  leftPercent={result.sensory}
-                  rightPercent={result.intuitive}
-                  leftAttribute="Sensory"
-                  rightAttribute="Intuitive"
-                />
-              </Grid>
-              <Grid item xs={12} className={classes.bar}>
-                <AttributePercentageBar
-                  leftPercent={result.thinking}
-                  rightPercent={result.feeling}
-                  leftAttribute="Thinking"
-                  rightAttribute="Feeling"
-                />
-              </Grid>
-              <Grid item xs={12} className={classes.bar}>
-                <AttributePercentageBar
-                  leftPercent={result.judging}
-                  rightPercent={result.perceiving}
-                  leftAttribute="Judging"
-                  rightAttribute="Perceiving"
-                />
-              </Grid>
+  const {
+    classes, result, personalityTypeLetter, personalityTypeName,
+  } = props;
+
+  return (
+    <Paper className={classes.paper}>
+      <Grid container spacing={0} justify="space-around" alignItems="center">
+        <Grid item xs={12} className={classes.headContainer}>
+          <Grid container spacing={0} justify="center">
+            <Avatar
+              src={`/img/avatar/mbti-avatar-${personalityTypeLetter.toLowerCase()}.png`}
+              className={classes.avatar}
+            />
+            <Grid item xs={12} style={{ marginTop: 8 }}>
+              <Typography type="body2" align="center">
+                {`${personalityTypeName.toUpperCase()} (${personalityTypeLetter})`}
+              </Typography>
+              <Typography type="caption" align="center">
+                Warna kepribadian: {personalityColorTypeText}
+              </Typography>
             </Grid>
           </Grid>
         </Grid>
-      </Paper>
-    );
-  }
+        <Grid item xs={10} sm={10} md={12} className={classes.barContainer}>
+          <Grid container spacing={0}>
+            <Grid item xs={12} className={classes.bar}>
+              <AttributePercentageBar
+                leftPercent={result.extrovert}
+                rightPercent={result.introvert}
+                leftAttribute="Extroverted"
+                rightAttribute="Introverted"
+              />
+            </Grid>
+            <Grid item xs={12} className={classes.bar}>
+              <AttributePercentageBar
+                leftPercent={result.sensory}
+                rightPercent={result.intuitive}
+                leftAttribute="Sensory"
+                rightAttribute="Intuitive"
+              />
+            </Grid>
+            <Grid item xs={12} className={classes.bar}>
+              <AttributePercentageBar
+                leftPercent={result.thinking}
+                rightPercent={result.feeling}
+                leftAttribute="Thinking"
+                rightAttribute="Feeling"
+              />
+            </Grid>
+            <Grid item xs={12} className={classes.bar}>
+              <AttributePercentageBar
+                leftPercent={result.judging}
+                rightPercent={result.perceiving}
+                leftAttribute="Judging"
+                rightAttribute="Perceiving"
+              />
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Paper>
+  );
 }
 
 TestResultPanel.propTypes = {

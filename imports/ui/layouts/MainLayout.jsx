@@ -64,7 +64,7 @@ class MainLayout extends Component {
         <Header
           user={user}
           newPlayer={newPlayer}
-          headerTitle={headerTitle}
+          headerTitle={headerTitle || ' '}
           isDrawerOpen={isDrawerOpen}
           handleDrawerOpen={this.handleDrawerOpen}
         />
