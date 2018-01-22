@@ -31,15 +31,13 @@ function TestProgressPanel(props) {
     <Paper className={classes.paper}>
       <Grid container spacing={16} justify="center" alignItems="center">
         <Grid item xs={6} sm={12} md={12}>
-          {name ? (
+          {name && (
             <Typography type="headline" align="center">
               Hai {getFirstName(name)}!
             </Typography>
-          ) : (
-            ''
           )}
           <Typography type="caption" align="center">
-            <i>Progress</i> anda di tes ini adalah:
+            <em>Progress</em> anda di tes ini adalah:
           </Typography>
         </Grid>
         <Grid item xs={4} sm={9} md={10}>

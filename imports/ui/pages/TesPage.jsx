@@ -97,6 +97,7 @@ class TesPage extends Component {
   componentDidMount() {
     const { newPlayer } = this.props;
     this.updateSomeState(newPlayer);
+    Session.set('headerTitle', 'Persona Test');
   }
 
   componentWillReceiveProps({ newPlayer }) {

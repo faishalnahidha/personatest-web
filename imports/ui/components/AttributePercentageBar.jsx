@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { Line } from 'rc-progress';
 
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 
-const styles = theme => ({
+const styles = {
   root: {
     width: '100%',
   },
@@ -32,7 +33,13 @@ const styles = theme => ({
   rightLabel: {
     float: 'right',
   },
-});
+  bar: {
+    borderRadius: 16,
+  },
+  rotatedBar: {
+    transform: 'rotate(180deg)',
+  },
+};
 
 class AttributePercentageBar extends Component {
   percentage() {
@@ -47,6 +54,8 @@ class AttributePercentageBar extends Component {
     const {
       classes, leftPercent, rightPercent, leftAttribute, rightAttribute,
     } = this.props;
+
+    const rotate = rightPercent > leftPercent;
     return (
       <div className={classes.root}>
         <div className={classes.lineContainer}>
@@ -55,7 +64,8 @@ class AttributePercentageBar extends Component {
             strokeWidth="12"
             strokeColor="#7474bf"
             trailWidth="12"
-            style={rightPercent > leftPercent ? { transform: 'rotate(180deg)' } : {}}
+            strokeLinecap="butt"
+            className={classnames(classes.bar, { [classes.rotatedBar]: rotate })}
           />
           <div className={classes.lineLabel}>
             <span style={{ float: 'left' }}>{`${leftPercent}%`}</span>
@@ -63,9 +73,6 @@ class AttributePercentageBar extends Component {
           </div>
         </div>
         <div className={classes.labelContainer}>
-          {/* <Typography type="caption" align="center">
-            {leftAttribute} | {rightAttribute}
-          </Typography> */}
           <Typography type="caption" align="left" className={classes.leftLabel}>
             {leftAttribute}
           </Typography>

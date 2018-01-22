@@ -7,5 +7,7 @@ import App from '../layouts/App.jsx';
 export default withTracker(() => ({
   user: Meteor.user(),
   connected: Meteor.status().connected,
-  isDrawerOpen: Session.get('isDrawerOpen'),
+  newPlayerName: Session.get('currentNewPlayer_name'),
+  newPlayerScore: Session.get('currentNewPlayer_score'),
+  headerTitle: Session.get('headerTitle'),
 }))(App);

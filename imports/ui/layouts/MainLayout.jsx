@@ -9,6 +9,7 @@ import { withStyles } from 'material-ui/styles';
 import Header from '../components/Header.jsx';
 import MenuDrawer, { drawerWidth } from '../components/MenuDrawer.jsx';
 import PublicContentPageContainer from '../containers/PublicContentPageContainer.jsx';
+import TesContainer from '../containers/TesContainer.jsx';
 import Footer from '../components/Footer.jsx';
 
 const styles = theme => ({
@@ -41,28 +42,29 @@ class MainLayout extends Component {
     super(props);
 
     this.state = {
-      isDrawerOpen: Session.get('isDrawerOpen') ? Session.get('isDrawerOpen') : false,
+      isDrawerOpen: false,
     };
 
     this.newPlayerInitialized = false;
-    // this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
   }
 
   handleDrawerOpen = () => {
     const isDrawerOpen = !this.state.isDrawerOpen;
     this.setState({ isDrawerOpen });
-    Session.set({ isDrawerOpen });
   };
 
   render() {
-    const { classes, user } = this.props;
+    const {
+      classes, user, newPlayer, headerTitle,
+    } = this.props;
     const { isDrawerOpen } = this.state;
 
     return (
       <div className={classes.root}>
         <Header
           user={user}
-          headerTitle="Artikel"
+          newPlayer={newPlayer}
+          headerTitle={headerTitle}
           isDrawerOpen={isDrawerOpen}
           handleDrawerOpen={this.handleDrawerOpen}
         />
@@ -73,6 +75,11 @@ class MainLayout extends Component {
         />
         <MenuDrawer isOpen={isDrawerOpen} handleDrawerOpen={this.handleDrawerOpen} />
         <Switch>
+          <Route
+            path="/tes/:id"
+            render={props => <TesContainer user={user} isDrawerOpen={isDrawerOpen} {...props} />}
+            key="tes"
+          />
           <Route
             path="/artikel/:id"
             render={props => (
@@ -89,8 +96,8 @@ class MainLayout extends Component {
 MainLayout.propTypes = {
   classes: PropTypes.object.isRequired,
   user: PropTypes.object,
-  newPlayerName: PropTypes.string,
-  score: PropTypes.number,
+  newPlayer: PropTypes.object,
+  headerTitle: PropTypes.string,
 };
 
 export default withStyles(styles)(MainLayout);

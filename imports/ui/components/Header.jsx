@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { findDOMNode } from 'react-dom';
 
 import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Avatar from 'material-ui/Avatar';
 import Hidden from 'material-ui/Hidden';
 import Button from 'material-ui/Button';
-import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
 import Menu, { MenuItem } from 'material-ui/Menu';
-import Popover from 'material-ui/Popover';
 import Tooltip from 'material-ui/Tooltip';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
@@ -248,12 +245,12 @@ class Header extends Component {
             onClick={this.handleUserMenuOpen}
             className={classes.rightButton}
           >
-            <AccountCircle color="contrast" />
+            <AccountCircle color="inherit" />
           </IconButton>
         </Hidden>
         <Hidden smDown>
           <Button
-            color="contrast"
+            color="inherit"
             onClick={this.handleLoginDialogOpen}
             className={classes.rightButton}
           >
@@ -285,7 +282,6 @@ class Header extends Component {
       classes, headerTitle, isDrawerOpen, handleDrawerOpen,
     } = this.props;
     const { isScroll, isLoginDialogOpen } = this.state;
-    // const avatarLetter = newPlayerName ? newPlayerName.charAt(0) : ' ';
 
     return (
       <div>
@@ -299,7 +295,7 @@ class Header extends Component {
           <Toolbar className={classes.toolbar}>
             <IconButton
               className={classnames(classes.menuButton, isDrawerOpen && classes.hide)}
-              color="contrast"
+              color="inherit"
               aria-label="Menu"
               onClick={handleDrawerOpen}
             >
@@ -308,7 +304,6 @@ class Header extends Component {
             <Typography type="title" color="inherit" className={classes.flex}>
               {headerTitle}
             </Typography>
-            {/* {this.renderRightIcon()} */}
             {this.renderRightComponents()}
           </Toolbar>
         </AppBar>
@@ -327,7 +322,6 @@ Header.propTypes = {
   headerTitle: PropTypes.string.isRequired,
   user: PropTypes.object,
   newPlayer: PropTypes.object,
-  secondaryAccent: PropTypes.string,
   isDrawerOpen: PropTypes.bool,
   handleDrawerOpen: PropTypes.func,
 };

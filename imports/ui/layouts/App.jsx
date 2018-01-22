@@ -17,8 +17,6 @@ import '../stylesheets/transition.css';
 
 import { myTheme } from '../themes/theme';
 import MainLayout from '../layouts/MainLayout.jsx';
-import TesContainer from '../containers/TesContainer.jsx';
-import PublicContentLayout from '../layouts/PublicContentLayout.jsx';
 import MulaiTesPage from '../pages/MulaiTesPage.jsx';
 import HomePage from '../pages/HomePage.jsx';
 import DaftarPageContainer from '../containers/DaftarPageContainer.jsx';
@@ -31,12 +29,21 @@ class App extends Component {
   }
 
   render() {
-    const { user, connected } = this.props;
+    const {
+      user, connected, newPlayerName, newPlayerScore, headerTitle,
+    } = this.props;
+
+    const tempUser = {}; // !user
+    if (newPlayerName && newPlayerScore) {
+      tempUser.name = newPlayerName;
+      tempUser.score = newPlayerScore;
+    }
 
     if (user) {
       console.log(`user: ${JSON.stringify(user)}`);
     }
     console.log(`connected: ${connected}`);
+
     return (
       <div>
         <Reboot>
@@ -58,19 +65,16 @@ class App extends Component {
                   />
                   <Route exact path="/daftar" component={DaftarPageContainer} key="daftar" />
                   <Route exact path="/mulai-tes" component={MulaiTesPage} key="mulaiTes" />
-                  {/* <Route
-                    path="/artikel"
-                    render={props => <PublicContentLayout user={user} {...props} />}
-                    key="public"
-                  /> */}
-                  <Route
-                    path="/tes/:id"
-                    render={props => <TesContainer user={user} {...props} />}
-                    key="tes"
-                  />
                   <Route
                     path="/:id"
-                    render={props => <MainLayout user={user} {...props} />}
+                    render={props => (
+                      <MainLayout
+                        user={user}
+                        newPlayer={tempUser}
+                        headerTitle={headerTitle}
+                        {...props}
+                      />
+                    )}
                     key="base"
                   />
                   <Redirect from="*" to="/" />
@@ -87,7 +91,9 @@ class App extends Component {
 App.propTypes = {
   user: PropTypes.object, // current meteor user
   connected: PropTypes.bool, // server connection status
-  // isDrawerOpen: ReactPropTypes.bool, // is drawer open?
+  newPlayerName: PropTypes.string,
+  newPlayerScore: PropTypes.number,
+  headerTitle: PropTypes.string,
 };
 
 export default App;
