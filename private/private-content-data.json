@@ -1,0 +1,55 @@
+{
+  "privateContent": [
+    {
+      "_id": "estj/kelebihan-alami",
+      "personalityId": "ESTJ",
+      "personalityName": "The Supervisor",
+      "contentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Kurang lebih 80% dari atribut di bawah ini ada pada diri Anda. Periksalah kategori di bawah ini dan gunakanlah sebagai ringkasan Anda. Kategori-kategori di bawah ini akan membedakan Anda dengan orang lain. Anda adalah orang yang:</p><ul><li>Stabil dan dapat diprediksi.</li><li>Tegas.</li><li>Berharap dapat bekerja dengan standar tinggi.</li><li>Menggunakan sumber daya secara efisien.</li><li>Menghormati aturan dan prosedur yang telah ditetapkan.</li><li>Mendapatkan hasil yang baik dengan pengaturan waktu dan tugas yang jelas.</li><li>Mengilhami kepercayaan diri rekan kerja dan orang-orang di sekitar Anda.</li><li>Menyelesaikan tugas tepat waktu dan sesuai anggaran.</li></ul>",
+      "prevContentRoute": "estj",
+      "nextContentRoute": "estj/lingkungan-kerja-ideal"
+    },
+    {
+      "_id": "estj/lingkungan-kerja-ideal",
+      "personalityId": "ESTJ",
+      "personalityName": "The Supervisor",
+      "contentTitle": "Lingkungan Kerja Ideal",
+      "contentMainImage": "",
+      "contentBody": "",
+      "prevContentRoute": "estj/kelebihan-alami",
+      "nextContentRoute": "estj/karir-yang-menarik"
+    },
+    {
+      "_id": "estj/karir-yang-menarik",
+      "personalityId": "ESTJ",
+      "personalityName": "The Supervisor",
+      "contentTitle": "Karir yang Menarik Bagi",
+      "contentMainImage": "",
+      "contentBody": "",
+      "prevContentRoute": "estj/lingkungan-kerja-ideal",
+      "nextContentRoute": "estj/bos-ideal"
+    },
+    {
+      "_id": "estj/bos-ideal",
+      "personalityId": "ESTJ",
+      "personalityName": "The Supervisor",
+      "contentTitle": "Bos Ideal",
+      "contentMainImage": "",
+      "contentBody": "",
+      "prevContentRoute": "estj/karir-yang-menarik",
+      "nextContentRoute": "estj/tantangan-kepribadian"
+    },
+    {
+      "_id": "estj/tantangan-kepribadian",
+      "personalityId": "ESTJ",
+      "personalityName": "The Supervisor",
+      "contentTitle": "Tantangan Kepribadian",
+      "contentMainImage": "",
+      "contentBody": "",
+      "prevContentRoute": "estj/bos-ideal",
+      "nextContentRoute": null
+    }
+  ]
+}

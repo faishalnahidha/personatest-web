@@ -13,7 +13,6 @@ import Hidden from 'material-ui/Hidden';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
-import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import Snackbar from 'material-ui/Snackbar';
@@ -137,6 +136,7 @@ const styles = theme => ({
     position: 'absolute',
     top: 16,
     left: 16,
+    color: '#fff',
   },
   displayText: {
     fontWeight: 100,
@@ -317,7 +317,6 @@ class DaftarPage extends Component {
   };
 
   handleBackButton = () => {
-    console.log('back');
     this.props.history.go(-1);
   };
 
@@ -352,7 +351,6 @@ class DaftarPage extends Component {
                   <div className={classes.leftContent}>
                     <Hidden smDown>
                       <IconButton
-                        color="contrast"
                         className={classes.backButton}
                         aria-label="Back to previous page"
                         onClick={this.handleBackButton}

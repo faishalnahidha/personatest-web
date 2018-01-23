@@ -188,12 +188,12 @@ class Header extends Component {
   };
 
   renderRightComponents() {
-    const { user, newPlayer, classes } = this.props;
+    const { currentUser, newPlayer, classes } = this.props;
     const { isUserMenuOpen, anchorElUserMenu } = this.state;
 
-    if (user) {
+    if (currentUser) {
       /* Icon dan menu saat user SUDAH login */
-      const avatarFileName = `mbti-avatar-${user.profile.personalityType.toLowerCase()}.png`;
+      const avatarFileName = `mbti-avatar-${currentUser.profile.personalityType.toLowerCase()}.png`;
       return (
         <div>
           <IconButton
@@ -202,7 +202,7 @@ class Header extends Component {
             onClick={this.handleUserMenuOpen}
           >
             <Avatar
-              alt={user.username}
+              alt={currentUser.username}
               src={`${avatarDefaultImagePath}${avatarFileName}`}
               className={classes.avatarMasuk}
             />
@@ -213,7 +213,7 @@ class Header extends Component {
           </this.UserMenu>
         </div>
       );
-    } else if (!user && newPlayer) {
+    } else if (!currentUser && newPlayer) {
       /* Icon dan menu saat user BELUM DAFTAR dan sudah/sedang
          mengerjakan tes (temp user/newPlayer) */
       const avatarLetter = newPlayer.name ? newPlayer.name.charAt(0) : ' ';
@@ -320,7 +320,7 @@ class Header extends Component {
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
   headerTitle: PropTypes.string.isRequired,
-  user: PropTypes.object,
+  currentUser: PropTypes.object,
   newPlayer: PropTypes.object,
   isDrawerOpen: PropTypes.bool,
   handleDrawerOpen: PropTypes.func,

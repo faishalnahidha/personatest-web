@@ -68,8 +68,8 @@ const styles = theme => ({
   },
   shareFloatingButton: {
     position: 'absolute',
-    background: 'linear-gradient(45deg, #7474bf, #348ac7)',
-    zIndex: 100,
+    // background: 'linear-gradient(45deg, #7474bf, #348ac7)',
+    zIndex: 200,
     [theme.breakpoints.up('md')]: {
       bottom: 24,
       left: '58.33%',

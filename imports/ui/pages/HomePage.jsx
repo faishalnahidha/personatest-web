@@ -7,7 +7,7 @@ import Button from 'material-ui/Button';
 
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
-import MenuDrawer, { drawerWidth } from '../components/MenuDrawer.jsx';
+import MenuDrawer from '../components/MenuDrawer.jsx';
 
 const styles = theme => ({
   root: {
@@ -36,13 +36,13 @@ class HomePage extends Component {
   };
 
   render() {
-    const { user, classes } = this.props;
+    const { currentUser, classes } = this.props;
     const { isDrawerOpen } = this.state;
     // console.log(`Session.get(newPlayerId): ${Session.get('newPlayerId')}`);
 
     return (
       <div className={classes.root}>
-        <Header headerTitle="" user={user} handleDrawerOpen={this.handleDrawerOpen} />
+        <Header headerTitle="" currentUser={currentUser} handleDrawerOpen={this.handleDrawerOpen} />
         <MenuDrawer
           isOpen={isDrawerOpen}
           handleDrawerOpen={this.handleDrawerOpen}
@@ -66,7 +66,7 @@ class HomePage extends Component {
 
 HomePage.propTypes = {
   classes: PropTypes.object.isRequired,
-  user: PropTypes.object,
+  currentUser: PropTypes.object,
 };
 
 export default withStyles(styles)(HomePage);

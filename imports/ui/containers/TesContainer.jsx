@@ -8,13 +8,8 @@ import { PublicContents } from '../../api/public-contents.js';
 import TesLayout from '../layouts/TesLayout.jsx';
 import { determineTestResult } from '../../lib/determine-test-result.js';
 
-let n = 0;
-
 const TesContainer = withTracker(({ match }) => {
-  n += 1;
   const { id } = match.params;
-
-  console.log(`\n------Loading Data: ${n} loops------`);
   // console.log(`newPlayer._id:${id}`);
 
   const newPlayerHandle = Meteor.subscribe('newPlayers', id);

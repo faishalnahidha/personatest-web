@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Parser from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
 
@@ -17,6 +17,7 @@ import { grey } from 'material-ui/colors';
 // import TestProgressPanel from '../components/TestProgressPanel.jsx';
 // import TestResultPanel from '../components/TestResultPanel.jsx';
 import { drawerWidth } from '../components/MenuDrawer.jsx';
+import { getPersonalityColor } from '../themes/personality-color.js';
 
 const styles = theme => ({
   contentRoot: {
@@ -59,6 +60,7 @@ const styles = theme => ({
   },
   pictureContainer: {
     marginBottom: theme.spacing.unit,
+    backgroundColor: grey[500],
   },
   displayTextContainer: {
     marginTop: theme.spacing.unit * 6,
@@ -109,6 +111,10 @@ const styles = theme => ({
     fontWeight: 300,
     fontStyle: 'italic',
   },
+  personalityNameText: {
+    fontSize: 30,
+    marginTop: theme.spacing.unit,
+  },
   greyText: {
     color: grey[700],
   },
@@ -118,7 +124,7 @@ const styles = theme => ({
   },
 });
 
-class PublicContentPage extends Component {
+class PrivateContentPage extends Component {
   componentDidMount() {
     Session.set('headerTitle', 'Artikel');
   }
@@ -126,19 +132,36 @@ class PublicContentPage extends Component {
   render() {
     const {
       currentUser,
+      isUserLogin,
+      askedPersonalityContent,
       loading,
-      publicContent,
-      publicContentExists,
+      content,
+      contentExists,
       isDrawerOpen,
-      isTestFinished,
       classes,
     } = this.props;
 
-    if (!publicContentExists) {
+    if (!isUserLogin) {
+      console.log('redirect please');
+      return <Redirect to="/" />;
+    }
+
+    /* user tidak boleh mengakses content yang bukan profil tipe kepribadiannya */
+    if (
+      isUserLogin &&
+      currentUser &&
+      currentUser.profile.personalityType !== askedPersonalityContent
+    ) {
+      console.log('redirect please 2');
+      return <Redirect to="/" />;
+    }
+
+    if (!contentExists) {
       return <Typography type="display1">404 Not Found</Typography>;
     }
 
-    if (publicContentExists) {
+    if (contentExists) {
+      const personalityColor = getPersonalityColor(content.personalityId);
       return (
         <div className={classes.contentRoot}>
           <Grid container spacing={16} justify="center">
@@ -155,46 +178,28 @@ class PublicContentPage extends Component {
             >
               <Paper className={classes.paper}>
                 <Grid container spacing={0}>
-                  {publicContent.contentMainImage !== null ? (
+                  {content.contentMainImage && content.contentMainImage !== '' ? (
                     <Grid item xs={12} className={classes.pictureContainer}>
-                      <img
-                        src={`/img/content-feature/${publicContent.contentMainImage}`}
-                        alt={`MBTI ${publicContent._id} ${publicContent.name}`}
-                        className={classes.image}
-                      />
+                      <br />
                     </Grid>
                   ) : (
                     <Grid item xs={12} className={classes.displayTextContainer}>
-                      <Typography type="display2" gutterBottom>
-                        {publicContent.name}
-                      </Typography>
-                    </Grid>
-                  )}
-
-                  {publicContent.shortDescription !== null && (
-                    <Grid item xs={12} className={classes.textContainer}>
+                      <Typography type="display2">{content.contentTitle}</Typography>
                       <Typography
-                        className={classnames(classes.shortDescription, classes.greyText)}
+                        gutterBottom
+                        className={classes.personalityNameText}
+                        style={{ color: personalityColor }}
                       >
-                        {publicContent.shortDescription}
+                        {content.personalityName}
                       </Typography>
-                      <Divider className={classes.divider} />
                     </Grid>
                   )}
                   <Grid item xs={12} className={classes.textContainer}>
-                    {Parser(publicContent.content, {
+                    <Divider />
+                  </Grid>
+                  <Grid item xs={12} className={classes.textContainer}>
+                    {Parser(content.contentBody, {
                       replace: (domNode) => {
-                        if (domNode.name === 'h2') {
-                          return (
-                            <div>
-                              <Typography type="headline" component="h2">
-                                {domToReact(domNode.children)}
-                              </Typography>
-                              <br />
-                            </div>
-                          );
-                        }
-
                         if (domNode.name === 'p') {
                           return <Typography paragraph>{domToReact(domNode.children)}</Typography>;
                         }
@@ -204,6 +209,14 @@ class PublicContentPage extends Component {
                             <ol className={classes.orderedList}>
                               <Typography>{domToReact(domNode.children)}</Typography>
                             </ol>
+                          );
+                        }
+
+                        if (domNode.name === 'ul') {
+                          return (
+                            <ul className={classes.orderedList}>
+                              <Typography>{domToReact(domNode.children)}</Typography>
+                            </ul>
                           );
                         }
 
@@ -227,28 +240,30 @@ class PublicContentPage extends Component {
                       },
                     })}
                   </Grid>
-                  {!currentUser &&
-                    isTestFinished &&
-                    publicContent.article !== 'pengenalan' && (
-                      <Grid item xs={12} className={classes.textContainer}>
-                        <Typography type="body1" className={classes.greyText}>
-                          <em>
-                            *Anda dapat melihat deskripsi detail mengenai: kelebihan alami dan
-                            tantangan kepribadian Anda, lingkungan kerja dan bos ideal, serta
-                            ratusan daftar karir yang sesuai dengan tipe kepribadian Anda, dengan
-                            mendaftar di Persona Web
-                          </em>
-                        </Typography>
-                        <Button
-                          color="primary"
-                          className={classes.buttonDaftar}
-                          component={Link}
-                          to="/daftar"
-                        >
-                          Daftar Sekarang
-                        </Button>
-                      </Grid>
-                    )}
+                  {content.prevContentRoute && (
+                    <Grid item xs={6} className={classes.textContainer}>
+                      <Button
+                        color="primary"
+                        className={classes.buttonDaftar}
+                        component={Link}
+                        to={`/artikel/${content.prevContentRoute}`}
+                      >
+                        Previous
+                      </Button>
+                    </Grid>
+                  )}
+                  {content.nextContentRoute && (
+                    <Grid item xs={6} className={classes.textContainer}>
+                      <Button
+                        color="primary"
+                        className={classes.buttonDaftar}
+                        component={Link}
+                        to={`/artikel/${content.nextContentRoute}`}
+                      >
+                        Next
+                      </Button>
+                    </Grid>
+                  )}
                 </Grid>
               </Paper>
             </Grid>
@@ -261,14 +276,15 @@ class PublicContentPage extends Component {
   }
 }
 
-PublicContentPage.propTypes = {
+PrivateContentPage.propTypes = {
   classes: PropTypes.object.isRequired,
+  isDrawerOpen: PropTypes.bool.isRequired,
   currentUser: PropTypes.object,
   loading: PropTypes.bool,
-  publicContent: PropTypes.object,
-  publicContentExists: PropTypes.bool,
-  isDrawerOpen: PropTypes.bool.isRequired,
-  isTestFinished: PropTypes.bool.isRequired,
+  content: PropTypes.object,
+  contentExists: PropTypes.bool,
+  isUserLogin: PropTypes.bool,
+  askedPersonalityContent: PropTypes.string,
 };
 
-export default withStyles(styles)(PublicContentPage);
+export default withStyles(styles)(PrivateContentPage);

@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Session } from 'meteor/session';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import { withStyles } from 'material-ui/styles';
 
 import Header from '../components/Header.jsx';
 import MenuDrawer, { drawerWidth } from '../components/MenuDrawer.jsx';
 import PublicContentPageContainer from '../containers/PublicContentPageContainer.jsx';
+import PrivateContentPageContainer from '../containers/PrivateContentPageContainer.jsx';
 import TesContainer from '../containers/TesContainer.jsx';
 import Footer from '../components/Footer.jsx';
 
@@ -18,7 +19,7 @@ const styles = theme => ({
     width: '100%',
     height: 256,
     top: 0,
-    zIndex: -1,
+    zIndex: -10,
     background: 'linear-gradient(90deg, #7474bf, #348ac7)',
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
@@ -55,14 +56,14 @@ class MainLayout extends Component {
 
   render() {
     const {
-      classes, user, newPlayer, headerTitle,
+      classes, currentUser, newPlayer, headerTitle,
     } = this.props;
     const { isDrawerOpen } = this.state;
 
     return (
       <div className={classes.root}>
         <Header
-          user={user}
+          currentUser={currentUser}
           newPlayer={newPlayer}
           headerTitle={headerTitle || ' '}
           isDrawerOpen={isDrawerOpen}
@@ -73,17 +74,37 @@ class MainLayout extends Component {
             [classes.headerExpandShift]: isDrawerOpen,
           })}
         />
-        <MenuDrawer isOpen={isDrawerOpen} handleDrawerOpen={this.handleDrawerOpen} />
+        <MenuDrawer
+          currentUser={currentUser}
+          isOpen={isDrawerOpen}
+          handleDrawerOpen={this.handleDrawerOpen}
+        />
         <Switch>
           <Route
             path="/tes/:id"
-            render={props => <TesContainer user={user} isDrawerOpen={isDrawerOpen} {...props} />}
+            render={props => (
+              <TesContainer currentUser={currentUser} isDrawerOpen={isDrawerOpen} {...props} />
+            )}
             key="tes"
+          />
+          <Route
+            path="/artikel/:personalityId/:contentId"
+            render={props => (
+              <PrivateContentPageContainer
+                currentUser={currentUser}
+                isDrawerOpen={isDrawerOpen}
+                {...props}
+              />
+            )}
           />
           <Route
             path="/artikel/:id"
             render={props => (
-              <PublicContentPageContainer user={user} isDrawerOpen={isDrawerOpen} {...props} />
+              <PublicContentPageContainer
+                currentUser={currentUser}
+                isDrawerOpen={isDrawerOpen}
+                {...props}
+              />
             )}
           />
         </Switch>
@@ -95,7 +116,7 @@ class MainLayout extends Component {
 
 MainLayout.propTypes = {
   classes: PropTypes.object.isRequired,
-  user: PropTypes.object,
+  currentUser: PropTypes.object,
   newPlayer: PropTypes.object,
   headerTitle: PropTypes.string,
 };

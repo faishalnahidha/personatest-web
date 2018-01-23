@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
-import { Session } from 'meteor/session';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Reboot from 'material-ui/Reboot';
 
-/**
- * Stylesheet imports
- */
-// import 'normalize.css';
+/* Stylesheet imports */
 import 'typeface-roboto';
 import '../stylesheets/transition.css';
 
@@ -24,23 +20,23 @@ import DaftarPageContainer from '../containers/DaftarPageContainer.jsx';
 // App component - represents the whole app
 class App extends Component {
   componentDidMount() {
-    Session.setDefault('isDrawerOpen', false);
     this.users = Meteor.users;
   }
 
   render() {
     const {
-      user, connected, newPlayerName, newPlayerScore, headerTitle,
+      currentUser, connected, newPlayerName, newPlayerScore, headerTitle,
     } = this.props;
 
+    /* edit this someday */
     const tempUser = {}; // !user
     if (newPlayerName && newPlayerScore) {
       tempUser.name = newPlayerName;
       tempUser.score = newPlayerScore;
     }
 
-    if (user) {
-      console.log(`user: ${JSON.stringify(user)}`);
+    if (currentUser) {
+      console.log(`currentUser: ${JSON.stringify(currentUser)}`);
     }
     console.log(`connected: ${connected}`);
 
@@ -60,7 +56,7 @@ class App extends Component {
                   <Route
                     exact
                     path="/"
-                    render={props => <HomePage user={user} {...props} />}
+                    render={props => <HomePage currentUser={currentUser} {...props} />}
                     key="home"
                   />
                   <Route exact path="/daftar" component={DaftarPageContainer} key="daftar" />
@@ -69,7 +65,7 @@ class App extends Component {
                     path="/:id"
                     render={props => (
                       <MainLayout
-                        user={user}
+                        currentUser={currentUser}
                         newPlayer={tempUser}
                         headerTitle={headerTitle}
                         {...props}
@@ -89,7 +85,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  user: PropTypes.object, // current meteor user
+  currentUser: PropTypes.object, // current meteor user
   connected: PropTypes.bool, // server connection status
   newPlayerName: PropTypes.string,
   newPlayerScore: PropTypes.number,

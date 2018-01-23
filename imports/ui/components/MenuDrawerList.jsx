@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Session } from 'meteor/session';
 import { Link } from 'react-router-dom';
+import classnames from 'classnames';
 
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
@@ -15,9 +16,12 @@ import AssignmentTurnedInIcon from 'material-ui-icons/AssignmentTurnedIn';
 // import ExpandLessIcon from 'material-ui-icons/ExpandLess';
 // import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 
+import { myPrimaryColor } from '../themes/primary-color-palette';
+
 const styles = theme => ({
   root: {
     width: '100%',
+    paddingBottom: theme.spacing.unit * 5,
   },
   nestedList: {
     paddingLeft: theme.spacing.unit * 4,
@@ -27,6 +31,10 @@ const styles = theme => ({
   },
   parentSubheading: {
     backgroundColor: theme.palette.background.paper,
+  },
+  rootListActive: {
+    borderLeft: `solid 6px ${myPrimaryColor[500]}`,
+    // backgroundColor: myPrimaryColor[50],
   },
 });
 
@@ -143,19 +151,17 @@ class MenuDrawerList extends Component {
       pengenalanListOpen: false,
       tipeListOpen: false,
       warnaListOpen: false,
+      profilKhususListOpen: false,
     };
   }
 
-  componentDidMount() {}
-
-  handleClick = name => (event) => {
+  handleListOpen = name => (event) => {
     event.preventDefault();
     this.setState({ [name]: !this.state[name] });
   };
 
   handleTap = () => {
     if (this.props.handleDrawerClose) {
-      console.log('tapped');
       this.props.handleDrawerClose();
     }
   };
@@ -177,7 +183,7 @@ class MenuDrawerList extends Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { profilKhususList, profilKhususName, classes } = this.props;
     const newPlayerId = Session.get('currentNewPlayer_id');
     const isTestFinished = Session.get('currentNewPlayer_isTestFinished');
 
@@ -208,27 +214,58 @@ class MenuDrawerList extends Component {
 
         <ListSubheader className={classes.parentSubheading}>Artikel</ListSubheader>
         {/* List Pengenalan */}
-        <ListItem button onClick={this.handleClick('pengenalanListOpen')}>
+        <ListItem
+          button
+          onClick={this.handleListOpen('pengenalanListOpen')}
+          className={classnames({ [classes.rootListActive]: this.state.pengenalanListOpen })}
+        >
           <ListItemText primary="Pengenalan" />
         </ListItem>
         <Collapse component="li" in={this.state.pengenalanListOpen} timeout="auto" unmountOnExit>
           <List disablePadding>{this.mapSubList(pengenalanList)}</List>
         </Collapse>
         {/* List Warna Kepribadian */}
-        <ListItem button onClick={this.handleClick('warnaListOpen')}>
+        <ListItem
+          button
+          onClick={this.handleListOpen('warnaListOpen')}
+          className={classnames({ [classes.rootListActive]: this.state.warnaListOpen })}
+        >
           <ListItemText primary="Warna Kepribadian" />
         </ListItem>
         <Collapse component="li" in={this.state.warnaListOpen} timeout="auto" unmountOnExit>
           <List disablePadding>{this.mapSubList(warnaKepribadianList)}</List>
         </Collapse>
         {/* List Tipe Kepribadian */}
-        <ListItem button onClick={this.handleClick('tipeListOpen')}>
+        <ListItem
+          button
+          onClick={this.handleListOpen('tipeListOpen')}
+          className={classnames({ [classes.rootListActive]: this.state.tipeListOpen })}
+        >
           <ListItemText primary="Tipe Kepribadian" />
-          {/* {this.state.tipeListOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />} */}
         </ListItem>
         <Collapse component="li" in={this.state.tipeListOpen} timeout="auto" unmountOnExit>
           <List disablePadding>{this.mapSubList(tipeKepribadianList)}</List>
         </Collapse>
+        {/* List Profil Khusus Kepribadian */}
+        {profilKhususList.length > 0 && (
+          <div>
+            <ListItem
+              button
+              onClick={this.handleListOpen('profilKhususListOpen')}
+              className={classnames({ [classes.rootListActive]: this.state.profilKhususListOpen })}
+            >
+              <ListItemText primary="Profil Khusus" secondary={profilKhususName} />
+            </ListItem>
+            <Collapse
+              component="li"
+              in={this.state.profilKhususListOpen}
+              timeout="auto"
+              unmountOnExit
+            >
+              <List disablePadding>{this.mapSubList(profilKhususList)}</List>
+            </Collapse>
+          </div>
+        )}
       </List>
     );
   }
@@ -236,6 +273,8 @@ class MenuDrawerList extends Component {
 
 MenuDrawerList.propTypes = {
   classes: PropTypes.object.isRequired,
+  profilKhususList: PropTypes.array,
+  profilKhususName: PropTypes.string,
   handleDrawerClose: PropTypes.func,
 };
 

@@ -11,6 +11,7 @@ import IconButton from 'material-ui/IconButton';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
 
 import MenuDrawerList from '../components/MenuDrawerList.jsx';
+import { getPersonalityNameWithLetter } from '../../lib/get-personality-name';
 
 /* drawer width for large(lg) screen and above */
 export const drawerWidth = 256;
@@ -46,8 +47,38 @@ const styles = theme => ({
 
 function MenuDrawer(props) {
   const {
-    isOpen, handleDrawerOpen, forceMobileDrawer, classes,
+    isOpen, currentUser, handleDrawerOpen, forceMobileDrawer, classes,
   } = props;
+
+  let privateList = [];
+  let privateListName;
+  if (currentUser) {
+    const personalityId = currentUser.profile.personalityType.toLowerCase();
+    privateListName = getPersonalityNameWithLetter(currentUser.profile.personalityType);
+
+    privateList = [
+      {
+        text: 'Kelebihan Alami dalam Pekerjaan',
+        linkTo: `/artikel/${personalityId}/kelebihan-alami`,
+      },
+      {
+        text: 'Lingkungan Kerja Ideal',
+        linkTo: `/artikel/${personalityId}/lingkungan-kerja-ideal`,
+      },
+      {
+        text: 'Karir yang Menarik Bagi Anda',
+        linkTo: `/artikel/${personalityId}/karir-yang-menarik`,
+      },
+      {
+        text: 'Bos Ideal',
+        linkTo: `/artikel/${personalityId}/bos-ideal`,
+      },
+      {
+        text: 'Tantangan Kepribadian',
+        linkTo: `/artikel/${personalityId}/tantangan-kepribadian`,
+      },
+    ];
+  }
 
   const handleDrawerClose = () => {
     handleDrawerOpen();
@@ -63,7 +94,7 @@ function MenuDrawer(props) {
           </IconButton>
         </div>
         <Divider />
-        <MenuDrawerList />
+        <MenuDrawerList profilKhususList={privateList} profilKhususName={privateListName} />
       </div>
     </Drawer>
   );
@@ -84,7 +115,11 @@ function MenuDrawer(props) {
           <Typography type="title">Persona Web</Typography>
         </div>
         <Divider />
-        <MenuDrawerList handleDrawerClose={handleDrawerClose} />
+        <MenuDrawerList
+          profilKhususList={privateList}
+          handleDrawerClose={handleDrawerClose}
+          profilKhususName={privateListName}
+        />
       </div>
     </Drawer>
   );
@@ -104,6 +139,7 @@ function MenuDrawer(props) {
 MenuDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
   isOpen: PropTypes.bool.isRequired,
+  currentUser: PropTypes.object,
   handleDrawerOpen: PropTypes.func,
   forceMobileDrawer: PropTypes.bool,
 };

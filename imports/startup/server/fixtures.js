@@ -1,11 +1,13 @@
 import { Meteor } from 'meteor/meteor';
-import { Questions } from '../../api/questions.js';
-import { PublicContents } from '../../api/public-contents.js';
 import { NewPlayers } from '../../api/new-players.js';
+import { Questions } from '../../api/questions.js';
+import { PrivateContents } from '../../api/private-contents.js';
+import { PublicContents } from '../../api/public-contents.js';
 
 // if the database is empty on server start, create some sample data.
 Meteor.startup(() => {
   if (Questions.find().count() === 0) {
+    console.log('questions empty');
     const questionData = Assets.getText('question-data.json');
 
     JSON.parse(questionData).question.forEach((question) => {
@@ -13,7 +15,17 @@ Meteor.startup(() => {
     });
   }
 
+  if (PrivateContents.find().count() === 0) {
+    console.log('private contents empty');
+    const privateContentData = Assets.getText('private-content-data.json');
+
+    JSON.parse(privateContentData).privateContent.forEach((privateContent) => {
+      PrivateContents.insert(privateContent);
+    });
+  }
+
   if (PublicContents.find().count() === 0) {
+    console.log('public contents empty');
     const publicContentData = Assets.getText('public-content-data.json');
 
     JSON.parse(publicContentData).publicContent.forEach((publicContent) => {
@@ -22,12 +34,11 @@ Meteor.startup(() => {
   }
 
   if (NewPlayers.find().count() === 0) {
-    console.log('newPlayerEmpty');
+    console.log('new players empty');
     const megumiKato = {
       _id: 'RBeay5oZJzwddAGhA',
       name: 'Megumi Kato',
       age: 17,
-      sex: 'Perempuan',
       score: 500,
       answers: [
         'I',

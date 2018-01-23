@@ -211,7 +211,7 @@ class TesPage extends Component {
 
   percentage() {
     const { answeredCount } = this.state;
-    return Math.floor(answeredCount / 70 * 100);
+    return Math.floor((answeredCount / 70) * 100);
   }
 
   renderQuestions() {

@@ -33,9 +33,15 @@ const styles = theme => ({
 });
 
 function TestResultPanel(props) {
-  const personalityColorTypeText = () => {
-    const { personalityColorType } = props;
+  const {
+    classes,
+    result,
+    personalityTypeLetter,
+    personalityTypeName,
+    personalityColorType,
+  } = props;
 
+  const personalityColorTypeText = () => {
     if (personalityColorType === 'SJ') {
       return 'GOLD [SJ]';
     } else if (personalityColorType === 'SP') {
@@ -48,10 +54,6 @@ function TestResultPanel(props) {
 
     return null;
   };
-
-  const {
-    classes, result, personalityTypeLetter, personalityTypeName,
-  } = props;
 
   return (
     <Paper className={classes.paper}>
@@ -67,7 +69,10 @@ function TestResultPanel(props) {
                 {`${personalityTypeName.toUpperCase()} (${personalityTypeLetter})`}
               </Typography>
               <Typography type="caption" align="center">
-                Warna kepribadian: {personalityColorTypeText}
+                Warna kepribadian:
+              </Typography>
+              <Typography type="caption" align="center">
+                {personalityColorTypeText()}
               </Typography>
             </Grid>
           </Grid>
