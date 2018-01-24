@@ -18,16 +18,17 @@ Meteor.startup(() => {
   if (PrivateContents.find().count() === 0) {
     console.log('private contents empty');
     const privateContentData = Assets.getText('private-content-data.json');
-
+    let privateData = 0;
     JSON.parse(privateContentData).privateContent.forEach((privateContent) => {
       PrivateContents.insert(privateContent);
+      privateData += 1;
+      console.log(`privateDAta: ${privateData} `);
     });
   }
 
   if (PublicContents.find().count() === 0) {
     console.log('public contents empty');
     const publicContentData = Assets.getText('public-content-data.json');
-
     JSON.parse(publicContentData).publicContent.forEach((publicContent) => {
       PublicContents.insert(publicContent);
     });

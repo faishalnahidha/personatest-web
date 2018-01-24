@@ -9,6 +9,8 @@ import Avatar from 'material-ui/Avatar';
 
 import AttributePercentageBar from '../components/AttributePercentageBar.jsx';
 
+import { getPersonalityNameWithLetter } from '../../lib/get-personality-name';
+
 const styles = theme => ({
   paper: {
     padding: theme.spacing.unit * 2,
@@ -41,20 +43,6 @@ function TestResultPanel(props) {
     personalityColorType,
   } = props;
 
-  const personalityColorTypeText = () => {
-    if (personalityColorType === 'SJ') {
-      return 'GOLD [SJ]';
-    } else if (personalityColorType === 'SP') {
-      return 'RED [SP]';
-    } else if (personalityColorType === 'NT') {
-      return 'BLUE [NT]';
-    } else if (personalityColorType === 'NF') {
-      return 'GREEN [NF]';
-    }
-
-    return null;
-  };
-
   return (
     <Paper className={classes.paper}>
       <Grid container spacing={0} justify="space-around" alignItems="center">
@@ -72,7 +60,7 @@ function TestResultPanel(props) {
                 Warna kepribadian:
               </Typography>
               <Typography type="caption" align="center">
-                {personalityColorTypeText()}
+                {getPersonalityNameWithLetter(personalityColorType).toUpperCase()}
               </Typography>
             </Grid>
           </Grid>

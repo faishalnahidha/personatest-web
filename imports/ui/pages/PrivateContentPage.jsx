@@ -6,18 +6,25 @@ import Parser from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
 
 import { withStyles } from 'material-ui/styles';
+import Button from 'material-ui/Button';
+import Divider from 'material-ui/Divider';
+import ExpansionPanel, {
+  ExpansionPanelSummary,
+  ExpansionPanelDetails,
+} from 'material-ui/ExpansionPanel';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
+import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Typography from 'material-ui/Typography';
-import Divider from 'material-ui/Divider';
-import Button from 'material-ui/Button';
 import { CircularProgress } from 'material-ui/Progress';
 import { grey } from 'material-ui/colors';
+import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 
 // import TestProgressPanel from '../components/TestProgressPanel.jsx';
 // import TestResultPanel from '../components/TestResultPanel.jsx';
 import { drawerWidth } from '../components/MenuDrawer.jsx';
-import { getPersonalityColor } from '../themes/personality-color.js';
+import { myPrimaryColor } from '../themes/primary-color-palette';
+import { getPersonalityColor } from '../themes/personality-color';
 
 const styles = theme => ({
   contentRoot: {
@@ -77,9 +84,15 @@ const styles = theme => ({
       paddingRight: '12%',
     },
   },
+  expansionContentContainer: {
+    [theme.breakpoints.up('sm')]: {
+      paddingLeft: '15%',
+      paddingRight: '12%',
+    },
+  },
   shortDescription: {
-    fontSize: 21,
-    fontWeight: 300,
+    fontSize: theme.typography.pxToRem(21),
+    fontWeight: theme.typography.fontWeightLight,
     fontStyle: 'italic',
   },
   orderedList: {
@@ -107,22 +120,27 @@ const styles = theme => ({
     borderImageSlice: 1,
   },
   blockquoteText: {
-    fontSize: 15,
-    fontWeight: 300,
-    fontStyle: 'italic',
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightLight,
   },
   personalityNameText: {
-    fontSize: 30,
+    fontSize: theme.typography.pxToRem(30),
     marginTop: theme.spacing.unit,
+  },
+  expansionTitleText: {
+    color: myPrimaryColor[700],
+    fontWeight: 300,
   },
   greyText: {
     color: grey[700],
   },
   buttonDaftar: {
-    marginLeft: -16,
+    marginLeft: theme.spacing.unit * -2,
     marginTop: theme.spacing.unit,
   },
 });
+
+const karirContentIdentifier = 'karir yang menarik bagi anda';
 
 class PrivateContentPage extends Component {
   componentDidMount() {
@@ -142,7 +160,7 @@ class PrivateContentPage extends Component {
     } = this.props;
 
     if (!isUserLogin) {
-      console.log('redirect please');
+      console.log('youre not logged in!');
       return <Redirect to="/" />;
     }
 
@@ -152,7 +170,7 @@ class PrivateContentPage extends Component {
       currentUser &&
       currentUser.profile.personalityType !== askedPersonalityContent
     ) {
-      console.log('redirect please 2');
+      console.log('your profile not same');
       return <Redirect to="/" />;
     }
 
@@ -162,6 +180,7 @@ class PrivateContentPage extends Component {
 
     if (contentExists) {
       const personalityColor = getPersonalityColor(content.personalityId);
+      const isKarirContent = content.contentTitle.toLowerCase() === karirContentIdentifier;
       return (
         <div className={classes.contentRoot}>
           <Grid container spacing={16} justify="center">
@@ -176,96 +195,235 @@ class PrivateContentPage extends Component {
                 [classes.mainColumnContainerShift]: isDrawerOpen,
               })}
             >
-              <Paper className={classes.paper}>
-                <Grid container spacing={0}>
-                  {content.contentMainImage && content.contentMainImage !== '' ? (
-                    <Grid item xs={12} className={classes.pictureContainer}>
-                      <br />
+              {!isKarirContent ? (
+                <Paper className={classes.paper}>
+                  <Grid container spacing={0}>
+                    {content.contentMainImage && content.contentMainImage !== '' ? (
+                      <Grid item xs={12} className={classes.pictureContainer}>
+                        <br />
+                      </Grid>
+                    ) : (
+                      <Grid item xs={12} className={classes.displayTextContainer}>
+                        <Typography type="display2">{content.contentTitle}</Typography>
+                        <Typography
+                          className={classes.personalityNameText}
+                          style={{ color: personalityColor }}
+                        >
+                          {content.personalityName}
+                        </Typography>
+                      </Grid>
+                    )}
+                    <Grid item xs={12} className={classes.textContainer}>
+                      <Divider />
                     </Grid>
-                  ) : (
-                    <Grid item xs={12} className={classes.displayTextContainer}>
-                      <Typography type="display2">{content.contentTitle}</Typography>
-                      <Typography
-                        gutterBottom
-                        className={classes.personalityNameText}
-                        style={{ color: personalityColor }}
-                      >
-                        {content.personalityName}
-                      </Typography>
+                    <Grid item xs={12} className={classes.textContainer}>
+                      {Parser(content.contentBody, {
+                        replace: (domNode) => {
+                          if (domNode.name === 'p') {
+                            return (
+                              <Typography paragraph>{domToReact(domNode.children)}</Typography>
+                            );
+                          }
+
+                          if (domNode.name === 'ol') {
+                            return (
+                              <ol className={classes.orderedList}>
+                                <Typography>{domToReact(domNode.children)}</Typography>
+                              </ol>
+                            );
+                          }
+
+                          if (domNode.name === 'ul') {
+                            return (
+                              <ul className={classes.orderedList}>
+                                <Typography>{domToReact(domNode.children)}</Typography>
+                              </ul>
+                            );
+                          }
+
+                          if (domNode.name === 'blockquote') {
+                            return (
+                              <div className={classes.blockquote}>
+                                <Typography
+                                  className={classnames(classes.blockquoteText, classes.greyText)}
+                                >
+                                  {domToReact(domNode.children)}
+                                </Typography>
+                              </div>
+                            );
+                          }
+
+                          if (domNode.name === 'hr') {
+                            return <Divider className={classes.divider} />;
+                          }
+
+                          return null;
+                        },
+                      })}
                     </Grid>
-                  )}
-                  <Grid item xs={12} className={classes.textContainer}>
-                    <Divider />
+                    {content.prevContentRoute && (
+                      <Grid item xs={6} className={classes.textContainer}>
+                        <Button
+                          color="primary"
+                          className={classes.buttonDaftar}
+                          component={Link}
+                          to={`/artikel/${content.prevContentRoute}`}
+                        >
+                          Previous
+                        </Button>
+                      </Grid>
+                    )}
+                    {content.nextContentRoute && (
+                      <Grid item xs={6} className={classes.textContainer}>
+                        <Button
+                          color="primary"
+                          className={classes.buttonDaftar}
+                          component={Link}
+                          to={`/artikel/${content.nextContentRoute}`}
+                        >
+                          Next
+                        </Button>
+                      </Grid>
+                    )}
                   </Grid>
-                  <Grid item xs={12} className={classes.textContainer}>
-                    {Parser(content.contentBody, {
-                      replace: (domNode) => {
-                        if (domNode.name === 'p') {
-                          return <Typography paragraph>{domToReact(domNode.children)}</Typography>;
-                        }
+                </Paper>
+              ) : (
+                <div>
+                  <Paper className={classes.paper}>
+                    <Grid container spacing={0}>
+                      {content.contentMainImage && content.contentMainImage !== '' ? (
+                        <Grid item xs={12} className={classes.pictureContainer}>
+                          <br />
+                        </Grid>
+                      ) : (
+                        <Grid item xs={12} className={classes.displayTextContainer}>
+                          <Typography type="display2">{content.contentTitle}</Typography>
+                          <Typography
+                            className={classes.personalityNameText}
+                            style={{ color: personalityColor }}
+                          >
+                            {content.personalityName}
+                          </Typography>
+                        </Grid>
+                      )}
+                      <Grid item xs={12} className={classes.textContainer}>
+                        <Divider />
+                      </Grid>
+                      <Grid item xs={12} className={classes.textContainer}>
+                        {Parser(content.contentBody, {
+                          replace: (domNode) => {
+                            if (domNode.attribs && domNode.attribs.id === 'career-type') {
+                              return <div />;
+                            }
 
-                        if (domNode.name === 'ol') {
-                          return (
-                            <ol className={classes.orderedList}>
-                              <Typography>{domToReact(domNode.children)}</Typography>
-                            </ol>
-                          );
-                        }
-
-                        if (domNode.name === 'ul') {
-                          return (
-                            <ul className={classes.orderedList}>
-                              <Typography>{domToReact(domNode.children)}</Typography>
-                            </ul>
-                          );
-                        }
-
-                        if (domNode.name === 'blockquote') {
-                          return (
-                            <div className={classes.blockquote}>
-                              <Typography
-                                className={classnames(classes.blockquoteText, classes.greyText)}
-                              >
-                                {domToReact(domNode.children)}
-                              </Typography>
-                            </div>
-                          );
-                        }
-
-                        if (domNode.name === 'hr') {
-                          return <Divider className={classes.divider} />;
-                        }
-
-                        return null;
-                      },
-                    })}
-                  </Grid>
-                  {content.prevContentRoute && (
-                    <Grid item xs={6} className={classes.textContainer}>
-                      <Button
-                        color="primary"
-                        className={classes.buttonDaftar}
-                        component={Link}
-                        to={`/artikel/${content.prevContentRoute}`}
-                      >
-                        Previous
-                      </Button>
+                            if (domNode.name === 'p') {
+                              return (
+                                <Typography paragraph> {domToReact(domNode.children)}</Typography>
+                              );
+                            }
+                            return null;
+                          },
+                        })}
+                      </Grid>
                     </Grid>
-                  )}
-                  {content.nextContentRoute && (
-                    <Grid item xs={6} className={classes.textContainer}>
-                      <Button
-                        color="primary"
-                        className={classes.buttonDaftar}
-                        component={Link}
-                        to={`/artikel/${content.nextContentRoute}`}
-                      >
-                        Next
-                      </Button>
+                  </Paper>
+                  {Parser(content.contentBody, {
+                    replace: (domNode) => {
+                      if (domNode.attribs && domNode.attribs.id === 'top-paragraph') {
+                        return <div />;
+                      }
+
+                      if (domNode.attribs && domNode.attribs.id === 'career-type') {
+                        return (
+                          <ExpansionPanel>
+                            {domToReact(domNode.children, {
+                              replace: (domNode2) => {
+                                if (domNode2.name === 'h3') {
+                                  return (
+                                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                                      <div className={classes.expansionContentContainer}>
+                                        <Typography
+                                          type="subheading"
+                                          className={classes.expansionTitleText}
+                                        >
+                                          {domToReact(domNode2.children)}
+                                        </Typography>
+                                      </div>
+                                    </ExpansionPanelSummary>
+                                  );
+                                }
+
+                                if (domNode2.attribs && domNode2.attribs.id === 'career-list') {
+                                  return (
+                                    <ExpansionPanelDetails>
+                                      <div className={classes.expansionContentContainer}>
+                                        {domToReact(domNode2.children, {
+                                          replace: (domNode3) => {
+                                            if (domNode3.name === 'p') {
+                                              return (
+                                                <Typography paragraph>
+                                                  {domToReact(domNode3.children)}
+                                                </Typography>
+                                              );
+                                            }
+
+                                            if (domNode3.name === 'ul') {
+                                              return (
+                                                <ul className={classes.orderedList}>
+                                                  <Typography>
+                                                    {domToReact(domNode3.children)}
+                                                  </Typography>
+                                                </ul>
+                                              );
+                                            }
+                                            return null;
+                                          },
+                                        })}
+                                      </div>
+                                    </ExpansionPanelDetails>
+                                  );
+                                }
+
+                                return null;
+                              },
+                            })}
+                          </ExpansionPanel>
+                        );
+                      }
+
+                      return null;
+                    },
+                  })}
+                  <Paper className={classes.paper}>
+                    <Grid container spacing={0}>
+                      {content.prevContentRoute && (
+                        <Grid item xs={6} className={classes.textContainer}>
+                          <Button
+                            color="primary"
+                            className={classes.buttonDaftar}
+                            component={Link}
+                            to={`/artikel/${content.prevContentRoute}`}
+                          >
+                            Previous
+                          </Button>
+                        </Grid>
+                      )}
+                      {content.nextContentRoute && (
+                        <Grid item xs={6} className={classes.textContainer}>
+                          <Button
+                            color="primary"
+                            className={classes.buttonDaftar}
+                            component={Link}
+                            to={`/artikel/${content.nextContentRoute}`}
+                          >
+                            Next
+                          </Button>
+                        </Grid>
+                      )}
                     </Grid>
-                  )}
-                </Grid>
-              </Paper>
+                  </Paper>
+                </div>
+              )}
             </Grid>
           </Grid>
         </div>

@@ -46,6 +46,7 @@ class HomePage extends Component {
         <MenuDrawer
           isOpen={isDrawerOpen}
           handleDrawerOpen={this.handleDrawerOpen}
+          currentUser={currentUser}
           forceMobileDrawer
         />
         <Grid

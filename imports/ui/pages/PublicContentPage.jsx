@@ -76,8 +76,8 @@ const styles = theme => ({
     },
   },
   shortDescription: {
-    fontSize: 21,
-    fontWeight: 300,
+    fontSize: theme.typography.pxToRem(21),
+    fontWeight: theme.typography.fontWeightLight,
     fontStyle: 'italic',
   },
   orderedList: {
@@ -98,22 +98,23 @@ const styles = theme => ({
   },
   blockquote: {
     margin: '32px 0',
-    padding: 1,
+    paddingTop: theme.spacing.unit,
+    paddingBottom: theme.spacing.unit,
     paddingLeft: theme.spacing.unit * 3,
-    borderLeft: '2px solid transparent',
+    borderLeft: '3px solid transparent',
     borderImage: 'linear-gradient(to bottom right, #7474bf 0%, #348ac7 100%)',
     borderImageSlice: 1,
   },
   blockquoteText: {
-    fontSize: 15,
-    fontWeight: 300,
-    fontStyle: 'italic',
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightLight,
+    // fontStyle: 'italic',
   },
   greyText: {
     color: grey[700],
   },
   buttonDaftar: {
-    marginLeft: -16,
+    marginLeft: theme.spacing.unit * -2,
     marginTop: theme.spacing.unit,
   },
 });
