@@ -14,7 +14,7 @@ import ExpansionPanel, {
 } from 'material-ui/ExpansionPanel';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
-import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+// import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Typography from 'material-ui/Typography';
 import { CircularProgress } from 'material-ui/Progress';
 import { grey } from 'material-ui/colors';
@@ -23,8 +23,11 @@ import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 // import TestProgressPanel from '../components/TestProgressPanel.jsx';
 // import TestResultPanel from '../components/TestResultPanel.jsx';
 import { drawerWidth } from '../components/MenuDrawer.jsx';
+import NextContentNavButton from '../components/NextContentNavButton.jsx';
+import PrevContentNavButton from '../components/PrevContentNavButton.jsx';
 import { myPrimaryColor } from '../themes/primary-color-palette';
 import { getPersonalityColor } from '../themes/personality-color';
+import { getPersonalityName } from '../../lib/get-personality-name';
 
 const styles = theme => ({
   contentRoot: {
@@ -61,9 +64,11 @@ const styles = theme => ({
   paper: {
     position: 'relative',
     padding: 0,
-    paddingBottom: theme.spacing.unit * 2,
     borderRadius: 4,
     overflow: 'hidden',
+  },
+  paperKarir: {
+    paddingBottom: 0,
   },
   pictureContainer: {
     marginBottom: theme.spacing.unit,
@@ -138,6 +143,10 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit * -2,
     marginTop: theme.spacing.unit,
   },
+  contentNavButtonConteiner: {
+    background: 'linear-gradient(90deg, rgba(116,116,191,1), rgba(52,138,199,1))',
+    // backgroundColor: myPrimaryColor[300],
+  },
 });
 
 const karirContentIdentifier = 'karir yang menarik bagi anda';
@@ -180,6 +189,7 @@ class PrivateContentPage extends Component {
 
     if (contentExists) {
       const personalityColor = getPersonalityColor(content.personalityId);
+      const personalityName = getPersonalityName(content.personalityId);
       const isKarirContent = content.contentTitle.toLowerCase() === karirContentIdentifier;
       return (
         <div className={classes.contentRoot}>
@@ -209,7 +219,7 @@ class PrivateContentPage extends Component {
                           className={classes.personalityNameText}
                           style={{ color: personalityColor }}
                         >
-                          {content.personalityName}
+                          {personalityName}
                         </Typography>
                       </Grid>
                     )}
@@ -261,35 +271,30 @@ class PrivateContentPage extends Component {
                         },
                       })}
                     </Grid>
-                    {content.prevContentRoute && (
-                      <Grid item xs={6} className={classes.textContainer}>
-                        <Button
-                          color="primary"
-                          className={classes.buttonDaftar}
-                          component={Link}
-                          to={`/artikel/${content.prevContentRoute}`}
-                        >
-                          Previous
-                        </Button>
+                    <Grid container spacing={0} className={classes.contentNavButtonConteiner}>
+                      <Grid item xs={6}>
+                        <PrevContentNavButton
+                          prevContentTitle={content.prevContentTitle}
+                          prevContentRoute={content.prevContentRoute}
+                        />
                       </Grid>
-                    )}
-                    {content.nextContentRoute && (
-                      <Grid item xs={6} className={classes.textContainer}>
-                        <Button
-                          color="primary"
-                          className={classes.buttonDaftar}
-                          component={Link}
-                          to={`/artikel/${content.nextContentRoute}`}
-                        >
-                          Next
-                        </Button>
+                      <Grid item xs={6}>
+                        {content.nextContentRoute && (
+                          <NextContentNavButton
+                            nextContentTitle={content.nextContentTitle}
+                            nextContentRoute={content.nextContentRoute}
+                          />
+                        )}
                       </Grid>
-                    )}
+                    </Grid>
                   </Grid>
                 </Paper>
               ) : (
                 <div>
-                  <Paper className={classes.paper}>
+                  <Paper
+                    className={classnames(classes.paper, classes.paperKarir)}
+                    style={{ borderRadius: '4px 4px 0 0' }}
+                  >
                     <Grid container spacing={0}>
                       {content.contentMainImage && content.contentMainImage !== '' ? (
                         <Grid item xs={12} className={classes.pictureContainer}>
@@ -302,7 +307,7 @@ class PrivateContentPage extends Component {
                             className={classes.personalityNameText}
                             style={{ color: personalityColor }}
                           >
-                            {content.personalityName}
+                            {personalityName}
                           </Typography>
                         </Grid>
                       )}
@@ -394,32 +399,25 @@ class PrivateContentPage extends Component {
                       return null;
                     },
                   })}
-                  <Paper className={classes.paper}>
-                    <Grid container spacing={0}>
-                      {content.prevContentRoute && (
-                        <Grid item xs={6} className={classes.textContainer}>
-                          <Button
-                            color="primary"
-                            className={classes.buttonDaftar}
-                            component={Link}
-                            to={`/artikel/${content.prevContentRoute}`}
-                          >
-                            Previous
-                          </Button>
-                        </Grid>
-                      )}
-                      {content.nextContentRoute && (
-                        <Grid item xs={6} className={classes.textContainer}>
-                          <Button
-                            color="primary"
-                            className={classes.buttonDaftar}
-                            component={Link}
-                            to={`/artikel/${content.nextContentRoute}`}
-                          >
-                            Next
-                          </Button>
-                        </Grid>
-                      )}
+                  <Paper
+                    className={classnames(classes.paper, classes.paperKarir)}
+                    style={{ borderRadius: '0 0 4px 4px' }}
+                  >
+                    <Grid container spacing={0} className={classes.contentNavButtonConteiner}>
+                      <Grid item xs={6}>
+                        <PrevContentNavButton
+                          prevContentTitle={content.prevContentTitle}
+                          prevContentRoute={content.prevContentRoute}
+                        />
+                      </Grid>
+                      <Grid item xs={6}>
+                        {content.nextContentRoute && (
+                          <NextContentNavButton
+                            nextContentTitle={content.nextContentTitle}
+                            nextContentRoute={content.nextContentRoute}
+                          />
+                        )}
+                      </Grid>
                     </Grid>
                   </Paper>
                 </div>
