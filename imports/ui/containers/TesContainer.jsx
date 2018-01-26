@@ -8,20 +8,41 @@ import { PublicContents } from '../../api/public-contents.js';
 import TesLayout from '../layouts/TesLayout.jsx';
 import { determineTestResult } from '../../lib/determine-test-result.js';
 
-const TesContainer = withTracker(({ match }) => {
+const TesContainer = withTracker(({ match, currentUser }) => {
   const { id } = match.params;
   // console.log(`newPlayer._id:${id}`);
 
-  const newPlayerHandle = Meteor.subscribe('newPlayers', id);
-  const loading = !newPlayerHandle.ready();
-  const newPlayer = NewPlayers.findOne({ _id: id });
-  const newPlayerExists = !loading && newPlayer !== undefined && newPlayer != null;
+  let newPlayerHandle;
+  let loading;
+  let newPlayer = {};
+  let newPlayerExists;
+
+  /**
+   *  jika user login maka data newPlayer diambil dari users, bukan dari collection newPlayer
+   *  dan otomatis tes sudah selesai
+   */
+  if (Meteor.userId()) {
+    if (currentUser) {
+      newPlayer.name = currentUser.profile.name;
+      newPlayer.result = currentUser.testResult;
+      newPlayer.isTestFinished = true;
+    }
+    loading = false;
+    newPlayerExists = true;
+  } else {
+    newPlayerHandle = Meteor.subscribe('newPlayers', id);
+    loading = !newPlayerHandle.ready();
+    newPlayer = NewPlayers.findOne({ _id: id });
+    newPlayerExists = !loading && newPlayer !== undefined && newPlayer != null;
+  }
 
   // console.log(`newPlayerExists: ${newPlayerExists}`);
 
   if (newPlayerExists) {
-    // 70 is completed answers
-    newPlayer.isTestFinished = newPlayer.answers && newPlayer.answers.length === 70;
+    if (!Meteor.userId()) {
+      // 70 is completed answers
+      newPlayer.isTestFinished = newPlayer.answers && newPlayer.answers.length === 70;
+    }
 
     if (newPlayer.isTestFinished) {
       let result = {};

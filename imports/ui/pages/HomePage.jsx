@@ -56,7 +56,7 @@ class HomePage extends Component {
           alignItems="center"
           className={classes.introSection}
         >
-          <Button raised color="default" href="/mulai-tes">
+          <Button raised color="secondary" href="/mulai-tes">
             Mulai Persona Test
           </Button>
         </Grid>

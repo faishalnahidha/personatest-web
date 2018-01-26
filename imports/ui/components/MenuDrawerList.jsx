@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Meteor } from 'meteor/meteor';
 import { Session } from 'meteor/session';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
@@ -184,8 +185,13 @@ class MenuDrawerList extends Component {
 
   render() {
     const { profilKhususList, profilKhususName, classes } = this.props;
-    const newPlayerId = Session.get('currentNewPlayer_id');
-    const isTestFinished = Session.get('currentNewPlayer_isTestFinished');
+    let newPlayerId;
+    let isTestFinished;
+
+    if (!Meteor.userId()) {
+      newPlayerId = Session.get('currentNewPlayer_id');
+      isTestFinished = Session.get('currentNewPlayer_isTestFinished');
+    }
 
     return (
       <List className={classes.root}>
@@ -202,6 +208,14 @@ class MenuDrawerList extends Component {
           </ListItemIcon>
           <ListItemText inset primary="Mulai Tes Baru" />
         </ListItem>
+        {Meteor.userId() && (
+          <ListItem button component={Link} to="/tes/user" onClick={this.handleTap}>
+            <ListItemIcon>
+              <AssignmentTurnedInIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="Hasil Tes" />
+          </ListItem>
+        )}
         {isTestFinished && (
           <ListItem button component={Link} to={`/tes/${newPlayerId}`} onClick={this.handleTap}>
             <ListItemIcon>

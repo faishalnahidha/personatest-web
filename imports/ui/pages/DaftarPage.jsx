@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Session } from 'meteor/session';
-import { Link, Redirect } from 'react-router-dom';
 import classnames from 'classnames';
 
 import { withStyles } from 'material-ui/styles';
@@ -16,18 +15,11 @@ import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import Snackbar from 'material-ui/Snackbar';
-// import Radio, { RadioGroup } from 'material-ui/Radio';
-// import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
-// import {
-//   FormLabel,
-//   FormControl,
-//   FormControlLabel,
-//   FormHelperText
-// } from 'material-ui/Form';
 import { grey } from 'material-ui/colors';
 import ArrowBack from 'material-ui-icons/ArrowBack';
 
 // import { myPrimaryColor } from '../themes/primary-color-palette';
+import { registerPoint } from '../../lib/points-const';
 
 const styles = theme => ({
   root: {
@@ -236,6 +228,8 @@ const personalityTypes = [
   },
 ];
 
+const DAFTAR_POINT = registerPoint;
+
 class DaftarPage extends Component {
   constructor(props) {
     super(props);
@@ -283,6 +277,7 @@ class DaftarPage extends Component {
     const personalityType = this.state.personalityType.toUpperCase();
 
     const testResult = Object.assign(this.props.newPlayer.result);
+    const score = this.props.newPlayer.score + DAFTAR_POINT;
 
     this.setState({ errors: 'test' });
 
@@ -294,6 +289,7 @@ class DaftarPage extends Component {
           password,
           name,
           personalityType,
+          score,
           testResult,
         },
         (err) => {
@@ -304,6 +300,7 @@ class DaftarPage extends Component {
             });
             console.log(err.reason);
           } else {
+            Session.set('justRegister', true);
             this.props.history.go(-1);
           }
         },
@@ -323,11 +320,6 @@ class DaftarPage extends Component {
   render() {
     const { classes } = this.props;
     const { errors, isSnackbarOpen } = this.state;
-
-    // if (redirect) {
-    //   return <Redirect to={`/tes/${id}`} />;
-    // }
-    // console.log(`errors: ${errors}`);
 
     return (
       <div className={classes.root}>

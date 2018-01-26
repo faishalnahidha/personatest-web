@@ -14,6 +14,7 @@ import Button from 'material-ui/Button';
 import { CircularProgress } from 'material-ui/Progress';
 import { grey } from 'material-ui/colors';
 
+import NextContentNavButton from '../components/NextContentNavButton.jsx';
 // import TestProgressPanel from '../components/TestProgressPanel.jsx';
 // import TestResultPanel from '../components/TestResultPanel.jsx';
 import { drawerWidth } from '../components/MenuDrawer.jsx';
@@ -64,14 +65,14 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 6,
     padding: theme.spacing.unit * 2,
     [theme.breakpoints.up('sm')]: {
-      paddingLeft: '15%',
-      paddingRight: '10%',
+      paddingLeft: '12%',
+      paddingRight: '12%',
     },
   },
   textContainer: {
     padding: theme.spacing.unit * 2,
     [theme.breakpoints.up('sm')]: {
-      paddingLeft: '15%',
+      paddingLeft: '12%',
       paddingRight: '12%',
     },
   },
@@ -106,9 +107,13 @@ const styles = theme => ({
     borderImageSlice: 1,
   },
   blockquoteText: {
-    fontSize: theme.typography.pxToRem(15),
+    fontSize: theme.typography.pxToRem(18),
     fontWeight: theme.typography.fontWeightLight,
     // fontStyle: 'italic',
+  },
+  paragraphText: {
+    fontSize: theme.typography.pxToRem(16),
+    color: grey[800],
   },
   greyText: {
     color: grey[700],
@@ -116,6 +121,9 @@ const styles = theme => ({
   buttonDaftar: {
     marginLeft: theme.spacing.unit * -2,
     marginTop: theme.spacing.unit,
+  },
+  contentNavButtonConteiner: {
+    marginTop: theme.spacing.unit * 5,
   },
 });
 
@@ -166,7 +174,7 @@ class PublicContentPage extends Component {
                     </Grid>
                   ) : (
                     <Grid item xs={12} className={classes.displayTextContainer}>
-                      <Typography type="display2" gutterBottom>
+                      <Typography type="display2" component="h1" gutterBottom>
                         {publicContent.name}
                       </Typography>
                     </Grid>
@@ -188,7 +196,7 @@ class PublicContentPage extends Component {
                         if (domNode.name === 'h2') {
                           return (
                             <div>
-                              <Typography type="headline" component="h2">
+                              <Typography type="display1" component="h2" gutterBottom>
                                 {domToReact(domNode.children)}
                               </Typography>
                               <br />
@@ -197,13 +205,19 @@ class PublicContentPage extends Component {
                         }
 
                         if (domNode.name === 'p') {
-                          return <Typography paragraph>{domToReact(domNode.children)}</Typography>;
+                          return (
+                            <Typography className={classes.paragraphText} paragraph>
+                              {domToReact(domNode.children)}
+                            </Typography>
+                          );
                         }
 
                         if (domNode.name === 'ol') {
                           return (
                             <ol className={classes.orderedList}>
-                              <Typography>{domToReact(domNode.children)}</Typography>
+                              <Typography className={classes.paragraphText}>
+                                {domToReact(domNode.children)}
+                              </Typography>
                             </ol>
                           );
                         }
@@ -250,6 +264,18 @@ class PublicContentPage extends Component {
                         </Button>
                       </Grid>
                     )}
+                  {currentUser &&
+                    currentUser.profile.personalityType === publicContent._id && (
+                      <Grid container spacing={0} className={classes.contentNavButtonConteiner}>
+                        <Grid item xs={6} />
+                        <Grid item xs={6}>
+                          <NextContentNavButton
+                            nextContentTitle="Kelebihan Alami dalam Pekerjaan"
+                            nextContentRoute={`${currentUser.profile.personalityType.toLowerCase()}/kelebihan-alami`}
+                          />
+                        </Grid>
+                      </Grid>
+                    )}
                 </Grid>
               </Paper>
             </Grid>
@@ -269,7 +295,7 @@ PublicContentPage.propTypes = {
   publicContent: PropTypes.object,
   publicContentExists: PropTypes.bool,
   isDrawerOpen: PropTypes.bool.isRequired,
-  isTestFinished: PropTypes.bool.isRequired,
+  isTestFinished: PropTypes.bool,
 };
 
 export default withStyles(styles)(PublicContentPage);

@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Meteor } from 'meteor/meteor';
+import { Link } from 'react-router-dom';
 
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
@@ -18,7 +20,11 @@ const styles = theme => ({
 });
 
 function TestProgressPanel(props) {
-  const { classes, percentage, name } = props;
+  const {
+    classes, percentage, name, isTestFinished,
+  } = props;
+
+  const isUserLoggedIn = !!Meteor.userId();
 
   const percentageCopy = () => {
     if (percentage === 100) {
@@ -36,14 +42,30 @@ function TestProgressPanel(props) {
               Hai {getFirstName(name)}!
             </Typography>
           )}
-          <Typography type="caption" align="center">
-            <em>Progress</em> anda di tes ini adalah:
-          </Typography>
+          {isUserLoggedIn && (
+            <Typography type="caption" align="center">
+              selamat! Anda telah menyelesaikan tes
+            </Typography>
+          )}
+          {!isUserLoggedIn &&
+            isTestFinished && (
+              <Typography type="caption" align="center">
+                Anda telah menyelesaikan tes, <Link to="/daftar">daftarkan email Anda</Link> untuk
+                melengkapi <em>progress</em>
+              </Typography>
+            )}
+
+          {!isUserLoggedIn &&
+            !isTestFinished && (
+              <Typography type="caption" align="center">
+                <em>Progress</em> Anda dalam tes ini adalah:
+              </Typography>
+            )}
         </Grid>
         <Grid item xs={4} sm={9} md={10}>
           <CircularProgressbar
             className="MyCircularProgressbar"
-            percentage={percentageCopy()}
+            percentage={isUserLoggedIn ? 100 : percentageCopy()}
             initialAnimation="true"
           />
         </Grid>
@@ -56,6 +78,7 @@ TestProgressPanel.propTypes = {
   classes: PropTypes.object.isRequired,
   percentage: PropTypes.number.isRequired,
   name: PropTypes.string,
+  isTestFinished: PropTypes.bool,
 };
 
 export default withStyles(styles)(TestProgressPanel);

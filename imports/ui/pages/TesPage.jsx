@@ -26,7 +26,7 @@ import TestProgressPanel from '../components/TestProgressPanel.jsx';
 import { drawerWidth } from '../components/MenuDrawer.jsx';
 import { smoothScroll } from '../../lib/smooth-scroll.js';
 import { determineTestResult } from '../../lib/determine-test-result.js';
-import { testAnswerPoint } from '../../lib/points-const';
+import { testAnswerPoint, startTestPoint } from '../../lib/points-const';
 import { mySecondaryColor } from '../themes/secondary-color-palette';
 
 const styles = theme => ({
@@ -75,6 +75,7 @@ const styles = theme => ({
 });
 
 const ANSWER_POINTS = testAnswerPoint;
+const START_POINTS = startTestPoint;
 const QUESTIONS_PER_PAGE = 7;
 const LAST_PAGE = 9;
 
@@ -88,6 +89,7 @@ class TesPage extends Component {
       answeredCount: 0,
       questionPage: 0,
       openSnackbar: false,
+      openSnackbar2: false,
     };
 
     this.updateAnswersPerPage = this.updateAnswersPerPage.bind(this);
@@ -98,6 +100,9 @@ class TesPage extends Component {
     const { newPlayer } = this.props;
     this.updateSomeState(newPlayer);
     Session.set('headerTitle', 'Persona Test');
+    if (!newPlayer.answers) {
+      this.setState({ openSnackbar2: true }); // masih bisa run
+    }
   }
 
   componentWillReceiveProps({ newPlayer }) {
@@ -211,7 +216,7 @@ class TesPage extends Component {
 
   percentage() {
     const { answeredCount } = this.state;
-    return Math.floor((answeredCount / 70) * 100);
+    return Math.floor(answeredCount / 70 * 100);
   }
 
   renderQuestions() {
@@ -315,6 +320,21 @@ class TesPage extends Component {
             <span>
               {newPlayer.name}, skor anda:
               <span style={{ color: mySecondaryColor.A700 }}>&ensp;+ {ANSWER_POINTS}</span>
+            </span>
+          }
+        />
+        <Snackbar
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center',
+          }}
+          open={this.state.openSnackbar2}
+          onClose={() => this.setState({ openSnackbar2: false })}
+          autoHideDuration={2500}
+          message={
+            <span>
+              {newPlayer.name}, skor anda:
+              <span style={{ color: mySecondaryColor.A700 }}>&ensp;+ {START_POINTS}</span>
             </span>
           }
         />

@@ -4,10 +4,17 @@ import { withTracker } from 'meteor/react-meteor-data';
 
 import App from '../layouts/App.jsx';
 
-export default withTracker(() => ({
-  currentUser: Meteor.user(),
-  connected: Meteor.status().connected,
-  newPlayerName: Session.get('currentNewPlayer_name'),
-  newPlayerScore: Session.get('currentNewPlayer_score'),
-  headerTitle: Session.get('headerTitle'),
-}))(App);
+export default withTracker(() => {
+  // const subscription = Meteor.subscribe('userData');
+
+  Meteor.subscribe('userData');
+  const currentUser = Meteor.user();
+
+  return {
+    currentUser,
+    connected: Meteor.status().connected,
+    newPlayerName: Session.get('currentNewPlayer_name'),
+    newPlayerScore: Session.get('currentNewPlayer_score'),
+    headerTitle: Session.get('headerTitle'),
+  };
+})(App);

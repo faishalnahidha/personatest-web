@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Session } from 'meteor/session';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import { withStyles } from 'material-ui/styles';
 
@@ -44,6 +44,7 @@ class MainLayout extends Component {
 
     this.state = {
       isDrawerOpen: false,
+      // userScore: 0,
     };
 
     this.newPlayerInitialized = false;
@@ -85,7 +86,7 @@ class MainLayout extends Component {
             render={props => (
               <TesContainer currentUser={currentUser} isDrawerOpen={isDrawerOpen} {...props} />
             )}
-            key="tes"
+            key="tesNewPlayer"
           />
           <Route
             path="/artikel/:personalityId/:contentId"

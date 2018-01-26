@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { Redirect } from 'react-router-dom';
 
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
@@ -77,6 +78,10 @@ class HasilTesPage extends Component {
       resultLoading, resultContents, newPlayer, isDrawerOpen, classes,
     } = this.props;
 
+    if (!newPlayer && !Meteor.userId()) {
+      return <Redirect to="/" push />;
+    }
+
     if (!resultLoading && newPlayer.result) {
       const mainType = PublicContents.findOne({ _id: newPlayer.result.type });
       const altType1 = PublicContents.findOne({
@@ -131,7 +136,7 @@ class HasilTesPage extends Component {
                     />
                   </Grid>
                   <Grid item xs={12} sm={6} md={12}>
-                    <TestProgressPanel percentage={100} name={newPlayer.name} />
+                    <TestProgressPanel percentage={100} name={newPlayer.name} isTestFinished />
                   </Grid>
                 </Grid>
               </div>

@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 
 import { withStyles } from 'material-ui/styles';
 import ButtonBase from 'material-ui/ButtonBase';
-import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import ArrowBack from 'material-ui-icons/ArrowBack';
+
+import { myPrimaryColor } from '../themes/primary-color-palette';
 
 const styles = theme => ({
   button: {
@@ -17,10 +18,10 @@ const styles = theme => ({
     justifyContent: 'flex-start',
   },
   transparentText: {
-    color: 'rgba(255,255,255,0.66)',
+    color: myPrimaryColor[300],
   },
-  whiteText: {
-    color: '#fff',
+  titleText: {
+    color: myPrimaryColor[300],
   },
   icon: {
     float: 'left',
@@ -29,7 +30,7 @@ const styles = theme => ({
     paddingTop: 20,
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    color: '#fff',
+    color: myPrimaryColor[300],
     float: 'left',
   },
 });
@@ -52,7 +53,7 @@ function PrevContentNavButton(props) {
         <Typography type="body1" gutterBottom className={classes.transparentText}>
           Sebelumnya
         </Typography>
-        <Typography type="title" gutterBottom className={classes.whiteText}>
+        <Typography type="title" gutterBottom className={classes.titleText}>
           {prevContentTitle}
         </Typography>
       </div>

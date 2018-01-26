@@ -20,7 +20,7 @@ import DaftarPageContainer from '../containers/DaftarPageContainer.jsx';
 // App component - represents the whole app
 class App extends Component {
   componentDidMount() {
-    this.users = Meteor.users;
+    // Meteor.subscribe('userData');
   }
 
   render() {
@@ -29,7 +29,7 @@ class App extends Component {
     } = this.props;
 
     /* edit this someday */
-    const tempUser = {}; // !user
+    const tempUser = undefined; // !user
     if (newPlayerName && newPlayerScore) {
       tempUser.name = newPlayerName;
       tempUser.score = newPlayerScore;

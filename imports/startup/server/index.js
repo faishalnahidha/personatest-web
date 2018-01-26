@@ -6,3 +6,5 @@ import './fixtures.js';
 import './register-api.js';
 
 import './user-creation.js';
+
+import './user-publication.js';

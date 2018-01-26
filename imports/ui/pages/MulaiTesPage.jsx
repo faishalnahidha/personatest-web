@@ -8,21 +8,13 @@ import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import Hidden from 'material-ui/Hidden';
-// import Divider from 'material-ui/Divider';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
-// import {
-//   FormLabel,
-//   FormControl,
-//   FormControlLabel,
-//   FormHelperText
-// } from 'material-ui/Form';
 import { grey } from 'material-ui/colors';
 import ArrowBack from 'material-ui-icons/ArrowBack';
 
-// import { NewPlayers } from '../../api/new-players';
 import { myPrimaryColor } from '../themes/primary-color-palette';
 
 const styles = theme => ({

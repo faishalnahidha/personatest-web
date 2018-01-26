@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { Redirect } from 'react-router-dom';
 
 import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
@@ -115,7 +116,7 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    this.chipPopoverAchorEl = this.chip;
+    // this.chipPopoverAchorEl = this.chip;
     document.addEventListener('scroll', () => {
       this.handleScroll();
     });
@@ -163,6 +164,8 @@ class Header extends Component {
       this.setState({ isUserMenuOpen: false });
     }
     Meteor.logout();
+    // this.props.history.push('/');
+    // return <Redirect to="/" push />;
   };
 
   UserMenu = (props) => {
@@ -196,6 +199,9 @@ class Header extends Component {
       const avatarFileName = `mbti-avatar-${currentUser.profile.personalityType.toLowerCase()}.png`;
       return (
         <div>
+          <Tooltip id="tooltip-skor" title="Skor Anda">
+            <span className={classes.score}>{currentUser.gameProfile.score}</span>
+          </Tooltip>
           <IconButton
             aria-owns={isUserMenuOpen ? 'user-menu-appbar' : null}
             aria-haspopup="true"
@@ -215,7 +221,7 @@ class Header extends Component {
       );
     } else if (!currentUser && newPlayer) {
       /* Icon dan menu saat user BELUM DAFTAR dan sudah/sedang
-         mengerjakan tes (temp user/newPlayer) */
+         mengerjakan tes (temporary user/newPlayer) */
       const avatarLetter = newPlayer.name ? newPlayer.name.charAt(0) : ' ';
       return (
         <div>
@@ -319,6 +325,7 @@ class Header extends Component {
 
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
+  history: PropTypes.object,
   headerTitle: PropTypes.string.isRequired,
   currentUser: PropTypes.object,
   newPlayer: PropTypes.object,

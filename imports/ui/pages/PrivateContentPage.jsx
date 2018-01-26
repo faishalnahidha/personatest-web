@@ -6,7 +6,6 @@ import Parser from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
 
 import { withStyles } from 'material-ui/styles';
-import Button from 'material-ui/Button';
 import Divider from 'material-ui/Divider';
 import ExpansionPanel, {
   ExpansionPanelSummary,
@@ -78,20 +77,20 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 6,
     padding: theme.spacing.unit * 2,
     [theme.breakpoints.up('sm')]: {
-      paddingLeft: '15%',
-      paddingRight: '10%',
+      paddingLeft: '12%',
+      paddingRight: '12%',
     },
   },
   textContainer: {
     padding: theme.spacing.unit * 2,
     [theme.breakpoints.up('sm')]: {
-      paddingLeft: '15%',
+      paddingLeft: '12%',
       paddingRight: '12%',
     },
   },
   expansionContentContainer: {
     [theme.breakpoints.up('sm')]: {
-      paddingLeft: '15%',
+      paddingLeft: '12%',
       paddingRight: '12%',
     },
   },
@@ -136,6 +135,10 @@ const styles = theme => ({
     color: myPrimaryColor[700],
     fontWeight: 300,
   },
+  paragraphText: {
+    fontSize: theme.typography.pxToRem(16),
+    color: grey[800],
+  },
   greyText: {
     color: grey[700],
   },
@@ -144,8 +147,8 @@ const styles = theme => ({
     marginTop: theme.spacing.unit,
   },
   contentNavButtonConteiner: {
-    background: 'linear-gradient(90deg, rgba(116,116,191,1), rgba(52,138,199,1))',
-    // backgroundColor: myPrimaryColor[300],
+    marginTop: theme.spacing.unit * 5,
+    backgroundColor: grey[100],
   },
 });
 
@@ -153,7 +156,7 @@ const karirContentIdentifier = 'karir yang menarik bagi anda';
 
 class PrivateContentPage extends Component {
   componentDidMount() {
-    Session.set('headerTitle', 'Artikel');
+    Session.set('headerTitle', 'Artikel | Profil Khusus');
   }
 
   render() {
@@ -214,7 +217,9 @@ class PrivateContentPage extends Component {
                       </Grid>
                     ) : (
                       <Grid item xs={12} className={classes.displayTextContainer}>
-                        <Typography type="display2">{content.contentTitle}</Typography>
+                        <Typography type="display2" component="h1">
+                          {content.contentTitle}
+                        </Typography>
                         <Typography
                           className={classes.personalityNameText}
                           style={{ color: personalityColor }}
@@ -231,14 +236,18 @@ class PrivateContentPage extends Component {
                         replace: (domNode) => {
                           if (domNode.name === 'p') {
                             return (
-                              <Typography paragraph>{domToReact(domNode.children)}</Typography>
+                              <Typography paragraph className={classes.paragraphText}>
+                                {domToReact(domNode.children)}
+                              </Typography>
                             );
                           }
 
                           if (domNode.name === 'ol') {
                             return (
                               <ol className={classes.orderedList}>
-                                <Typography>{domToReact(domNode.children)}</Typography>
+                                <Typography className={classes.paragraphText}>
+                                  {domToReact(domNode.children)}
+                                </Typography>
                               </ol>
                             );
                           }
@@ -246,7 +255,9 @@ class PrivateContentPage extends Component {
                           if (domNode.name === 'ul') {
                             return (
                               <ul className={classes.orderedList}>
-                                <Typography>{domToReact(domNode.children)}</Typography>
+                                <Typography className={classes.paragraphText}>
+                                  {domToReact(domNode.children)}
+                                </Typography>
                               </ul>
                             );
                           }
@@ -302,7 +313,9 @@ class PrivateContentPage extends Component {
                         </Grid>
                       ) : (
                         <Grid item xs={12} className={classes.displayTextContainer}>
-                          <Typography type="display2">{content.contentTitle}</Typography>
+                          <Typography type="display2" component="h1">
+                            {content.contentTitle}
+                          </Typography>
                           <Typography
                             className={classes.personalityNameText}
                             style={{ color: personalityColor }}
@@ -323,7 +336,10 @@ class PrivateContentPage extends Component {
 
                             if (domNode.name === 'p') {
                               return (
-                                <Typography paragraph> {domToReact(domNode.children)}</Typography>
+                                <Typography className={classes.paragraphText} paragraph>
+                                  {' '}
+                                  {domToReact(domNode.children)}
+                                </Typography>
                               );
                             }
                             return null;
@@ -349,6 +365,7 @@ class PrivateContentPage extends Component {
                                       <div className={classes.expansionContentContainer}>
                                         <Typography
                                           type="subheading"
+                                          component="h3"
                                           className={classes.expansionTitleText}
                                         >
                                           {domToReact(domNode2.children)}
@@ -366,7 +383,10 @@ class PrivateContentPage extends Component {
                                           replace: (domNode3) => {
                                             if (domNode3.name === 'p') {
                                               return (
-                                                <Typography paragraph>
+                                                <Typography
+                                                  paragraph
+                                                  className={classes.paragraphText}
+                                                >
                                                   {domToReact(domNode3.children)}
                                                 </Typography>
                                               );
@@ -375,7 +395,7 @@ class PrivateContentPage extends Component {
                                             if (domNode3.name === 'ul') {
                                               return (
                                                 <ul className={classes.orderedList}>
-                                                  <Typography>
+                                                  <Typography className={classes.paragraphText}>
                                                     {domToReact(domNode3.children)}
                                                   </Typography>
                                                 </ul>
@@ -401,7 +421,7 @@ class PrivateContentPage extends Component {
                   })}
                   <Paper
                     className={classnames(classes.paper, classes.paperKarir)}
-                    style={{ borderRadius: '0 0 4px 4px' }}
+                    style={{ borderRadius: '0 0 4px 4px', backgroundColor: grey[100] }}
                   >
                     <Grid container spacing={0} className={classes.contentNavButtonConteiner}>
                       <Grid item xs={6}>

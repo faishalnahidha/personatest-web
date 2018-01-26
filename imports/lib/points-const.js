@@ -1,6 +1,6 @@
-export const testAnswerPoint = 40;
-
 export const startTestPoint = 100;
+
+export const testAnswerPoint = 40;
 
 export const registerPoint = 200;
 
