@@ -19,17 +19,8 @@ const styles = theme => ({
   },
 });
 
-function TestProgressPanel(props) {
-  const {
-    classes, percentage, name, isTestFinished,
-  } = props;
-
-  const percentageCopy = () => {
-    if (percentage === 100) {
-      return percentage - 1;
-    }
-    return percentage;
-  };
+function OverallProgressPanel(props) {
+  const { classes, percentage, name } = props;
 
   return (
     <Paper className={classes.paper}>
@@ -40,23 +31,14 @@ function TestProgressPanel(props) {
               Hai {getFirstName(name)}!
             </Typography>
           )}
-          {isTestFinished && (
-            <Typography type="caption" align="center">
-              Anda telah menyelesaikan tes, <Link to="/daftar">daftar akun</Link> untuk melengkapi{' '}
-              <em>progress</em>
-            </Typography>
-          )}
-
-          {!isTestFinished && (
-            <Typography type="caption" align="center">
-              <em>Progress</em> Anda dalam tes ini adalah:
-            </Typography>
-          )}
+          <Typography type="caption" align="center">
+            <em>progress </em> keseluruhan Anda di Persona Web
+          </Typography>
         </Grid>
         <Grid item xs={4} sm={9} md={10}>
           <CircularProgressbar
             className="MyCircularProgressbar"
-            percentage={percentageCopy()}
+            percentage={percentage}
             initialAnimation="true"
           />
         </Grid>
@@ -65,11 +47,10 @@ function TestProgressPanel(props) {
   );
 }
 
-TestProgressPanel.propTypes = {
+OverallProgressPanel.propTypes = {
   classes: PropTypes.object.isRequired,
   percentage: PropTypes.number.isRequired,
   name: PropTypes.string,
-  isTestFinished: PropTypes.bool,
 };
 
-export default withStyles(styles)(TestProgressPanel);
+export default withStyles(styles)(OverallProgressPanel);

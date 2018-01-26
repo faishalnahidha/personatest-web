@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
 import { withStyles } from 'material-ui/styles';
@@ -10,8 +11,10 @@ import { CircularProgress } from 'material-ui/Progress';
 
 import { PublicContents } from '../../api/public-contents.js';
 
-import MainResultCard from '../components/MainResultCard.jsx';
 import AlternativeResultCard from '../components/AlternativeResultCard.jsx';
+import ContentProgressPanel from '../components/ContentProgressPanel.jsx';
+import MainResultCard from '../components/MainResultCard.jsx';
+import OverallProgressPanel from '../components/OverallProgressPanel.jsx';
 import TestProgressPanel from '../components/TestProgressPanel.jsx';
 import TestResultPanel from '../components/TestResultPanel.jsx';
 import { drawerWidth } from '../components/MenuDrawer.jsx';
@@ -52,9 +55,9 @@ const styles = theme => ({
     padding: theme.spacing.unit,
   },
   bandingkanText: {
-    marginBottom: 16,
-    marginLeft: 8,
-    marginRight: 8,
+    marginBottom: theme.spacing.unit * 2,
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
     [theme.breakpoints.up('xl')]: {
       marginTop: 200,
     },
@@ -67,15 +70,59 @@ const styles = theme => ({
   },
 });
 
+const PRIVATE_CONTENTS_COUNT = 5;
+const PUBLIC_CONTENTS_COUNT = 24;
+const OVERALL_COUNT = 33;
+
 class HasilTesPage extends Component {
   componentDidMount() {
     Session.set('headerTitle', 'Hasil Tes');
   }
 
+  privateContentPercentage = () => {
+    const { contentReadFlags } = this.props.newPlayer;
+    let privateContentReadCount = 0;
+    contentReadFlags.private.forEach((element) => {
+      privateContentReadCount += element.flag ? 1 : 0;
+    });
+
+    return Math.floor(privateContentReadCount / PRIVATE_CONTENTS_COUNT * 100);
+  };
+
+  publicContentPercentage = () => {
+    const { contentReadFlags } = this.props.newPlayer;
+    let publicContentReadCount = 0;
+    contentReadFlags.private.forEach((element) => {
+      publicContentReadCount += element.flag ? 1 : 0;
+    });
+
+    contentReadFlags.public.forEach((element) => {
+      publicContentReadCount += element.flag ? 1 : 0;
+    });
+
+    return Math.floor(publicContentReadCount / PUBLIC_CONTENTS_COUNT * 100);
+  };
+
+  overallContentPercentage = () => {
+    const { contentReadFlags } = this.props.newPlayer;
+    let overallCount = 3;
+    contentReadFlags.private.forEach((element) => {
+      overallCount += element.flag ? 1 : 0;
+    });
+
+    contentReadFlags.public.forEach((element) => {
+      overallCount += element.flag ? 1 : 0;
+    });
+
+    return Math.floor(overallCount / OVERALL_COUNT * 100);
+  };
+
   render() {
     const {
       resultLoading, resultContents, newPlayer, isDrawerOpen, classes,
     } = this.props;
+
+    const isUserLogin = !!Meteor.userId();
 
     if (!resultLoading && newPlayer.result) {
       const mainType = PublicContents.findOne({ _id: newPlayer.result.type });
@@ -131,8 +178,24 @@ class HasilTesPage extends Component {
                     />
                   </Grid>
                   <Grid item xs={12} sm={6} md={12}>
-                    <TestProgressPanel percentage={100} name={newPlayer.name} isTestFinished />
+                    {isUserLogin ? (
+                      <OverallProgressPanel
+                        percentage={this.overallContentPercentage()}
+                        name={newPlayer.name}
+                      />
+                    ) : (
+                      <TestProgressPanel percentage={100} name={newPlayer.name} isTestFinished />
+                    )}
                   </Grid>
+                  {isUserLogin && (
+                    <Grid item xs={12} sm={6} md={12}>
+                      <ContentProgressPanel
+                        testPercentage={100}
+                        privateContentPercentage={this.privateContentPercentage()}
+                        publicContentPercentage={this.publicContentPercentage()}
+                      />
+                    </Grid>
+                  )}
                 </Grid>
               </div>
             </Grid>

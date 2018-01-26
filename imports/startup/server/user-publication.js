@@ -5,7 +5,7 @@ if (Meteor.isServer) {
     return Meteor.users.find(
       { _id: this.userId },
       {
-        fields: { testResult: 1, gameProfile: 1 },
+        fields: { testResult: 1, gameProfile: 1, contentReadFlags: 1 },
       },
     );
   });

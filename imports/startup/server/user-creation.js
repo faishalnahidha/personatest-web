@@ -1,4 +1,8 @@
 import { Meteor } from 'meteor/meteor';
+import {
+  initialPrivateContentReadFlags,
+  initialPublicContentReadFlags,
+} from '../../lib/initial-content-read-flags';
 
 Accounts.onCreateUser((options, user) => {
   const newUser = Object.assign(user);
@@ -10,6 +14,7 @@ Accounts.onCreateUser((options, user) => {
 
   // Assign other custom field
   newUser.gameProfile = {};
+  newUser.contentReadFlags = {};
 
   if (options.name) {
     newUser.profile.name = options.name;
@@ -17,6 +22,7 @@ Accounts.onCreateUser((options, user) => {
 
   if (options.personalityType) {
     newUser.profile.personalityType = options.personalityType;
+    newUser.contentReadFlags.private = initialPrivateContentReadFlags(options.personalityType);
   }
 
   if (options.score) {
@@ -26,6 +32,10 @@ Accounts.onCreateUser((options, user) => {
   if (options.testResult) {
     newUser.testResult = options.testResult;
   }
+
+  newUser.contentReadFlags.public = initialPublicContentReadFlags.slice();
+  newUser.gameProfile.privateContentsRead = 0;
+  newUser.gameProfile.allContentsRead = 0;
 
   // Returns the user object
   return newUser;

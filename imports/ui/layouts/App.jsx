@@ -35,14 +35,14 @@ class App extends Component {
 
     /* edit this someday */
     let tempUser; // !user
-    if (newPlayerName && newPlayerScore) {
+    if (newPlayerName && newPlayerScore && !currentUser) {
       tempUser = {};
       tempUser.name = newPlayerName;
       tempUser.score = newPlayerScore;
     }
 
     if (currentUser) {
-      console.log(`currentUser: ${JSON.stringify(currentUser)}`);
+      console.log(`currentUser: ${currentUser.username}`);
     }
     console.log(`connected: ${connected}`);
 

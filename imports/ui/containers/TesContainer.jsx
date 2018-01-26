@@ -25,6 +25,7 @@ const TesContainer = withTracker(({ match, currentUser }) => {
     if (currentUser) {
       newPlayer.name = currentUser.profile.name;
       newPlayer.result = currentUser.testResult;
+      newPlayer.contentReadFlags = currentUser.contentReadFlags;
       newPlayer.isTestFinished = true;
     }
     loading = false;
