@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Session } from 'meteor/session';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import { withStyles } from 'material-ui/styles';
+import Snackbar from 'material-ui/Snackbar';
 
 import Header from '../components/Header.jsx';
 import MenuDrawer, { drawerWidth } from '../components/MenuDrawer.jsx';
@@ -12,6 +13,9 @@ import PublicContentPageContainer from '../containers/PublicContentPageContainer
 import PrivateContentPageContainer from '../containers/PrivateContentPageContainer.jsx';
 import TesContainer from '../containers/TesContainer.jsx';
 import Footer from '../components/Footer.jsx';
+
+import { mySecondaryColor } from '../themes/secondary-color-palette';
+import { registerPoint } from '../../lib/points-const';
 
 const styles = theme => ({
   headerExpand: {
@@ -38,16 +42,24 @@ const styles = theme => ({
   },
 });
 
+const REGISTER_POINT = registerPoint;
+
 class MainLayout extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       isDrawerOpen: false,
-      // userScore: 0,
+      isSnackbarOpen: false,
     };
 
     this.newPlayerInitialized = false;
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.justRegister === true) {
+      this.setState({ isSnackbarOpen: true });
+    }
   }
 
   handleDrawerOpen = () => {
@@ -55,11 +67,17 @@ class MainLayout extends Component {
     this.setState({ isDrawerOpen });
   };
 
+  handleSnackbarClose = () => {
+    const isSnackbarOpen = false;
+    this.setState({ isSnackbarOpen });
+    Session.setPersistent('justRegister', false);
+  };
+
   render() {
     const {
       classes, currentUser, newPlayer, headerTitle,
     } = this.props;
-    const { isDrawerOpen } = this.state;
+    const { isDrawerOpen, isSnackbarOpen } = this.state;
 
     return (
       <div className={classes.root}>
@@ -110,6 +128,23 @@ class MainLayout extends Component {
           />
         </Switch>
         <Footer />
+        {currentUser && (
+          <Snackbar
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center',
+            }}
+            open={isSnackbarOpen}
+            onClose={this.handleSnackbarClose}
+            autoHideDuration={3000}
+            message={
+              <span>
+                {currentUser.profile.name}, skor anda:
+                <span style={{ color: mySecondaryColor.A700 }}>&ensp;+ {REGISTER_POINT}</span>
+              </span>
+            }
+          />
+        )}
       </div>
     );
   }
@@ -120,6 +155,7 @@ MainLayout.propTypes = {
   currentUser: PropTypes.object,
   newPlayer: PropTypes.object,
   headerTitle: PropTypes.string,
+  justRegister: PropTypes.bool,
 };
 
 export default withStyles(styles)(MainLayout);

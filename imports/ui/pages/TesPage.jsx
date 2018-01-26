@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
-import { Redirect } from 'react-router';
 import classnames from 'classnames';
 import TransitionGroup from 'react-transition-group/TransitionGroup';
 import { CSSTransitionGroup } from 'react-transition-group';
 // import TransitionGroup from 'react-addons-transition-group';
 
 import { withStyles } from 'material-ui/styles';
-import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
-import { CircularProgress } from 'material-ui/Progress';
-import List from 'material-ui/List';
-import Divider from 'material-ui/Divider';
 import Button from 'material-ui/Button';
+import { CircularProgress } from 'material-ui/Progress';
+import Grid from 'material-ui/Grid';
+import List from 'material-ui/List';
+import Paper from 'material-ui/Paper';
 import Snackbar from 'material-ui/Snackbar';
 import NavigateNext from 'material-ui-icons/NavigateNext';
 
-import { NewPlayers } from '../../api/new-players.js';
+// import { NewPlayers } from '../../api/new-players.js';
 
 import '../stylesheets/animate.css';
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Redirect } from 'react-router-dom';
 
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
@@ -77,10 +76,6 @@ class HasilTesPage extends Component {
     const {
       resultLoading, resultContents, newPlayer, isDrawerOpen, classes,
     } = this.props;
-
-    if (!newPlayer && !Meteor.userId()) {
-      return <Redirect to="/" push />;
-    }
 
     if (!resultLoading && newPlayer.result) {
       const mainType = PublicContents.findOne({ _id: newPlayer.result.type });

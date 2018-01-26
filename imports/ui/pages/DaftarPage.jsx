@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Session } from 'meteor/session';
 import classnames from 'classnames';
+import { Redirect } from 'react-router-dom';
 
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
@@ -236,7 +237,7 @@ class DaftarPage extends Component {
 
     this.state = {
       errors: null,
-      // redirect: false,
+      redirect: false,
       username: '',
       name: '',
       personalityType: '',
@@ -300,8 +301,11 @@ class DaftarPage extends Component {
             });
             console.log(err.reason);
           } else {
-            Session.set('justRegister', true);
-            this.props.history.go(-1);
+            Session.setPersistent('justRegister', true);
+            this.setState({
+              redirect: true,
+            });
+            // this.props.history.go(-1);
           }
         },
       );
@@ -319,7 +323,13 @@ class DaftarPage extends Component {
 
   render() {
     const { classes } = this.props;
-    const { errors, isSnackbarOpen } = this.state;
+    const {
+      errors, redirect, personalityType, isSnackbarOpen,
+    } = this.state;
+
+    if (redirect) {
+      return <Redirect to={`/artikel/${personalityType.toLowerCase()}`} />;
+    }
 
     return (
       <div className={classes.root}>

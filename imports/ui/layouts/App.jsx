@@ -25,12 +25,18 @@ class App extends Component {
 
   render() {
     const {
-      currentUser, connected, newPlayerName, newPlayerScore, headerTitle,
+      currentUser,
+      connected,
+      newPlayerName,
+      newPlayerScore,
+      headerTitle,
+      justRegister,
     } = this.props;
 
     /* edit this someday */
-    const tempUser = undefined; // !user
+    let tempUser; // !user
     if (newPlayerName && newPlayerScore) {
+      tempUser = {};
       tempUser.name = newPlayerName;
       tempUser.score = newPlayerScore;
     }
@@ -68,6 +74,7 @@ class App extends Component {
                         currentUser={currentUser}
                         newPlayer={tempUser}
                         headerTitle={headerTitle}
+                        justRegister={justRegister}
                         {...props}
                       />
                     )}
@@ -90,6 +97,7 @@ App.propTypes = {
   newPlayerName: PropTypes.string,
   newPlayerScore: PropTypes.number,
   headerTitle: PropTypes.string,
+  justRegister: PropTypes.bool,
 };
 
 export default App;

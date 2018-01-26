@@ -16,5 +16,6 @@ export default withTracker(() => {
     newPlayerName: Session.get('currentNewPlayer_name'),
     newPlayerScore: Session.get('currentNewPlayer_score'),
     headerTitle: Session.get('headerTitle'),
+    justRegister: Session.get('justRegister'),
   };
 })(App);
