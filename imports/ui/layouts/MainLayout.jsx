@@ -132,7 +132,7 @@ class MainLayout extends Component {
           <Snackbar
             anchorOrigin={{
               vertical: 'bottom',
-              horizontal: 'center',
+              horizontal: 'right',
             }}
             open={isSnackbarOpen}
             onClose={this.handleSnackbarClose}

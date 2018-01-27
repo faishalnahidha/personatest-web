@@ -276,6 +276,7 @@ class DaftarPage extends Component {
     const confirmPassword = this.konfirmasiPasswordDaftar.value;
     const name = this.state.name.trim();
     const personalityType = this.state.personalityType.toUpperCase();
+    const { age } = this.props.newPlayer.age;
 
     const testResult = Object.assign(this.props.newPlayer.result);
     const score = this.props.newPlayer.score + DAFTAR_POINT;
@@ -290,6 +291,7 @@ class DaftarPage extends Component {
           password,
           name,
           personalityType,
+          age,
           score,
           testResult,
         },

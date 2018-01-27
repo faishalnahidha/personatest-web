@@ -14,10 +14,15 @@ import Button from 'material-ui/Button';
 import { CircularProgress } from 'material-ui/Progress';
 import { grey } from 'material-ui/colors';
 
+import ContentProgressPanel from '../components/ContentProgressPanel.jsx';
 import NextContentNavButton from '../components/NextContentNavButton.jsx';
-// import TestProgressPanel from '../components/TestProgressPanel.jsx';
-// import TestResultPanel from '../components/TestResultPanel.jsx';
+import OverallProgressPanel from '../components/OverallProgressPanel.jsx';
 import { drawerWidth } from '../components/MenuDrawer.jsx';
+import {
+  overallContentPercentage,
+  privateContentPercentage,
+  publicContentPercentage,
+} from '../../lib/determine-content-percentage';
 
 const styles = theme => ({
   contentRoot: {
@@ -279,6 +284,28 @@ class PublicContentPage extends Component {
                 </Grid>
               </Paper>
             </Grid>
+            {/* Right column */}
+            {currentUser && (
+              <Grid item xs={12} sm={10} md={3} lg={2}>
+                <div className={classes.rightColumnContainer}>
+                  <Grid container spacing={16} justify="center">
+                    <Grid item xs={12} sm={6} md={12}>
+                      <OverallProgressPanel
+                        percentage={overallContentPercentage(currentUser.contentReadFlags)}
+                        name={currentUser.profile.name}
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={12}>
+                      <ContentProgressPanel
+                        testPercentage={100}
+                        privateContentPercentage={privateContentPercentage(currentUser.contentReadFlags)}
+                        publicContentPercentage={publicContentPercentage(currentUser.contentReadFlags)}
+                      />
+                    </Grid>
+                  </Grid>
+                </div>
+              </Grid>
+            )}
           </Grid>
         </div>
       );

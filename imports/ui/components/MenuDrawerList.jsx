@@ -216,14 +216,15 @@ class MenuDrawerList extends Component {
             <ListItemText inset primary="Hasil Tes" />
           </ListItem>
         )}
-        {isTestFinished && (
-          <ListItem button component={Link} to={`/tes/${newPlayerId}`} onClick={this.handleTap}>
-            <ListItemIcon>
-              <AssignmentTurnedInIcon />
-            </ListItemIcon>
-            <ListItemText inset primary="Hasil Tes" />
-          </ListItem>
-        )}
+        {isTestFinished &&
+          newPlayerId && (
+            <ListItem button component={Link} to={`/tes/${newPlayerId}`} onClick={this.handleTap}>
+              <ListItemIcon>
+                <AssignmentTurnedInIcon />
+              </ListItemIcon>
+              <ListItemText inset primary="Hasil Tes" />
+            </ListItem>
+          )}
         <Divider className={classes.divider} />
 
         <ListSubheader className={classes.parentSubheading}>Artikel</ListSubheader>

@@ -25,6 +25,10 @@ Accounts.onCreateUser((options, user) => {
     newUser.contentReadFlags.private = initialPrivateContentReadFlags(options.personalityType);
   }
 
+  if (options.age) {
+    newUser.profile.age = options.age;
+  }
+
   if (options.score) {
     newUser.gameProfile.score = options.score;
   }
@@ -34,8 +38,8 @@ Accounts.onCreateUser((options, user) => {
   }
 
   newUser.contentReadFlags.public = initialPublicContentReadFlags.slice();
-  newUser.gameProfile.privateContentsRead = 0;
-  newUser.gameProfile.allContentsRead = 0;
+  // newUser.gameProfile.privateContentsRead = 0;
+  // newUser.gameProfile.allContentsRead = 0;
 
   // Returns the user object
   return newUser;

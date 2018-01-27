@@ -309,11 +309,11 @@ class TesPage extends Component {
         <Snackbar
           anchorOrigin={{
             vertical: 'bottom',
-            horizontal: 'center',
+            horizontal: 'right',
           }}
           open={this.state.openSnackbar}
           onClose={() => this.setState({ openSnackbar: false })}
-          autoHideDuration={2500}
+          autoHideDuration={3000}
           message={
             <span>
               {newPlayer.name}, skor anda:
@@ -324,11 +324,11 @@ class TesPage extends Component {
         <Snackbar
           anchorOrigin={{
             vertical: 'bottom',
-            horizontal: 'center',
+            horizontal: 'right',
           }}
           open={this.state.openSnackbar2}
           onClose={() => this.setState({ openSnackbar2: false })}
-          autoHideDuration={2500}
+          autoHideDuration={3000}
           message={
             <span>
               {newPlayer.name}, skor anda:

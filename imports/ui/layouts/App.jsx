@@ -44,7 +44,6 @@ class App extends Component {
     if (currentUser) {
       console.log(`currentUser: ${currentUser.username}`);
     }
-    console.log(`connected: ${connected}`);
 
     return (
       <div>

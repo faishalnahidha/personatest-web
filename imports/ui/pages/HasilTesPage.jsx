@@ -18,6 +18,11 @@ import OverallProgressPanel from '../components/OverallProgressPanel.jsx';
 import TestProgressPanel from '../components/TestProgressPanel.jsx';
 import TestResultPanel from '../components/TestResultPanel.jsx';
 import { drawerWidth } from '../components/MenuDrawer.jsx';
+import {
+  overallContentPercentage,
+  privateContentPercentage,
+  publicContentPercentage,
+} from '../../lib/determine-content-percentage';
 
 const styles = theme => ({
   contentRoot: {
@@ -70,52 +75,10 @@ const styles = theme => ({
   },
 });
 
-const PRIVATE_CONTENTS_COUNT = 5;
-const PUBLIC_CONTENTS_COUNT = 24;
-const OVERALL_COUNT = 33;
-
 class HasilTesPage extends Component {
   componentDidMount() {
     Session.set('headerTitle', 'Hasil Tes');
   }
-
-  privateContentPercentage = () => {
-    const { contentReadFlags } = this.props.newPlayer;
-    let privateContentReadCount = 0;
-    contentReadFlags.private.forEach((element) => {
-      privateContentReadCount += element.flag ? 1 : 0;
-    });
-
-    return Math.floor(privateContentReadCount / PRIVATE_CONTENTS_COUNT * 100);
-  };
-
-  publicContentPercentage = () => {
-    const { contentReadFlags } = this.props.newPlayer;
-    let publicContentReadCount = 0;
-    contentReadFlags.private.forEach((element) => {
-      publicContentReadCount += element.flag ? 1 : 0;
-    });
-
-    contentReadFlags.public.forEach((element) => {
-      publicContentReadCount += element.flag ? 1 : 0;
-    });
-
-    return Math.floor(publicContentReadCount / PUBLIC_CONTENTS_COUNT * 100);
-  };
-
-  overallContentPercentage = () => {
-    const { contentReadFlags } = this.props.newPlayer;
-    let overallCount = 3;
-    contentReadFlags.private.forEach((element) => {
-      overallCount += element.flag ? 1 : 0;
-    });
-
-    contentReadFlags.public.forEach((element) => {
-      overallCount += element.flag ? 1 : 0;
-    });
-
-    return Math.floor(overallCount / OVERALL_COUNT * 100);
-  };
 
   render() {
     const {
@@ -180,7 +143,7 @@ class HasilTesPage extends Component {
                   <Grid item xs={12} sm={6} md={12}>
                     {isUserLogin ? (
                       <OverallProgressPanel
-                        percentage={this.overallContentPercentage()}
+                        percentage={overallContentPercentage(newPlayer.contentReadFlags)}
                         name={newPlayer.name}
                       />
                     ) : (
@@ -191,8 +154,8 @@ class HasilTesPage extends Component {
                     <Grid item xs={12} sm={6} md={12}>
                       <ContentProgressPanel
                         testPercentage={100}
-                        privateContentPercentage={this.privateContentPercentage()}
-                        publicContentPercentage={this.publicContentPercentage()}
+                        privateContentPercentage={privateContentPercentage(newPlayer.contentReadFlags)}
+                        publicContentPercentage={publicContentPercentage(newPlayer.contentReadFlags)}
                       />
                     </Grid>
                   )}

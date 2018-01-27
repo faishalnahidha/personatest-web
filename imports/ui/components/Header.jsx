@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Redirect } from 'react-router-dom';
 
 import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
@@ -16,7 +15,7 @@ import Typography from 'material-ui/Typography';
 import MenuIcon from 'material-ui-icons/Menu';
 import AccountCircle from 'material-ui-icons/AccountCircle';
 
-import anime from 'animejs';
+// import anime from 'animejs';
 
 import { drawerWidth } from '../components/MenuDrawer.jsx';
 import { mySecondaryColor } from '../themes/secondary-color-palette';
@@ -116,22 +115,10 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    // this.chipPopoverAchorEl = this.chip;
     document.addEventListener('scroll', () => {
       this.handleScroll();
     });
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.newPlayer.score && nextProps.newPlayer.score !== this.props.newPlayer.score) {
-  //     const animateScore = anime({
-  //       targets: '#animateScore',
-  //       label: nextProps.newPlayer.score,
-  //       round: 1,
-  //       easing: 'easeInOutExpo',
-  //     });
-  //   }
-  // }
 
   handleScroll() {
     const isScroll = window.scrollY > 50;
@@ -200,7 +187,9 @@ class Header extends Component {
       return (
         <div>
           <Tooltip id="tooltip-skor" title="Skor Anda">
-            <span className={classes.score}>{currentUser.gameProfile.score}</span>
+            <span className={classes.score}>
+              {currentUser.gameProfile ? currentUser.gameProfile.score : 0}
+            </span>
           </Tooltip>
           <IconButton
             aria-owns={isUserMenuOpen ? 'user-menu-appbar' : null}
@@ -226,7 +215,7 @@ class Header extends Component {
       return (
         <div>
           <Tooltip id="tooltip-skor" title="Skor Anda">
-            <span className={classes.score}>{newPlayer.score}</span>
+            <span className={classes.score}>{newPlayer.score || 0}</span>
           </Tooltip>
           <IconButton
             aria-owns={isUserMenuOpen ? 'user-menu-appbar' : null}
@@ -325,7 +314,6 @@ class Header extends Component {
 
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
-  history: PropTypes.object,
   headerTitle: PropTypes.string.isRequired,
   currentUser: PropTypes.object,
   newPlayer: PropTypes.object,
