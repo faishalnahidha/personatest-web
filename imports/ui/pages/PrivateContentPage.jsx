@@ -7,6 +7,7 @@ import Parser from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
 
 import { withStyles } from 'material-ui/styles';
+import Button from 'material-ui/Button';
 import Divider from 'material-ui/Divider';
 import ExpansionPanel, {
   ExpansionPanelSummary,
@@ -15,14 +16,10 @@ import ExpansionPanel, {
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import { CircularProgress } from 'material-ui/Progress';
+import Snackbar from 'material-ui/Snackbar';
 import Typography from 'material-ui/Typography';
 import { grey } from 'material-ui/colors';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
-
-import Button from 'material-ui/Button';
-import Snackbar from 'material-ui/Snackbar';
-import IconButton from 'material-ui/IconButton';
-import CloseIcon from 'material-ui-icons/Close';
 
 import { drawerWidth } from '../components/MenuDrawer.jsx';
 import ContentProgressPanel from '../components/ContentProgressPanel.jsx';
@@ -157,6 +154,7 @@ const styles = theme => ({
 
 const READ_POINT = readPoint;
 const karirContentIdentifier = 'karir yang menarik bagi anda';
+const contentMinReadTime = 5;
 
 class PrivateContentPage extends Component {
   constructor(props) {
@@ -175,8 +173,6 @@ class PrivateContentPage extends Component {
 
   componentDidMount() {
     Session.set('headerTitle', 'Artikel | Profil Khusus');
-    console.log('private page did mount');
-    // this.interval = setInterval(() => this.tick(), 1000);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -252,8 +248,8 @@ class PrivateContentPage extends Component {
   };
 
   updateUserContentReadFlag() {
-    const { currentUser, content } = this.props;
-    Meteor.call('users.updateContentReadFlag.private', currentUser._id, content._id, true);
+    const { content } = this.props;
+    Meteor.call('users.updateContentReadFlag.private', content._id, true);
 
     this.isContentRead = true;
     this.recentlyRead = true;
@@ -295,15 +291,14 @@ class PrivateContentPage extends Component {
       return <Typography type="display1">404 Not Found</Typography>;
     }
 
-    console.log(`seconds: ${this.state.seconds}`);
-    // console.log(`isContentRead: ${this.state.isContentRead}`);
+    // console.log(`seconds: ${this.state.seconds}`);
 
     if (contentExists) {
       const personalityColor = getPersonalityColor(content.personalityId);
       const personalityName = getPersonalityName(content.personalityId);
       const isKarirContent = content.contentTitle.toLowerCase() === karirContentIdentifier;
 
-      if (this.state.seconds === 5) {
+      if (this.state.seconds === contentMinReadTime) {
         this.openSnackbar1();
       }
 

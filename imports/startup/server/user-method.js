@@ -2,14 +2,20 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 
 Meteor.methods({
-  'users.updateContentReadFlag.private'(userId, contentId, setFlag) {
-    check(userId, String);
+  'users.updateContentReadFlag.private'(contentId, setFlag) {
     check(contentId, String);
     check(setFlag, Boolean);
 
+    if (!this.userId) {
+      throw new Meteor.Error(
+        'users.updateContentReadFlag.unauthorized',
+        'Cannot edit flags that is not yours',
+      );
+    }
+
     const select = {
-      _id: userId,
-      'contentReadFlags.private.contentId': contentId,
+      _id: this.userId,
+      'contentReadFlags.private.contentId': contentId.toLowerCase(),
     };
 
     const set = { $set: { 'contentReadFlags.private.$.flag': setFlag } };
@@ -17,14 +23,20 @@ Meteor.methods({
     Meteor.users.update(select, set, false, true);
   },
 
-  'users.updateContentReadFlag.public'(userId, contentId, setFlag) {
-    check(userId, String);
+  'users.updateContentReadFlag.public'(contentId, setFlag) {
     check(contentId, String);
     check(setFlag, Boolean);
 
+    if (!this.userId) {
+      throw new Meteor.Error(
+        'users.updateContentReadFlag.unauthorized',
+        'Cannot flags score that is not yours',
+      );
+    }
+
     const select = {
-      _id: userId,
-      'contentReadFlags.public.contentId': contentId,
+      _id: this.userId,
+      'contentReadFlags.public.contentId': contentId.toLowerCase(),
     };
 
     const set = { $set: { 'contentReadFlags.public.$.flag': setFlag } };

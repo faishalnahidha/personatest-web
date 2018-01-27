@@ -6,18 +6,21 @@ import Parser from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
 
 import { withStyles } from 'material-ui/styles';
+import { CircularProgress } from 'material-ui/Progress';
+import Button from 'material-ui/Button';
+import Divider from 'material-ui/Divider';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
+import Snackbar from 'material-ui/Snackbar';
 import Typography from 'material-ui/Typography';
-import Divider from 'material-ui/Divider';
-import Button from 'material-ui/Button';
-import { CircularProgress } from 'material-ui/Progress';
 import { grey } from 'material-ui/colors';
 
 import ContentProgressPanel from '../components/ContentProgressPanel.jsx';
 import NextContentNavButton from '../components/NextContentNavButton.jsx';
 import OverallProgressPanel from '../components/OverallProgressPanel.jsx';
+import { mySecondaryColor } from '../themes/secondary-color-palette';
 import { drawerWidth } from '../components/MenuDrawer.jsx';
+import { readPoint } from '../../lib/points-const';
 import {
   overallContentPercentage,
   privateContentPercentage,
@@ -132,9 +135,111 @@ const styles = theme => ({
   },
 });
 
+const READ_POINT = readPoint;
+const contentMinReadTime = 5;
+
 class PublicContentPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      openSnackbar1: false,
+      openSnackbar2: false,
+      openSnackbar3: false,
+      seconds: 0,
+    };
+
+    this.isContentRead = false;
+    this.recentlyRead = false;
+  }
+
   componentDidMount() {
     Session.set('headerTitle', 'Artikel');
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const drawerNotChange = this.props.isDrawerOpen === nextProps.isDrawerOpen;
+
+    if (
+      Meteor.userId() &&
+      nextProps.publicContentExists &&
+      nextProps.publicContent !== this.props.publicContent &&
+      drawerNotChange
+    ) {
+      // this.recentlyRead = false;
+      this.isContentRead = false;
+      this.setState({ openSnackbar1: false, openSnackbar3: false });
+      this.stopTick();
+
+      const contentReadFlag = this.findUserContentReadFlag(
+        nextProps.currentUser,
+        nextProps.publicContent._id,
+      );
+      this.isContentRead = contentReadFlag.flag;
+
+      if (!this.isContentRead) {
+        this.startTick();
+      } else if (this.isContentRead && !this.recentlyRead) {
+        this.setState({ openSnackbar3: true });
+      }
+
+      this.recentlyRead = false;
+    }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  findUserContentReadFlag(currentUser, contentId) {
+    const { contentReadFlags } = currentUser;
+
+    return contentReadFlags.public.find(element => element.contentId === contentId.toLowerCase());
+  }
+
+  tick() {
+    this.setState(prevState => ({
+      seconds: prevState.seconds + 1,
+    }));
+  }
+
+  startTick() {
+    this.interval = setInterval(() => this.tick(), 1000);
+  }
+
+  stopTick = () => {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+    this.setState({ seconds: 0 });
+  };
+
+  openSnackbar1 = () => {
+    this.stopTick();
+    this.setState({ openSnackbar1: true });
+  };
+
+  handleSnackbar1Close = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    this.setState({ openSnackbar1: false, openSnackbar2: true });
+    this.updateUserContentReadFlag();
+    this.updateUserScore();
+  };
+
+  updateUserContentReadFlag() {
+    const { publicContent } = this.props;
+    Meteor.call('users.updateContentReadFlag.public', publicContent._id, true);
+
+    this.isContentRead = true;
+    this.recentlyRead = true;
+  }
+
+  updateUserScore() {
+    const score = this.props.currentUser.gameProfile.score + READ_POINT;
+    Meteor.call('users.updateScore', score);
   }
 
   render() {
@@ -148,11 +253,17 @@ class PublicContentPage extends Component {
       classes,
     } = this.props;
 
+    // console.log(`seconds: ${this.state.seconds}`);
+
     if (!publicContentExists) {
       return <Typography type="display1">404 Not Found</Typography>;
     }
 
     if (publicContentExists) {
+      if (this.state.seconds === contentMinReadTime) {
+        this.openSnackbar1();
+      }
+
       return (
         <div className={classes.contentRoot}>
           <Grid container spacing={16} justify="center">
@@ -307,6 +418,55 @@ class PublicContentPage extends Component {
               </Grid>
             )}
           </Grid>
+          {currentUser && (
+            <div>
+              <Snackbar
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right',
+                }}
+                open={this.state.openSnackbar1}
+                // autoHideDuration={6000}
+                onClose={this.handleSnackbar1Close}
+                SnackbarContentProps={{
+                  'aria-describedby': 'message-id',
+                }}
+                message={<span id="message-id">Artikel ini telah selesai dibaca</span>}
+                action={
+                  <Button key="ok" color="secondary" dense onClick={this.handleSnackbar1Close}>
+                    OK
+                  </Button>
+                }
+              />
+              <Snackbar
+                key="snackbar2"
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right',
+                }}
+                open={this.state.openSnackbar2}
+                onClose={() => this.setState({ openSnackbar2: false })}
+                autoHideDuration={3000}
+                message={
+                  <span>
+                    {currentUser.username || 'user'}, skor anda:
+                    <span style={{ color: mySecondaryColor.A700 }}>&ensp;+ {READ_POINT}</span>
+                  </span>
+                }
+              />
+              <Snackbar
+                key="snackbar3"
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right',
+                }}
+                open={this.state.openSnackbar3}
+                onClose={() => this.setState({ openSnackbar3: false })}
+                autoHideDuration={3000}
+                message={<span>Anda sudah membaca artikel ini</span>}
+              />
+            </div>
+          )}
         </div>
       );
     }
