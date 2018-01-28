@@ -7,9 +7,6 @@ import {
 Accounts.onCreateUser((options, user) => {
   const newUser = Object.assign(user);
   // We still want the default hook's 'profile' behavior.
-  // if (options.profile) {
-  //   newUser.profile = options.profile;
-  // }
   newUser.profile = options.profile || {};
 
   // Assign other custom field
@@ -22,6 +19,7 @@ Accounts.onCreateUser((options, user) => {
 
   if (options.personalityType) {
     newUser.profile.personalityType = options.personalityType;
+    newUser.profile.profilePicture = `/img/avatar/mbti-avatar-${options.personalityType.toLowerCase()}.png`;
     newUser.contentReadFlags.private = initialPrivateContentReadFlags(options.personalityType);
   }
 

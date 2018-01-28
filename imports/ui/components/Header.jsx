@@ -103,7 +103,6 @@ const styles = theme => ({
   },
 });
 
-const avatarDefaultImagePath = '/img/avatar/';
 const LoginIcon = () => (
   <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
     <path
@@ -202,7 +201,6 @@ class Header extends Component {
 
     if (currentUser) {
       /* Icon dan menu saat user SUDAH login */
-      const avatarFileName = `mbti-avatar-${currentUser.profile.personalityType.toLowerCase()}.png`;
       return (
         <div>
           <Tooltip id="tooltip-skor" title="Skor Anda">
@@ -217,9 +215,11 @@ class Header extends Component {
           >
             <Avatar
               alt={currentUser.username}
-              src={`${avatarDefaultImagePath}${avatarFileName}`}
+              src={currentUser.profile.profilePicture}
               className={classes.avatarMasuk}
-            />
+            >
+              {!currentUser.profile.profilePicture && currentUser.username.charAt(0).toUpperCase()}
+            </Avatar>
           </IconButton>
           <this.UserMenu>
             <MenuItem onClick={this.handleUserMenuClose}>

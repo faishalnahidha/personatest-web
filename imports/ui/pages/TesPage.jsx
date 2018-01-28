@@ -60,7 +60,12 @@ const styles = theme => ({
   },
   stickyPanel: {
     position: 'sticky',
-    top: 104,
+    [theme.breakpoints.up('md')]: {
+      top: 104,
+    },
+    [theme.breakpoints.down('md')]: {
+      top: 88,
+    },
   },
   buttonBerikutnya: {
     width: '100%',
@@ -338,12 +343,6 @@ class TesPage extends Component {
         />
       </div>
     );
-
-    // return (
-    //   <Grid container spacing={0} justify="center" alignItems="center">
-    //     <CircularProgress size={50} className={classes.circularProgress} />
-    //   </Grid>
-    // );
   }
 }
 

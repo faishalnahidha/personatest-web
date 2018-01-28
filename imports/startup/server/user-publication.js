@@ -9,4 +9,23 @@ if (Meteor.isServer) {
       },
     );
   });
+
+  Meteor.publish('allUsers', function () {
+    if (!this.userId) {
+      // this will make this available just to logged in users, and not for everyone.
+      this.ready();
+      return null;
+    }
+
+    const options = {
+      fields: {
+        username: 1,
+        'profile.profilePicture': 1,
+        'gameProfile.score': 1,
+      },
+      sort: { 'gameProfile.score': -1 },
+    };
+
+    return Meteor.users.find({});
+  });
 }

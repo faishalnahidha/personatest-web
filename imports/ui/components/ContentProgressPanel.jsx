@@ -5,8 +5,7 @@ import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
-import CircularProgressbar from 'react-circular-progressbar';
-import { Line, Circle } from 'rc-progress';
+import { Line } from 'rc-progress';
 
 import '../stylesheets/circular-progressbar.css';
 import { myPrimaryColor } from '../themes/primary-color-palette';
@@ -31,7 +30,7 @@ function ContentProgressPanel(props) {
 
   return (
     <Paper className={classes.paper}>
-      <Grid container spacing={24}>
+      <Grid container spacing={16}>
         <Grid item xs={6} sm={12} md={12}>
           <Typography type="body2" align="center">
             Detil <em>Progress</em> Anda

@@ -32,7 +32,7 @@ function OverallProgressPanel(props) {
             </Typography>
           )}
           <Typography type="caption" align="center">
-            <em>progress </em> keseluruhan Anda di Persona Web
+            <em>Progress </em> keseluruhan Anda di Persona Web
           </Typography>
         </Grid>
         <Grid item xs={4} sm={9} md={10}>

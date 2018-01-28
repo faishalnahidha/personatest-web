@@ -30,6 +30,7 @@ const TesContainer = withTracker(({ match, currentUser }) => {
     }
     loading = false;
     newPlayerExists = true;
+    Meteor.subscribe('allUsers');
   } else {
     newPlayerHandle = Meteor.subscribe('newPlayers', id);
     loading = !newPlayerHandle.ready();

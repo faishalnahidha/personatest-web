@@ -150,11 +150,19 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 5,
     backgroundColor: grey[100],
   },
+  stickyPanel: {
+    position: 'sticky',
+    [theme.breakpoints.up('md')]: {
+      top: 104,
+    },
+    [theme.breakpoints.down('md')]: {
+      top: 88,
+    },
+  },
 });
 
 const READ_POINT = readPoint;
 const karirContentIdentifier = 'karir yang menarik bagi anda';
-const contentMinReadTime = 5;
 
 class PrivateContentPage extends Component {
   constructor(props) {
@@ -553,7 +561,7 @@ class PrivateContentPage extends Component {
             {/* Right column */}
             {currentUser && (
               <Grid item xs={12} sm={10} md={3} lg={2}>
-                <div className={classes.rightColumnContainer}>
+                <div className={classnames(classes.rightColumnContainer, classes.stickyPanel)}>
                   <Grid container spacing={16} justify="center">
                     <Grid item xs={12} sm={6} md={12}>
                       <OverallProgressPanel

@@ -8,6 +8,7 @@ export default withTracker(() => {
   // const subscription = Meteor.subscribe('userData');
 
   Meteor.subscribe('userData');
+  // Meteor.subscribe('allUsers');
   const currentUser = Meteor.user();
 
   return {

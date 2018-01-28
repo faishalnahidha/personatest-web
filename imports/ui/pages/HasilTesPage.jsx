@@ -13,6 +13,7 @@ import { PublicContents } from '../../api/public-contents.js';
 
 import AlternativeResultCard from '../components/AlternativeResultCard.jsx';
 import ContentProgressPanel from '../components/ContentProgressPanel.jsx';
+import LeaderboardPanel from '../components/LeaderboardPanel.jsx';
 import MainResultCard from '../components/MainResultCard.jsx';
 import OverallProgressPanel from '../components/OverallProgressPanel.jsx';
 import TestProgressPanel from '../components/TestProgressPanel.jsx';
@@ -157,6 +158,11 @@ class HasilTesPage extends Component {
                         privateContentPercentage={privateContentPercentage(newPlayer.contentReadFlags)}
                         publicContentPercentage={publicContentPercentage(newPlayer.contentReadFlags)}
                       />
+                    </Grid>
+                  )}
+                  {isUserLogin && (
+                    <Grid item xs={12} sm={6} md={12}>
+                      <LeaderboardPanel testPercentage={20} privateContentPercentage={30} publicContentPercentage={40} />
                     </Grid>
                   )}
                 </Grid>
