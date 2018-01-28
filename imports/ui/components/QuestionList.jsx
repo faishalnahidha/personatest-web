@@ -6,14 +6,6 @@ import Divider from 'material-ui/Divider';
 import QuestionItem from '../components/QuestionItem.jsx';
 
 class QuestionList extends Component {
-  componentDidMount() {
-    console.log('didMount');
-  }
-
-  componentWillEnter(callback) {
-    console.log('willEnter');
-  }
-
   updateAnswersHere = (index, value) => {
     this.props.updateAnswersToTestPage(index, value);
   };
@@ -31,7 +23,7 @@ class QuestionList extends Component {
           value={answersPerPage[index]}
           updateAnswersToQuestionList={this.updateAnswersHere}
         />
-        <Divider />
+        {/* <Divider /> */}
       </div>
     ));
   }

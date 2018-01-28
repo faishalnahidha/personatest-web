@@ -1,24 +1,70 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import { withStyles } from 'material-ui/styles';
+import Avatar from 'material-ui/Avatar';
+import Divider from 'material-ui/Divider';
 import Grid from 'material-ui/Grid';
+import List, { ListItem, ListItemText, ListItemAvatar } from 'material-ui/List';
+import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Radio from 'material-ui/Radio';
 import { FormControlLabel } from 'material-ui/Form';
+// import { grey } from 'material-ui/colors';
+
+import { myPrimaryColor } from '../themes/primary-color-palette';
 
 const styles = theme => ({
   questionItem: {
-    margin: '32px 16px',
+    position: 'relative',
+    marginBottom: theme.spacing.unit * 5,
+    // margin: '32px 16px',
+  },
+  questionBackground: {
+    position: 'absolute',
+    width: '100%',
+    height: 132,
+    top: 0,
+    left: 0,
+    backgroundColor: myPrimaryColor.A400,
+  },
+  questionForeground: {
+    position: 'relative',
+    zIndex: 10,
+  },
+  numberText: {
+    fontSize: theme.typography.pxToRem(45),
+    fontWeight: theme.typography.fontWeightLight,
+    margin: theme.spacing.unit,
+    // marginBottom: 0,
+    color: '#fff',
+  },
+  questionTextContainer: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  questionText: {
+    fontSize: theme.typography.pxToRem(18),
+    margin: theme.spacing.unit * 2,
+    marginRight: theme.spacing.unit * 5,
+    color: '#fff',
   },
   answerBoxContainer: {
-    marginTop: theme.spacing.unit * 2, // 16px
+    // marginTop: theme.spacing.unit * 2, // 16px
+    margin: theme.spacing.unit * 2,
+    marginRight: theme.spacing.unit * 5,
+    borderRadius: 5,
   },
   answerBox: {
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: '#B0BEC5', // blueGrey[500]
     padding: '8px 16px',
+  },
+  avatar: {
+    width: 28,
+    height: 28,
   },
 });
 
@@ -31,39 +77,102 @@ function QuestionItem(props) {
     updateAnswersToQuestionList(index, event.target.value);
   };
 
+  const numberText = number < 10 ? `0${number}` : `${number}`;
+
   return (
     <li className={classes.questionItem}>
-      <Typography type="subheading">
-        &nbsp;{number}. {question.text}
-      </Typography>
-      <Grid container className={classes.answerBoxContainer} spacing={0}>
-        <Grid item xs={12} sm={6} className={classes.answerBox}>
-          <FormControlLabel
-            control={
-              <Radio
-                checked={value === question.answer[0].value}
-                onChange={handleChange}
-                value={question.answer[0].value}
-                aria-label="A"
-              />
-            }
-            label={question.answer[0].text}
-          />
+      <div className={classes.questionBackground} />
+      <div className={classes.questionForeground}>
+        <Grid container spacing={0} alignItems="center">
+          <Grid item xs={3}>
+            <Typography align="center" className={classes.numberText}>
+              {numberText}
+            </Typography>
+          </Grid>
+          <Grid item xs={9}>
+            <Typography className={classes.questionText}>{question.text}</Typography>
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={6} className={classes.answerBox}>
-          <FormControlLabel
-            control={
-              <Radio
-                checked={value === question.answer[1].value}
-                onChange={handleChange.bind(this)}
-                value={question.answer[1].value}
-                aria-label="B"
-              />
-            }
-            label={question.answer[1].text}
-          />
+        <Grid container spacing={0}>
+          <Grid item xs={1} sm={3} />
+          <Grid item xs={11} sm={9}>
+            <Paper className={classes.answerBoxContainer}>
+              <List dense>
+                <ListItem button key={question.answer[0].text} value={question.answer[0].value}>
+                  {/* <ListItemAvatar>
+                    <Avatar className={classnames(classes.avatar)} alt="A">
+                      A
+                    </Avatar>
+                  </ListItemAvatar> */}
+                  <ListItemText
+                    primary={
+                      <FormControlLabel
+                        control={
+                          <Radio
+                            checked={value === question.answer[0].value}
+                            onChange={handleChange}
+                            value={question.answer[0].value}
+                            aria-label="A"
+                          />
+                        }
+                        label={question.answer[0].text}
+                      />
+                    }
+                  />
+                </ListItem>
+                <Divider />
+                <ListItem button key={question.answer[1].text} value={question.answer[1].value}>
+                  {/* <ListItemAvatar>
+                    <Avatar className={classnames(classes.avatar)} alt="B">
+                      B
+                    </Avatar>
+                  </ListItemAvatar> */}
+                  <FormControlLabel
+                    control={
+                      <Radio
+                        checked={value === question.answer[1].value}
+                        onChange={handleChange}
+                        value={question.answer[1].value}
+                        aria-label="B"
+                      />
+                    }
+                    label={question.answer[1].text}
+                  />
+                  {/* <ListItemText primary={question.answer[1].text} /> */}
+                </ListItem>
+              </List>
+            </Paper>
+          </Grid>
         </Grid>
-      </Grid>
+        {/* <Grid container className={classes.answerBoxContainer} spacing={0}>
+          <Grid item xs={12} sm={6} className={classes.answerBox}>
+            <FormControlLabel
+              control={
+                <Radio
+                  checked={value === question.answer[0].value}
+                  onChange={handleChange}
+                  value={question.answer[0].value}
+                  aria-label="A"
+                />
+              }
+              label={question.answer[0].text}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} className={classes.answerBox}>
+            <FormControlLabel
+              control={
+                <Radio
+                  checked={value === question.answer[1].value}
+                  onChange={handleChange}
+                  value={question.answer[1].value}
+                  aria-label="B"
+                />
+              }
+              label={question.answer[1].text}
+            />
+          </Grid>
+        </Grid> */}
+      </div>
     </li>
   );
 }
