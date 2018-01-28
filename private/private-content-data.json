@@ -10,7 +10,8 @@
       "prevContentRoute": "estj",
       "nextContentRoute": "estj/lingkungan-kerja-ideal",
       "prevContentTitle": "Tentang The Supervisor",
-      "nextContentTitle": "Lingkungan Kerja Ideal"
+      "nextContentTitle": "Lingkungan Kerja Ideal",
+      "minimumReadTime": 35
     },
     {
       "_id": "estj/lingkungan-kerja-ideal",
@@ -22,7 +23,8 @@
       "prevContentRoute": "estj/kelebihan-alami",
       "nextContentRoute": "estj/karir-yang-menarik",
       "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
-      "nextContentTitle": "Karir yang Menarik Bagi Anda"
+      "nextContentTitle": "Karir yang Menarik Bagi Anda",
+      "minimumReadTime": 120
     },
     {
       "_id": "estj/karir-yang-menarik",
@@ -34,7 +36,8 @@
       "prevContentRoute": "estj/lingkungan-kerja-ideal",
       "nextContentRoute": "estj/bos-ideal",
       "prevContentTitle": "Lingkungan Kerja Ideal",
-      "nextContentTitle": "Bos Ideal"
+      "nextContentTitle": "Bos Ideal",
+      "minimumReadTime": 210
     },
     {
       "_id": "estj/bos-ideal",
@@ -46,7 +49,8 @@
       "prevContentRoute": "estj/karir-yang-menarik",
       "nextContentRoute": "estj/tantangan-kepribadian",
       "prevContentTitle": "Karir yang Menarik Bagi Anda",
-      "nextContentTitle": "Tantangan Kepribadian"
+      "nextContentTitle": "Tantangan Kepribadian",
+      "minimumReadTime": 38
     },
     {
       "_id": "estj/tantangan-kepribadian",
@@ -58,7 +62,8 @@
       "prevContentRoute": "estj/bos-ideal",
       "nextContentRoute": null,
       "prevContentTitle": "Bos Ideal",
-      "nextContentTitle": null
+      "nextContentTitle": null,
+      "minimumReadTime": 60
     },
     {
       "_id": "istj/kelebihan-alami",
@@ -70,7 +75,8 @@
       "prevContentRoute": "istj",
       "nextContentRoute": "istj/lingkungan-kerja-ideal",
       "prevContentTitle": "Tentang The Inspector",
-      "nextContentTitle": "Lingkungan Kerja Ideal"
+      "nextContentTitle": "Lingkungan Kerja Ideal",
+      "minimumReadTime": 35
     },
     {
       "_id": "istj/lingkungan-kerja-ideal",
@@ -82,7 +88,8 @@
       "prevContentRoute": "istj/kelebihan-alami",
       "nextContentRoute": "istj/karir-yang-menarik",
       "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
-      "nextContentTitle": "Karir yang Menarik Bagi Anda"
+      "nextContentTitle": "Karir yang Menarik Bagi Anda",
+      "minimumReadTime": 120
     },
     {
       "_id": "istj/karir-yang-menarik",
@@ -94,7 +101,8 @@
       "prevContentRoute": "istj/lingkungan-kerja-ideal",
       "nextContentRoute": "istj/bos-ideal",
       "prevContentTitle": "Lingkungan Kerja Ideal",
-      "nextContentTitle": "Bos Ideal"
+      "nextContentTitle": "Bos Ideal",
+      "minimumReadTime": 210
     },
     {
       "_id": "istj/bos-ideal",
@@ -106,7 +114,8 @@
       "prevContentRoute": "istj/karir-yang-menarik",
       "nextContentRoute": "istj/tantangan-kepribadian",
       "prevContentTitle": "Karir yang Menarik Bagi Anda",
-      "nextContentTitle": "Tantangan Kepribadian"
+      "nextContentTitle": "Tantangan Kepribadian",
+      "minimumReadTime": 38
     },
     {
       "_id": "istj/tantangan-kepribadian",
@@ -118,7 +127,8 @@
       "prevContentRoute": "istj/bos-ideal",
       "nextContentRoute": null,
       "prevContentTitle": "Bos Ideal",
-      "nextContentTitle": null
+      "nextContentTitle": null,
+      "minimumReadTime": 60
     },
     {
       "_id": "esfj/kelebihan-alami",
@@ -130,7 +140,8 @@
       "prevContentRoute": "esfj",
       "nextContentRoute": "esfj/lingkungan-kerja-ideal",
       "prevContentTitle": "Tentang The Provider",
-      "nextContentTitle": "Lingkungan Kerja Ideal"
+      "nextContentTitle": "Lingkungan Kerja Ideal",
+      "minimumReadTime": 35
     },
     {
       "_id": "esfj/lingkungan-kerja-ideal",
@@ -142,7 +153,8 @@
       "prevContentRoute": "esfj/kelebihan-alami",
       "nextContentRoute": "esfj/karir-yang-menarik",
       "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
-      "nextContentTitle": "Karir yang Menarik Bagi Anda"
+      "nextContentTitle": "Karir yang Menarik Bagi Anda",
+      "minimumReadTime": 120
     },
     {
       "_id": "esfj/karir-yang-menarik",
@@ -154,7 +166,8 @@
       "prevContentRoute": "esfj/lingkungan-kerja-ideal",
       "nextContentRoute": "esfj/bos-ideal",
       "prevContentTitle": "Lingkungan Kerja Ideal",
-      "nextContentTitle": "Bos Ideal"
+      "nextContentTitle": "Bos Ideal",
+      "minimumReadTime": 210
     },
     {
       "_id": "esfj/bos-ideal",
@@ -166,7 +179,8 @@
       "prevContentRoute": "esfj/karir-yang-menarik",
       "nextContentRoute": "esfj/tantangan-kepribadian",
       "prevContentTitle": "Karir yang Menarik Bagi Anda",
-      "nextContentTitle": "Tantangan Kepribadian"
+      "nextContentTitle": "Tantangan Kepribadian",
+      "minimumReadTime": 38
     },
     {
       "_id": "esfj/tantangan-kepribadian",
@@ -178,7 +192,8 @@
       "prevContentRoute": "esfj/bos-ideal",
       "nextContentRoute": null,
       "prevContentTitle": "Bos Ideal",
-      "nextContentTitle": null
+      "nextContentTitle": null,
+      "minimumReadTime": 60
     },
     {
       "_id": "isfj/kelebihan-alami",
@@ -190,7 +205,8 @@
       "prevContentRoute": "isfj",
       "nextContentRoute": "isfj/lingkungan-kerja-ideal",
       "prevContentTitle": "Tentang The Protector",
-      "nextContentTitle": "Lingkungan Kerja Ideal"
+      "nextContentTitle": "Lingkungan Kerja Ideal",
+      "minimumReadTime": 35
     },
     {
       "_id": "isfj/lingkungan-kerja-ideal",
@@ -202,7 +218,8 @@
       "prevContentRoute": "isfj/kelebihan-alami",
       "nextContentRoute": "isfj/karir-yang-menarik",
       "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
-      "nextContentTitle": "Karir yang Menarik Bagi Anda"
+      "nextContentTitle": "Karir yang Menarik Bagi Anda",
+      "minimumReadTime": 120
     },
     {
       "_id": "isfj/karir-yang-menarik",
@@ -214,7 +231,8 @@
       "prevContentRoute": "isfj/lingkungan-kerja-ideal",
       "nextContentRoute": "isfj/bos-ideal",
       "prevContentTitle": "Lingkungan Kerja Ideal",
-      "nextContentTitle": "Bos Ideal"
+      "nextContentTitle": "Bos Ideal",
+      "minimumReadTime": 210
     },
     {
       "_id": "isfj/bos-ideal",
@@ -226,7 +244,8 @@
       "prevContentRoute": "isfj/karir-yang-menarik",
       "nextContentRoute": "isfj/tantangan-kepribadian",
       "prevContentTitle": "Karir yang Menarik Bagi Anda",
-      "nextContentTitle": "Tantangan Kepribadian"
+      "nextContentTitle": "Tantangan Kepribadian",
+      "minimumReadTime": 38
     },
     {
       "_id": "isfj/tantangan-kepribadian",
@@ -238,7 +257,8 @@
       "prevContentRoute": "isfj/bos-ideal",
       "nextContentRoute": null,
       "prevContentTitle": "Bos Ideal",
-      "nextContentTitle": null
+      "nextContentTitle": null,
+      "minimumReadTime": 60
     },
     {
       "_id": "estp/kelebihan-alami",
@@ -250,7 +270,8 @@
       "prevContentRoute": "estp",
       "nextContentRoute": "estp/lingkungan-kerja-ideal",
       "prevContentTitle": "Tentang The Promoter",
-      "nextContentTitle": "Lingkungan Kerja Ideal"
+      "nextContentTitle": "Lingkungan Kerja Ideal",
+      "minimumReadTime": 35
     },
     {
       "_id": "estp/lingkungan-kerja-ideal",
@@ -262,7 +283,8 @@
       "prevContentRoute": "estp/kelebihan-alami",
       "nextContentRoute": "estp/karir-yang-menarik",
       "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
-      "nextContentTitle": "Karir yang Menarik Bagi Anda"
+      "nextContentTitle": "Karir yang Menarik Bagi Anda",
+      "minimumReadTime": 120
     },
     {
       "_id": "estp/karir-yang-menarik",
@@ -274,7 +296,8 @@
       "prevContentRoute": "estp/lingkungan-kerja-ideal",
       "nextContentRoute": "estp/bos-ideal",
       "prevContentTitle": "Lingkungan Kerja Ideal",
-      "nextContentTitle": "Bos Ideal"
+      "nextContentTitle": "Bos Ideal",
+      "minimumReadTime": 210
     },
     {
       "_id": "estp/bos-ideal",
@@ -286,7 +309,8 @@
       "prevContentRoute": "estp/karir-yang-menarik",
       "nextContentRoute": "estp/tantangan-kepribadian",
       "prevContentTitle": "Karir yang Menarik Bagi Anda",
-      "nextContentTitle": "Tantangan Kepribadian"
+      "nextContentTitle": "Tantangan Kepribadian",
+      "minimumReadTime": 38
     },
     {
       "_id": "estp/tantangan-kepribadian",
@@ -298,7 +322,8 @@
       "prevContentRoute": "estp/bos-ideal",
       "nextContentRoute": null,
       "prevContentTitle": "Bos Ideal",
-      "nextContentTitle": null
+      "nextContentTitle": null,
+      "minimumReadTime": 60
     },
     {
       "_id": "istp/kelebihan-alami",
@@ -310,7 +335,8 @@
       "prevContentRoute": "istp",
       "nextContentRoute": "istp/lingkungan-kerja-ideal",
       "prevContentTitle": "Tentang The Crafter",
-      "nextContentTitle": "Lingkungan Kerja Ideal"
+      "nextContentTitle": "Lingkungan Kerja Ideal",
+      "minimumReadTime": 35
     },
     {
       "_id": "istp/lingkungan-kerja-ideal",
@@ -322,7 +348,8 @@
       "prevContentRoute": "istp/kelebihan-alami",
       "nextContentRoute": "istp/karir-yang-menarik",
       "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
-      "nextContentTitle": "Karir yang Menarik Bagi Anda"
+      "nextContentTitle": "Karir yang Menarik Bagi Anda",
+      "minimumReadTime": 120
     },
     {
       "_id": "istp/karir-yang-menarik",
@@ -334,7 +361,8 @@
       "prevContentRoute": "istp/lingkungan-kerja-ideal",
       "nextContentRoute": "istp/bos-ideal",
       "prevContentTitle": "Lingkungan Kerja Ideal",
-      "nextContentTitle": "Bos Ideal"
+      "nextContentTitle": "Bos Ideal",
+      "minimumReadTime": 210
     },
     {
       "_id": "istp/bos-ideal",
@@ -346,7 +374,8 @@
       "prevContentRoute": "istp/karir-yang-menarik",
       "nextContentRoute": "istp/tantangan-kepribadian",
       "prevContentTitle": "Karir yang Menarik Bagi Anda",
-      "nextContentTitle": "Tantangan Kepribadian"
+      "nextContentTitle": "Tantangan Kepribadian",
+      "minimumReadTime": 38
     },
     {
       "_id": "istp/tantangan-kepribadian",
@@ -358,7 +387,8 @@
       "prevContentRoute": "istp/bos-ideal",
       "nextContentRoute": null,
       "prevContentTitle": "Bos Ideal",
-      "nextContentTitle": null
+      "nextContentTitle": null,
+      "minimumReadTime": 60
     },
     {
       "_id": "esfp/kelebihan-alami",
@@ -370,7 +400,8 @@
       "prevContentRoute": "esfp",
       "nextContentRoute": "esfp/lingkungan-kerja-ideal",
       "prevContentTitle": "Tentang The Performer",
-      "nextContentTitle": "Lingkungan Kerja Ideal"
+      "nextContentTitle": "Lingkungan Kerja Ideal",
+      "minimumReadTime": 35
     },
     {
       "_id": "esfp/lingkungan-kerja-ideal",
@@ -382,7 +413,8 @@
       "prevContentRoute": "esfp/kelebihan-alami",
       "nextContentRoute": "esfp/karir-yang-menarik",
       "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
-      "nextContentTitle": "Karir yang Menarik Bagi Anda"
+      "nextContentTitle": "Karir yang Menarik Bagi Anda",
+      "minimumReadTime": 120
     },
     {
       "_id": "esfp/karir-yang-menarik",
@@ -393,7 +425,8 @@
       "prevContentRoute": "esfp/lingkungan-kerja-ideal",
       "nextContentRoute": "esfp/bos-ideal",
       "prevContentTitle": "Lingkungan Kerja Ideal",
-      "nextContentTitle": "Bos Ideal"
+      "nextContentTitle": "Bos Ideal",
+      "minimumReadTime": 210
     },
     {
       "_id": "esfp/bos-ideal",
@@ -405,7 +438,8 @@
       "prevContentRoute": "esfp/karir-yang-menarik",
       "nextContentRoute": "esfp/tantangan-kepribadian",
       "prevContentTitle": "Karir yang Menarik Bagi Anda",
-      "nextContentTitle": "Tantangan Kepribadian"
+      "nextContentTitle": "Tantangan Kepribadian",
+      "minimumReadTime": 38
     },
     {
       "_id": "esfp/tantangan-kepribadian",
@@ -418,7 +452,8 @@
       "prevContentRoute": "esfp/bos-ideal",
       "nextContentRoute": null,
       "prevContentTitle": "Bos Ideal",
-      "nextContentTitle": null
+      "nextContentTitle": null,
+      "minimumReadTime": 60
     },
     {
       "_id": "isfp/kelebihan-alami",
@@ -430,7 +465,8 @@
       "prevContentRoute": "isfp",
       "nextContentRoute": "isfp/lingkungan-kerja-ideal",
       "prevContentTitle": "Tentang The Composer",
-      "nextContentTitle": "Lingkungan Kerja Ideal"
+      "nextContentTitle": "Lingkungan Kerja Ideal",
+      "minimumReadTime": 35
     },
     {
       "_id": "isfp/lingkungan-kerja-ideal",
@@ -442,7 +478,8 @@
       "prevContentRoute": "isfp/kelebihan-alami",
       "nextContentRoute": "isfp/karir-yang-menarik",
       "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
-      "nextContentTitle": "Karir yang Menarik Bagi Anda"
+      "nextContentTitle": "Karir yang Menarik Bagi Anda",
+      "minimumReadTime": 120
     },
     {
       "_id": "isfp/karir-yang-menarik",
@@ -454,7 +491,8 @@
       "prevContentRoute": "isfp/lingkungan-kerja-ideal",
       "nextContentRoute": "isfp/bos-ideal",
       "prevContentTitle": "Lingkungan Kerja Ideal",
-      "nextContentTitle": "Bos Ideal"
+      "nextContentTitle": "Bos Ideal",
+      "minimumReadTime": 210
     },
     {
       "_id": "isfp/bos-ideal",
@@ -466,7 +504,8 @@
       "prevContentRoute": "isfp/karir-yang-menarik",
       "nextContentRoute": "isfp/tantangan-kepribadian",
       "prevContentTitle": "Karir yang Menarik Bagi Anda",
-      "nextContentTitle": "Tantangan Kepribadian"
+      "nextContentTitle": "Tantangan Kepribadian",
+      "minimumReadTime": 38
     },
     {
       "_id": "isfp/tantangan-kepribadian",
@@ -478,7 +517,8 @@
       "prevContentRoute": "isfp/bos-ideal",
       "nextContentRoute": null,
       "prevContentTitle": "Bos Ideal",
-      "nextContentTitle": null
+      "nextContentTitle": null,
+      "minimumReadTime": 60
     }
   ]
 }

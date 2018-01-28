@@ -253,14 +253,14 @@ class PublicContentPage extends Component {
       classes,
     } = this.props;
 
-    // console.log(`seconds: ${this.state.seconds}`);
+    console.log(`seconds: ${this.state.seconds}`);
 
     if (!publicContentExists) {
       return <Typography type="display1">404 Not Found</Typography>;
     }
 
     if (publicContentExists) {
-      if (this.state.seconds === contentMinReadTime) {
+      if (this.state.seconds === publicContent.minimumReadTime) {
         this.openSnackbar1();
       }
 
@@ -406,13 +406,13 @@ class PublicContentPage extends Component {
                         name={currentUser.profile.name}
                       />
                     </Grid>
-                    <Grid item xs={12} sm={6} md={12}>
+                    {/* <Grid item xs={12} sm={6} md={12}>
                       <ContentProgressPanel
                         testPercentage={100}
                         privateContentPercentage={privateContentPercentage(currentUser.contentReadFlags)}
                         publicContentPercentage={publicContentPercentage(currentUser.contentReadFlags)}
                       />
-                    </Grid>
+                    </Grid> */}
                   </Grid>
                 </div>
               </Grid>
@@ -426,7 +426,6 @@ class PublicContentPage extends Component {
                   horizontal: 'right',
                 }}
                 open={this.state.openSnackbar1}
-                // autoHideDuration={6000}
                 onClose={this.handleSnackbar1Close}
                 SnackbarContentProps={{
                   'aria-describedby': 'message-id',

@@ -291,14 +291,14 @@ class PrivateContentPage extends Component {
       return <Typography type="display1">404 Not Found</Typography>;
     }
 
-    // console.log(`seconds: ${this.state.seconds}`);
+    console.log(`seconds: ${this.state.seconds}`);
 
     if (contentExists) {
       const personalityColor = getPersonalityColor(content.personalityId);
       const personalityName = getPersonalityName(content.personalityId);
       const isKarirContent = content.contentTitle.toLowerCase() === karirContentIdentifier;
 
-      if (this.state.seconds === contentMinReadTime) {
+      if (this.state.seconds === content.minimumReadTime) {
         this.openSnackbar1();
       }
 
@@ -561,13 +561,13 @@ class PrivateContentPage extends Component {
                         name={currentUser.profile.name}
                       />
                     </Grid>
-                    <Grid item xs={12} sm={6} md={12}>
+                    {/* <Grid item xs={12} sm={6} md={12}>
                       <ContentProgressPanel
                         testPercentage={100}
                         privateContentPercentage={privateContentPercentage(currentUser.contentReadFlags)}
                         publicContentPercentage={publicContentPercentage(currentUser.contentReadFlags)}
                       />
-                    </Grid>
+                    </Grid> */}
                   </Grid>
                 </div>
               </Grid>
