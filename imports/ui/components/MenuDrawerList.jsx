@@ -202,12 +202,14 @@ class MenuDrawerList extends Component {
           </ListItemIcon>
           <ListItemText inset primary="Beranda" />
         </ListItem>
-        <ListItem button component={Link} to="/mulai-tes" onClick={this.handleTap}>
+        {!Meteor.userId() && (
+          <ListItem button component={Link} to="/mulai-tes" onClick={this.handleTap}>
           <ListItemIcon>
             <AssignmentIcon />
           </ListItemIcon>
           <ListItemText inset primary="Mulai Tes Baru" />
         </ListItem>
+        )}   
         {Meteor.userId() && (
           <ListItem button component={Link} to="/tes/user" onClick={this.handleTap}>
             <ListItemIcon>

@@ -11,7 +11,7 @@
       "nextContentRoute": "estj/lingkungan-kerja-ideal",
       "prevContentTitle": "Tentang The Supervisor",
       "nextContentTitle": "Lingkungan Kerja Ideal",
-      "minimumReadTime": 35
+      "minimumReadTime": 25
     },
     {
       "_id": "estj/lingkungan-kerja-ideal",
@@ -24,7 +24,7 @@
       "nextContentRoute": "estj/karir-yang-menarik",
       "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
       "nextContentTitle": "Karir yang Menarik Bagi Anda",
-      "minimumReadTime": 120
+      "minimumReadTime": 84
     },
     {
       "_id": "estj/karir-yang-menarik",
@@ -37,7 +37,7 @@
       "nextContentRoute": "estj/bos-ideal",
       "prevContentTitle": "Lingkungan Kerja Ideal",
       "nextContentTitle": "Bos Ideal",
-      "minimumReadTime": 210
+      "minimumReadTime": 147
     },
     {
       "_id": "estj/bos-ideal",
@@ -50,7 +50,7 @@
       "nextContentRoute": "estj/tantangan-kepribadian",
       "prevContentTitle": "Karir yang Menarik Bagi Anda",
       "nextContentTitle": "Tantangan Kepribadian",
-      "minimumReadTime": 38
+      "minimumReadTime": 27
     },
     {
       "_id": "estj/tantangan-kepribadian",
@@ -63,7 +63,7 @@
       "nextContentRoute": null,
       "prevContentTitle": "Bos Ideal",
       "nextContentTitle": null,
-      "minimumReadTime": 60
+      "minimumReadTime": 42
     },
     {
       "_id": "istj/kelebihan-alami",
@@ -76,7 +76,7 @@
       "nextContentRoute": "istj/lingkungan-kerja-ideal",
       "prevContentTitle": "Tentang The Inspector",
       "nextContentTitle": "Lingkungan Kerja Ideal",
-      "minimumReadTime": 35
+      "minimumReadTime": 25
     },
     {
       "_id": "istj/lingkungan-kerja-ideal",
@@ -89,7 +89,7 @@
       "nextContentRoute": "istj/karir-yang-menarik",
       "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
       "nextContentTitle": "Karir yang Menarik Bagi Anda",
-      "minimumReadTime": 120
+      "minimumReadTime": 84
     },
     {
       "_id": "istj/karir-yang-menarik",
@@ -102,7 +102,7 @@
       "nextContentRoute": "istj/bos-ideal",
       "prevContentTitle": "Lingkungan Kerja Ideal",
       "nextContentTitle": "Bos Ideal",
-      "minimumReadTime": 210
+      "minimumReadTime": 147
     },
     {
       "_id": "istj/bos-ideal",
@@ -115,7 +115,7 @@
       "nextContentRoute": "istj/tantangan-kepribadian",
       "prevContentTitle": "Karir yang Menarik Bagi Anda",
       "nextContentTitle": "Tantangan Kepribadian",
-      "minimumReadTime": 38
+      "minimumReadTime": 27
     },
     {
       "_id": "istj/tantangan-kepribadian",
@@ -128,7 +128,7 @@
       "nextContentRoute": null,
       "prevContentTitle": "Bos Ideal",
       "nextContentTitle": null,
-      "minimumReadTime": 60
+      "minimumReadTime": 42
     },
     {
       "_id": "esfj/kelebihan-alami",
@@ -141,7 +141,7 @@
       "nextContentRoute": "esfj/lingkungan-kerja-ideal",
       "prevContentTitle": "Tentang The Provider",
       "nextContentTitle": "Lingkungan Kerja Ideal",
-      "minimumReadTime": 35
+      "minimumReadTime": 25
     },
     {
       "_id": "esfj/lingkungan-kerja-ideal",
@@ -154,7 +154,7 @@
       "nextContentRoute": "esfj/karir-yang-menarik",
       "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
       "nextContentTitle": "Karir yang Menarik Bagi Anda",
-      "minimumReadTime": 120
+      "minimumReadTime": 84
     },
     {
       "_id": "esfj/karir-yang-menarik",
@@ -167,7 +167,7 @@
       "nextContentRoute": "esfj/bos-ideal",
       "prevContentTitle": "Lingkungan Kerja Ideal",
       "nextContentTitle": "Bos Ideal",
-      "minimumReadTime": 210
+      "minimumReadTime": 147
     },
     {
       "_id": "esfj/bos-ideal",
@@ -180,7 +180,7 @@
       "nextContentRoute": "esfj/tantangan-kepribadian",
       "prevContentTitle": "Karir yang Menarik Bagi Anda",
       "nextContentTitle": "Tantangan Kepribadian",
-      "minimumReadTime": 38
+      "minimumReadTime": 27
     },
     {
       "_id": "esfj/tantangan-kepribadian",
@@ -193,7 +193,7 @@
       "nextContentRoute": null,
       "prevContentTitle": "Bos Ideal",
       "nextContentTitle": null,
-      "minimumReadTime": 60
+      "minimumReadTime": 42
     },
     {
       "_id": "isfj/kelebihan-alami",
@@ -206,7 +206,7 @@
       "nextContentRoute": "isfj/lingkungan-kerja-ideal",
       "prevContentTitle": "Tentang The Protector",
       "nextContentTitle": "Lingkungan Kerja Ideal",
-      "minimumReadTime": 35
+      "minimumReadTime": 25
     },
     {
       "_id": "isfj/lingkungan-kerja-ideal",
@@ -219,7 +219,7 @@
       "nextContentRoute": "isfj/karir-yang-menarik",
       "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
       "nextContentTitle": "Karir yang Menarik Bagi Anda",
-      "minimumReadTime": 120
+      "minimumReadTime": 84
     },
     {
       "_id": "isfj/karir-yang-menarik",
@@ -232,7 +232,7 @@
       "nextContentRoute": "isfj/bos-ideal",
       "prevContentTitle": "Lingkungan Kerja Ideal",
       "nextContentTitle": "Bos Ideal",
-      "minimumReadTime": 210
+      "minimumReadTime": 147
     },
     {
       "_id": "isfj/bos-ideal",
@@ -245,7 +245,7 @@
       "nextContentRoute": "isfj/tantangan-kepribadian",
       "prevContentTitle": "Karir yang Menarik Bagi Anda",
       "nextContentTitle": "Tantangan Kepribadian",
-      "minimumReadTime": 38
+      "minimumReadTime": 27
     },
     {
       "_id": "isfj/tantangan-kepribadian",
@@ -258,7 +258,7 @@
       "nextContentRoute": null,
       "prevContentTitle": "Bos Ideal",
       "nextContentTitle": null,
-      "minimumReadTime": 60
+      "minimumReadTime": 42
     },
     {
       "_id": "estp/kelebihan-alami",
@@ -271,7 +271,7 @@
       "nextContentRoute": "estp/lingkungan-kerja-ideal",
       "prevContentTitle": "Tentang The Promoter",
       "nextContentTitle": "Lingkungan Kerja Ideal",
-      "minimumReadTime": 35
+      "minimumReadTime": 25
     },
     {
       "_id": "estp/lingkungan-kerja-ideal",
@@ -284,7 +284,7 @@
       "nextContentRoute": "estp/karir-yang-menarik",
       "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
       "nextContentTitle": "Karir yang Menarik Bagi Anda",
-      "minimumReadTime": 120
+      "minimumReadTime": 84
     },
     {
       "_id": "estp/karir-yang-menarik",
@@ -297,7 +297,7 @@
       "nextContentRoute": "estp/bos-ideal",
       "prevContentTitle": "Lingkungan Kerja Ideal",
       "nextContentTitle": "Bos Ideal",
-      "minimumReadTime": 210
+      "minimumReadTime": 147
     },
     {
       "_id": "estp/bos-ideal",
@@ -310,7 +310,7 @@
       "nextContentRoute": "estp/tantangan-kepribadian",
       "prevContentTitle": "Karir yang Menarik Bagi Anda",
       "nextContentTitle": "Tantangan Kepribadian",
-      "minimumReadTime": 38
+      "minimumReadTime": 27
     },
     {
       "_id": "estp/tantangan-kepribadian",
@@ -323,7 +323,7 @@
       "nextContentRoute": null,
       "prevContentTitle": "Bos Ideal",
       "nextContentTitle": null,
-      "minimumReadTime": 60
+      "minimumReadTime": 42
     },
     {
       "_id": "istp/kelebihan-alami",
@@ -336,7 +336,7 @@
       "nextContentRoute": "istp/lingkungan-kerja-ideal",
       "prevContentTitle": "Tentang The Crafter",
       "nextContentTitle": "Lingkungan Kerja Ideal",
-      "minimumReadTime": 35
+      "minimumReadTime": 25
     },
     {
       "_id": "istp/lingkungan-kerja-ideal",
@@ -349,7 +349,7 @@
       "nextContentRoute": "istp/karir-yang-menarik",
       "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
       "nextContentTitle": "Karir yang Menarik Bagi Anda",
-      "minimumReadTime": 120
+      "minimumReadTime": 84
     },
     {
       "_id": "istp/karir-yang-menarik",
@@ -362,7 +362,7 @@
       "nextContentRoute": "istp/bos-ideal",
       "prevContentTitle": "Lingkungan Kerja Ideal",
       "nextContentTitle": "Bos Ideal",
-      "minimumReadTime": 210
+      "minimumReadTime": 147
     },
     {
       "_id": "istp/bos-ideal",
@@ -375,7 +375,7 @@
       "nextContentRoute": "istp/tantangan-kepribadian",
       "prevContentTitle": "Karir yang Menarik Bagi Anda",
       "nextContentTitle": "Tantangan Kepribadian",
-      "minimumReadTime": 38
+      "minimumReadTime": 27
     },
     {
       "_id": "istp/tantangan-kepribadian",
@@ -388,7 +388,7 @@
       "nextContentRoute": null,
       "prevContentTitle": "Bos Ideal",
       "nextContentTitle": null,
-      "minimumReadTime": 60
+      "minimumReadTime": 42
     },
     {
       "_id": "esfp/kelebihan-alami",
@@ -401,7 +401,7 @@
       "nextContentRoute": "esfp/lingkungan-kerja-ideal",
       "prevContentTitle": "Tentang The Performer",
       "nextContentTitle": "Lingkungan Kerja Ideal",
-      "minimumReadTime": 35
+      "minimumReadTime": 25
     },
     {
       "_id": "esfp/lingkungan-kerja-ideal",
@@ -414,7 +414,7 @@
       "nextContentRoute": "esfp/karir-yang-menarik",
       "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
       "nextContentTitle": "Karir yang Menarik Bagi Anda",
-      "minimumReadTime": 120
+      "minimumReadTime": 84
     },
     {
       "_id": "esfp/karir-yang-menarik",
@@ -426,7 +426,7 @@
       "nextContentRoute": "esfp/bos-ideal",
       "prevContentTitle": "Lingkungan Kerja Ideal",
       "nextContentTitle": "Bos Ideal",
-      "minimumReadTime": 210
+      "minimumReadTime": 147
     },
     {
       "_id": "esfp/bos-ideal",
@@ -439,7 +439,7 @@
       "nextContentRoute": "esfp/tantangan-kepribadian",
       "prevContentTitle": "Karir yang Menarik Bagi Anda",
       "nextContentTitle": "Tantangan Kepribadian",
-      "minimumReadTime": 38
+      "minimumReadTime": 27
     },
     {
       "_id": "esfp/tantangan-kepribadian",
@@ -453,7 +453,7 @@
       "nextContentRoute": null,
       "prevContentTitle": "Bos Ideal",
       "nextContentTitle": null,
-      "minimumReadTime": 60
+      "minimumReadTime": 42
     },
     {
       "_id": "isfp/kelebihan-alami",
@@ -466,7 +466,7 @@
       "nextContentRoute": "isfp/lingkungan-kerja-ideal",
       "prevContentTitle": "Tentang The Composer",
       "nextContentTitle": "Lingkungan Kerja Ideal",
-      "minimumReadTime": 35
+      "minimumReadTime": 25
     },
     {
       "_id": "isfp/lingkungan-kerja-ideal",
@@ -479,7 +479,7 @@
       "nextContentRoute": "isfp/karir-yang-menarik",
       "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
       "nextContentTitle": "Karir yang Menarik Bagi Anda",
-      "minimumReadTime": 120
+      "minimumReadTime": 84
     },
     {
       "_id": "isfp/karir-yang-menarik",
@@ -492,7 +492,7 @@
       "nextContentRoute": "isfp/bos-ideal",
       "prevContentTitle": "Lingkungan Kerja Ideal",
       "nextContentTitle": "Bos Ideal",
-      "minimumReadTime": 210
+      "minimumReadTime": 147
     },
     {
       "_id": "isfp/bos-ideal",
@@ -505,7 +505,7 @@
       "nextContentRoute": "isfp/tantangan-kepribadian",
       "prevContentTitle": "Karir yang Menarik Bagi Anda",
       "nextContentTitle": "Tantangan Kepribadian",
-      "minimumReadTime": 38
+      "minimumReadTime": 27
     },
     {
       "_id": "isfp/tantangan-kepribadian",
@@ -518,7 +518,528 @@
       "nextContentRoute": null,
       "prevContentTitle": "Bos Ideal",
       "nextContentTitle": null,
-      "minimumReadTime": 60
+      "minimumReadTime": 42
+    },
+    {
+      "_id": "entj/kelebihan-alami",
+      "personalityId": "ENTJ",
+      "contentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Kurang lebih 80% dari atribut di bawah ini ada pada Anda. Periksalah kategori di bawah ini dan catatlah sebagai ringkasan kelebihan Anda. Kategori-kategori di bawah ini akan membedakan Anda dengan orang lain. Anda adalah orang yang:</p><ul><li>Ramah dan enerjik.</li><li>Dapat melihat gambaran besar, mampu membuat visi ke depan yang kuat, dan membuatnya menjadi kenyataan.</li><li>Menikmati pencarian terobosan baru dengan cara menghubungkan berbagai elemen yang kelihatannya tidak berkaitan.</li><li>Mampu membuat keputusan logis dalam keadaan yang sulit.</li><li>Menggunakan cara pandang baru ketika menganalisis masalah dan mengembangkan sistem baru untuk menyelesaikan masalah tersebut.</li><li>Bersemangat dan bersedia mengambil sebuah tantangan dan masalah yang kompleks.</li><li>Terstuktur.</li><li>Terus-menerus melakukan perbaikan.</li><li>Melihat konsekuensi jangka panjang dari keputusan Anda.</li><li>Akan mendorong tim untuk mencapai tujuan, entah Anda pemimpinnya atau bukan.</li></ul>",
+      "prevContentRoute": "entj",
+      "nextContentRoute": "entj/lingkungan-kerja-ideal",
+      "prevContentTitle": "Tentang The Commander",
+      "nextContentTitle": "Lingkungan Kerja Ideal",
+      "minimumReadTime": 25
+    },
+    {
+      "_id": "entj/lingkungan-kerja-ideal",
+      "personalityId": "ENTJ",
+      "contentTitle": "Lingkungan Kerja Ideal",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Jika Anda bekerja dengan dikelilingi oleh orang-orang yang berkompetensi tinggi dan orang-orang mandiri yang mampu bekerja di bawah <em>deadline</em>, maka Anda bekerja di tempat yang tepat. Atasan Anda juga harus memiliki profesionalitas dan kompetensi yang tinggi serta cukup menghormati Anda untuk bekerja secara mandiri.</p><p>Kondisi kerja terburuk untuk The Commander (ENTJ) adalah kondisi yang terlalu birokratis, penuh dengan orang yang sensitif yang perlu banyak bantuan untuk bekerja. Pekerjaan yang terlalu fokus pada detail tinggi dan tidak memberikan cukup waktu untuk perancangan strategi jangka panjang, bisa membuat Anda sangat tidak menikmati pekerjaan. Anda membutuhkan ruang pribadi, kreativitas tinggi, dan kompetisi agar Anda nyaman untuk bekerja.</p><p>Ketika seorang The Commander bekerja pada perusahaan yang memiliki kondisi tidak ideal tersebut, produktifitas akan terhambat dan pencapaian karir akan menjadi berat.</p><p>Bandingkan lingkungan kerja Anda dengan deskripsi di bawah ini. Periksalah apakah kriteria tersebut sesuai dengan lingkungan kerja Anda. Jangan menipu diri sendiri, hal ini diperlukan untuk menegaskan bahwa Anda telah berada di warna yang tepat atau belum.</p><p>Warna-warna lain, khususnya Green [NF] dan Red [SP], tidak akan merasa nyaman dengan lingkungan kerja seperti di bawah ini. Lingkungan kerja yang optimal untuk seorang The Commander adalah:</p><ul><li>Memiliki atmosfer yang kompetitif.</li><li>Memiliki standar yang tinggi.</li><li>Memiliki rekan kerja dan bos yang berkompetensi tinggi.</li><li>Mendorong pendekatan penyelesaian masalah jangka panjang secara kreatif.</li><li>Menghargai inovasi dan lebih suka mengarahkan seseorang daripada memintanya mengikuti aturan.</li><li>Memberikan Anda kesempatan untuk menjadi pemimpin.</li><li>Membantu Anda dalam menangani reaksi emosional orang lain.</li><li>Cocok bekerja di institusi yang membutuhkan perubahan.</li></ul><blockquote>Perusahaan yang menggabungkan semua elemen di atas adalah lahan subur bagi kemajuan karir Anda.</blockquote>",
+      "prevContentRoute": "entj/kelebihan-alami",
+      "nextContentRoute": "entj/karir-yang-menarik",
+      "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "nextContentTitle": "Karir yang Menarik Bagi Anda",
+      "minimumReadTime": 42
+    },
+    {
+      "_id": "entj/karir-yang-menarik",
+      "personalityId": "ENTJ",
+      "contentTitle": "Karir yang Menarik Bagi Anda",
+      "contentMainImage": "",
+      "contentBody":
+        "<div id=\"top-paragraph\"><p>The Commander (ENTJ) nyaman berada di lingkungan yang memberikan tantangan intelektual, masalah-masalah kompleks, teoritis, serta penguasaan teknologi terbaru. Lingkungan yang minim dengan rutinitas dan tugas yang berulang-ulang, serta dapat memiliki kontrol penuh atas proyek yang orisinal adalah lingkungan yang Anda idam-idamkan. Otonomi, kompetisi, pengambilan risiko, dan bekerja dengan orang yang Anda hormati, membawa Anda pada kepuasan tertinggi pada pekerjaan.</p><p>Harap diperhatikan bahwa tidak semua jenis karir di bawah ini menarik bagi Anda. Ambil jenis yang sesuai dengan Anda ataupun yang menarik bagi sebagian besar kelompok warna Anda. Daftar di bawah ini bukanlah daftar yang sangat lengkap, akan tetapi daftar di bawah ini akan menunjukkan gambaran dasar preferensi/pilihan Anda.</p><p>Jika Anda memiliki pilihan karir lain yang tidak disebutkan di sini namun menawarkan pola yang serupa, kesempatan Anda untuk sukses akan semakin bertambah. Soroti pilihan karir yang sesuai dengan karakteristik Anda untuk mewujudkan kesuksesan.</p></div><div id=\"career-type\"><h3><strong><strong>Bisnis / Manajemen</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Chief Financial Officer </em></em>(CFO bertugas mengelola risiko finansial dari perusahaan. CFO juga terlibat pada perencanaan, dokumentasi, dan pelaporan keuangan pada staf manajemen atau eksekutif yang lebih tinggi)</li><li>Eksekutif (orang dengan tanggung jawab manajerial tertinggi dalam organisasi bisnis. Mereka berwenang untuk membuat perencanaan, mengimplementasikan strategi, dan memberlakukan sistem hukum di lingkungan kerja)</li><li>Agen Asuransi</li><li>Manajer (segala jenis manajer—khususnya manajer pemasaran, operasional, keuangan, SDM, penjualan, pelatihan dan pengembangan)</li><li><em><em>Enterpreneur </em></em></li><li>Manajer Properti</li><li>Perencana Strategis (orang yang menentukan strategi untuk mengalokasikan sumber dayanya agar mencapai tujuan)</li><li>Manajer Pelatihan dan Pengembangan (merencanakan, mengarahkan, dan mengkoordinir program yang meningkatkan pengetahuan dan kemampuan pegawai dari suatu organisasi)</li><li>Investor</li></ul><p>Anda cocok dengan posisi pekerjaan yang membutuhkan ketegasan dalam mengambil keputusan, fokus, standar tinggi, pemecahan masalah kompleks, perencanaan strategi jangka panjang, kontrol pada kekuasaan, dan kemampuan memimpin secara alami.</p></div></div><div id=\"career-type\"><h3><strong><strong>Bisnis / Keuangan</strong></strong></h3><div id=\"career-list\"><ul><li>Bankir</li><li><em><em>Credit Investigator </em></em>(orang yang memeriksa pelamar kredit, untuk mengurangi risiko bisnis peminjaman uang)</li><li>Ahli Ekonomi</li><li>Perencana Keuangan</li><li><em><em>Bankir Investasi </em></em>(agen yang bertindak sebagai penengah antara penerbit sekuritas dan masyarakat)</li><li><em><em>Investment Brokers </em></em>(orang yang menjadi perantara penjual dengan pembeli saham, dan mendapat komisi dari penjualan tersebut)</li><li>Broker Hipotek (orang yang menjadi perantara bank dan pelamar kredit untuk peminjaman hipotek)</li><li><em><em>Financial Analyst</em></em></li></ul><p>Anda cocok dengan pekerjaan dengan tantangan intelektual, lingkungan kompetitif, kebebasan menggunakan intusi, penyusuanan strategi, berfikir logis, kesempatan untuk mengontrol, dan kemampuan untuk membuat keputusan yang sulit.</p></div></div><div id=\"career-type\"><h3><strong><strong>Arsitektur / Hukum</strong></strong></h3><div id=\"career-list\"><ul><li>Arsitek</li><li>Pengacara (khususnya dalam bidang korporat, ketenagakerjaan, hukum bisnis, <em><em>product liability,</em></em>merger dan akuisisi)</li></ul><p>Anda cocok dengan pekerjaan dengan tantangan intelektual, standar tinggi, menuntut pemecahan masalah yang kompleks, dan memberi kesempatan untuk mengontrol sebuah tim atau proyek.</p></div></div><div id=\"career-type\"><h3><strong><strong>Komputer / Teknologi Informasi</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Computer System Analyst </em></em>(mempelajari sistem komputer dan prosedur sistem informasinya sehingga organisasi dapat ber­operasi lebih efektif dan efisien)</li><li><em><em>Database Manager </em></em>(bertanggung jawab terhadap cara perusahaan mengelola, menyimpan, dan mengakses informasi/data)</li><li>Eksekutif (manajerial tertinggi di perusahaan komputer)</li><li><em><em>Programmer </em></em></li><li><em><em>Security Specialist </em></em>(administrator komputer yang bertugas untuk melindungi data perusahaan)</li><li>Insinyur <em><em>Hardware </em></em></li><li>Insinyur <em><em>Software </em></em></li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan penguasaan teknologi terbaru, memecahkan masalah kompleks, perencanaan jangka panjang, melihat kemungkinan di masa depan, kemampuan teoritik, membuat rancangan baru, dan keinginan untuk mengontrol.</p></div></div><div id=\"career-type\"><h3><strong><strong>Konsultan</strong></strong></h3><div id=\"career-list\"><ul><li>Konsultan Manajemen (orang yang memberikan konsultasi kepada perusahaan mengenai cara terbaik untuk mengope­rasikan bisnis)</li><li>Psikolog Industri</li><li>Ahli Pengembangan Organisasi</li></ul><p>Anda cocok dengan perkerjaan yang membutuhkan otonomi, memecahkan masalah kompleks, melihat berbagai kemungkinan di masa depan, dan perencanaan jangka panjang.</p></div></div><div id=\"career-type\"><h3><strong><strong>Pendidikan</strong></strong></h3><div id=\"career-list\"><ul><li>Administrator Pendidikan</li><li>Dosen atau Profesor (khususnya dalam bidang: hukum, ilmu politik, ilmu alam, dan ilmu sosial)</li><li>Rektor Universitas</li></ul><p>Anda cocok dengan pekerjaan yang banyak berinteraksi dengan orang-orang berkompetensi tinggi, membuat visi jangka panjang, perencanaan strategi, otonomi, dan kemampuan berdebat.</p></div></div><div id=\"career-type\"><h3><strong><strong>Pemerintahan/Administrasi Publik</strong></strong></h3><div id=\"career-list\"><ul><li>Eksekutif (memegang tanggung jawab manajerial tertinggi di pemerintahan)</li><li>Hakim</li><li>Pembuat Kebijakan</li><li>Ahli Perencanaan Wilayah dan Kota (disebut juga ahli planologi)</li><li><em><em>Community Service Manager </em></em>(orang yang mengkoordinasi dan mengontrol program pelayanan sosial dan organisasi komunitasnya)</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan kemampuan untuk menghadapi masalah yang rumit, perencanaan jangka panjang, dan dihargai oleh masyarakat.</p></div></div><div id=\"career-type\"><h3><strong><strong>Ilmu Kesehatan / Pelayanan Manusia</strong></strong></h3><div id=\"career-list\"><ul><li>Ahli Anestesi (dokter spesialis yang mengkhususkan diri dalam penggunaan obat yang menyebabkan ketidakpekaan terhadap rasa sakit)</li><li>Dokter Spesialis Penyakit Dalam</li><li>Psikiater</li><li>Dokter Spesialis Saraf</li><li>Dokter Spesialis Bedah</li><li>Manajer Pelayanan Kesehatan</li><li>Filantropis (orang yang mempromosikan kesejahteraan orang lain, khususnya dengan memberikan donasi untuk tujuan baik)</li><li>Eksekutif (dalam bidang pelayanan masyarakat)</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan tantangan intelektual, kesempatan untuk memimpin, dan dihargai oleh masyarakat.</p></div></div><div id=\"career-type\"><h3><strong><strong>Penelitian / Keilmuwan / Teknik / Matematika</strong></strong></h3><div id=\"career-list\"><ul><li>Insinyur (khususnya di bidang kimia dan lingkungan)</li><li><em><em>Engineering Manager</em></em>(orang yang mengelola teknisi dengan memadukan kemampuan teknik dan teknologi dengan organisasi, administrasi, dan manajemen)</li><li>Ahli Geologi</li></ul><p>Anda cocok dengan pekerjaan yang menstimulasi keingintahuan Anda yang tinggi, menghadapi masalah kompleks, kemampuan untuk mengontrol, mengatasi inefisiensi, dan berinteraksi dengan orang-orang yang Anda hormati.</p></div></div>",
+      "prevContentRoute": "entj/lingkungan-kerja-ideal",
+      "nextContentRoute": "entj/bos-ideal",
+      "prevContentTitle": "Lingkungan Kerja Ideal",
+      "nextContentTitle": "Bos Ideal",
+      "minimumReadTime": 147
+    },
+    {
+      "_id": "entj/bos-ideal",
+      "personalityId": "ENTJ",
+      "contentTitle": "Bos Ideal",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Setiap pekerjaan hebat akan mengecewakan jika dipimpin bos yang tidak tepat. Sebaliknya pekerjaan biasa-biasa saja namun di bawah pimpinan bos yang gemilang akan sangat sulit untuk ditinggalkan. The Commander (ENTJ) dapat bekerja dengan baik dengan sesama Blue. Namun bos dengan warna lain yang menekankan karakteristik yang dipunyai untuk memaksimalkan potensi Blue dapat pula menjadi seorang mentor yang baik.</p><p>Periksa hal-hal berikut ini, apakah bos Anda seperti yang tertulis di bawah ini :</p><ol><li>Seseorang yang Anda hormati.</li><li>Senang bertukar pikiran dengan Anda dan tidak menganggap debat sebagai kritik pribadi.</li><li>Menghargai tenaga dan kemandirian Anda.</li><li>Memberi Anda otonomi yang cukup.</li><li>Membantu Anda menangani emosi orang lain.</li><li>Sebisa mungkin melindungi Anda dari birokrasi dan pekerjaan yang mendetail.</li></ol>",
+      "prevContentRoute": "entj/karir-yang-menarik",
+      "nextContentRoute": "entj/tantangan-kepribadian",
+      "prevContentTitle": "Karir yang Menarik Bagi Anda",
+      "nextContentTitle": "Tantangan Kepribadian",
+      "minimumReadTime": 27
+    },
+    {
+      "_id": "entj/tantangan-kepribadian",
+      "personalityId": "ENTJ",
+      "contentTitle": "Tantangan Kepribadian",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>The Commander (ENTJ) memiliki beberapa kelemahan. Sebagian di antara Anda memiliki kekurangan ini, dan sebagian yang lain tidak. Umumnya Anda hanya memiliki beberapa kelemahan dari yang disebutkan di bawah ini. Temukan titik lemah Anda dan fokuslah untuk merubahnya, lalu gunakan cara yang lebih produktif untuk membuatnya menjadi kebiasaan.</p><p><strong><strong>Mungkin terlalu cepat dalam mengambil keputusan dan mengabaikan pertimbangan praktisnya.</strong></strong> Fokus pada kemampuan intelektual yang tinggi bukan berarti menghilangkan sisi praktis dari suatu hal. Anda lebih dari mampu untuk melihat pertimbangan praktisnya jika Anda fokus. Memutuskan suatu hal terlalu cepat, dapat menyebabkan inefisiensi, khususnya pada awal karir Anda.</p><p><strong><strong>Anda bisa menjadi terlalu kasar, keras, atau penuntut.</strong></strong> Setiap orang membutuhkan bantuan dalam beberapa hal yang tidak ia kuasai. Mengasingkan seseorang bukanlah sebuah keputusan yang baik, meskipun mereka kurang memiliki kompetensi dan intelektualitas. Kesabaran adalah kunci utama untuk membina hubungan demi kerjasama yang lebih produktif.</p><p><strong><strong>Mungkin tidak memperhatikan keluhan dan kebutuhan orang lain.</strong></strong> Belajarlah untuk lebih bijaksana dalam mengenali emosi dan perasaan manusia. Situasi emosional yang mendukung selalu menghasilkan produk dan tim yang sukses. Sesekali tunjukkanlah empati Anda pada seseorang, dan lihatlah hasilnya nanti.</p><p><strong><strong>Mungkin Anda akan memanipulasi orang lain untuk mencapai suatu tujuan.</strong></strong> Memang terlihat menggoda ketika kita dapat mengendalikan sistem dan birokrasi untuk mencapai sesuatu. Tetapi ketika orang-orang mulai sadar bahwa Anda memanipulasi mereka, maka akan muncul masalah besar dan mereka akan menolak bekerja sama dengan Anda lagi.</p>",
+      "prevContentRoute": "entj/bos-ideal",
+      "nextContentRoute": null,
+      "prevContentTitle": "Bos Ideal",
+      "nextContentTitle": null,
+      "minimumReadTime": 42
+    },
+    {
+      "_id": "intj/kelebihan-alami",
+      "personalityId": "INTJ",
+      "contentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Kurang lebih 80% dari atribut di bawah ini ada pada Anda. Periksalah kategori di bawah ini dan catatlah sebagai ringkasan kelebihan Anda. Kategori-kategori di bawah ini akan membedakan Anda dengan orang lain. Anda adalah orang yang:</p><ul><li>Seringkali menjadi yang pertama dalam melihat gambaran besar dari suatu hal.</li><li>Mempunyai fokus yang tinggi dan berorientasi terhadap tujuan.</li><li>Menangani masalah yang rumit dengan baik.</li><li>Menyusun strategi dengan hasil akhir yang akurat.</li><li>Mengembangkan sistem baru yang canggih dengan teknologi yang termutakhir.</li><li>Bekerja dengan baik apabila bekerjasama dengan orang yang kompeten.</li></ul>",
+      "prevContentRoute": "intj",
+      "nextContentRoute": "intj/lingkungan-kerja-ideal",
+      "prevContentTitle": "Tentang The Mastermind",
+      "nextContentTitle": "Lingkungan Kerja Ideal",
+      "minimumReadTime": 25
+    },
+    {
+      "_id": "intj/lingkungan-kerja-ideal",
+      "personalityId": "INTJ",
+      "contentTitle": "Lingkungan Kerja Ideal",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Beberapa kondisi yang menunjang kepuasan kerja Anda adalah lingkungan yang: penuh dengan orang kompeten, kompetitif, cerdas, mampu bekerjasama secara mandiri. Anda senang jika memiliki wewenang untuk mengontrol rencana pribadi. Rangsangan intelektual seperti menyelesaikan masalah yang kompleks, dapat terus menerus belajar, serta memiliki privasi untuk serius memikirkan masalah adalah lingkungan yang cocok untuk Anda. Jika semua kondisi tersebut terpenuhi, kesuksesan ada di depan Anda.</p><p>Lingkungan terburuk bagi The Mastermind (INTJ) yang memiliki budaya kerja terlalu birokratis, penuh dengan orang sensitif yang membutuhkan dukungan dan bantuan untuk bekerja. Kondisi yang terlalu fokus pada pekerjaan yang membutuhkan detail tinggi dan tidak memberi banyak waktu dalam merancang strategi membuat Anda tidak menikmati pekerjaan. Anda membutuhkan ruang pribadi, kebebasan berkreativitas, dan berkompetisi agar Anda nyaman untuk bekerja.</p><p>Ketika seorang The Mastermind bekerja pada perusahaan yang memiliki kondisi tidak ideal tersebut, produktifitas akan terhambat dan pencapaian karir akan menjadi berat.</p><p>Bandingkan lingkungan kerja Anda dengan deskripsi di bawah ini. Periksalah apakah kriteria tersebut sesuai dengan lingkungan kerja Anda. Jangan menipu diri sendiri, hal ini diperlukan untuk menegaskan bahwa Anda telah berada di warna yang tepat atau belum.</p><p>Warna-warna lain, khususnya Green [NF] dan Red [SP], tidak akan merasa nyaman dengan lingkungan kerja seperti di bawah ini. Lingkungan kerja yang optimal untuk seorang The Mastermind adalah:</p><ul><li>Harus menyediakan ruang pribadi untuk dapat berpikir tanpa diganggu.</li><li>Memberikan kesempatan untuk bekerja secara mandiri.</li><li>Memperbolehkan Anda untuk mengontrol proyek sendiri.</li><li>Harus menantang secara intelektual, dan disertai dengan standar yang tinggi.</li><li>Menghargai kreativitas.</li><li>Menghargai kemampuan Anda dalam merancang strategi.</li><li>Berisikan orang-orang yang kompeten/ahli dan kompetitif.</li><li>Dapat memfasilitasi Anda untuk memenuhi tujuan Anda.</li></ul>",
+      "prevContentRoute": "intj/kelebihan-alami",
+      "nextContentRoute": "intj/karir-yang-menarik",
+      "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "nextContentTitle": "Karir yang Menarik Bagi Anda",
+      "minimumReadTime": 42
+    },
+    {
+      "_id": "intj/karir-yang-menarik",
+      "personalityId": "INTJ",
+      "contentTitle": "Karir yang Menarik Bagi Anda",
+      "contentMainImage": "",
+      "contentBody":
+        "<div id=\"top-paragraph\"><p>Kebebasan untuk dapat berkreasi secara mandiri adalah kebutuhan yang sangat penting bagi Anda. Pekerjaan yang menghargai orisinalitas pemikiran, pemecahan masalah yang rumit, dan penguasaan teknologi termutakhir adalah lahan yang sangat subur bagi Anda.</p><p>Harap diperhatikan bahwa tidak semua jenis karir di bawah ini menarik bagi Anda. Ambil jenis yang sesuai dengan Anda ataupun yang menarik bagi sebagian besar kelompok warna Anda. Daftar di bawah ini bukanlah daftar yang sangat lengkap, akan tetapi daftar di bawah ini akan menunjukkan gambaran dasar preferensi Anda.</p><p>Jika Anda memiliki pilihan karir lain yang tidak disebutkan di sini namun menawarkan pola yang serupa, kesempatan Anda untuk sukses akan semakin bertambah. Soroti pilihan karir yang sesuai dengan karakteristik Anda untuk mewujudkan kesuksesan.</p></div><div id=\"career-type\"><h3><strong><strong>Seni / Arsitektur / Komunikasi / Media</strong></strong></h3><div id=\"career-list\"><ul><li>Arsitek</li><li>Komposer Musik</li><li>Kritikus (khususnya seni dan film)</li><li>Penerbit Buku</li><li>Agen Sastra (bertindak sebagai perwakilan penulis dan perantara penulis dengan penerbit)</li><li>Sutradara Film</li><li>Produser Film (mengatur semua aspek dari produksi atau proses pembuatan film, seperti: memilih naskah, memberikan arahan, menyusun skenario, sampai menyusun perencanaan keuangan)</li><li><em><em>Multimedia Training Specialist </em></em>(ahli dalam melatih kompetensi dalam mengkombinasikan suara, foto, animasi, video, dan grafis untuk melakukan presentasi multimedia)</li><li>Wartawan</li><li>Analis Berita</li><li><em><em>Web Designer</em></em>(bertanggung jawab pada aspek visual sebuah <em><em>website </em></em>yang meliputi: tata letak, pewarnaan, dan tipografi)</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan kemampuan untuk melihat interkoneksi ide yang rumit, standar yang tinggi, otonomi, konsentrasi tinggi, pemikiran strategi, berwawasan luas, dan keingintahuan yang tinggi.</p></div></div><div id=\"career-type\"><h3><strong><strong>Bisnis/Manajemen/Keuangan</strong></strong></h3><div id=\"career-list\"><ul><li>Aktuaris (seorang ahli yang mengaplikasikan ilmu keuangan dan teori statistik untuk menyelesaikan persoalan bisnis aktual)</li><li>Bankir (semua tipe bankir)</li><li>Analis Anggaran</li><li><em><em>Credit Analyst </em></em>(orang yang menganalisis permohonan kredit untuk menilai kelayakan usaha yang akan dibiayai dengan kredit)</li><li><em><em>Chief Financial Officer </em></em>(CFO bertugas mengelola risiko finansial dari perusahaan. CFO juga terlibat pada perencanaan, dokumentasi, dan pelaporan keuangan pada staf manajemen atau eksekutif yang lebih tinggi)</li><li><em><em>Compensation and Benefits Manager </em></em>(bagian dari pengelolaan SDM yang bertugas memberikan imbal jasa dan kompensasi kepada karyawan)</li><li>Ahli Ekonomi</li><li><em><em>Executive Coach </em></em>(pelatih menajerial tertinggi dalam organisasi bisnis)</li><li>Eksekutif (orang dengan tanggung jawab manajerial tertinggi dalam organisasi bisnis. Mereka berwenang untuk membuat perencanaan, mengimplementasikan strategi, dan memberlakukan sistem hukum di lingkungan kerja)</li><li><em><em>Financial Analyst</em></em></li><li>Perencana Keuangan</li><li>Pemilik Waralaba</li><li>Analis Investasi</li><li>Bankir Investasi (sebagai agen yang bertindak sebagai penengah antara penerbit sekuritas dan masyarakat umum)</li><li><em><em>Investment Brokers </em></em>(orang yang menjadi perantara penjual dan pembeli saham, dan mendapat komisi dari penjualan tersebut)</li><li>Manajer Keuangan</li><li>Manajer Pemasaran</li><li>Analis Riset Pasar</li><li><em><em>Operation Research Analyst </em></em>(orang yang bertugas untuk memberikan solusi bagi organisasi dan bisnis sehingga beroperasi dengan lebih efektif dan efisien)</li><li>Investor</li></ul><p>Anda cocok dengan posisi pekerjaan yang membutuhkan ketegasan Anda dalam mengambil keputusan, fokus, standar tinggi, pemecahan masalah kompleks, perencanaan strategi jangka panjang, kontrol pada kekuasaan, dan kemampuan memimpin secara alami.</p></div></div><div id=\"career-type\"><h3><strong><strong>Komputer/Teknologi Informasi</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Database Administrator </em></em>(orang yang menggunakan perangkat lunak tertentu untuk menyimpan dan mengelola data)</li><li>Insinyur <em><em>Hardware </em></em></li><li>Insinyur <em><em>Software </em></em></li><li>Manajer Sistem Informasi (bertanggung jawab mengatur implementasi kerja dari <em><em>programmer, systems analyst, support specialist,</em></em>dan karyawan lainnya yang bekerja berhubungan dengan komputer)</li><li><em><em>Network System and Data Communication Analyst </em></em>(orang yang menggunakan pengetahuan tentang struktur dan operasi jaringan untuk mencipatakan sistem yang lebih dinamis dan efisien dalam bisnis dan organisasi)</li><li><em><em>Programmer </em></em></li><li><em><em>System Analyst </em></em>(orang yang bertanggung jawab atas perencanaan, pengkoordinasian, dan pemilihan perangkat lunak/sistem yang sesuai dengan kebutuhan organisasi/perusahaan)</li><li><em><em>Security Specialist </em></em>(administrator komputer yang bertugas untuk melindungi data perusahaan)</li><li><em><em>Internet Marketer </em></em>(orang yang melakukan pemasaran produk atau jasa menggunakan internet)</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan penguasaan teknologi terbaru, memecahkan masalah kompleks, kemampuan teoritik, otonomi, perencanaan jangka panjang, melihat kemungkinan-kemungkinan di masa depan, keberanian membuat rancangan baru, dan hasrat untuk mengontrol.</p></div></div><div id=\"career-type\"><h3><strong><strong>Konsultan</strong></strong></h3><div id=\"career-list\"><ul><li>Konsultan Manajemen (orang yang memberikan konsultasi kepada perusahaan mengenai cara terbaik untuk mengoperasikan bisnis)</li><li>Ahli Pengembangan Organisasi</li><li>Konsultan Politik</li><li><em><em>Telecommunication Security Consultant </em></em>(konsultan yang memiliki keahlian dalam telekomunikasi dan keamanan jaringan)</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan kemampuan untuk melihat gambaran besar dan mengaitkan fakta, ide, dan konsep yang kelihatannya tidak berkaitan; memecahkan masalah kompleks; menyukai teori; membuat perencanaan jangka panjang; dan melihat berbagai kemungkinan di masa depan.</p></div></div><div id=\"career-type\"><h3><strong><strong>Pendidikan</strong></strong></h3><div id=\"career-list\"><ul><li>Dosen atau Profesor (khususnya dalam bidang: ekonomi, ilmu pengetahuan alam, dan ilmu pengetahuan sosial)</li><li>Rektor Universitas</li></ul><p>Anda cocok dengan pekerjaan yang banyak berinteraksi dengan orang-orang berkompetensi tinggi, membuat visi jangka panjang, perencanaan strategi, otonomi, dan kemampuan berdebat.</p></div></div><div id=\"career-type\"><h3><strong><strong>Pemerintahan / Administrasi Publik</strong></strong></h3><div id=\"career-list\"><ul><li>Eksekutif (memegang tanggung jawab manajerial tertinggi di pemerintahan)</li><li><em><em>Financial Examiner </em></em>(memastikan suatu lembaga berjalan sesuai hukum dengan cara meninjau neraca keuangan, tingkat risiko kredit, dan manajemen bank)</li><li>Hakim</li><li>Pembuat Kebijakan</li><li>Ahli Perencanaan Wilayah dan Kota (disebut juga ahli planologi)</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan kemampuan untuk menghadapi masalah-masalah yang rumit, perencanaan jangka panjang, dan dihargai oleh masyarakat.</p></div></div><div id=\"career-type\"><h3><strong><strong>Ilmu Kesehatan</strong></strong></h3><div id=\"career-list\"><ul><li>Ahli Anestesi (dokter spesialis yang mengkhususkan diri dalam penggunaan obat yang menyebabkan ketidakpekaan terhadap rasa sakit)</li><li>Dokter Spesialis Jantung</li><li>Ahli Genetika</li><li>Dokter Spesialis Penyakit Dalam</li><li>Dokter Spesialis Saraf</li><li><em><em>Nuclear Medicine Technologist </em></em>(teknisi yang memiliki keahlian khusus dalam bekerja bersama dengan dokter ahli pengobatan nuklir)</li><li>Ahli Patologi (orang yang memiliki keahlian khusus mendiagnosis penyakit berdasarkan analisis laboratorium tentang cairan tubuh)</li><li>Dokter Spesialis Bedah</li><li>Psikiater</li></ul><p>Anda cocok dengan pekerjaan dengan tantangan intelektual, memecahkan masalah kompleks, dan keinginan untuk mengontrol.</p></div></div><div id=\"career-type\"><h3><strong><strong>Hukum</strong></strong></h3><div id=\"career-list\"><ul><li>Pengacara (khususnya dalam bidang: korporat, ketenagakerjaan, industri hiburan, <em><em>product liability,</em></em>keuangan, dan bidang yang bersinggungan lainnya)</li><li>Paralegal (membantu pengacara dalam pekerjaannya. Paralegal bukanlah pengacara maupun pertugas pengadilan. Di Indonesia, paralegal tidak diizinkan untuk berpraktik hukum sendirian)</li></ul><p>Anda cocok dengan pekerjaan dengan rangsangan intelektual, pemecahan masalah kompleks, dan gaji yang tinggi.</p></div></div><div id=\"career-type\"><h3><strong><strong>Penelitian / Keilmuwan / Teknik / Matematika</strong></strong></h3><div id=\"career-list\"><ul><li>Insinyur Kedirgantaraan</li><li>Ahli Astronomi</li><li>Ahli Biokimia</li><li>Insinyur Biomedis</li><li>Ahli Biofisika</li><li>Insinyur (khususnya dalam bidang: kimia, nuklir, dan lingkungan)</li><li>Ahli Ekonomi</li><li><em><em>Environmental Scientist </em></em>(ilmuwan lingkungan hidup)</li><li>Psikolog Industri</li><li>Inventor</li><li>Ilmuwan Kedokteran atau Medis</li><li>Ilmuwan Politik</li><li>Ilmuwan Ruang Angkasa</li></ul><p>Anda cocok dengan pekerjaan dengan tantangan intelektual, pemikiran strategi, keingintahuan yang tinggi, keinginan untuk mengontrol, memecahkan masalah kompleks, dan kesempatan untuk berinteraksi dengan orang yang Anda hormati.</p></div></div>",
+      "prevContentRoute": "intj/lingkungan-kerja-ideal",
+      "nextContentRoute": "intj/bos-ideal",
+      "prevContentTitle": "Lingkungan Kerja Ideal",
+      "nextContentTitle": "Bos Ideal",
+      "minimumReadTime": 147
+    },
+    {
+      "_id": "intj/bos-ideal",
+      "personalityId": "INTJ",
+      "contentTitle": "Bos Ideal",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Setiap pekerjaan hebat akan mengecewakan jika dipimpin bos yang tidak tepat. Sebaliknya pekerjaan biasa-biasa saja namun di bawah pimpinan bos yang gemilang akan sangat sulit untuk ditinggalkan. The Mastermind (INTJ) dapat bekerja dengan baik dengan sesama Blue. Namun bos dengan warna lain yang menekankan karakteristik yang dipunyai untuk memaksimalkan potensi Blue dapat pula menjadi seorang mentor yang baik.</p><p>Periksa hal-hal berikut ini, apakah bos Anda seperti yang tertulis di bawah ini :</p><ol><li>Seorang ahli yang dihormati di lapangan.</li><li>Dapat membuat keputusan yang sulit.</li><li>Menetapkan standar yang tinggi untuk Anda, untuk dirinya sendiri, dan untuk karyawan lainnya.</li><li>Mendukung penyelesaian masalah dengan cara yang kreatif.</li><li>Memberikan Anda otonomi yang tinggi terhadap pekerjaan.</li><li>Percaya dan menghormati kemampuan Anda.</li></ol>",
+      "prevContentRoute": "intj/karir-yang-menarik",
+      "nextContentRoute": "intj/tantangan-kepribadian",
+      "prevContentTitle": "Karir yang Menarik Bagi Anda",
+      "nextContentTitle": "Tantangan Kepribadian",
+      "minimumReadTime": 27
+    },
+    {
+      "_id": "intj/tantangan-kepribadian",
+      "personalityId": "INTJ",
+      "contentTitle": "Tantangan Kepribadian",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>The Mastermind (INTJ) memiliki beberapa kelemahan. Sebagian di antara Anda memiliki kekurangan ini, dan sebagian yang lain tidak. Umumnya Anda hanya memiliki beberapa kelemahan dari yang disebutkan di bawah ini. Temukan titik lemah Anda dan fokuslah untuk merubahnya, lalu gunakan cara yang lebih produktif untuk membuatnya menjadi kebiasaan.</p><p><strong><strong>Mungkin terlalu kasar, keras, atau menuntut. </strong></strong>Setiap orang membutuhkan bantuan dalam beberapa hal yang tidak ia kuasai. Mengasingkan seseorang bukanlah sikap yang baik, meskipun jika mereka memiliki kompetensi dan intelektualitas yang kurang. Kesabaran merupakan sifat baik dan bermanfaat (dalam jangka panjang). Situasi harmonis selalu menghasilkan produk dan tim yang berkualitas. Sesekali, Anda perlu menunjukkan empati Anda pada seseorang, dan lihatlah hasilnya nanti.</p><p><strong><strong>Anda biasanya enggan mengungkapkan pemikiran rumit Anda agar tidak diterka dan dipertanyakan.</strong></strong> Anda mungkin akan kesulitan menjelaskan pemikiran cerdas dan wawasan mendalam Anda kepada orang lain, apalagi untuk dapat sepemikiran dengan mereka. Tetapi, selalu menolak untuk berdiskusi dan enggan untuk membuat mereka mengerti, bukanlah hal yang baik. Berkonfrontasi dengan pandangan umum bisa berakibat sangat buruk. Maka dari itu, jadikan rencana besar Anda menjadi tahapan demi tahapan, lalu ceritakanlah pada orang lain dari awal untuk menghindari pertentangan.</p><p><strong><strong>Percaya bahwa Anda harus mengerjakan semuanya sendiri, karena tak ada orang lain yang kompeten untuk melakukan hal tersebut.</strong></strong> Sikap ini mendatangkan arogansi yang umumnya dibenci oleh bos dan rekan kerja Anda. Mungkin cara mereka mengerjakan sesuatu berbeda dengan cara Anda, namun masing-masing warna memiliki kelebihan yang mungkin tidak Anda ketahui. Ada banyak jalan untuk mencapai tujuan, percaya atau tidak, cara orang lain mungkin lebih baik daripada cara yang Anda miliki.</p><p><strong><strong>Mungkin Anda akan dianggap menjengkelkan oleh orang lain, karena Anda terlihat ragu-ragu ketika sebuah informasi atau ide disampaikan. </strong></strong>Umumnya orang-orang menganggap hal ini sebagai penolakan atas ide mereka. Mereka berpikir bahwa Anda tidak percaya ataupun menghormati pekerjaan yang telah mereka lakukan. Tanyakanlah semua hal yang mengganjal di pikiran, tetapi gunakan kata-kata dan cara yang halus untuk menyampaikannya. Misalnya seperti berikut, “kelihatannya ini adalah ide bagus yang telah Anda pikirkan dengan sungguh-sungguh. Saya punya beberapa pertanyaan tentang ide Anda ini. Jika tidak keberatan, bolehkah saya bertanya?”</p>",
+      "prevContentRoute": "intj/bos-ideal",
+      "nextContentRoute": null,
+      "prevContentTitle": "Bos Ideal",
+      "nextContentTitle": null,
+      "minimumReadTime": 42
+    },
+    {
+      "_id": "entp/kelebihan-alami",
+      "personalityId": "ENTP",
+      "contentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Kurang lebih 80% dari atribut di bawah ini ada pada Anda. Periksalah kategori di bawah ini dan catatlah sebagai ringkasan kelebihan Anda. Kategori-kategori di bawah ini akan membedakan Anda dengan orang lain. Anda adalah orang yang:</p><ul><li>Bagus dalam memulai atau menginisiasi sebuah proyek.</li><li>Melihat sesuatu melalui gambaran besarnya.</li><li>Menginspirasi orang lain dengan antusiasme dan komunikasi yang bersemangat.</li><li>Memiliki minat pada masalah-masalah yang rumit/kompleks.</li><li>Bersemangat dalam mencari solusi-solusi baru yang kreatif.</li><li>Menyukai perdebatan dan merupakan <em><em>brainstormer </em></em>yang paling efektif dibanding warna-warna yang lain.</li><li>Dapat bekerja dengan banyak orang dan lingkup yang luas.</li><li>Menganalisa situasi secara objektif.</li><li>Mengurangi ketegangan dengan humor.</li><li>Bersedia mengambil resiko.</li></ul>",
+      "prevContentRoute": "entp",
+      "nextContentRoute": "entp/lingkungan-kerja-ideal",
+      "prevContentTitle": "Tentang The Inventor",
+      "nextContentTitle": "Lingkungan Kerja Ideal",
+      "minimumReadTime": 25
+    },
+    {
+      "_id": "entp/lingkungan-kerja-ideal",
+      "personalityId": "ENTP",
+      "contentTitle": "Lingkungan Kerja Ideal",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Kesempatan untuk bertemu dengan orang-orang yang berpengaruh dan berkuasa seringkali menjadi faktor yang mendorong Anda untuk menerima sebuah pekerjaan. Bekerja pada ide-ide baru sangat cocok untuk Anda, di manapun Anda berada.</p><p>Budaya kerja terburuk bagi The Inventor (ENTP) adalah ketika bekerja dengan tim kecil dengan orang-orang yang kurang memiliki inisiatif. Anda juga tidak cocok dengan budaya kerja yang menekankan pekerjaan mendetail dengan hasil yang mudah diprediksi.</p><p>Ketika seorang The Inventor bekerja pada perusahaan yang memiliki kondisi tidak ideal tersebut, produktifitas akan terhambat dan pencapaian karir akan menjadi berat.</p><p>Ketika seorang The Inventor bekerja pada perusahaan yang memiliki kondisi tidak ideal tersebut, produktifitas akan terhambat dan pencapaian karir akan menjadi berat.</p><p>Bandingkan lingkungan kerja Anda dengan deskripsi di bawah ini. Periksalah apakah kriteria tersebut sesuai dengan lingkungan kerja Anda. Jangan menipu diri sendiri, hal ini diperlukan untuk menegaskan bahwa Anda telah berada di warna yang tepat atau belum.</p><p>Warna-warna lain, khususnya Gold [SJ], tidak akan merasa nyaman dengan lingkungan kerja seperti di bawah ini. Lingkungan kerja yang optimal untuk seorang The Inventor adalah:</p><ul><li>Tersedianya berbagai variasi tugas maupun proyek.</li><li>Kreatif, berbasis kewirausahaan, dan tidak terstruktur.</li><li>Menghargai keahlian dan kemampuan untuk berpikir cepat.</li><li>Membuat produk dan solusi-solusi baru atas berbagai permasalahan.</li><li>Memiliki kesempatan untuk belajar hal baru secara terus menerus.</li><li>Mengizinkan Anda untuk menghimpun karyawan kompeten yang tidak perlu dikelola dalam hal-hal kecil.</li><li>Menawarkan kesempatan untuk berinteraksi dengan orang-orang yang berpengaruh.</li></ul>",
+      "prevContentRoute": "entp/kelebihan-alami",
+      "nextContentRoute": "entp/karir-yang-menarik",
+      "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "nextContentTitle": "Karir yang Menarik Bagi Anda",
+      "minimumReadTime": 42
+    },
+    {
+      "_id": "entp/karir-yang-menarik",
+      "personalityId": "ENTP",
+      "contentTitle": "Karir yang Menarik Bagi Anda",
+      "contentMainImage": "",
+      "contentBody":
+        "<div id=\"top-paragraph\"><p>The Inventor (ENTP) paling produktif bila bekerja di lingkungan yang menghargai semangat intelektual, ide-ide orisinal, dan tidak takut mengambil resiko. Anda menikmati proyek-proyek orisinal yang berurusan dengan isu-isu global.</p><p>Harap diperhatikan bahwa tidak semua jenis karir di bawah ini menarik bagi Anda. Ambil jenis yang sesuai dengan Anda ataupun yang menarik bagi sebagian besar kelompok warna Anda. Daftar di bawah ini bukanlah daftar yang sangat lengkap, akan tetapi daftar di bawah ini akan menunjukkan gambaran dasar preferensi Anda.</p><p>Jika Anda memiliki pilihan karir lain yang tidak disebutkan di sini namun menawarkan pola yang serupa, kesempatan Anda untuk sukses akan semakin bertambah. Soroti pilihan karir yang sesuai dengan karakteristik Anda untuk mewujudkan kesuksesan.</p></div><div id=\"career-type\"><h3><strong><strong>Bisnis / Keuangan / Administrasi</strong></strong></h3><div id=\"career-list\"><ul><li>Eksekutif (orang dengan tanggung jawab manajerial tertinggi dalam organisasi bisnis. Mereka berwenang untuk membuat perencanaan, mengimplementasikan strategi, dan memberlakukan sistem hukum di lingkungan kerja)</li><li>Perencana Keuangan</li><li>Manajer Hotel</li><li>Bankir Investasi (agen yang bertindak sebagai penengah antara penerbit sekuritas dan masyarakat)</li><li><em><em>Trader </em></em>Sekuritas (menjual surat-surat berharga seperti: saham, obligasi, komoditas, mata uang asing)</li><li>Konsultan Manajemen (orang yang memberikan konsultasi kepada perusahaan mengenai cara terbaik untuk mengoperasikan bisnis)</li><li><em><em>Enterpreneur </em></em>atau Pengembang Bisnis Baru</li><li>Manajer Properti</li><li><em><em>Financial Analyst</em></em></li><li>Manajer Penjualan</li><li>Ahli Pelatihan dan Pengembangan</li><li>Investor</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan wawasan luas, menstimulasi keingintahuan, mengambil inisiatif, bergerak dengan cepat, serta membuka kesempatan untuk hal-hal yang baru dan tidak biasa.</p></div></div><div id=\"career-type\"><h3><strong><strong>Komunikasi / Kreatif / Pemasaran</strong></strong></h3><div id=\"career-list\"><ul><li>Direktur Periklanan</li><li><em><em>Business Manager </em></em>(khususnya sebagai manajer artis, seniman, dan atlet)</li><li>Penulis</li><li>Editor</li><li>Jurnalis</li><li>Agen Sastra (bertindak sebagai perwakilan penulis dan perantara penulis dengan penerbit)</li><li>Direktur Humas (Hubungan Masyarakat)</li><li><em><em>Publicist </em></em>(orang yang bertanggung jawab untuk mempublikasikan produk, individu, ataupun perusahaan)</li><li>Pembawa Acara <em><em>Talk Show</em></em></li><li>Produser Film (mengatur semua aspek proses pembuatan film, seperti memilih naskah, memberikan arahan, menyusun skenario, sampai menyusun perencanaan keuangan)</li><li><em><em>Web Designer </em></em>(orang yang berfokus pada pembuatan aspek-aspek visual pada suatu halaman <em><em>web</em></em>)</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan energi intelektual tinggi, menyediakan tantangan dan suasana yang menyenangkan, responsif terhadap kesempatan baru, dan senang untuk bertemu dengan orang-orang berpengaruh.</p></div></div><div id=\"career-type\"><h3><strong><strong>Komputer / Teknologi Informasi</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Computer System Analyst </em></em>(mempelajari sistem komputer dan sistem informasi sehingga organisasi dapat beroperasi lebih efektif dan efisien)</li><li>Insinyur Komputer (disiplin ilmu yang mengintegrasikan teknik elektro dan ilmu komputer untuk mengembangkan <em><em>hardware </em></em>dan <em><em>software </em></em>komputer)</li><li><em><em>Programmer </em></em></li><li><em><em>Security Specialist </em></em>(administrator komputer yang bertugas untuk melindungi data perusahaan)</li><li>Manajer Sistem Informasi (bertanggung jawab mengatur implementasi kerja dari <em><em>programmer, system analyst, support specialist,</em></em>dan karyawan lain yang bekerja dengan komputer)</li><li>Ahli Jaringan</li><li><em><em>System Analyst </em></em>(orang yang bertanggung jawab atas perencanaan, pengkoordinasian, dan pemilihan perangkat lunak/sistem yang sesuai dengan kebutuhan organisasi/perusahaan)</li><li><em><em>Web Developer </em></em>(<em><em>programmer </em></em>yang memiliki spesialisasi dalam mengembangkan aplikasi <em><em>web</em></em>)</li></ul><p>Anda cocok dengan pekerjaan yang menyediakan proyek-proyek yang bervariasi, membuat produk atau solusi baru, otonomi, kesempatan untuk melakukan <em><em>brainstorming</em></em>, lingkungan yang fleksibel, dan menggunakan metode-metode yang tidak lazim.</p></div></div><div id=\"career-type\"><h3><strong><strong>Pendidikan</strong></strong></h3><div id=\"career-list\"><ul><li>Pelatih Atletik</li><li>Profesor, Dosen, atau Guru (pendidikan tinggi)</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan energi intelektual tinggi, lingkungan yang fleksibel, mengedepankan logika, cekatan dan mampu untuk melihat berbagai sisi dari suatu permasalahan.</p></div></div><div id=\"career-type\"><h3><strong><strong>Kewirausahaan / Perhotelan</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Inventor </em></em>(penemu)</li><li>Pemilik Restoran</li><li>Pemilik Bisnis Kecil</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan kemampuan untuk membuat keputusan sulit, suasana kewirausahaan yang fleksibel, mewujudkan ide inovatif menjadi kenyataan, cepat merespon terhadap kesempatan baru dan ide-ide yang kreatif, cekatan, bebas, dan antusiasme yang tinggi.</p></div></div><div id=\"career-type\"><h3><strong><strong>Ilmu Kesehatan / Psikologi</strong></strong></h3><div id=\"career-list\"><ul><li>Dokter Spesialis Bedah</li><li>Dokter UGD</li><li>Dokter Keluarga</li><li>Dokter Spesialis Penyakit Dalam</li><li>Psikiater</li></ul><p>Anda cocok dengan pekerjaan yang menyediakan variasi, kebebasan, lingkungan yang fleksibel, tantangan intelektual yang tinggi, kemampuan untuk bertindak cekatan, dan memecahkan masalah kompleks</p></div></div><div id=\"career-type\"><h3><strong><strong>Politik / Pemerintahan</strong></strong></h3><div id=\"career-list\"><ul><li>Politisi</li><li>Ahli Perencanaan Wilayah dan Kota (disebut juga ahli planologi)</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan kemampuan untuk melihat secara cepat berbagai kemungkinan dari situasi yang baru, mampu menganalisis masalah secara jelas dan objektif, kemampuan berpikir jangka panjang dan menyusun strategi, serta senang bertemu dengan orang-orang yang berpengaruh atau berkuasa.</p></div></div><div id=\"career-type\"><h3><strong><strong>Hukum</strong></strong></h3><div id=\"career-list\"><ul><li>Pengacara (khususnya dalam bidang: kebangkrutan, imigrasi, litigasi, merger dan akuisisi, kekayaan intelektual, dan bidang yang bersinggungan lainnya)</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan kemampuan analitis, berwawasan tinggi, melihat suatu permasalahan dari berbagai sisi, bertindak secara cekatan, dan senang bertemu dengan orang-orang yang berpengaruh.</p></div></div><div id=\"career-type\"><h3><strong><strong>Profesi Lain</strong></strong></h3><div id=\"career-list\"><ul><li>Arsitek</li><li>Detektif</li><li>Insinyur (khususnya teknik Industri)</li><li>Psikolog Industri</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan kemampuan analisis tajam, standar yang tinggi, wawasan yang luas, kemampuan berdebat dengan melihat berbagai sisi permasalahan, menyediakan tantangan dan suasana kerja yang menyenangkan, otonomi, diberi tanggung jawab terhadap proyek sendiri, bertindak secara cekatan, dan dapat meningkatkan kompetensi diri sendiri.</p></div></div>",
+      "prevContentRoute": "entp/lingkungan-kerja-ideal",
+      "nextContentRoute": "entp/bos-ideal",
+      "prevContentTitle": "Lingkungan Kerja Ideal",
+      "nextContentTitle": "Bos Ideal",
+      "minimumReadTime": 147
+    },
+    {
+      "_id": "entp/bos-ideal",
+      "personalityId": "ENTP",
+      "contentTitle": "Bos Ideal",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Setiap pekerjaan hebat akan mengecewakan jika dipimpin oleh bos yang tidak tepat. Sebaliknya pekerjaan biasa-biasa saja namun di bawah pimpinan bos yang gemilang akan sangat sulit untuk ditinggalkan. The Inventor (ENTP) dapat bekerja dengan baik dengan sesama Blue. Namun bos dengan warna lain yang menekankan karakteristik yang dipunyai untuk memaksimalkan potensi Blue dapat pula menjadi seorang mentor yang baik.</p><p>Periksa hal-hal berikut ini, apakah bos Anda seperti yang tertulis di bawah ini :</p><ol><li>Dapat membuat keputusan yang sulit.</li><li>Seorang yang ahli di bidangnya dan dihormati.</li><li>Dapat melindungi Anda dari liku-liku birokrasi.</li><li>Memiliki selera humor.</li><li>Tidak terlalu mengatur Anda.</li><li>Menetapkan standar yang tinggi.</li><li>Memberi penghargaan terhadap inovasi.</li><li>Menyediakan semua sumber keperluan tercapainya tugas-tugas.</li></ol>",
+      "prevContentRoute": "entp/karir-yang-menarik",
+      "nextContentRoute": "entp/tantangan-kepribadian",
+      "prevContentTitle": "Karir yang Menarik Bagi Anda",
+      "nextContentTitle": "Tantangan Kepribadian",
+      "minimumReadTime": 27
+    },
+    {
+      "_id": "entp/tantangan-kepribadian",
+      "personalityId": "ENTP",
+      "contentTitle": "Tantangan Kepribadian",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>The Inventor (ENTP) memiliki beberapa kelemahan. Sebagian di antara Anda memiliki kekurangan ini, dan sebagian yang lain tidak. Umumnya Anda hanya memiliki beberapa kelemahan dari yang disebutkan di bawah ini. Temukan titik lemah Anda dan fokuslah untuk merubahnya, lalu gunakan cara yang lebih produktif untuk membuatnya menjadi kebiasaan.</p><p><strong><strong>Terlalu banyak memulai proyek, biasanya beberapa di antaranya tidak selesai.</strong></strong> Anda dapat terlalu antusiasme dalam memulai sebuah proyek baru. Saran yang baik untuk Anda adalah: “Jangan memulai sesuatu sampai Anda menyelesaikan proyek terakhir Anda.”</p><p><strong><strong>Dapat terlalu santai dengan sebuah </strong></strong><strong><em><strong><em>deadline </em></strong></em></strong><strong><strong>dan komitmen.</strong></strong> Selama Anda masih bekerja dan dibayar untuk mengikuti <em><em>deadline</em></em>. Anda harus mengikutinya sampai jatuh tempo pengerjaan proyek atau Anda akan ditegur oleh bos.</p><p><strong><strong>Mengintimidasi mereka yang kurang cerdas dan cekatan.</strong></strong> Anda cenderung mengintimidasi seseorang yang memiliki kompetensi lebih rendah daripada Anda. Khususnya ketika Anda masih muda, seringkali Anda mencemooh mereka secara lisan. Tetapi, bisa saja salah satu dari mereka akan menjadi bos Anda. Jika itu yang terjadi, diplomasi menjadi kekuatan utama Anda untuk mengatasinya.</p><p><strong><strong>Kadang-kadang terlalu sering mengganti rencana dan strategi.</strong></strong> Jika Anda bekerja sendirian, hal itu akan membuat Anda kehilangan fokus. Jika hal itu Anda lakukan ketika berada di dalam tim atau perusahaan, maka akan mengacaukan semua orang Anda butuhkan untuk menyelesaikan proyek. Konsekuensi dari kehilangan fokus adalah kehilangan uang dan produktifitas.</p><p><strong><strong>Sangat ingin menjadi pusat perhatian. </strong></strong>Pastikan untuk sesekali membagi pusat perhatian dengan orang yang layak untuk diberi penghargaan, atau orang lain tidak akan menganggap Anda lagi.</p>",
+      "prevContentRoute": "entp/bos-ideal",
+      "nextContentRoute": null,
+      "prevContentTitle": "Bos Ideal",
+      "nextContentTitle": null,
+      "minimumReadTime": 42
+    },
+    {
+      "_id": "intp/kelebihan-alami",
+      "personalityId": "INTP",
+      "contentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Kurang lebih 80% dari atribut di bawah ini ada pada Anda. Periksalah kategori di bawah ini dan catatlah sebagai ringkasan kelebihan Anda. Kategori-kategori di bawah ini akan membedakan Anda dengan orang lain. Anda adalah orang yang:</p><ul><li>Selalu menciptakan dan mengembangkan suatu ide.</li><li>Menilai situasi secara logis dan analitis.</li><li>Memberi ketenangan di tengah-tengah situasi yang emosional atau sensitif.</li><li>Memecahkan masalah yang rumit secara kreatif.</li><li>Terbuka dengan informasi yang baru dan akan mengganti keputusan jika hal tersebut diperlukan.</li><li>Menuntut kualitas yang tinggi dan penggunaan kapasitas intelektual yang intensif.</li><li>Jarang terlibat di sebuah percakapan basa-basi.</li><li>Bisa sangat fokus dalam waktu lama terhadap sesuatu yang diminati.</li></ul>",
+      "prevContentRoute": "intp",
+      "nextContentRoute": "intp/lingkungan-kerja-ideal",
+      "prevContentTitle": "Tentang The Thinker",
+      "nextContentTitle": "Lingkungan Kerja Ideal",
+      "minimumReadTime": 25
+    },
+    {
+      "_id": "intp/lingkungan-kerja-ideal",
+      "personalityId": "INTP",
+      "contentTitle": "Lingkungan Kerja Ideal",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Keleluasaan untuk berfikir inovatif yang didukung oleh lingkungan yang fleksibel, serta dibantu oleh staf-staf administratif adalah iklim kerja yang sesuai untuk Anda.</p><p>Lingkungan kerja terburuk bagi The Thinker (INTP) adalah lingkungan yang terlalu dikontrol dan birokratis. Manajemen waktu yang ketat serta membutuhkan hasil kerja yang rapi dapat mengganggu performa kerja Anda. Ketika Anda bekerja dengan seseorang yang sensitif, atau memiliki kompetensi di bawah Anda, akan membuat Anda lebih tidak sabar dalam menghadapi mereka.</p><p>Ketika seorang The Thinker bekerja pada perusahaan yang memiliki kondisi tidak ideal tersebut, produktifitas akan terhambat dan pencapaian karir akan menjadi berat.</p><p>Bandingkan lingkungan kerja Anda dengan deskripsi di bawah ini. Periksalah apakah kriteria tersebut sesuai dengan lingkungan kerja Anda. Jangan menipu diri sendiri, hal ini diperlukan untuk menegaskan bahwa Anda telah berada di warna yang tepat atau belum.</p><p>Warna-warna lain, khususnya Gold [SJ], tidak akan merasa nyaman ­dengan lingkungan kerja seperti di bawah ini. Lingkungan kerja yang optimal untuk seorang The Thinker adalah:</p><p><strong><strong>Memiliki suasana fleksibel dengan sedikit peraturan,</strong></strong> prosedur, dan banyak pertemuan. Suasana lingkungan yang tidak menghambat proses intelektual.</p><p><strong><strong>Menghargai kemandirian dan kreativitas. </strong></strong>Anda melihat masalah seperti kubus rubik (melihat dari segala sisi). Lalu Anda menyusunnya kembali sampai sebuah solusi menjadi jelas.</p><p><strong><strong>Fokus pada tahap pendirian awal sebuah proyek.</strong></strong> Sedangkan implementasi dan administrasi diberikan kepada staf pendukung untuk menyelesaikan proyek tersebut.</p><p><strong><strong>Menyediakan privasi untuk bekerja sendiri tanpa banyak tekanan waktu.</strong></strong> Dua hal yang sangat Anda benci adalah interupsi/gangguan, dan orang-orang yang terlalu bergantung pada bantuan Anda. Anda jauh lebih produktif ketika bekerja tanpa mereka.</p><p><strong><strong>Lingkungan dengan budaya berpikir yang logis,</strong></strong> menghargai kompetensi, keahlian, dan pengambilan resiko. Situasi emosional menyita waktu dan energi Anda. Anda lebih suka mengerahkan semua sumber daya untuk mengambil resiko, yang tentunya sudah benar-benar Anda analisa lebih dahulu untuk mengurangi resikonya.</p><p><strong><strong>Memiliki jaringan informal dengan kelompok terpelajar,</strong></strong> mandiri, dan rekan yang memiliki motivasi tinggi. Anda perlu mengungkapkan sebuah masalah dari segala sisi dan berdebat untuk menemukan solusinya. Anda akan kesulitan jika mencari solusi masalah tersebut sendiri, atau dengan rekan kerja yang kurang kompeten.</p>",
+      "prevContentRoute": "intp/kelebihan-alami",
+      "nextContentRoute": "intp/karir-yang-menarik",
+      "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "nextContentTitle": "Karir yang Menarik Bagi Anda",
+      "minimumReadTime": 84
+    },
+    {
+      "_id": "intp/karir-yang-menarik",
+      "personalityId": "INTP",
+      "contentTitle": "Karir yang Menarik Bagi Anda",
+      "contentMainImage": "",
+      "contentBody":
+        "<div id=\"top-paragraph\"><p>Anda paling tertarik dengan karir yang membutuhkan semangat intelektual, ide-ide orisinal, dan pencapaian prestasi. Anda memilih terlibat dengan masalah-masalah teoritis dan teknologi terbaru. Proyek yang orisinal adalah keharusan bagi Anda; tugas-tugas rutin dan berulang-ulang sangatlah membebani Anda.</p><p>Harap dicermati bahwa tidak semua jenis karir di bawah ini menarik bagi Anda. Ambil jenis yang sesuai dengan Anda ataupun yang menarik bagi sebagian besar kelompok warna Anda. Daftar di bawah ini bukanlah daftar yang sangat lengkap, akan tetapi daftar di bawah ini akan menunjukkan gambaran dasar preferensi/pilihan Anda.</p><p>Jika Anda memiliki pilihan karir lain yang tidak disebutkan di sini namun menawarkan pola yang serupa, kesempatan Anda untuk sukses akan semakin bertambah. Soroti pilihan karir yang sesuai dengan karakteristik Anda untuk mewujudkan kesuksesan.</p></div><div id=\"career-type\"><h3><strong><strong>Arsitektur / Kreatif / Media</strong></strong></h3><div id=\"career-list\"><ul><li>Arsitek</li><li>Seniman</li><li>Penulis Kreatif</li><li>Kritikus</li><li>Editor</li><li>Desainer Grafis</li><li>Desainer Produk</li><li>Jurnalis</li><li>Musisi</li><li>Analis Berita</li><li>Fotografer</li><li>Produser Film (mengatur semua aspek proses pembuatan film, seperti memilih naskah, memberikan arahan, menyusun skenario, sampai menyusun perencanaan keuangan)</li><li>Produser Panggung</li><li>Produser Animasi</li><li><em><em>Web Designer </em></em>(orang yang berfokus pada pembuatan aspek-aspek visual pada suatu halaman <em><em>web</em></em>)</li></ul><p>Anda cocok dengan pekerjaan yang banyak menyediakan banyak hal yang tidak terduga dan membutuhkan fokus yang tinggi pada hal apapun yang menarik minat Anda.</p></div></div><div id=\"career-type\"><h3><strong><strong>Bisnis / Keuangan</strong></strong></h3><div id=\"career-list\"><ul><li>Analis Bisnis</li><li>Konsultan Manajemen Perubahan (memberikan konsultasi mengenai pendekatan untuk melakukan transisi individu, tim, dan organisasi untuk menuju kondisi ke depan yang diinginkan)</li><li>Ahli Ekonomi</li><li>Perencana Keuangan</li><li><em><em>Financial Analyst</em></em></li><li><em><em>Hedge Fund Manager</em></em>(pengelola investasi global)</li><li>Bankir Investasi (agen yang bertindak sebagai penengah antara penerbit sekuritas dan masyarakat)</li><li><em><em>Investment Brokers </em></em>(orang yang menjadi perantara penjual dan pembeli saham, dan mendapat komisi dari penjualan tersebut)</li><li>Konsultan Manajemen (orang yang memberikan konsultasi kepada perusahaan mengenai cara terbaik untuk mengoperasikan bisnis)</li><li>Market Research Specialist (seorang yang ahli dalam melakukan riset pasar)</li><li>Pemilik Bisnis Kecil</li><li>Perencana Strategis (orang yang menentukan strategi untuk mengalokasikan sumber dayanya demi mencapai tujuan)</li><li>Ahli Statistik</li><li>Investor</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan tantangan intelektual dan wawasan yang luas mengenai tren yang akan terjadi di masa depan.</p></div></div><div id=\"career-type\"><h3><strong><strong>Komputer / Teknologi Informasi</strong></strong></h3><div id=\"career-list\"><ul><li><em>Database Administrator</em> (orang yang menggunakan perangkat lunak tertentu untuk menyimpan dan mengelola data)</li><li>Insinyur <em><em>Hardware </em></em></li><li>Insinyur <em><em>Software </em></em></li><li>Manajer Sistem Informasi (bertanggung jawab mengatur implementasi kerja dari <em><em>programmer, systems analyst, support specialist,</em></em>dan karyawan lain yang bekerja dengan komputer)</li><li><em><em>Network System Administrator </em></em>(bertanggung jawab pada sistem jaringan komputer sehari-hari)</li><li>Ahli Jaringan</li><li><em><em>Programmer </em></em></li><li><em><em>Software Designer</em></em></li><li><em><em>Security Specialist </em></em>(administrator komputer yang bertugas untuk melindungi data perusahaan)</li><li><em><em>Systems Analyst </em></em>(orang yang bertanggung jawab atas perencanaan, pengkoordinasian, dan pemilihan perangkat lunak/sistem yang sesuai dengan kebutuhan organisasi/perusahaan)</li><li><em><em>Web Developer </em></em>(programmer yang memiliki spesialisasi dalam mengembangkan aplikasi web)</li><li><em><em>Webmaster </em></em>(orang yang bertanggung jawab untuk merencanakan, merancang, mengelola, dan memelihara <em><em>website </em></em>agar tetap berjalan dengan baik)</li></ul><p>Anda cocok dengan pekerjaan yang lingkungannya fleksibel, dimana Anda dapat berkreasi, mengkritik, mendesain ulang, dan mampu meningkatkan kualitas diri.</p></div></div><div id=\"career-type\"><h3><strong><strong>Pendidikan</strong></strong></h3><div id=\"career-list\"><ul><li>Peneliti</li><li>Profesor Universitas</li></ul><p>Anda cocok dengan pekerjaan yang menantang secara intelektual dan menikmati perdebatan akademis dengan rekan kerja.</p></div></div><div id=\"career-type\"><h3><strong><strong>Psikologi / Ilmu Kesehatan</strong></strong></h3><div id=\"career-list\"><ul><li>Ilmuwan Kedokteran atau Medis</li><li>Dokter</li><li>Dokter Spesialis Saraf</li><li>Apoteker</li><li><em><em>Pharmaceutical Researcher</em></em>(Peneliti Farmasi)</li><li>Dokter Bedah Plastik</li><li>Psikolog</li><li>Psikiater</li></ul><p>Anda cocok dengan pekerjaandengan tantangan intelektual, kemandirian bekerja, dan kemampuan untuk berkonsentrasi tinggi dalam jangka waktu yang panjang.</p></div></div><div id=\"career-type\"><h3><strong><strong>Hukum</strong></strong></h3><div id=\"career-list\"><ul><li>Pengacara (khususnya dalam bidang perbankan, keuangan perusahaan, <em><em>product liability,</em></em>kekayaan intelektual)</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan kemampuan untuk menyelesaikan masalah-masalah rumit, memberikan tantangan intelektual, dan menyediakan ruang untuk melakukan perdebatan.</p></div></div><div id=\"career-type\"><h3><strong><strong>Peneliti / Ilmuwan / Insinyur / Matematika</strong></strong></h3><div id=\"career-list\"><ul><li>Insinyur Kedirgantaraan atau Aeronautika</li><li>Ahli Astronomi</li><li>Insinyur Biomedis</li><li>Ahli Kimia</li><li>Ahli Biokimia</li><li>Ahli Biofisika</li><li>Insinyur Kimia</li><li>Insinyur Sipil</li><li><em><em>Environmental Scientist </em></em>(ilmuwan lingkungan hidup)</li><li>Ahli Genetika</li><li>Ahli Geologi</li><li><em><em>Inventor </em></em></li><li>Matematikawan</li><li>Ahli Mikrobiologi</li><li>Manajer IImu Pengetahuan Alam</li><li>Fisikawan</li><li>Ilmuwan Ruang Angkasa</li></ul><p>Anda cocok dengan pekerjaan yang memberikan kesempatan untuk memecahkan masalah kompleks, dan menjadi pioner terdepan dalam perkembangan ilmu pengetahuan</p></div></div>",
+      "prevContentRoute": "intp/lingkungan-kerja-ideal",
+      "nextContentRoute": "intp/bos-ideal",
+      "prevContentTitle": "Lingkungan Kerja Ideal",
+      "nextContentTitle": "Bos Ideal",
+      "minimumReadTime": 147
+    },
+    {
+      "_id": "intp/bos-ideal",
+      "personalityId": "INTP",
+      "contentTitle": "Bos Ideal",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Setiap pekerjaan hebat akan mengecewakan jika dipimpin oleh bos yang tidak tepat. Sebaliknya pekerjaan biasa-biasa saja namun di bawah pimpinan bos yang gemilang akan sangat sulit untuk ditinggalkan. The Thinker (INTP) dapat bekerja dengan baik dengan sesama Blue. Namun bos dengan warna lain yang menekankan karakteristik yang dipunyai untuk memaksimalkan potensi Blue dapat pula menjadi seorang mentor yang baik.</p><p>Periksa hal-hal berikut ini, apakah bos Anda seperti yang tertulis di bawah ini :</p><ul><li>Memberi kebebasan penuh dalam berkarya.</li><li>Memperlakukan karyawan sama rata.</li><li>Cerdas, cekatan, dan mampu memberikan dukungan.</li><li>Melindungi Anda dari birokrasi perusahaan.</li><li>Tidak membebani Anda dengan pekerjaan administratif.</li><li>Terbuka untuk memperbaiki sistem dan prosedur yang telah ada.</li><li>Meminta Anda untuk memberikan ide-ide baru, lalu menugaskan orang lain untuk mengimplementasikan.</li><li>Mengenali dan menghargai keahlian Anda.</li><li>Membiarkan Anda mengutarakan bagaimana Anda ingin dievaluasi dan diberi imbalan.</li></ul>",
+      "prevContentRoute": "intp/karir-yang-menarik",
+      "nextContentRoute": "intp/tantangan-kepribadian",
+      "prevContentTitle": "Karir yang Menarik Bagi Anda",
+      "nextContentTitle": "Tantangan Kepribadian",
+      "minimumReadTime": 27
+    },
+    {
+      "_id": "intp/tantangan-kepribadian",
+      "personalityId": "INTP",
+      "contentTitle": "Tantangan Kepribadian",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>The Thinker (INTP) memiliki beberapa kelemahan. Sebagian di antara Anda memiliki kekurangan ini, dan sebagian yang lain tidak. Umumnya Anda hanya memiliki beberapa kelemahan dari yang disebutkan di bawah ini. Temukan titik lemah Anda dan fokuslah untuk merubahnya, lalu gunakan cara yang lebih produktif untuk membuatnya menjadi kebiasaan.</p><p><strong><strong>Menjadi terlalu santai menghadapi </strong></strong><strong><em><strong><em>deadline </em></strong></em></strong><strong><strong>terutama ketika mengerjakan proyek yang tidak bersifat intelektual.</strong></strong> Sisihkan waktu pada saat pagi ketika Anda bersiap menyusun agenda harian yang wajib untuk dilaksanakan, sehingga Anda dapat berkonsentrasi terhadap hal-hal penting yang Anda sukai.</p><p><strong><strong>Mungkin terlalu banyak menciptakan suatu proyek namun tidak dapat menyelesaikannya.</strong></strong> Meskipun Anda memiliki banyak minat, namun fokuslah pada beberapa hal yang benar-benar penting saja karena Anda memiliki waktu yang terbatas. Anda boleh mengerjakan lebih dari dua proyek hanya jika Anda memiliki staf yang memadai untuk mengerjakan proyek lain dan peran Anda hanyalah mengawasi atau mengontrol.</p><p><strong><strong>Mengintimidasi orang-orang yang kurang cekatan dan cerdas. </strong></strong>Harus diakui Anda senang menggunakan kekuatan otak Anda yang Anda anggap lebih unggul dan mengabaikan orang lain yang kurang diberkati bakat tersebut. Hanya saja, jangan sampai hal itu menjadi kebiasaan untuk mempermalukan seseorang. Suatu hari, bisa saja salah seorang dari mereka akan menjadi bos Anda.</p><p><strong><strong>Dapat menjadi terlalu kritis, rumit, dan kompetitif.</strong></strong> Suasana kompetitif penting bagi lingkungan Anda, tetapi pilih tempat yang sesuai dengan konteksnya. Begitu juga dengan tingkah laku kritis dan pendirian keras Anda.</p><p><strong><strong>Mengganti rencana dan strategi terlalu sering. </strong></strong>Mengganti strategi dengan pertimbangan fakta baru, dapat menjadi hal yang sangat merepotkan bagi warna lain ataupun bawahan Anda. Harus diakui bahwa Anda bukanlah eksekutor lapangan yang baik. Hargai mereka yang telah mengerjakan tugasnya dan bekerjasamalah.</p><p><strong><strong>Ketika kelelahan, Anda bisa menjadi sangat kasar dan memiliki emosi yang tak terkontrol. </strong></strong>Jika Anda dalam situasi emosional yang kurang baik, minta maaflah dan katakanlah, “Saya rasa saya perlu istirahat.” Jangan berbicara pada siapapun hingga pikiran Anda lebih jernih. Hal ini akan menyelamatkan hubungan Anda dan rekan kerja Anda.</p>",
+      "prevContentRoute": "intp/bos-ideal",
+      "nextContentRoute": null,
+      "prevContentTitle": "Bos Ideal",
+      "nextContentTitle": null,
+      "minimumReadTime": 42
+    },
+    {
+      "_id": "enfj/kelebihan-alami",
+      "personalityId": "ENFJ",
+      "contentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Kurang lebih 80% dari atribut di bawah ini ada pada Anda. Periksalah kategori di bawah ini dan catatlah sebagai ringkasan kelebihan Anda. Kategori-kategori di bawah ini akan membedakan Anda dengan orang lain. Anda adalah orang yang:</p><ul><li>Membangkitkan gairah orang lain dengan ide berkualitas dan antusiasme yang tinggi.</li><li>Mengorganisir orang-orang dan sumberdaya dengan baik.</li><li>Membangun moral, loyalitas, dan produktifitas.</li><li>Menjadi penasihat yang baik untuk orang lain. Dengan cara memberi contoh yang baik, Anda meningkatkan nilai Anda pada perusahaan.</li><li>Membuat tim menjadi harmonis; menyelaraskan lingkungan kerja yang bermasalah.</li><li>Berpikir secara kreatif; melihat tren masa depan.</li><li>Berkomunikasi dengan cara yang mengesankan; menggunakan kata-kata dan penampilan yang bersemangat.</li></ul>",
+      "prevContentRoute": "enfj",
+      "nextContentRoute": "enfj/lingkungan-kerja-ideal",
+      "prevContentTitle": "Tentang The Mentor",
+      "nextContentTitle": "Lingkungan Kerja Ideal",
+      "minimumReadTime": 25
+    },
+    {
+      "_id": "enfj/lingkungan-kerja-ideal",
+      "personalityId": "ENFJ",
+      "contentTitle": "Lingkungan Kerja Ideal",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>The Mentor (ENFJ) cenderung berada di lingkungan di mana mereka dapat mengontrol produk atau layanan yang berkontribusi dalam menyejahterakan masyarakat. Hal tersebut adalah elemen kunci dari kepuasan kerja The Mentor.</p><p>Budaya kerja terburuk untuk seorang The Mentor adalah lingkungan yang tegang, terlalu kompetitif, dan sangat politis. Hal-hal lain yang mengganggunya yaitu lingkungan yang penuh rahasia, permainan kekuasaan atas produktifitas kerjanya, serta tidak adanya kesetaraan antara manajemen, staf, dan rekan kerja.</p><p>Perusahaan yang tidak sesuai dengan Anda adalah perusahaan yang mengeksploitasi karyawan dan pelanggan.</p><p>Ketika seorang The Mentor bekerja pada perusahaan yang memiliki kondisi tersebut, produktifitasnya akan terhambat dan pencapaian karir akan menjadi berat.</p><p>Bandingkan lingkungan kerja Anda dengan deskripsi di bawah ini. Periksalah apakah semua kriteria tersebut sesuai dengan lingkungan kerja Anda. Jangan menipu diri sendiri, hal ini diperlukan untuk menegaskan bahwa Anda telah berada di warna yang benar atau belum. Warna-warna lain, khususnya Gold [SJ], tidak akan menemukan lingkungan kerja yang produktif dan nyaman dengan kriteria di bawah ini. Lingkungan kerja yang optimal untuk The Mentor (ENFJ) adalah:</p><p><strong><strong>Lingkungan yang harmonis dengan orang-orang yang dapat dipercaya.</strong></strong> Fitnah dan kompetisi internal menyebabkan Anda sakit hati dan menganggap itu sebagai sesuatu yang tidak produktif.</p><p><strong><strong>Memiliki prinsip yang selaras dengan prinsip yang Anda miliki.</strong></strong> Hal tersebut bertujuan untuk memproduksi produk dan layanan yang berkontribusi terhadap kesejahteraan masyarakat.</p><p><strong><strong>Memanfaatkan kemampuan organisasi Anda yang bagus.</strong></strong> Peran Anda adalah mendekatkan rekan kerja Anda, berkomunikasi, dan mengembangkan kemampuan organisasi secara bersama.</p><p><strong><strong>Membolehkan Anda bertanggung jawab terhadap proyek Anda sendiri.</strong></strong> Anda melihat gambaran besar dan memiliki kemampuan untuk merangsang orang lain untuk melihat gambaran besar tersebut. Ketika Anda bekerja terlalu lama untuk proyek milik seseorang, akan timbul kendala yang membuat Anda frustasi dan hasrat yang tidak terpenuhi.</p><p><strong><strong>Menyediakan kesempatan untuk belajar hal-hal baru.</strong></strong> Anda bersemangat dengan pelatihan perusahaan atau pelatihan di luar sekolah. Dalam pekerjaan, Anda sangat bergairah dengan tugas publikasi produk atau layanan baru, belajar atau mengajarkan teknologi baru, merancang strategi promosi, atau dalam hal-hal yang berkaitan dengan pendidikan yang berkelanjutan.</p><blockquote>Sebuah perusahaan yang menggabungkan semua elemen di atas adalah lahan subur bagi kemajuan karir Anda.</blockquote>",
+      "prevContentRoute": "enfj/kelebihan-alami",
+      "nextContentRoute": "enfj/karir-yang-menarik",
+      "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "nextContentTitle": "Karir yang Menarik Bagi Anda",
+      "minimumReadTime": 84
+    },
+    {
+      "_id": "enfj/karir-yang-menarik",
+      "personalityId": "ENFJ",
+      "contentTitle": "Karir yang Menarik Bagi Anda",
+      "contentMainImage": "",
+      "contentBody":
+        "<div id=\"top-paragraph\"><p>Anda memiliki prinsip yang mendalam, peduli terhadap kebutuhan orang lain, dan menghargai organisasi. Harap dicermati bahwa tidak semua jenis karir yang disebutkan di sini menarik bagi Anda. Ambil jenis yang sesuai dengan Anda ataupun yang menarik bagi sebagian besar kelompok warna Anda. Daftar di bawah ini bukanlah daftar yang sangat lengkap, akan tetapi daftar di bawah ini akan menunjukkan gambaran dasar preferensi/pilihan Anda.</p><p>Jika Anda memiliki pilihan karir lain yang tidak disebutkan di sini namun menawarkan pola yang serupa, kesempatan Anda untuk sukses akan semakin bertambah. Soroti pilihan karir yang sesuai dengan karakteristik Anda untuk mewujudkan kesuksesan.</p></div><div id=\"career-type\"><h3><strong><strong>Seni / Komunikasi / Komputer / Promosi</strong></strong></h3><div id=\"career-list\"><ul><li>Manajer Promosi dan Pemasaran</li><li><em><em>Art Director </em></em>(orang yang bertanggung jawab terhadap tampilan visual majalah, koran, kemasan produk, film, atau televisi)</li><li>Seniman</li><li><em><em>Desktop Publisher </em></em>(membuat media cetak dengan keterampilan tata letak, tipografi, dan desain menggunakan aplikasi komputer)</li><li>Penerbit Buku</li><li>Direktur Komunikasi Perusahaan</li><li><em><em>Exhibit Designer </em></em>(orang yang mendesain tampilan acara untuk pameran, museum, galeri, atau pertunjukan)</li><li>Produser Film</li><li>Editor Film (menangani bagian kreatif dan teknis dalam proses pasca-produksi film)</li><li>Desainer Grafis</li><li>Desainer Interior</li><li>Manajer <em><em>Internet Marketing</em></em></li><li>Agen Sastra (bertindak sebagai perwakilan penulis dan perantara penulis dengan penerbit)</li><li><em><em>Multimedia Specialist </em></em>(ahli dalam mengkombinasikan suara, foto, animasi, video, dan grafis untuk melakukan presentasi multimedia)</li><li>Desainer Kostum</li><li>Penata Rias</li><li>Humas (Hubungan Masyarakat)</li><li>Produser Panggung</li><li>Produser Televisi</li><li>Editor <em><em>Website </em></em></li></ul><p>Anda cocok dengan perkerjaan yang banyak terlibat dengan media, membutuhkan kemampuan komunikasi, presentasi grafis, ataupun pengelolaan citra perusahaan.</p></div></div><div id=\"career-type\"><h3><strong><strong>Bisnis/Manajemen</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Account Executive </em></em>(seorang eksekutif bisnis yang mengelola kepentingan klien tertentu, biasanya dalam periklanan)</li><li><em><em>Sales Manager </em></em>(orang yang bertanggung jawab memimpin dan memberi arahan kepada tim <em><em>sales </em></em>di suatu organisasi)</li><li>Direktur Komunikasi Perusahaan</li><li>Manajer SDM (mengelola sumberdaya manusia)</li><li>Psikolog Industri</li><li><em><em>Marketing Specialist </em></em>(ahli dalam analisis dan riset pasar)</li><li>Konsultan Pengembangan Organisasi</li><li><em><em>Employment Interviewer </em></em>(perantara antara pencari kerja dan perusahaan)</li><li><em><em>Business Trainer</em></em></li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan kemampuan dalam hal membina hubungan perusahaan dengan kliennya, mengembangkan potensi rekan kerja, ataupun berkomunikasi dengan orang lain.</p></div></div><div id=\"career-type\"><h3><strong><strong>Pendidikan</strong></strong></h3><div id=\"career-list\"><ul><li>Administrator Pendidikan</li><li>Bimbingan Konseling</li><li>Koordinator Kurikulum Sekolah</li><li>Psikolog Pendidikan</li><li>Guru atau Dosen (untuk segala tingkat pendidikan—khususnya dalam bidang seni, drama, bahasa, humaniora, dan lain-lain)</li></ul><p>Anda cocok dengan pekerjaan yang bertujuan membantu orang lain untuk mencapai potensi terbaiknya.</p></div></div><div id=\"career-type\"><h3><strong><strong>Ilmu Kesehatan / Psikologi</strong></strong></h3><div id=\"career-list\"><ul><li>Praktisi Pengobatan Alternatif (misalnya akupuntur, aromaterapi, pengobatan herbal, pijat refleksi, dan lain-lain)</li><li>Psikolog Klinis atau Psikiater</li><li>Dokter Umum</li><li>Ajudan Kesehatan Rumah</li><li>Dokter Penyakit Dalam</li><li>Peneliti Medis</li><li>Dokter Mata</li><li>Dokter Anak</li><li>Asisten Dokter</li><li><em><em>Speech Pathologist </em></em>(menangani anak-anak yang mengalami gangguan dan keterlambatan untuk berbicara)</li></ul><p>Anda cocok dengan pekerjaan yang sejalan dengan prinsip pribadi Anda. Pekerjaan yang sebagian besar waktunya dicurahkan untuk menolong orang lain, atau memecahkan masalah dengan cara baru adalah kelebihan Anda.</p></div></div><div id=\"career-type\"><h3><strong><strong>Hukum</strong></strong></h3><div id=\"career-list\"><ul><li>Pengacara (khususnya di bidang: anak-anak, komunikasi dan media, masalah rumah tangga, lingkungan, hak kekayaan intelektual, dan kepemilikan harta)</li><li>Mediator</li></ul><p>Anda cocok dengan pekerjaan yang mencurahkan banyak perhatian pada pemahaman mengenai motivasi manusia.</p></div></div><div id=\"career-type\"><h3><strong><strong>Pelayanan Sosial</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Trainer </em></em>(khususnya di bidang bisnis, kehidupan)</li><li>Konsultan atau Konselor (khususnya di bidang: karir, kesejahteraan anak-anak, keaga­maan, penyalahgunaan obat-obatan)</li><li><em><em>Fundraiser </em></em>(menggalang dana untuk kegiatan sosial)</li><li>Direktur Filantropis (pemimpin dan pelaksana organisasi atau yayasan yang bergerak di bidang amal)</li><li>Pemuka Agama</li><li>Guru Agama</li><li><em><em>Senior Day Care Director</em></em>(direktur pelaksana di institusi penitipan untuk lansia)</li><li>Pekerja Sosial (bekerja sebagai profesional yang bertujuan memfasilitasi kesejahteraan seseorang, keluarga, komunitas, ataupun kelompok tertentu)</li><li>Manajer Pelayanan Sosial (manajer dalam kegiatan yang bersifat kesukarelawanan untuk membantu masyarakat)</li></ul><p>Anda cocok dengan jenis pekerjaan yang memerlukan kemampuan organisasi yang baik. Anda berbakat dalam menggunakan seluruh sumber daya yang ada untuk menolong orang lain yang membutuhkan.</p></div></div>",
+      "prevContentRoute": "enfj/lingkungan-kerja-ideal",
+      "nextContentRoute": "enfj/bos-ideal",
+      "prevContentTitle": "Lingkungan Kerja Ideal",
+      "nextContentTitle": "Bos Ideal",
+      "minimumReadTime": 147
+    },
+    {
+      "_id": "enfj/bos-ideal",
+      "personalityId": "ENFJ",
+      "contentTitle": "Bos Ideal",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Setiap pekerjaan hebat dapat mengecewakan jika dipimpin oleh bos yang tidak tepat. Sebaliknya, pekerjaan biasa-biasa saja di bawah bos yang cemerlang akan sangat sulit untuk ditinggalkan. The Mentor (ENFJ) dapat bekerja dengan baik dengan sesama Green. Namun bos dari warna lain yang mempunyai karakteristik untuk memaksimalkan potensi Green dapat pula menjadi seorang mentor yang baik.</p><p>Periksa hal-hal berikut ini, apakah bos Anda seperti yang tertulis di bawah ini:</p><ol><li>Berwawasan luas.</li><li>Menawarkan visi Anda untuk proyek, perusahaan atau karir Anda.</li><li>Memberikan feedback yang positif dan menekankan areanya yang sesuai dengan Anda.</li><li>Terorganisir dan berkomitmen sebagai panutan yang baik.</li><li>Berbagi kesamaan pemikiran untuk memperbaiki dunia.</li></ol>",
+      "prevContentRoute": "enfj/karir-yang-menarik",
+      "nextContentRoute": "enfj/tantangan-kepribadian",
+      "prevContentTitle": "Karir yang Menarik Bagi Anda",
+      "nextContentTitle": "Tantangan Kepribadian",
+      "minimumReadTime": 27
+    },
+    {
+      "_id": "enfj/tantangan-kepribadian",
+      "personalityId": "ENFJ",
+      "contentTitle": "Tantangan Kepribadian",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>The Mentor(ENFJ) memiliki beberapa kelemahan. Sebagian di antara Anda memiliki kekurangan ini, dan sebagian yang lain tidak. Umumnya Anda hanya memiliki beberapa kelemahan dari yang disebutkan di bawah ini. Temukan titik lemah Anda dan fokuslah untuk merubahnya, lalu gunakan cara yang lebih produktif untuk membuatnya menjadi kebiasaan.</p><p><strong><strong>Menghindari konflik dan konfrontasi.</strong></strong> Anda menganggap kritik dan konflik merupakan sesuatu yang menyinggung secara pribadi sehingga Anda melindungi diri dengan cara menghindarinya. Seharusnya, hadapilah! Kuatkanlah diri Anda dalam menghadapi konflik dengan latihan berulang-ulang.</p><p><strong><strong>Tidak memedulikan karyawan yang bekerja di bawah performa standar, serta teman-teman yang manipulatif.</strong></strong> Doronglah diri Anda agar lebih peduli terhadap hal tersebut. Ingat dan katakanlah pernyataan ini segera: “Saya lihat Anda bekerja di bawah harapan saya. Saya tidak ingin Anda berpikir kalau saya akan baik-baik saja tentang hal ini (performa di bawah standar/manipulatif) kedepannya.”</p><p><strong><strong>Terlalu sering membuat keputusan penting berdasarkan perasaan suka atau tidak suka,</strong></strong> serta kurang mendasarkan pada fakta, angka, dan penelitian. Pada keputusan penting selanjutnya, tuntun diri Anda seperti biasanya dengan perasaan suka dan tidak suka tadi. Lalu paksalah diri Anda untuk melakukan penelitian-penelitian, dengan penelitian kecil pun tak masalah. Kumpulkan beberapa fakta dan angka. Dan lihatlah apa yang terjadi ketika Anda mempertimbangkan masukan yang baru.</p><p><strong><strong>Kadang memaksa seseorang untuk mengikuti nilai moral yang Anda anut.</strong></strong> </p>",
+      "prevContentRoute": "enfj/bos-ideal",
+      "nextContentRoute": null,
+      "prevContentTitle": "Bos Ideal",
+      "nextContentTitle": null,
+      "minimumReadTime": 42
+    },
+    {
+      "_id": "infj/kelebihan-alami",
+      "personalityId": "INFJ",
+      "contentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Kurang lebih 80% dari atribut di bawah ini ada pada Anda. Periksalah kategori di bawah ini dan catatlah sebagai ringkasan kelebihan Anda. Kategori-kategori di bawah ini akan membedakan Anda dengan orang lain. Anda adalah orang yang:</p><ul><li>Seorang visioner. Anda mampu melihat tren ke depan dan mencapai potensi terbaik dari suatu situasi.</li><li>Pelatih dan mentor yang baik untuk orang lain, bagus dalam memberi <em><em>feedback </em></em>yang positif.</li><li>Mengorganisir proyek dengan baik dan memastikan proyek berjalan sesuai jadwal.</li><li>Mengenali orang yang tepat untuk tugas yang tepat.</li><li>Melihat cara-cara baru atau kreatif untuk menyelesaikan masalah dan mengemukakan solusi dengan jelas.</li></ul>",
+      "prevContentRoute": "infj",
+      "nextContentRoute": "infj/lingkungan-kerja-ideal",
+      "prevContentTitle": "Tentang The Counselor",
+      "nextContentTitle": "Lingkungan Kerja Ideal",
+      "minimumReadTime": 25
+    },
+    {
+      "_id": "infj/lingkungan-kerja-ideal",
+      "personalityId": "INFJ",
+      "contentTitle": "Lingkungan Kerja Ideal",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Lingkungan kerja ideal Anda adalah lingkungan yang memungkinkan Anda untuk berkontribusi dengan berbagai cara. Selain itu, Anda adalah orang yang fleksibel, penting bagi Anda untuk mencari lingkungan kerja yang fleksibel.</p><p>Budaya kerja terburuk bagi seorang The Counselor (INFJ) adalah lingkungan yang tegang, terlalu kompetitif, dan sangat politis. Di sini kreativitas dirusak, dan The Counselor akan menjadi sangat kritis dan defensif. The Counselor tidak tahan terhadap budaya kerja di mana produk dan pelayanan mengekploitasi karyawan dan pelanggan. Hasrat terdalam Anda adalah berkontribusi positif terhadap perbaikan dunia.</p><p>Keharusan untuk terlalu fokus pada detail atau terlalu hierarkis terhadap jabatan merupakan lingkungan kerja yang menghancurkan kreativitas dan produktifitas Anda.</p><p>Ketika seorang The Counselor bekerja pada perusahaan yang memiliki budaya tidak ideal tersebut, produktifitas akan terhambat dan pencapaian karir akan menjadi berat.</p><p>Bandingkan lingkungan kerja Anda dengan deskripsi di bawah ini. Periksalah apakah kriteria tersebut sesuai dengan lingkungan kerja Anda. Jangan menipu diri sendiri, hal ini diperlukan untuk menegaskan bahwa Anda telah berada di warna yang benar atau belum.</p><p>Warna-warna lain, khususnya Blue [NT], tidak akan menemukan lingkungan kerja yang produktif dan nyaman dengan kriteria di bawah tersebut. Lingkungan kerja yang optimal untuk seorang The Counselor (INFJ) adalah:</p><ul><li>Menghargai kesetaraan, dapat diprediksi, dan tertib.</li><li>Memiliki orang-orang yang dapat dipercaya.</li><li>Menghargai kreativitas.</li><li>Memiliki budaya dengan nilai-nilai yang kuat dan menanamkan nilai tersebut dalam pengembangan karyawan.</li><li>Menghasilkan produk dan pelayanan yang berkontribusi terhadap kesejahteraan masyarakat.</li><li>Memberi kesempatan untuk bekerja dengan aktivitas yang bervariasi.</li><li>Menawarkan sebuah kontrol dan tanggung jawab terhadap proyek Anda sendiri.</li><li>Menghargai kemampuan organisasi Anda yang unggul.</li><li>Tidak memaksakan pekerjaan tulis-menulis yang tidak berguna.</li><li>Menyediakan waktu untuk sendiri, berefleksi, dan ruangan kerja pribadi.</li></ul>",
+      "prevContentRoute": "infj/kelebihan-alami",
+      "nextContentRoute": "infj/karir-yang-menarik",
+      "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "nextContentTitle": "Karir yang Menarik Bagi Anda",
+      "minimumReadTime": 50
+    },
+    {
+      "_id": "infj/karir-yang-menarik",
+      "personalityId": "INFJ",
+      "contentTitle": "Karir yang Menarik Bagi Anda",
+      "contentMainImage": "",
+      "contentBody":
+        "<div id=\"top-paragraph\"><p>Anda paling tertarik dengan karir yang menghargai kreativitas atau membantu orang lain untuk berkembang. The Counselor (INFJ) bekerja dengan orang-orang yang dapat dipercaya. Bekerja sendiri atau dalam kelompok kecil adalah lingkungan ideal bagi Anda. Lingkungan yang menyediakan ruangan pribadi dan waktu tenang meningkatkan produktifitas Anda.</p><p>Harap dicermati bahwa tidak semua jenis karir yang disebutkan di sini menarik bagi Anda. Ambil jenis yang sesuai dengan Anda ataupun yang menarik bagi sebagian besar kelompok warna Anda. Daftar di bawah ini bukanlah daftar yang sangat lengkap, akan tetapi daftar di bawah ini akan menunjukkan gambaran dasar preferensi/pilihan Anda.</p><p>Jika Anda memiliki pilihan karir lain yang tidak disebutkan di sini namun menawarkan pola yang serupa, kesempatan Anda untuk sukses akan semakin bertambah. Soroti pilihan karir yang sesuai dengan karakteristik Anda untuk mewujudkan kesuksesan.</p></div><div id=\"career-type\"><h3><strong><strong>Seni / Komunikasi / Komputer</strong></strong></h3><div id=\"career-list\"><ul><li>Manajer Promosi dan Periklanan</li><li><em><em>Art Director </em></em>(orang yang bertanggung jawab terhadap tampilan visual majalah, koran, kemasan produk, film, ataupun televisi)</li><li>Seniman</li><li>Penerbit Buku</li><li><em><em>Desktop Publisher </em></em>(membuat media cetak dengan keterampilan tata letak, tipografi, dan desain menggunakan aplikasi komputer)</li><li><em><em>Exhibit Designer </em></em>(orang yang mendesain tampilan acara untuk pameran, museum, galeri, atau pertunjukan)</li><li>Editor Film (menangani bagian kreatif dan teknis dalam proses pasca-produksi film)</li><li>Desainer Grafis</li><li>Perancang Interior</li><li>Manajer<em><em>Internet Marketing </em></em></li><li><em><em>Customer Relationship Management</em></em>(mengelola interaksi perusahaan dengan konsumen. Seringkali menggunakan teknologi untuk mengatur, mengotomisasi, dan melayani konsumen)</li><li>Agen Sastra (bertindak sebagai perwakilan penulis dan menjadi perantara penulis dengan penerbit)</li><li><em><em>Multimedia Specialist </em></em>(ahli dalam mengkombinasikan suara, foto, animasi, video, dan grafis untuk melakukan presentasi multimedia)</li><li>Direktur atau Pengelola Museum</li><li>Komposer Musik</li><li>Penulis Novel</li><li>Direktur Humas (Hubungan Masyarakat)</li><li>Desainer Kostum</li><li>Penata Rias</li><li>Produser Televisi</li><li>Penerjemah</li><li>Editor <em><em>Website </em></em></li><li>Penulis</li><li>Dramawan</li><li>Jurnalis</li></ul><p>Anda cocok dengan pekerjaan yang banyak terlibat dengan media. Anda seringkali menikmati ketika dapat bekerja sendiri, serta sangat bersemangat ketika kreativitas dan kemampuan bahasa Anda dihargai.</p></div></div><div id=\"career-type\"><h3><strong><strong>Bisnis / Manajemen</strong></strong></h3><div id=\"career-list\"><ul><li>Direktur Komunikasi (mengelola komunikasi internal dan eksternal perusahaan, mengawasi pegawai humas, dan seringkali sebagai juru bicara perusahaan)</li><li>Konsultan Bidang Penjualan (memberi arahan dan ide-ide untuk penjualan)</li><li><em><em>Employment Interviewer </em></em>(perantara antara pencari kerja dan perusahaan)</li><li>Manajer SDM (mengelola sumber daya manusia)</li><li>Psikolog Industri</li><li><em><em>Job Analyst </em></em>(melakukan penelitian mendalam mengenai jenis-jenis dan deskripsi pekerjaan)</li><li>Pemasaran (membuat ide bagaimana cara memasarkan suatu produk atau jasa)</li><li>Konsultan Pengembang Organisasi</li><li><em><em>Business Trainer</em></em></li></ul><p>Anda cocok dengan pekerjaan membutuhkan kecakapan dan kepekaan untuk berhubungan dengan orang lain dan mengembangkan potensi mereka.</p></div></div><div id=\"career-type\"><h3><strong><strong>Pendidikan</strong></strong></h3><div id=\"career-list\"><ul><li>Administrator Pendidikan</li><li>Koordinator Kurikulum Sekolah</li><li>Pustakawan</li><li>Guru atau Dosen (semua tingkat pendidikan—khususnya bidang: seni, drama, bahasa, humaniora, dan ilmu sosial)</li><li>Profesor Universitas</li></ul><p>Anda cocok dengan pekerjaan yang memberi kesempatan untuk membantu orang lain mencapai potensi terbaik mereka.</p></div></div><div id=\"career-type\"><h3><strong><strong>Ilmu Kesehatan / Psikologi</strong></strong></h3><div id=\"career-list\"><ul><li>Praktisi Kesehatan Alternatif (misalnya akupuntur, aromaterapi, pengobatan herbal, pijat refleksi, dan lain-lain)</li><li>Psikolog Klinis atau Psikiater</li><li>Dokter Umum</li><li>Dokter Mata</li><li>Dokter Anak</li><li>Asisten Dokter</li><li><em><em>Speech Pathologist </em></em>(menangani anak-anak yang mengalami gangguan dan keterlambatan untuk berbicara)</li></ul><p>Anda cocok dengan pekerjaan yang sejalan dengan prinsip pribadi Anda. Pekerjaan yang sebagian besar waktunya dicurahkan untuk menolong orang lain, ataupun memecahkan masalah dengan cara-cara baru adalah kelebihan Anda.</p></div></div><div id=\"career-type\"><h3><strong><strong>Hukum</strong></strong></h3><div id=\"career-list\"><ul><li>Pengacara (khususnya di bidang: anak-anak, kepemilikan harta, komunikasi dan media, lingkungan, dan hak kekayaan intelektual)</li><li>Mediator</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan kemampuan berorganisasi dan memberikan kesempatan untuk membantu orang lain.</p></div></div><div id=\"career-type\"><h3><strong><strong>Pelayanan Sosial</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Bussiness Trainer </em></em>(khususnya dalam bidang bisnis, kehidupan)</li><li>Konsultan atau Konselor (khususnya di bidang: karir, kesejahteraan anak-anak, keagamaan, dan penyalahgunaan obat-obatan)</li><li><em><em>Fundraiser </em></em>(menggalang dana untuk kegiatan sosial)</li><li>Direktur Filantropis (pemimpin dan pelaksana organisasi/yayasan yang bergerak di bidang amal)</li><li>Pemuka Agama</li><li>Guru Agama</li><li><em><em>Senior Day Care Director</em></em>(direktur pelaksana di institusi peni­tipan untuk lansia)</li><li>Ilmuwan Sosial</li><li>Pekerja Sosial (bekerja sebagai profesional yang bertujuan memfasilitasi kesejahteraan seseorang, keluarga, komunitas, ataupun kelompok tertentu)</li><li>Manajer Pelayanan Sosial (manajer dalam kegiatan yang bersifat kesukarelawanan untuk membantu masyarakat)</li></ul><p>Anda cocok dengan jenis pekerjaan yang memerlukan kemampuan organisasi yang baik. Anda berbakat dalam memanfaatkan seluruh sumber daya yang ada untuk menolong orang lain yang membutuhkan.</p></div></div>",
+      "prevContentRoute": "infj/lingkungan-kerja-ideal",
+      "nextContentRoute": "infj/bos-ideal",
+      "prevContentTitle": "Lingkungan Kerja Ideal",
+      "nextContentTitle": "Bos Ideal",
+      "minimumReadTime": 147
+    },
+    {
+      "_id": "infj/bos-ideal",
+      "personalityId": "INFJ",
+      "contentTitle": "Bos Ideal",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Setiap pekerjaan hebat dapat mengecewakan jika dipimpin oleh bos yang tidak tepat. Sebaliknya, pekerjaan biasa-biasa saja di bawah bos yang cemerlang akan sangat sulit untuk ditinggalkan. The Counselor (INFJ) dapat bekerja dengan baik dengan sesama Green. Namun bos dari warna lain yang mempunyai karakteristik untuk memaksimalkan potensi Green dapat pula menjadi seorang mentor yang baik.</p><p>Periksa hal-hal berikut ini, apakah bos Anda seperti yang tertulis di bawah ini :</p><ol><li>Memiliki integritas yang tinggi.</li><li>Memiliki prinsip yang sama dengan Anda.</li><li>Membangun hubungan pribadi dengan Anda.</li><li>Membantu karyawan ketika menghadapi kendala.</li><li>Melindungi Anda dari politik di tempat kerja.</li></ol>",
+      "prevContentRoute": "infj/karir-yang-menarik",
+      "nextContentRoute": "infj/tantangan-kepribadian",
+      "prevContentTitle": "Karir yang Menarik Bagi Anda",
+      "nextContentTitle": "Tantangan Kepribadian",
+      "minimumReadTime": 27
+    },
+    {
+      "_id": "infj/tantangan-kepribadian",
+      "personalityId": "INFJ",
+      "contentTitle": "Tantangan Kepribadian",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>The Counselor (INFJ) memiliki beberapa kelemahan. Sebagian di antara Anda memiliki kekurangan ini, dan sebagian yang lain tidak. Umumnya Anda hanya memiliki beberapa kekurangan dari hal disebutkan di bawah ini. Temukan titik lemah Anda dan fokuslah untuk merubahnya, lalu gunakan cara yang lebih produktif untuk membuatnya menjadi kebiasaan.</p><p><strong><strong>Dapat menjadi terlalu idealis dan mengabaikan kepentingan utama.</strong></strong> Ada langkah praktis untuk membuat sebuah idealisme atau cita-cita menjadi nyata. Ada keuntungan dari kelemahan Anda yang satu ini, dimana mungkin idealisme Anda adalah sesuatu yang mahal dan unik. Konsultasikan pada Gold [SJ] mengenai prosesnya dan Blue [NT] mengenai hasilnya.</p><p><strong><strong>Tidak berbakat dalam berpolitik. </strong></strong>Temukan bos atau atasan lain yang dapat melindungi Anda dari politik kantor. Jika Anda terlibat, menolaklah untuk mengikutinya dan tinggalkan. Anehnya hal tersebut mungkin sering terjadi pada Anda.</p><p><strong><strong>Menghindari konflik, konfrontasi, dan masalah-masalah yang mendasar. </strong></strong>Hal ini membuat Anda lebih suka tidak mengungkapkan masalah Anda. Jangan menunggu sampai masalah tersebut menjadi besar. Akan lebih mudah mengatasi masalah tersebut ketika setiap orang masih dalam keadaan tenang.</p><p><strong><strong>Melebih-lebihkan atau menganggap kritik sebagai serangan terhadap diri Anda.</strong></strong> Anda melihat kritik sebagai suatu keretakan hubungan. Ketika Anda bertanya kepada teman yang mengkritik Anda dulu, apakah dia masih menyukai Anda atau tidak, Anda akan terkejut jika ternyata mereka menjawab, “tentu saja!” Cobalah untuk menjadi orang yang tahan kritik, hal itu akan mempermudah Anda.</p><p><strong><strong>Menetapkan tujuan secara tidak realistis.</strong></strong> Buatlah mimpi yang mungkin menggairahkan Anda beberapa tahun ke depan. Tetapi jangan ceritakan kepada Red [SP] tentang apa yang Anda lakukan sekarang. Jangan ceritakan kepada Gold [SJ] bagaimana pengelolaannya sekarang, dan jangan ceritakan kepada Blue [NT] bagaimana menyusun strategi untuk perjalanan ke sana. Tanyakanlah pada mereka “Apa yang akan saya lakukan untuk mencapai impian saya nanti?” Maka Anda akan mendapat lebih banyak masukan untuk rencana lima tahun ke depan.</p>",
+      "prevContentRoute": "infj/bos-ideal",
+      "nextContentRoute": null,
+      "prevContentTitle": "Bos Ideal",
+      "nextContentTitle": null,
+      "minimumReadTime": 42
+    },
+    {
+      "_id": "enfp/kelebihan-alami",
+      "personalityId": "ENFP",
+      "contentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Kurang lebih 80% dari atribut di bawah ini ada pada Anda. Periksalah kategori di bawah ini dan catatlah sebagai ringkasan kelebihan Anda. Kategori-kategori di bawah ini akan membedakan Anda dengan orang lain. Anda adalah orang yang:</p><ul><li>Dapat menginspirasi orang lain.</li><li>Mengekspresikan diri pada hal-hal yang menarik bagi Anda dengan cara yang beragam.</li><li>Memiliki ide jauh ke depan dan dapat memprediksi tren masa depan dengan mencari berbagai hubungan dari ide-ide yang luar biasa.</li><li>Mampu membangun koneksi dengan cepat.</li><li>Membangun tim yang loyal dan efektif dengan cara menghargai perbedaan pendapat di dalam tim.</li><li>Membangun jaringan dengan baik lewat organisasi.</li><li>Fleksibel, baik hati dan mampu merangkul orang lain.</li></ul>",
+      "prevContentRoute": "enfp",
+      "nextContentRoute": "enfp/lingkungan-kerja-ideal",
+      "prevContentTitle": "Tentang The Champion",
+      "nextContentTitle": "Lingkungan Kerja Ideal",
+      "minimumReadTime": 25
+    },
+    {
+      "_id": "enfp/lingkungan-kerja-ideal",
+      "personalityId": "ENFP",
+      "contentTitle": "Lingkungan Kerja Ideal",
+      "contentMainImage":
+        "<div id=\"top-paragraph\"><p>Anda paling tertarik dengan karir yang menghargai kreativitas dan kepawaian Anda di berbagai bidang. Anda juga tertarik dengan karir yang dapat membantu dan mengembangkan orang lain.</p><p>Harap dicatat bahwa tidak semua jenis karir yang disebutkan di sini menarik bagi Anda, ambil kekuatan yang sesuai dengan gaya Anda ataupun yang menarik bagi sejumlah besar kelompok warna Anda. Daftar di bawah ini tidaklah sangat lengkap, akan tetapi daftar ini akan menunjukkan gambaran dasar preferensi/pilihan Anda.</p><p>Jika pilihan karir Anda tidak terdaftar di daftar ini namun menawarkan pola yang serupa, kesempatan Anda untuk sukses akan semakin bertambah. Salinlah dan cermati pilihan karir yang sesuai dengan karakteristik Anda untuk mewujudkan kesuksesan Anda.</p></div><div id=\"career-type\"><h3><strong><strong>Seni / Desain</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Art Director </em></em>(orang yang bertanggung jawab terhadap tampilan visual majalah, koran, kemasan produk, film, atau televisi)</li><li><em><em>Creative Director Multimedia Team </em></em>(memberikan arahan konsep kreatif—biasanya ditemukan dalam bidang industri yang bersentuhan dengan desain grafis, musik, film, periklanan, media, fashion, dan hiburan)</li><li><em><em>Desktop Publisher </em></em>(membuat media cetak dengan keterampilan tata letak, tipografi, dan desain menggunakan aplikasi komputer)</li><li>Desainer (khususnya sebagai desainer interior, penata rias, dan desainer pakaian)</li><li>Perupa (profesi yang menggunakan seluruh potensi dan pengetahuan yang dimiliki ke dalam seni rupa)</li><li>Desainer Grafis</li><li>Seniman</li><li><em><em>Landscape Designer </em></em>(bidang desain yang mempelajari pengaturan ruang di alam terbuka)</li><li><em><em>Multimedia Specialist </em></em>(ahli dalam mengkombinasikan suara, foto, animasi, video, dan grafis untuk presentasi multimedia)</li><li><em><em>Web Designer</em></em>(bertanggung jawab pada aspek visual sebuah website yang meliputi, tata letak, pewarnaan, dan tipografi)</li></ul><p>Anda cocok dengan pekerjaan yang memberikan apresiasi terhadap keunikan dan orisinalitas.</p></div></div><div id=\"career-type\"><h3><strong><strong>Komunikasi / Hiburan / Media</strong></strong></h3><div id=\"career-list\"><ul><li>Aktor atau Artis</li><li>Manajer Aktor/Artis</li><li>Agen Aktor/Artis</li><li>Kolomnis (orang yang rutin menulis untuk koran atau majalah)</li><li>Editor (khususnya editor buku dan film)</li><li>Produser Film (mengatur semua aspek dari produksi film, seperti memilih naskah, memberikan arahan, menyusun skenario, sampai menyusun perencanaan keuangan)</li><li>Jurnalis</li><li>Agen Sastra (bertindak sebagai perwakilan penulis dan perantara penulis dengan penerbit)</li><li>Model</li><li>Motivator</li><li>Dramawan</li><li>Penulis Skenario</li><li>Penerjemah</li><li>Pembawa Acara Televisi</li></ul><p>Anda cocok dengan pekerjaan yang memerlukan kemampuan komunikasi verbal dan tertulis yang baik. Serta pekerjaan yang menyediakan banyak variasi dari satu proyek ke proyek lainnya.</p></div></div><div id=\"career-type\"><h3><strong><strong>Bisnis / Komunikasi / SDM</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Account Executive </em></em>(eksekutif bisnis yang mengelola kepentingan klien tertentu, biasanya dalam periklanan)</li><li>Konsultan Bidang Penjualan (memberi arahan dan ide-ide untuk penjualan)</li><li>Direktur Komunikasi Perusahaan</li><li><em><em>Corporate Trainer </em></em>(orang yang mengadakan pelatihan untuk karyawan perusahaan)</li><li><em><em>Employment Interviewer </em></em>(perantara antara pencari kerja dan perusahaan)</li><li><em><em>Human Resource Specialist </em></em>(bertugas melakukan wawancara dan merekrut pekerja yang sesuai dengan bidangnya. Mereka biasanya juga bertugas untuk mengatur hubungan, kompensasi, tunjangan, dan pelatihan untuk karyawan)</li><li>Psikolog Industri</li><li>Konsultan Pengembangan Organisasi</li></ul><p>Anda cocok dengan jenis pekerjaan yang membutuhkan kemampuan dalam membangun sebuah hubungan dan menjadi mediator yang baik. Selain itu, Anda juga cocok untuk pekerjaan yang memerlukan kemampuan komunikasi lisan dan tertulis.</p></div></div><div id=\"career-type\"><h3><strong><strong>Pendidikan</strong></strong></h3><div id=\"career-list\"><ul><li>Konsultan Pendidikan</li><li>Bimbingan Konseling</li><li>Koordinator Kurikulum Sekolah</li><li>Guru atau Dosen (semua tingkat pendidikan—khususnya di bidang: seni, drama, musik, dan pendidikan luar biasa)</li></ul><p>Anda cocok dengan pekerjaan yang memungkinkan Anda untuk berhubungan dengan banyak orang.</p></div></div><div id=\"career-type\"><h3><strong><strong>Ilmu Kesehatan / Psikologi</strong></strong></h3><div id=\"career-list\"><ul><li>Penata Diet</li><li>Dokter Keluarga</li><li>Perawat</li><li>Dokter Anak</li><li>Psikolog (segala jenis psikolog)</li><li><em><em>Public Health Educator</em></em>(melakukan penyuluhan dan mempromosikan gaya hidup sehat ke masyarakat)</li><li>Ahli Terapi (misalnya terapi fisik, terapi berbicara, pijat, dan lain-lain)</li></ul><p>Anda cocok dengan jenis pekerjaan yang membutuhkan empati untuk membantu orang lain.</p></div></div><div id=\"career-type\"><h3><strong><strong>Hukum / Pelayanan Masyarakat</strong></strong></h3><div id=\"career-list\"><ul><li>Konsultan atau Konselor (segala jenis konselor—khususnya di bidang: karir, bimbingan konseling, penyalahgunaan obat-obatan, dan lain-lain)</li><li><em><em>Fundraiser </em></em>(menggalang dana untuk kegiatan sosial)</li><li>Pengacara (khususnya di bidang: hak kekayaan intelektual, lingkungan, non-profit)</li><li>Mediator Hukum (sebagai pihak ketiga yang netral yang membantu proses perundingan guna mencari berbagai kemungkinan penyelesaian)</li><li>Konsultan Filantropis (menjadi penasehat atau konsultan di lembaga yang bergerak di bidang amal)</li><li>Pemuka Agama</li><li>Psikolog Sekolah</li><li>Ilmuwan Sosial</li><li>Pekerja Sosial (bekerja sebagai profesional yang bertujuan memfasilitasi kesejahteraan seseorang, keluarga, komunitas, ataupun kelompok tertentu)</li></ul><p>Anda cocok dengan jenis pekerjaan yang membutuhkan kemampuan untuk memahami motivasi manusia, membangun sebuah hubungan, dan kesempatan untuk menyejahterakan orang lain.</p></div></div><div id=\"career-type\"><h3><strong><strong>Pemasaran / Hubungan Masyarakat</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Advertising Account Executive/Manager</em></em>(membantu mengarahkan klien untuk mengemas produk semenarik mungkin)</li><li><em><em>Advertising Creative Director </em></em>(memberikan arahan branding pada suatu produk dalam bentuk promosi pada kliennya secara profesional)</li><li>Konsultan/Ahli Pemasaran</li><li>Wartawan</li><li>Penulis Iklan</li><li>Direktur atau Ahli Humas (hubungan masyarakat)</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan kemampuan untuk memahami motivasi manusia dan bagaimana cara menempatkan suatu produk/jasa ke dalam pasar.</p></div></div>",
+      "contentBody":
+        "<p>Lingkungan kerja yang ideal bagi The Champion (ENFP) adalah yang memungkinkan untuk membantu orang lain. Dimanapun mereka bekerja, jika terdapat nilai kesejahteraan manusia, mereka akan bahagia. The Champion sangat membutuhkan kreativitas dan ide-ide yang cemerlang di dunia yang serba cepat berubah.</p><p>Budaya kerja terburuk bagi seorang The Champion adalah yang menekankan rutinitas dan detail, seperti pekerjaan tulis-menulis dokumen dan tugas-tugas seperti pembukuan/akuntansi.</p><p>Peraturan dan prosedur ketat yang tidak bisa dilanggar menjadi hambatan bagi seorang The Champion. Atmosfer politik yang tinggi juga menghancurkan kreativitas The Champion, karena kepercayaan penting bagi The Champion untuk dapat berkontribusi secara maksimal.</p><p>Ketika seorang The Champion bekerja pada perusahaan dengan budaya kerja tidak ideal tersebut, produktifitas akan terhambat dan pencapaian karir akan menjadi berat.</p><p>Bandingkan lingkungan kerja Anda dengan deskripsi di bawah ini. Periksalah semua kriteria tersebut, apakah sesuai dengan lingkungan kerja Anda. Jangan menipu diri sendiri, hal ini perlu untuk menegaskan bahwa Anda telah berada di warna yang benar atau belum.</p><p>Warna-warna lain, khususnya Gold [SJ], tidak akan merasa nyaman dengan lingkungan kerja seperti di bawah ini. Lingkungan kerja yang optimal untuk seorang The Champion (ENFP) adalah:</p><p><strong><strong>Demokratis dan informal. </strong></strong>Menurut Anda, jabatan kurang penting jika dibandingkan dengan ide dan kontribusi yang dapat Anda berikan.</p><p><strong><strong>Mendorong kreativitas dan ide.</strong></strong> Anda lebih suka dihargai atas bakat alami Anda daripada dilabeli dengan sebutan “orang dengan jiwa bebas” atau “orang yang nyeleneh”.</p><p><strong><strong>Membebaskan Anda untuk bekerja dengan kecepatan Anda sendiri dalam menjelajahi ide-ide baru.</strong></strong> Semakin Anda dikontrol, semakin kecil produktifitas Anda.</p><p><strong><strong>Lincah, bersemangat, dan bergerak cepat. </strong></strong>Anda sangat bersemangat dengan hal-hal baru.</p><p><strong><strong>Menghargai humor dan lelucon.</strong></strong> Tertawa adalah hal yang baik dan menenangkan Anda. Humor membuat Anda ingin berkontribusi lebih.</p><p><strong><strong>Memprioritaskan kesejahteraan klien dan karyawan.</strong></strong> Perusahaan yang tidak menghargai sisi kemanusiaan akan membuat Anda tertekan dan tidak berkontribusi secara produktif.</p><p><strong><strong>Menawarkan variasi dan perubahan.</strong></strong> Anda tidak dapat menjalani pekerjaan rutin dengan baik karena hal tersebut bukanlah sifat dasar Anda.</p><p><strong><strong>Fokus pada tahap memulai daripada tahap pemeliharaan/administrasi.</strong></strong> Anda akan menemukan cara-cara yang cerdik untuk melepaskan diri dari detail-detail administratif.</p><p><strong><strong>Membina kerjasama dan kepercayaan. </strong></strong>Politik kantor menguras banyak energi Anda padahal Anda membutuhkannya untuk menyelesaikan tugas yang sedang Anda kerjakan. Anda tidak mempunyai kesabaran terhadap hal tersebut.</p><p><strong><strong>Memberikan pelatihan dan kesempatan pengembangan diri yang baik.</strong></strong> Penyempurnaan bakat adalah hobi dan tujuan hidup Anda.</p>",
+      "prevContentRoute": "enfp/kelebihan-alami",
+      "nextContentRoute": "enfp/karir-yang-menarik",
+      "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "nextContentTitle": "Karir yang Menarik Bagi Anda",
+      "minimumReadTime": 84
+    },
+    {
+      "_id": "enfp/karir-yang-menarik",
+      "personalityId": "ENFP",
+      "contentTitle": "Karir yang Menarik Bagi Anda",
+      "contentMainImage": "",
+      "contentBody":
+        "<div id=\"top-paragraph\"><p>Anda paling tertarik dengan karir yang menghargai kreativitas dan kepawaian Anda di berbagai bidang. Anda juga tertarik dengan karir yang dapat membantu dan mengembangkan orang lain.</p><p>Harap dicatat bahwa tidak semua jenis karir yang disebutkan di sini menarik bagi Anda, ambil kekuatan yang sesuai dengan gaya Anda ataupun yang menarik bagi sejumlah besar kelompok warna Anda. Daftar di bawah ini tidaklah sangat lengkap, akan tetapi daftar ini akan menunjukkan gambaran dasar preferensi/pilihan Anda.</p><p>Jika pilihan karir Anda tidak terdaftar di daftar ini namun menawarkan pola yang serupa, kesempatan Anda untuk sukses akan semakin bertambah. Salinlah dan cermati pilihan karir yang sesuai dengan karakteristik Anda untuk mewujudkan kesuksesan Anda.</p></div><div id=\"career-type\"><h3><strong><strong>Seni / Desain</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Art Director </em></em>(orang yang bertanggung jawab terhadap tampilan visual majalah, koran, kemasan produk, film, atau televisi)</li><li><em><em>Creative Director Multimedia Team </em></em>(memberikan arahan konsep kreatif—biasanya ditemukan dalam bidang industri yang bersentuhan dengan desain grafis, musik, film, periklanan, media, fashion, dan hiburan)</li><li><em><em>Desktop Publisher </em></em>(membuat media cetak dengan keterampilan tata letak, tipografi, dan desain menggunakan aplikasi komputer)</li><li>Desainer (khususnya sebagai desainer interior, penata rias, dan desainer pakaian)</li><li>Perupa (profesi yang menggunakan seluruh potensi dan pengetahuan yang dimiliki ke dalam seni rupa)</li><li>Desainer Grafis</li><li>Seniman</li><li><em><em>Landscape Designer </em></em>(bidang desain yang mempelajari pengaturan ruang di alam terbuka)</li><li><em><em>Multimedia Specialist </em></em>(ahli dalam mengkombinasikan suara, foto, animasi, video, dan grafis untuk presentasi multimedia)</li><li><em><em>Web Designer</em></em>(bertanggung jawab pada aspek visual sebuah website yang meliputi, tata letak, pewarnaan, dan tipografi)</li></ul><p>Anda cocok dengan pekerjaan yang memberikan apresiasi terhadap keunikan dan orisinalitas.</p></div></div><div id=\"career-type\"><h3><strong><strong>Komunikasi / Hiburan / Media</strong></strong></h3><div id=\"career-list\"><ul><li>Aktor atau Artis</li><li>Manajer Aktor/Artis</li><li>Agen Aktor/Artis</li><li>Kolomnis (orang yang rutin menulis untuk koran atau majalah)</li><li>Editor (khususnya editor buku dan film)</li><li>Produser Film (mengatur semua aspek dari produksi film, seperti memilih naskah, memberikan arahan, menyusun skenario, sampai menyusun perencanaan keuangan)</li><li>Jurnalis</li><li>Agen Sastra (bertindak sebagai perwakilan penulis dan perantara penulis dengan penerbit)</li><li>Model</li><li>Motivator</li><li>Dramawan</li><li>Penulis Skenario</li><li>Penerjemah</li><li>Pembawa Acara Televisi</li></ul><p>Anda cocok dengan pekerjaan yang memerlukan kemampuan komunikasi verbal dan tertulis yang baik. Serta pekerjaan yang menyediakan banyak variasi dari satu proyek ke proyek lainnya.</p></div></div><div id=\"career-type\"><h3><strong><strong>Bisnis / Komunikasi / SDM</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Account Executive </em></em>(eksekutif bisnis yang mengelola kepentingan klien tertentu, biasanya dalam periklanan)</li><li>Konsultan Bidang Penjualan (memberi arahan dan ide-ide untuk penjualan)</li><li>Direktur Komunikasi Perusahaan</li><li><em><em>Corporate Trainer </em></em>(orang yang mengadakan pelatihan untuk karyawan perusahaan)</li><li><em><em>Employment Interviewer </em></em>(perantara antara pencari kerja dan perusahaan)</li><li><em><em>Human Resource Specialist </em></em>(bertugas melakukan wawancara dan merekrut pekerja yang sesuai dengan bidangnya. Mereka biasanya juga bertugas untuk mengatur hubungan, kompensasi, tunjangan, dan pelatihan untuk karyawan)</li><li>Psikolog Industri</li><li>Konsultan Pengembangan Organisasi</li></ul><p>Anda cocok dengan jenis pekerjaan yang membutuhkan kemampuan dalam membangun sebuah hubungan dan menjadi mediator yang baik. Selain itu, Anda juga cocok untuk pekerjaan yang memerlukan kemampuan komunikasi lisan dan tertulis.</p></div></div><div id=\"career-type\"><h3><strong><strong>Pendidikan</strong></strong></h3><div id=\"career-list\"><ul><li>Konsultan Pendidikan</li><li>Bimbingan Konseling</li><li>Koordinator Kurikulum Sekolah</li><li>Guru atau Dosen (semua tingkat pendidikan—khususnya di bidang: seni, drama, musik, dan pendidikan luar biasa)</li></ul><p>Anda cocok dengan pekerjaan yang memungkinkan Anda untuk berhubungan dengan banyak orang.</p></div></div><div id=\"career-type\"><h3><strong><strong>Ilmu Kesehatan / Psikologi</strong></strong></h3><div id=\"career-list\"><ul><li>Penata Diet</li><li>Dokter Keluarga</li><li>Perawat</li><li>Dokter Anak</li><li>Psikolog (segala jenis psikolog)</li><li><em><em>Public Health Educator</em></em>(melakukan penyuluhan dan mempromosikan gaya hidup sehat ke masyarakat)</li><li>Ahli Terapi (misalnya terapi fisik, terapi berbicara, pijat, dan lain-lain)</li></ul><p>Anda cocok dengan jenis pekerjaan yang membutuhkan empati untuk membantu orang lain.</p></div></div><div id=\"career-type\"><h3><strong><strong>Hukum / Pelayanan Masyarakat</strong></strong></h3><div id=\"career-list\"><ul><li>Konsultan atau Konselor (segala jenis konselor—khususnya di bidang: karir, bimbingan konseling, penyalahgunaan obat-obatan, dan lain-lain)</li><li><em><em>Fundraiser </em></em>(menggalang dana untuk kegiatan sosial)</li><li>Pengacara (khususnya di bidang: hak kekayaan intelektual, lingkungan, non-profit)</li><li>Mediator Hukum (sebagai pihak ketiga yang netral yang membantu proses perundingan guna mencari berbagai kemungkinan penyelesaian)</li><li>Konsultan Filantropis (menjadi penasehat atau konsultan di lembaga yang bergerak di bidang amal)</li><li>Pemuka Agama</li><li>Psikolog Sekolah</li><li>Ilmuwan Sosial</li><li>Pekerja Sosial (bekerja sebagai profesional yang bertujuan memfasilitasi kesejahteraan seseorang, keluarga, komunitas, ataupun kelompok tertentu)</li></ul><p>Anda cocok dengan jenis pekerjaan yang membutuhkan kemampuan untuk memahami motivasi manusia, membangun sebuah hubungan, dan kesempatan untuk menyejahterakan orang lain.</p></div></div><div id=\"career-type\"><h3><strong><strong>Pemasaran / Hubungan Masyarakat</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Advertising Account Executive/Manager</em></em>(membantu mengarahkan klien untuk mengemas produk semenarik mungkin)</li><li><em><em>Advertising Creative Director </em></em>(memberikan arahan branding pada suatu produk dalam bentuk promosi pada kliennya secara profesional)</li><li>Konsultan/Ahli Pemasaran</li><li>Wartawan</li><li>Penulis Iklan</li><li>Direktur atau Ahli Humas (hubungan masyarakat)</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan kemampuan untuk memahami motivasi manusia dan bagaimana cara menempatkan suatu produk/jasa ke dalam pasar.</p></div></div>",
+      "prevContentRoute": "enfp/lingkungan-kerja-ideal",
+      "nextContentRoute": "enfp/bos-ideal",
+      "prevContentTitle": "Lingkungan Kerja Ideal",
+      "nextContentTitle": "Bos Ideal",
+      "minimumReadTime": 147
+    },
+    {
+      "_id": "enfp/bos-ideal",
+      "personalityId": "ENFP",
+      "contentTitle": "Bos Ideal",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Setiap pekerjaan hebat akan mengecewakan jika dipimpin bos yang tidak tepat. Sebaliknya pekerjaan biasa-biasa saja namun di bawah pimpinan bos yang gemilang akan sangat sulit untuk ditinggalkan. The Champion (ENFP) dapat bekerja dengan baik dengan sesama Green. Namun bos dengan warna lain yang menekankan karakteristik yang dipunyai untuk memaksimalkan potensi Green dapat pula menjadi seorang mentor yang baik.</p><p>Periksa hal-hal berikut ini, apakah bos Anda seperti yang tertulis di bawah ini :</p><ol><li>Fleksibel.</li><li>Menghargai orisinalitas ide dan energi Anda.</li><li>Memiliki selera humor.</li><li>Membangun keakraban dengan Anda.</li><li>Menyukai <em><em>brainstorming </em></em>untuk ide-ide baru dan mengeksplorasi bidang baru.</li><li>Sering memberikan <em><em>feedback </em></em>yang positif.</li><li>Tidak terlalu mengontrol Anda.</li></ol>",
+      "prevContentRoute": "enfp/karir-yang-menarik",
+      "nextContentRoute": "enfp/tantangan-kepribadian",
+      "prevContentTitle": "Karir yang Menarik Bagi Anda",
+      "nextContentTitle": "Tantangan Kepribadian",
+      "minimumReadTime": 27
+    },
+    {
+      "_id": "enfp/tantangan-kepribadian",
+      "personalityId": "ENFP",
+      "contentTitle": "Tantangan Kepribadian",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>The Champion (ENFP) memiliki beberapa kelemahan. Sebagian di antara Anda memiliki kekurangan ini, dan sebagian yang lain tidak. Umumnya Anda hanya memiliki beberapa kekurangan dari hal yang disebutkan di bawah ini. Temukan titik lemah Anda dan fokuslah untuk merubahnya, lalu gunakan cara yang lebih produktif untuk membuatnya menjadi kebiasaan.</p><p><strong><strong>Seringkali menyepelekan dan melanggar aturan.</strong></strong> Anda menganggap peraturan adalah hambatan dari kreativitas. Cobalah untuk memahami kekhawatiran orang yang membuat peraturan. Ingatlah bahwa kreativitas dan ide orisinal Anda tetap dapat sejalan dengan peraturan.</p><p><strong><strong>Dapat menjadi terlalu banyak bicara dan sering menyimpang dari poin yang didiskusikan.</strong></strong> Anda berpikir secara holistik/menyeluruh, dimana semua topik dapat dibicarakan secara relevan tanpa harus membahasnya secara runtut. Cobalah untuk memahami orang lain yang berpikir secara terstruktur dan bingung ketika topik tidak dibahas secara runtut.</p><p><strong><strong>Terlalu sensitif terhadap kritik.</strong></strong> Karena sebuah hubu­ngan adalah prioritas yang sangat penting, maka kritikan Anda anggap seperti ungkapan sakit hati, padahal orang yang mengkritik tidak bermaksud demikian. Cobalah untuk bertanya apakah mereka masih menyukai Anda. Kebanyakan dari mereka akan mengatakan masih, dan kritik tersebut adalah untuk kebaikan Anda.</p><p><strong><strong>Menghindari konflik dan seringkali membiarkan masalah mengambang.</strong></strong> Cobalah untuk menyadari bahwa konflik pada akhirnya akan menguatkan sebuah hubungan. Jika Anda seorang The Champion yang masih muda, akan sangat sulit untuk mempelajari hal tersebut. Cobalah untuk menjadi orang yang kuat dan tahan dalam menghadapi konflik, hal itu akan sangat membantu Anda berhubungan dengan orang lain.</p><p><strong><strong>Bersemangat dengan proyek baru dan seringkali tidak menyelesaikan proyek yang lama.</strong></strong> Semua proyek tidak akan selamanya baru, kelak mereka akan menjadi proyek lama. Selesaikanlah terlebih dahulu, atau limpahkanlah tugas Anda dalam proyek tersebut ke orang lain, sehingga Anda memiliki energi dan bebas untuk mengerjakan proyek baru.</p><p><strong><strong>Seringkali tidak memedulikan fakta dan kenyataan yang ada di lapangan.</strong></strong> Intuisi seringkali menuntun Anda pada tempat dan waktu yang tepat. Keputusan yang didasarkan pada fakta seringkali menyebabkan Anda tersesat. Mulailah untuk menggunakan intuisi Anda, lalu buktikan bahwa Anda benar. Orang lain mungkin membutuhkan fakta-fakta dan akan menolak ide Anda jika memang ide Anda salah.</p>",
+      "prevContentRoute": "enfp/bos-ideal",
+      "nextContentRoute": null,
+      "prevContentTitle": "Bos Ideal",
+      "nextContentTitle": null,
+      "minimumReadTime": 42
+    },
+    {
+      "_id": "infp/kelebihan-alami",
+      "personalityId": "INFP",
+      "contentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Kurang lebih 80% dari atribut di bawah ini ada pada Anda. Periksalah kategori di bawah ini dan catatlah sebagai ringkasan kelebihan Anda. Kategori-kategori di bawah ini akan membedakan Anda dengan orang lain. Anda adalah orang yang:</p><ul><li>Suka mencari kemungkinan baru, mengatasi masalah dengan cara-cara yang kreatif.</li><li>Mendukung pengembangan diri orang lain.</li><li>Memahami bagaimana keadaan emosional dapat mempengaruhi produktifitas.</li><li>Dapat berkonsentrasi dan bekerja sendirian untuk waktu yang lama.</li><li>Dapat bekerja tanpa banyak pengawasan.</li></ul>",
+      "prevContentRoute": "infp",
+      "nextContentRoute": "infp/lingkungan-kerja-ideal",
+      "prevContentTitle": "Tentang The Dreamer",
+      "nextContentTitle": "Lingkungan Kerja Ideal",
+      "minimumReadTime": 25
+    },
+    {
+      "_id": "infp/lingkungan-kerja-ideal",
+      "personalityId": "INFP",
+      "contentTitle": "Lingkungan Kerja Ideal",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>The Dreamer (INFP) dapat mencapai performa kerja terbaik ketika tidak dibombardir oleh tugas dan tuntutan pekerjaan. Mereka bekerja dengan baik di rumah dengan menggunakan internet, email, maupun telepon. Mereka membutuhkan waktu untuk berefleksi/merenung dan mengatur lingkungan rumah.</p><p>Lingkungan kerja terburuk bagi The Dreamer adalah lingkungan yang sangat menekankan rutinitas dan detail. Atmosfer politik yang tinggi dan konflik kepentingan akan menghancurkan kebebasan berkreasi dan kepercayaan yang penting bagi The Dreamer untuk dapat berkembang. Selain itu, d<em><em>eadline </em></em>yang ketat juga memberikan tekanan yang merusak motivasi mereka dalam bekerja.</p><p>Ketika seorang The Dreamer bekerja pada perusahaan yang memiliki budaya dengan kondisi tersebut, produktifitas akan terhambat dan pencapaian karir akan menjadi berat.</p><p>Bandingkan lingkungan kerja Anda dengan deskripsi di bawah ini. Periksalah apakah kriteria tersebut sesuai dengan lingkungan kerja Anda. Jangan menipu diri sendiri, hal ini diperlukan untuk menegaskan bahwa Anda telah berada di warna yang tepat atau belum.</p><p>Warna-warna lain, khususnya Gold [SJ], tidak akan merasa nyaman dengan lingkungan kerja seperti di bawah ini. Lingkungan kerja yang optimal untuk seorang The Dreamer (INFP) adalah:</p><p><strong><strong>Mendukung karir dan harmonis lingkungannya.</strong></strong> Menjalin kerjasama dan kepercayaan. Pengkhianatan, konfrontasi, dan gosip yang tidak benar sangat mengganggu dan mengalihkan perhatian Anda dari pekerjaan</p><p><strong><strong>Demokratis dan informal. </strong></strong>Anda bekerja dengan performa terbaik ketika memiliki peraturan, pekerjaan tulis menulis dokumen, dan pengawasan yang minimum. Status dan pangkat bukanlah hal utama bagi Anda. Anda menganggap hal tersebut sebagai sesuatu yang bisa menyesuaikan.</p><p><strong><strong>Mendorong kreativitas dan ide Anda.</strong></strong></p><p><strong><strong>Mengenali kebutuhan individu baik karyawan maupun klien. </strong></strong>Perusahaan yang mendorong keseimbangan antara pekerjaan dengan kehidupan pribadi dan memberikan pelayanan tingkat tinggi terhadap konsumen adalah lingkungan impian Anda.</p><p><strong><strong>Sejalan dengan prinsip pribadi.</strong></strong> Perusahaan yang mengganggu prinsip Anda, akan segera Anda tinggalkan. Anda tidak mentolerir hal tersebut.</p><p><strong><strong>Menyediakan ruang pribadi.</strong></strong> Sebagai seorang introvert, energi Anda terkuras ketika banyak berurusan dengan orang lain secara intens, meskipun kemampuan Anda dalam menangani orang terbilang luar biasa. Anda mengisi ulang energi dengan menyendiri. Jika Anda berbagi area kerja dengan orang lain, Anda akan sangat kelelahan pada saat pulang bekerja. Anda berpikir dan beraksi lebih baik ketika berada di ruang privat di mana Anda dapat berefleksi mendalam pada proyek. Bersikeraslah meminta kondisi kerja tersebut jika itu mungkin dilakukan.</p><blockquote>Perusahaan yang menggabungkan semua elemen di atas adalah lahan subur bagi kemajuan karir Anda.</blockquote>",
+      "prevContentRoute": "infp/kelebihan-alami",
+      "nextContentRoute": "infp/karir-yang-menarik",
+      "prevContentTitle": "Kelebihan Alami dalam Pekerjaan",
+      "nextContentTitle": "Karir yang Menarik Bagi Anda",
+      "minimumReadTime": 84
+    },
+    {
+      "_id": "infp/karir-yang-menarik",
+      "personalityId": "INFP",
+      "contentTitle": "Karir yang Menarik Bagi Anda",
+      "contentMainImage": "",
+      "contentBody":
+        "<div id=\"top-paragraph\"><p>Anda paling tertarik dengan karir yang menghargai kreativitas Anda dalam menulis, seni pertunjukan, dan visual. Anda juga tertarik pada karir yang menolong orang lain untuk tumbuh dan berkembang. Dalam pekerjaan, The Dreamer (INFP) membutuhkan orang-orang yang mempunyai minat pribadi dengan mereka. The Dreamer memerlukan apresiasi dari orang-orang di lingkungannya untuk berkembang.</p><p>Bekerja sendirian atau di kelompok kecil membawa mereka pada produktifitas terbaik, khususnya jika mereka fokus pada solusi untuk meningkatkan hidup orang lain. Atmosfer yang ideal bagi mereka adalah yang sederhana dan informal seperti kantor rumahan. The Dreamer akan sering berganti-ganti karir sebelum menemukan karir yang benar-benar mereka percaya.</p><p>Harap diperhatikan bahwa tidak semua jenis karir yang disebutkan di sini menarik bagi Anda, ambil kekuatan yang sesuai dengan gaya Anda ataupun yang menarik bagi sejumlah besar kelompok warna Anda. Daftar di bawah ini tidaklah sangat lengkap, akan tetapi daftar ini akan menunjukkan gambaran dasar preferensi/pilihan Anda.</p><p>Jika pilihan karir Anda tidak ada di daftar ini namun menawarkan pola yang sama, kesempatan Anda untuk sukses akan semakin bertambah. Salinlah dan cermati pilihan karir yang sesuai dengan karakteristik Anda untuk mewujudkan kesuksesan Anda.</p></div><div id=\"career-type\"><h3><strong><strong>Komunikasi / Hiburan / Media</strong></strong></h3><div id=\"career-list\"><ul><li>Aktor atau Aktris</li><li>Kolomnis (orang yang secara rutin menulis untuk koran atau majalah)</li><li>Editor (khususnya sebagai editor buku dan film)</li><li>Produser Film (mengatur semua aspek proses pembuatan film, seperti memilih naskah, memberikan arahan, menyusun skenario, sampai menyusun perencanaan keuangan)</li><li>Jurnalis</li><li>Agen Sastra (bertindak sebagai perwakilan penulis dan perantara penulis dengan penerbit)</li><li>Penulis (segala jenis penulis—misalnya dramawan, penulis skenario, novelis, penulis biografi, penyair/pujangga, dan lain-lain)</li><li>Penerjemah</li></ul><p>Anda cocok dengan jenis pekerjaan yang menekankan kreativitas, kemampuan bahasa, dan kemampuan menulis. Anda sangat menikmati ketika bekerja sendiri.</p></div></div><div id=\"career-type\"><h3><strong><strong>Seni / Desain</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Art Director </em></em>(orang yang bertanggung jawab terhadap tampilan visual majalah, koran, kemasan produk, film, atau televisi)</li><li><em><em>Advertising Creative Director </em></em>(memberikan arahan <em><em>branding </em></em>pada suatu produk dalam bentuk promosi pada kliennya secara profesional)</li><li><em><em>Creative Director Multimedia Team </em></em>(memberikan arahan konsep kreatif—biasanya ditemukan dalam bidang industri yang bersentuhan dengan desain grafis, musik, film, periklanan, media, fashion, dan hiburan)</li><li><em><em>Desktop Publisher</em></em>(membuat media cetak dengan keterampilan tata letak, tipografi, dan desain menggunakan aplikasi komputer)</li><li>Desainer (khususnya di bidang dekorasi, penata rias, dan pakaian)</li><li>Perupa (profesi yang menggunakan seluruh potensi dan pengetahuan yang dimiliki ke dalam seni rupa)</li><li>Desainer Grafis</li><li>Seniman</li><li>Multimedia Specialist (ahli dalam mengkombinasikan suara, foto, animasi, video, dan grafis untuk melakukan presentasi multimedia)</li><li>Web Designer (bertanggung jawab pada aspek visual sebuah website yang meliputi, tata letak, pewarnaan, dan tipografi)</li></ul><p>Anda cocok dengan pekerjaan yeng mengedepankan nilai-nilai keunikan, orisinalitas, dan kreativitas. Anda bekerja dengan baik dalam tim kecil atau sendiri.</p></div></div><div id=\"career-type\"><h3><strong><strong>Bisnis / SDM / Pemasaran</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Diversity Manager</em></em>(biasanya bagian dari divisi SDM yang fungsinya mengembangkan dan menghargai keberagaman yang ada pada karyawan di perusahaan)</li><li><em><em>Employment Interviewer</em></em>(perantara antara pencari kerja dan perusahaan)</li><li><em><em>Human Resource Specialist</em></em>(bertugas melakukan wawancara dan merekrut pekerja yang sesuai dengan bidangnya. Mereka biasanya juga bertugas untuk mengatur hubungan, kompensasi, tunjangan, dan pelatihan untuk karyawan)</li><li><em><em>Public Relations Specialist </em></em>(bertugas melayani klien dalam membangun hubungan positif dengan masyarakat)</li><li>Penulis Iklan</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan kemampuan dalam hal memahami motivasi manusia, membangun hubungan dengan orang lain, dan kemampuan menulis yang baik.</p></div></div><div id=\"career-type\"><h3><strong><strong>Pendidikan</strong></strong></h3><div id=\"career-list\"><ul><li>Profesor Universitas</li><li>Konsultan Pendidikan</li><li>Bimbingan Konseling</li><li>Kordinator Kurikulum Sekolah</li><li>Guru atau Dosen (semua tingkat pendidikan—khususnya di bidang: kesenian, drama, bahasa asing, musik, pendidikan luar biasa)</li><li>Psikolog Sekolah</li></ul><p>Anda cocok dengan pekerjaan yang memberikan kesempatan bagi Anda untuk membantu orang lain mencapai potensi terbaik mereka.</p></div></div><div id=\"career-type\"><h3><strong><strong>Ilmu Kesehatan / Psikologi</strong></strong></h3><div id=\"career-list\"><ul><li><em><em>Chiropractor </em></em>(praktisi pengobatan pelengkap yang menekankan diagnosis, perawatan, dan pencegahan gangguan mekanik pada tulang belakang)</li><li>Penata Diet</li><li>Dokter Keluarga</li><li>Ahli Terapi (misalnya terapi fisik, terapi berbicara, dan pijat)</li><li><em><em>Personal Trainer </em></em>(pelatih fitness atau kebugaran tubuh)</li><li>Psikiater</li><li>Psikolog (segala jenis psikolog)</li><li>Asisten Dokter Hewan</li></ul><p>Anda cocok dengan jenis pekerjaan yang membutuhkan empati, pengamatan yang tajam, dan menjadi pendengar yang baik.</p></div></div><div id=\"career-type\"><h3><strong><strong>Hukum / Pelayanan Masyarakat</strong></strong></h3><div id=\"career-list\"><ul><li>Pengacara (khususnya di bidang: hak kekayaan intelektual, lingkungan, non-profit)</li><li>Mediator Hukum (sebagai pihak ketiga netral yang membantu proses perundingan)</li><li>Konsultan Filantropis (menjadi penasehat atau konsultan di lembaga yang bergerak di bidang amal)</li><li>Pemuka Agama</li><li>Ilmuwan Sosial</li><li>Pekerja Sosial (bekerja sebagai profesional yang bertujuan memfasilitasi kesejahteraan seseorang, keluarga, komunitas, atau kelompok tertentu)</li></ul><p>Anda cocok dengan pekerjaan yang membutuhkan pemahaman mengenai motivasi manusia dan kemampuan untuk membina hubungan dengan orang lain.</p></div></div>",
+      "prevContentRoute": "infp/lingkungan-kerja-ideal",
+      "nextContentRoute": "infp/bos-ideal",
+      "prevContentTitle": "Lingkungan Kerja Ideal",
+      "nextContentTitle": "Bos Ideal",
+      "minimumReadTime": 147
+    },
+    {
+      "_id": "infp/bos-ideal",
+      "personalityId": "INFP",
+      "contentTitle": "Bos Ideal",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>Setiap pekerjaan hebat akan mengecewakan jika dipimpin bos yang tidak tepat. Sebaliknya pekerjaan biasa-biasa saja namun di bawah pimpinan bos yang gemilang akan sangat sulit untuk ditinggalkan. The Dreamer (INFP) dapat bekerja dengan baik dengan sesama Green. Namun bos dengan warna lain yang menekankan karakteristik yang dipunyai untuk memaksimalkan potensi Green dapat pula menjadi seorang mentor yang baik.</p><ol><li>Periksa hal-hal berikut ini, apakah bos Anda seperti yang tertulis di bawah ini :</li><li>Fleksibel.</li><li>Tidak terlalu mengatur Anda.</li><li>Memiliki perhatian pribadi kepada Anda dan perkembangan Anda.</li><li>Melindungi Anda dari intrik dan politik pekerjaan.</li><li>Menghargai kreatifitas dan inovasi.</li><li>Memiliki prinsip yang serupa dengan Anda.</li><li>Memiliki integritas tingkat tinggi.</li></ol>",
+      "prevContentRoute": "infp/karir-yang-menarik",
+      "nextContentRoute": "infp/tantangan-kepribadian",
+      "prevContentTitle": "Karir yang Menarik Bagi Anda",
+      "nextContentTitle": "Tantangan Kepribadian",
+      "minimumReadTime": 27
+    },
+    {
+      "_id": "infp/tantangan-kepribadian",
+      "personalityId": "INFP",
+      "contentTitle": "Tantangan Kepribadian",
+      "contentMainImage": "",
+      "contentBody":
+        "<p>The Dreamer (INFP) memiliki beberapa kelemahan. Sebagian di antara Anda memiliki kekurangan ini, dan sebagian yang lain tidak. Umumnya Anda hanya memiliki beberapa kelemahan dari yang disebutkan di bawah ini. Temukan titik lemah Anda dan fokuslah untuk merubahnya, lalu gunakan cara yang lebih produktif untuk membuatnya menjadi kebiasaan.</p><p><strong><strong>Dapat menjadi terlalu idealis dan mengabaikan kepentingan yang utama. </strong></strong>Ada sisi praktis untuk membuat sebuah idealisme/cita-cita menjadi nyata, namun umumnya Anda hanya membayangkannya saja. Keuntungan dari kelemahaan ini, mungkin saja bayangan visi atau cita-cita Anda adalah sesuatu yang mahal. Konsultasikan pada Gold [SJ] mengenai prosesnya dan Blue [NT] pada strategi dan hasilnya. Hal tersebut akan membantu mewujudkan cita-cita Anda.</p><p><strong><strong>Tidak terlalu sering berbicara dan menampakan diri. </strong></strong>Beberapa orang tahu kapankah mereka seharusnya mendengarkan atau berbicara, dan Anda umumnya hanya mendengarkan dengan sangat seksama. Seringkali sikap konsentrasi Anda tampak seperti sikap acuh tak acuh. Cobalah melemparkan beberapa pertanyaan agar orang lain menyadari kehadiran Anda. Mungkin juga dengan diselingi humor.</p><p><strong><strong>Jangan menampilkan ketidakteraturan Anda, terutama dalam menyusun prioritas. </strong></strong>Anda hanya memiliki satu prioritas dalam sehari. Renungkanlah satu hal yang benar-benar layak untuk diprioritaskan dalam kehidupan sehari-hari Anda. Anda tidak dapat menangani semuanya sekaligus!</p><p><strong><strong>Menganggap prinsip dan cita-cita yang Anda miliki lebih unggul dibanding orang lain. </strong></strong>Orang lain mungkin lebih berkompromi atau lebih realistis terhadap prinsip dan cita-cita mereka, namun cita-cita Anda adalah idealisme yang sangat kuat. Setelah Anda mengenal kelebihan dari warna-warna lain, mungkin idealisme Anda akan lebih melunak.</p><p><strong><strong>Mungkin melewatkan </strong></strong><strong><em><strong><em>deadline </em></strong></em></strong><strong><strong>karena Anda adalah seorang yang perfeksionis. </strong></strong>Menjadi perfeksionis berarti memenuhi batas waktu yang ada. Bos Anda mungkin merasa Anda seperti itu. Hal tersebut bisa saja mengancam karir Anda, jadi prioritaskan kepentingan karir seperti <em><em>deadline </em></em>daripada detail-detail kecil perfeksionisme.</p><p><strong><strong>Dapat terlalu menjadi pendiam dan selektif dalam berbicara.</strong></strong> Seringkali Anda terlalu berhati-hati untuk berbicara, padahal mungkin wawasan Anda akan sangat berharga jika diungkapkan. Cobalah untuk memotivasi diri Anda dengan berpikir positif.</p>",
+      "prevContentRoute": "infp/bos-ideal",
+      "nextContentRoute": null,
+      "prevContentTitle": "Bos Ideal",
+      "nextContentTitle": null,
+      "minimumReadTime": 42
     }
   ]
 }
