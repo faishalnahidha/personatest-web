@@ -14,6 +14,7 @@ import List from 'material-ui/List';
 import Paper from 'material-ui/Paper';
 import Snackbar from 'material-ui/Snackbar';
 import NavigateNext from 'material-ui-icons/NavigateNext';
+import { grey } from 'material-ui/colors';
 
 // import { NewPlayers } from '../../api/new-players.js';
 
@@ -41,6 +42,8 @@ const styles = theme => ({
   paper: {
     padding: 0,
     borderRadius: 4,
+    overflow: 'hidden',
+    // backgroundColor: grey[100],
   },
   mainColumnContainer: {
     margin: 0,
@@ -74,6 +77,9 @@ const styles = theme => ({
   circularProgress: {
     marginTop: 128,
     marginBottom: 128,
+  },
+  questionList: {
+    padding: 0,
   },
 });
 
@@ -245,7 +251,7 @@ class TesPage extends Component {
             transitionAppearTimeout={1000}
             transitionEnterTimeout={1000}
           >
-            <List key={questionPage}>
+            <List key={questionPage} className={this.props.classes.questionList}>
               <QuestionList
                 questionsPerPage={questionsPerPage}
                 questionStartIndex={questionStartIndex}

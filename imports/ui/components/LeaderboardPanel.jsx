@@ -74,6 +74,7 @@ export default withTracker(() => ({
           'profile.profilePicture': 1,
           'gameProfile.score': 1,
         },
+        limit: 10,
       },
     )
     .fetch(),
