@@ -96,7 +96,7 @@ function QuestionItem(props) {
           <Grid item xs={11} sm={9}>
             <Paper className={classes.answerBoxContainer}>
               <List dense>
-                <ListItem button key={question.answer[0].text} value={question.answer[0].value}>
+                <ListItem key={question.answer[0].text} value={question.answer[0].value}>
                   {/* <ListItemAvatar>
                     <Avatar className={classnames(classes.avatar)} alt="A">
                       A
@@ -119,7 +119,7 @@ function QuestionItem(props) {
                   />
                 </ListItem>
                 <Divider />
-                <ListItem button key={question.answer[1].text} value={question.answer[1].value}>
+                <ListItem key={question.answer[1].text} value={question.answer[1].value}>
                   {/* <ListItemAvatar>
                     <Avatar className={classnames(classes.avatar)} alt="B">
                       B
