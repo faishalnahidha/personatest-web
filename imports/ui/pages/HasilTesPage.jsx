@@ -86,6 +86,10 @@ class HasilTesPage extends Component {
       resultLoading, resultContents, newPlayer, isDrawerOpen, classes,
     } = this.props;
 
+    if (!Session.get('currentPlayer_isTestFinished')) {
+      Session.setPersistent('currentNewPlayer_isTestFinished', newPlayer.isTestFinished);
+    }
+
     const isUserLogin = !!Meteor.userId();
 
     if (!resultLoading && newPlayer.result) {
@@ -162,7 +166,11 @@ class HasilTesPage extends Component {
                   )}
                   {isUserLogin && (
                     <Grid item xs={12} sm={6} md={12}>
-                      <LeaderboardPanel testPercentage={20} privateContentPercentage={30} publicContentPercentage={40} />
+                      <LeaderboardPanel
+                        testPercentage={20}
+                        privateContentPercentage={30}
+                        publicContentPercentage={40}
+                      />
                     </Grid>
                   )}
                 </Grid>

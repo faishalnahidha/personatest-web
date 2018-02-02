@@ -10,9 +10,11 @@ import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import { CircularProgress } from 'material-ui/Progress';
 import Grid from 'material-ui/Grid';
+import IconButton from 'material-ui/IconButton';
 import List from 'material-ui/List';
 import Paper from 'material-ui/Paper';
 import Snackbar from 'material-ui/Snackbar';
+import CloseIcon from 'material-ui-icons/Close';
 import NavigateNext from 'material-ui-icons/NavigateNext';
 import { grey } from 'material-ui/colors';
 
@@ -81,6 +83,13 @@ const styles = theme => ({
   questionList: {
     padding: 0,
   },
+  snackbarMessage: {
+    maxWidth: 256,
+  },
+  close: {
+    width: theme.spacing.unit * 4,
+    height: theme.spacing.unit * 4,
+  },
 });
 
 const ANSWER_POINTS = testAnswerPoint;
@@ -99,6 +108,8 @@ class TesPage extends Component {
       questionPage: 0,
       openSnackbar: false,
       openSnackbar2: false,
+      openSnackbar3: false,
+      openSnackbar4: false,
     };
 
     this.updateAnswersPerPage = this.updateAnswersPerPage.bind(this);
@@ -110,7 +121,7 @@ class TesPage extends Component {
     this.updateSomeState(newPlayer);
     Session.set('headerTitle', 'Persona Test');
     if (!newPlayer.answers) {
-      this.setState({ openSnackbar2: true }); // masih bisa run
+      this.setState({ openSnackbar2: true, openSnackbar3: true }); // masih bisa run
     }
   }
 
@@ -201,6 +212,10 @@ class TesPage extends Component {
         openSnackbar: true,
       });
 
+      if (questionPage === 1) {
+        this.setState({ openSnackbar4: true });
+      }
+
       smoothScroll.scrollTo('top', 96);
       const answers = this.updateAnswers(answerPerPageCopy, score);
 
@@ -214,10 +229,24 @@ class TesPage extends Component {
       }
     } else {
       alert('Anda belum menjawab semua pertanyaan!');
-      // smoothScroll.scrollTo('top', 80);
-      // this.setState({ openSnackbar: true });
     }
   }
+
+  handleSnackbar3Close = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    this.setState({ openSnackbar3: false });
+  };
+
+  handleSnackbar4Close = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    this.setState({ openSnackbar4: false });
+  };
 
   addScore(point) {
     return this.props.newPlayer.score + point;
@@ -318,6 +347,7 @@ class TesPage extends Component {
         </div>
         {/* Snackbar code here */}
         <Snackbar
+          key="snackbar1"
           anchorOrigin={{
             vertical: 'bottom',
             horizontal: 'right',
@@ -333,6 +363,7 @@ class TesPage extends Component {
           }
         />
         <Snackbar
+          key="snackbar2"
           anchorOrigin={{
             vertical: 'bottom',
             horizontal: 'right',
@@ -342,9 +373,54 @@ class TesPage extends Component {
           autoHideDuration={3000}
           message={
             <span>
-              {newPlayer.name}, skor anda:
+              {newPlayer.name}, skor awal anda:
               <span style={{ color: mySecondaryColor.A700 }}>&ensp;+ {START_POINTS}</span>
             </span>
+          }
+        />
+        <Snackbar
+          key="snackbar3"
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+          }}
+          open={this.state.openSnackbar3}
+          onClose={this.handleSnackbar3Close}
+          autoHideDuration={8000}
+          message={
+            <span className={classes.snackbarMessage}>
+              Hai {newPlayer.name}, selamat datang di Persona Web App.
+              <br />
+              Di sini, Anda akan mendapatkan poin dengan berinteraksi dengan aplikasi.
+              <br />
+              Kumpulkan poin sebanyak-banyaknya sambil menemukan karir terbaik Anda!
+            </span>
+          }
+          action={
+            <Button color="secondary" dense onClick={this.handleSnackbar3Close}>
+              Tutup
+            </Button>
+          }
+        />
+        <Snackbar
+          key="snackbar4"
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+          }}
+          open={this.state.openSnackbar4}
+          onClose={this.handleSnackbar4Close}
+          autoHideDuration={8000}
+          message={
+            <span className={classes.snackbarMessage}>
+              Cobalah untuk tidak terpengaruh norma/nilai di masyarakat ketika menjawab. Jujurlah
+              pada diri sendiri untuk mendapatkan hasil tes yang akurat.
+            </span>
+          }
+          action={
+            <Button color="secondary" dense onClick={this.handleSnackbar4Close}>
+              Tutup
+            </Button>
           }
         />
       </div>

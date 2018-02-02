@@ -14,8 +14,6 @@ import Divider from 'material-ui/Divider';
 import HomeIcon from 'material-ui-icons/Home';
 import AssignmentIcon from 'material-ui-icons/Assignment';
 import AssignmentTurnedInIcon from 'material-ui-icons/AssignmentTurnedIn';
-// import ExpandLessIcon from 'material-ui-icons/ExpandLess';
-// import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 
 import { myPrimaryColor } from '../themes/primary-color-palette';
 
@@ -46,15 +44,15 @@ const pengenalanList = [
   },
   {
     text: 'Sekilas Tentang Pengelompokan Kepribadian',
-    linkTo: '#2',
+    linkTo: '/artikel/pengelompokan-kepribadian',
   },
   {
     text: 'Pengelompokan Kepribadian Myers-Briggs',
-    linkTo: '#3',
+    linkTo: '/artikel/pengelompokan-myers-briggs',
   },
   {
     text: 'Kunjungan ke Perusahaan Persona',
-    linkTo: '#4',
+    linkTo: '/artikel/kunjungan-ke-perusahaan',
   },
 ];
 
@@ -204,12 +202,12 @@ class MenuDrawerList extends Component {
         </ListItem>
         {!Meteor.userId() && (
           <ListItem button component={Link} to="/mulai-tes" onClick={this.handleTap}>
-          <ListItemIcon>
-            <AssignmentIcon />
-          </ListItemIcon>
-          <ListItemText inset primary="Mulai Tes Baru" />
-        </ListItem>
-        )}   
+            <ListItemIcon>
+              <AssignmentIcon />
+            </ListItemIcon>
+            <ListItemText inset primary="Mulai Tes Baru" />
+          </ListItem>
+        )}
         {Meteor.userId() && (
           <ListItem button component={Link} to="/tes/user" onClick={this.handleTap}>
             <ListItemIcon>

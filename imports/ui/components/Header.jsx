@@ -271,10 +271,11 @@ class Header extends Component {
           <IconButton
             aria-owns={isUserMenuOpen ? 'user-menu-appbar' : null}
             aria-haspopup="true"
+            color="inherit"
             onClick={this.handleUserMenuOpen}
             className={classes.rightButton}
           >
-            <AccountCircle color="inherit" />
+            <AccountCircle />
           </IconButton>
         </Hidden>
         <Hidden smDown>

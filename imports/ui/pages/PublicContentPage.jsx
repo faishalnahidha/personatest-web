@@ -15,7 +15,7 @@ import Snackbar from 'material-ui/Snackbar';
 import Typography from 'material-ui/Typography';
 import { grey } from 'material-ui/colors';
 
-import ContentProgressPanel from '../components/ContentProgressPanel.jsx';
+// import ContentProgressPanel from '../components/ContentProgressPanel.jsx';
 import NextContentNavButton from '../components/NextContentNavButton.jsx';
 import OverallProgressPanel from '../components/OverallProgressPanel.jsx';
 import { mySecondaryColor } from '../themes/secondary-color-palette';
@@ -141,6 +141,10 @@ const styles = theme => ({
     [theme.breakpoints.down('md')]: {
       top: 88,
     },
+  },
+  imageInText: {
+    width: '100%',
+    marginBottom: theme.spacing.unit * 2,
   },
 });
 
@@ -273,6 +277,8 @@ class PublicContentPage extends Component {
         this.openSnackbar1();
       }
 
+      console.log(`isTestFinished?${isTestFinished}`);
+
       return (
         <div className={classes.contentRoot}>
           <Grid container spacing={16} justify="center">
@@ -347,6 +353,16 @@ class PublicContentPage extends Component {
                           );
                         }
 
+                        if (domNode.name === 'ul') {
+                          return (
+                            <ul className={classes.orderedList}>
+                              <Typography className={classes.paragraphText}>
+                                {domToReact(domNode.children)}
+                              </Typography>
+                            </ul>
+                          );
+                        }
+
                         if (domNode.name === 'blockquote') {
                           return (
                             <div className={classes.blockquote}>
@@ -356,6 +372,16 @@ class PublicContentPage extends Component {
                                 {domToReact(domNode.children)}
                               </Typography>
                             </div>
+                          );
+                        }
+
+                        if (domNode.name === 'img') {
+                          return (
+                            <img
+                              src={domNode.attribs.src}
+                              alt={domNode.attribs.alt}
+                              className={classes.imageInText}
+                            />
                           );
                         }
 

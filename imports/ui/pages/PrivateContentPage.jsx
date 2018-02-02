@@ -22,7 +22,7 @@ import { grey } from 'material-ui/colors';
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 
 import { drawerWidth } from '../components/MenuDrawer.jsx';
-import ContentProgressPanel from '../components/ContentProgressPanel.jsx';
+// import ContentProgressPanel from '../components/ContentProgressPanel.jsx';
 import NextContentNavButton from '../components/NextContentNavButton.jsx';
 import PrevContentNavButton from '../components/PrevContentNavButton.jsx';
 import OverallProgressPanel from '../components/OverallProgressPanel.jsx';
@@ -128,7 +128,7 @@ const styles = theme => ({
     borderImageSlice: 1,
   },
   blockquoteText: {
-    fontSize: theme.typography.pxToRem(15),
+    fontSize: theme.typography.pxToRem(18),
     fontWeight: theme.typography.fontWeightLight,
   },
   personalityNameText: {
@@ -163,6 +163,7 @@ const styles = theme => ({
 
 const READ_POINT = readPoint;
 const karirContentIdentifier = 'karir yang menarik bagi anda';
+const contentMinReadTime = 5;
 
 class PrivateContentPage extends Component {
   constructor(props) {

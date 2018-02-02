@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 
 import { withStyles } from 'material-ui/styles';
-import Avatar from 'material-ui/Avatar';
 import Divider from 'material-ui/Divider';
 import Grid from 'material-ui/Grid';
-import List, { ListItem, ListItemText, ListItemAvatar } from 'material-ui/List';
+import List, { ListItem, ListItemText } from 'material-ui/List';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Radio from 'material-ui/Radio';
@@ -24,10 +22,10 @@ const styles = theme => ({
   questionBackground: {
     position: 'absolute',
     width: '100%',
-    height: 132,
+    height: 144,
     top: 0,
     left: 0,
-    backgroundColor: myPrimaryColor.A400,
+    backgroundColor: myPrimaryColor[400],
   },
   questionForeground: {
     position: 'relative',
@@ -144,34 +142,6 @@ function QuestionItem(props) {
             </Paper>
           </Grid>
         </Grid>
-        {/* <Grid container className={classes.answerBoxContainer} spacing={0}>
-          <Grid item xs={12} sm={6} className={classes.answerBox}>
-            <FormControlLabel
-              control={
-                <Radio
-                  checked={value === question.answer[0].value}
-                  onChange={handleChange}
-                  value={question.answer[0].value}
-                  aria-label="A"
-                />
-              }
-              label={question.answer[0].text}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} className={classes.answerBox}>
-            <FormControlLabel
-              control={
-                <Radio
-                  checked={value === question.answer[1].value}
-                  onChange={handleChange}
-                  value={question.answer[1].value}
-                  aria-label="B"
-                />
-              }
-              label={question.answer[1].text}
-            />
-          </Grid>
-        </Grid> */}
       </div>
     </li>
   );

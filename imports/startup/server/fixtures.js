@@ -4,7 +4,7 @@ import { Questions } from '../../api/questions.js';
 import { PrivateContents } from '../../api/private-contents.js';
 import { PublicContents } from '../../api/public-contents.js';
 
-// if the database is empty on server start, create some sample data.
+// if the database is empty on server start, create some data.
 Meteor.startup(() => {
   if (Questions.find().count() === 0) {
     console.log('questions empty');
@@ -18,11 +18,8 @@ Meteor.startup(() => {
   if (PrivateContents.find().count() === 0) {
     console.log('private contents empty');
     const privateContentData = Assets.getText('private-content-data.json');
-    let privateData = 0;
     JSON.parse(privateContentData).privateContent.forEach((privateContent) => {
       PrivateContents.insert(privateContent);
-      privateData += 1;
-      console.log(`privateDAta: ${privateData} `);
     });
   }
 
