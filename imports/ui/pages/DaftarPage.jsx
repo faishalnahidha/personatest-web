@@ -270,6 +270,10 @@ class DaftarPage extends Component {
   handleSubmitDaftar = (event) => {
     event.preventDefault();
 
+    // if (!this.props.newPlayer.testResult) {
+    //   alert('Anda belum menyelesaikan Persona Test!');
+    // }
+
     const username = this.state.username.trim();
     const email = this.emailDaftar.value;
     const password = this.passwordDaftar.value;

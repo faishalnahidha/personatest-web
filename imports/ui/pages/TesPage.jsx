@@ -390,9 +390,7 @@ class TesPage extends Component {
           message={
             <span className={classes.snackbarMessage}>
               Hai {newPlayer.name}, selamat datang di Persona Web App.
-              <br />
               Di sini, Anda akan mendapatkan poin dengan berinteraksi dengan aplikasi.
-              <br />
               Kumpulkan poin sebanyak-banyaknya sambil menemukan karir terbaik Anda!
             </span>
           }

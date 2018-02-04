@@ -222,12 +222,12 @@ class Header extends Component {
             </Avatar>
           </IconButton>
           <this.UserMenu>
-            <MenuItem onClick={this.handleUserMenuClose}>
+            {/* <MenuItem onClick={this.handleUserMenuClose}>
               <ListItemIcon>
                 <Face style={{ marginRight: 0 }} />
               </ListItemIcon>
               <ListItemText inset primary="Profil" />
-            </MenuItem>
+            </MenuItem> */}
             <MenuItem onClick={this.handleUserLogout}>
               <ListItemIcon>
                 <LogoutIcon />

@@ -5,6 +5,7 @@ import { Session } from 'meteor/session';
 import { Route, Switch } from 'react-router-dom';
 
 import { withStyles } from 'material-ui/styles';
+import Button from 'material-ui/Button';
 import Snackbar from 'material-ui/Snackbar';
 
 import Header from '../components/Header.jsx';
@@ -51,6 +52,7 @@ class MainLayout extends Component {
     this.state = {
       isDrawerOpen: false,
       isSnackbarOpen: false,
+      isSnackbarOpen2: false,
     };
 
     this.newPlayerInitialized = false;
@@ -58,7 +60,7 @@ class MainLayout extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.justRegister === true) {
-      this.setState({ isSnackbarOpen: true });
+      this.setState({ isSnackbarOpen: true, isSnackbarOpen2: true });
     }
   }
 
@@ -73,11 +75,19 @@ class MainLayout extends Component {
     Session.setPersistent('justRegister', false);
   };
 
+  handleSnackbar2Close = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    const isSnackbarOpen2 = false;
+    this.setState({ isSnackbarOpen2 });
+  };
+
   render() {
     const {
       classes, currentUser, newPlayer, headerTitle,
     } = this.props;
-    const { isDrawerOpen, isSnackbarOpen } = this.state;
+    const { isDrawerOpen, isSnackbarOpen, isSnackbarOpen2 } = this.state;
 
     return (
       <div className={classes.root}>
@@ -130,6 +140,7 @@ class MainLayout extends Component {
         <Footer />
         {currentUser && (
           <Snackbar
+            key="snackbar1"
             anchorOrigin={{
               vertical: 'bottom',
               horizontal: 'right',
@@ -142,6 +153,30 @@ class MainLayout extends Component {
                 {currentUser.profile.name}, skor anda:
                 <span style={{ color: mySecondaryColor.A700 }}>&ensp;+ {REGISTER_POINT}</span>
               </span>
+            }
+          />
+        )}
+        {currentUser && (
+          <Snackbar
+            key="snackbar1"
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left',
+            }}
+            open={isSnackbarOpen2}
+            onClose={this.handleSnackbar2Close}
+            autoHideDuration={8000}
+            message={
+              <span>
+                Terima kasih sudah mendaftar di Persona Web App. Sekarang Anda bisa mengakses
+                panduan karir berdasarkan tipe kepribadian Anda. Selain itu, Anda akan mendapatkan
+                poin setiap selesai membaca satu artikel.
+              </span>
+            }
+            action={
+              <Button color="secondary" dense onClick={this.handleSnackbar2Close}>
+                Tutup
+              </Button>
             }
           />
         )}
