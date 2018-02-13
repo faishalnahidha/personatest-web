@@ -1,4 +1,4 @@
-export const secondaryAccentGenerator = jokerFactor => {
+export function secondaryAccentGenerator(jokerFactor) {
   if (['Q', 'A', 'Z', 'W', 'S', 'X', '1'].indexOf(jokerFactor) > 0) {
     return '#FC466B'; // vividSublime
   } else if (['E', 'D', 'C', 'R', 'F', 'V', '2'].indexOf(jokerFactor) > 0) {
@@ -7,7 +7,6 @@ export const secondaryAccentGenerator = jokerFactor => {
     return '#20e3b2'; // subu
   } else if (['U', 'J', 'M', 'I', 'K', 'O', '4'].indexOf(jokerFactor) > 0) {
     return '#12D8FA'; // stripe
-  } else {
-    return '#74ebd5'; // digitalWater
   }
-};
+  return '#74ebd5'; // digitalWater
+}

@@ -1,16 +1,16 @@
 export const smoothScroll = {
   timer: null,
 
-  stop: function() {
+  stop: function () {
     clearTimeout(this.timer);
   },
 
-  scrollTo: function(id, myOffset, callback) {
+  scrollTo: function (id, myOffset, callback) {
     // myOffset is my modification of this code
     var settings = {
       duration: 1000,
       easing: {
-        outQuint: function(x, t, b, c, d) {
+        outQuint: function (x, t, b, c, d) {
           return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
         }
       }

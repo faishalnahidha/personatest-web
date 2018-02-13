@@ -1,37 +1,61 @@
-export const determineTestResult = answers => {
+function swapAttribute(attribute) {
+  let swappedAttribute;
+
+  if (attribute === 'E') {
+    swappedAttribute = 'I';
+  } else if (attribute === 'I') {
+    swappedAttribute = 'E';
+  } else if (attribute === 'S') {
+    swappedAttribute = 'N';
+  } else if (attribute === 'N') {
+    swappedAttribute = 'S';
+  } else if (attribute === 'T') {
+    swappedAttribute = 'F';
+  } else if (attribute === 'F') {
+    swappedAttribute = 'T';
+  } else if (attribute === 'J') {
+    swappedAttribute = 'P';
+  } else if (attribute === 'P') {
+    swappedAttribute = 'J';
+  }
+
+  return swappedAttribute;
+}
+
+export function determineTestResult(answers) {
   if (Array.isArray(answers) === false) {
     return false;
   }
 
-  let extrovert = 0,
-    introvert = 0,
-    sensory = 0,
-    intuitive = 0,
-    thinking = 0,
-    feeling = 0,
-    judging = 0,
-    perceiving = 0;
+  let extrovert = 0;
+  let introvert = 0;
+  let sensory = 0;
+  let intuitive = 0;
+  let thinking = 0;
+  let feeling = 0;
+  let judging = 0;
+  let perceiving = 0;
 
   /**
    * Menghitung banyaknya masing" jawaban
    */
-  for (let i = 0; i <= answers.length; i++) {
+  for (let i = 0; i <= answers.length; i += 1) {
     if (answers[i] === 'E') {
-      extrovert++;
+      extrovert += 1;
     } else if (answers[i] === 'I') {
-      introvert++;
+      introvert += 1;
     } else if (answers[i] === 'S') {
-      sensory++;
+      sensory += 1;
     } else if (answers[i] === 'N') {
-      intuitive++;
+      intuitive += 1;
     } else if (answers[i] === 'T') {
-      thinking++;
+      thinking += 1;
     } else if (answers[i] === 'F') {
-      feeling++;
+      feeling += 1;
     } else if (answers[i] === 'J') {
-      judging++;
+      judging += 1;
     } else if (answers[i] === 'P') {
-      perceiving++;
+      perceiving += 1;
     }
   }
 
@@ -39,7 +63,7 @@ export const determineTestResult = answers => {
    * Menyimpan jawaban di atas ke dalam
    * obyek result dalam bentuk persen %
    */
-  let result = {
+  const result = {
     extrovert: Math.round(extrovert / 10 * 100),
     introvert: Math.round(introvert / 10 * 100),
     sensory: Math.round(sensory / 20 * 100),
@@ -47,14 +71,14 @@ export const determineTestResult = answers => {
     thinking: Math.round(thinking / 20 * 100),
     feeling: Math.round(feeling / 20 * 100),
     judging: Math.round(judging / 20 * 100),
-    perceiving: Math.round(perceiving / 20 * 100)
+    perceiving: Math.round(perceiving / 20 * 100),
   };
 
   /**
    * Menentukan tipe kepribadian (hurufnya) dari hasil
    * perhitungan di atas
    */
-  let arrayType = Array(4);
+  const arrayType = Array(4);
 
   if (result.extrovert >= result.introvert) {
     arrayType[0] = 'E';
@@ -84,12 +108,12 @@ export const determineTestResult = answers => {
    * Menentukan tipe kepribadian alternatif dari hasil
    * perhitungan di sebelum ini
    */
-  let attributeCountDiff = Array(4);
+  const attributeCountDiff = Array(4);
   attributeCountDiff[0] = Math.abs(result.extrovert - result.introvert);
   attributeCountDiff[1] = Math.abs(result.sensory - result.intuitive);
   attributeCountDiff[2] = Math.abs(result.thinking - result.feeling);
   attributeCountDiff[3] = Math.abs(result.judging - result.perceiving);
-  console.log('attributeDiff: ' + attributeCountDiff);
+  // console.log(`attributeDiff: ${attributeCountDiff}`);
 
   /* a adalah index di array attributeCountDiff yang mempunyai nilai terkecil */
   const a = attributeCountDiff.indexOf(Math.min(...attributeCountDiff));
@@ -100,7 +124,7 @@ export const determineTestResult = answers => {
    */
   const attributeCountDiff2 = attributeCountDiff.slice();
   attributeCountDiff2[a] = 999;
-  console.log('attributeDiff2: ' + attributeCountDiff2);
+  // console.log(`attributeDiff2: ${attributeCountDiff2}`);
 
   const b = attributeCountDiff2.indexOf(Math.min(...attributeCountDiff2));
 
@@ -123,26 +147,4 @@ export const determineTestResult = answers => {
   result.alternativeType2 = arrayTypeAlternative2.join('');
 
   return result;
-};
-
-function swapAttribute(attribute) {
-  if (attribute === 'E') {
-    attribute = 'I';
-  } else if (attribute === 'I') {
-    attribute = 'E';
-  } else if (attribute === 'S') {
-    attribute = 'N';
-  } else if (attribute === 'N') {
-    attribute = 'S';
-  } else if (attribute === 'T') {
-    attribute = 'F';
-  } else if (attribute === 'F') {
-    attribute = 'T';
-  } else if (attribute === 'J') {
-    attribute = 'P';
-  } else if (attribute === 'P') {
-    attribute = 'J';
-  }
-
-  return attribute;
 }
