@@ -9,7 +9,6 @@ import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Radio from 'material-ui/Radio';
 import { FormControlLabel } from 'material-ui/Form';
-// import { grey } from 'material-ui/colors';
 
 import { myPrimaryColor } from '../themes/primary-color-palette';
 

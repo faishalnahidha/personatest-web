@@ -36,8 +36,6 @@ Accounts.onCreateUser((options, user) => {
   }
 
   newUser.contentReadFlags.public = initialPublicContentReadFlags.slice();
-  // newUser.gameProfile.privateContentsRead = 0;
-  // newUser.gameProfile.allContentsRead = 0;
 
   // Returns the user object
   return newUser;

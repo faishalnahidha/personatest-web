@@ -15,17 +15,12 @@ import Snackbar from 'material-ui/Snackbar';
 import Typography from 'material-ui/Typography';
 import { grey } from 'material-ui/colors';
 
-// import ContentProgressPanel from '../components/ContentProgressPanel.jsx';
 import NextContentNavButton from '../components/NextContentNavButton.jsx';
 import OverallProgressPanel from '../components/OverallProgressPanel.jsx';
 import { mySecondaryColor } from '../themes/secondary-color-palette';
 import { drawerWidth } from '../components/MenuDrawer.jsx';
 import { readPoint } from '../../lib/points-const';
-import {
-  overallContentPercentage,
-  privateContentPercentage,
-  publicContentPercentage,
-} from '../../lib/determine-content-percentage';
+import { overallContentPercentage } from '../../lib/determine-content-percentage';
 
 const styles = theme => ({
   contentRoot: {
@@ -149,7 +144,7 @@ const styles = theme => ({
 });
 
 const READ_POINT = readPoint;
-const contentMinReadTime = 5;
+// const contentMinReadTime = 5;
 
 class PublicContentPage extends Component {
   constructor(props) {
@@ -266,8 +261,6 @@ class PublicContentPage extends Component {
       classes,
     } = this.props;
 
-    console.log(`seconds: ${this.state.seconds}`);
-
     if (!publicContentExists) {
       return <Typography type="display1">404 Not Found</Typography>;
     }
@@ -276,8 +269,6 @@ class PublicContentPage extends Component {
       if (this.state.seconds === publicContent.minimumReadTime) {
         this.openSnackbar1();
       }
-
-      console.log(`isTestFinished?${isTestFinished}`);
 
       return (
         <div className={classes.contentRoot}>
@@ -444,8 +435,10 @@ class PublicContentPage extends Component {
                     {/* <Grid item xs={12} sm={6} md={12}>
                       <ContentProgressPanel
                         testPercentage={100}
-                        privateContentPercentage={privateContentPercentage(currentUser.contentReadFlags)}
-                        publicContentPercentage={publicContentPercentage(currentUser.contentReadFlags)}
+                        privateContentPercentage
+                        ={privateContentPercentage(currentUser.contentReadFlags)}
+                        publicContentPercentage
+                        ={publicContentPercentage(currentUser.contentReadFlags)}
                       />
                     </Grid> */}
                   </Grid>

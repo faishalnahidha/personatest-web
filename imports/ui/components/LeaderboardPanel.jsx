@@ -11,8 +11,6 @@ import Paper from 'material-ui/Paper';
 import List, { ListItem, ListItemText, ListItemAvatar } from 'material-ui/List';
 import Typography from 'material-ui/Typography';
 
-import { myPrimaryColor } from '../themes/primary-color-palette';
-
 const styles = theme => ({
   paper: {
     height: 240,

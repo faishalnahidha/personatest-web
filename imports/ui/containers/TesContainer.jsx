@@ -10,7 +10,6 @@ import { determineTestResult } from '../../lib/determine-test-result.js';
 
 const TesContainer = withTracker(({ match, currentUser }) => {
   const { id } = match.params;
-  // console.log(`newPlayer._id:${id}`);
 
   let newPlayerHandle;
   let loading;
@@ -38,8 +37,6 @@ const TesContainer = withTracker(({ match, currentUser }) => {
     newPlayerExists = !loading && newPlayer !== undefined && newPlayer != null;
   }
 
-  // console.log(`newPlayerExists: ${newPlayerExists}`);
-
   if (newPlayerExists) {
     if (!Meteor.userId()) {
       // 70 is completed answers
@@ -56,8 +53,6 @@ const TesContainer = withTracker(({ match, currentUser }) => {
         Meteor.call('newPlayers.updateResult', newPlayer._id, result);
       }
 
-      // console.log('newPlayer: ' + JSON.stringify(newPlayer));
-      // console.log('result: ' + JSON.stringify(result));
       const { type, alternativeType1, alternativeType2 } = result;
 
       const resultContentHandle = Meteor.subscribe(

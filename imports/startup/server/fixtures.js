@@ -7,7 +7,6 @@ import { PublicContents } from '../../api/public-contents.js';
 // if the database is empty on server start, create some data.
 Meteor.startup(() => {
   if (Questions.find().count() === 0) {
-    console.log('questions empty');
     const questionData = Assets.getText('question-data.json');
 
     JSON.parse(questionData).question.forEach((question) => {
@@ -16,7 +15,6 @@ Meteor.startup(() => {
   }
 
   if (PrivateContents.find().count() === 0) {
-    console.log('private contents empty');
     const privateContentData = Assets.getText('private-content-data.json');
     JSON.parse(privateContentData).privateContent.forEach((privateContent) => {
       PrivateContents.insert(privateContent);
@@ -24,7 +22,6 @@ Meteor.startup(() => {
   }
 
   if (PublicContents.find().count() === 0) {
-    console.log('public contents empty');
     const publicContentData = Assets.getText('public-content-data.json');
     JSON.parse(publicContentData).publicContent.forEach((publicContent) => {
       PublicContents.insert(publicContent);
@@ -32,7 +29,6 @@ Meteor.startup(() => {
   }
 
   if (NewPlayers.find().count() === 0) {
-    console.log('new players empty');
     const megumiKato = {
       _id: 'RBeay5oZJzwddAGhA',
       name: 'Megumi Kato',

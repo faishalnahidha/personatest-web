@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 
 import { withStyles } from 'material-ui/styles';
-import Typography from 'material-ui/Typography';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import ListSubheader from 'material-ui/List/ListSubheader';
 import Collapse from 'material-ui/transitions/Collapse';
 import Divider from 'material-ui/Divider';
+import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import ListSubheader from 'material-ui/List/ListSubheader';
+import Typography from 'material-ui/Typography';
 import HomeIcon from 'material-ui-icons/Home';
 import AssignmentIcon from 'material-ui-icons/Assignment';
 import AssignmentTurnedInIcon from 'material-ui-icons/AssignmentTurnedIn';

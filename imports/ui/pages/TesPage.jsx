@@ -2,23 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
-import TransitionGroup from 'react-transition-group/TransitionGroup';
+// import TransitionGroup from 'react-transition-group/TransitionGroup';
 import { CSSTransitionGroup } from 'react-transition-group';
-// import TransitionGroup from 'react-addons-transition-group';
 
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import { CircularProgress } from 'material-ui/Progress';
 import Grid from 'material-ui/Grid';
-import IconButton from 'material-ui/IconButton';
 import List from 'material-ui/List';
 import Paper from 'material-ui/Paper';
 import Snackbar from 'material-ui/Snackbar';
-import CloseIcon from 'material-ui-icons/Close';
 import NavigateNext from 'material-ui-icons/NavigateNext';
-import { grey } from 'material-ui/colors';
-
-// import { NewPlayers } from '../../api/new-players.js';
 
 import '../stylesheets/animate.css';
 
@@ -45,7 +39,6 @@ const styles = theme => ({
     padding: 0,
     borderRadius: 4,
     overflow: 'hidden',
-    // backgroundColor: grey[100],
   },
   mainColumnContainer: {
     margin: 0,
@@ -127,7 +120,6 @@ class TesPage extends Component {
 
   componentWillReceiveProps({ newPlayer }) {
     if (newPlayer.answers && newPlayer.answers.length !== this.state.answeredCount) {
-      console.log('updateSomeState called');
       this.updateSomeState(newPlayer);
     }
   }
@@ -145,7 +137,6 @@ class TesPage extends Component {
   }
 
   updateAnswersPerPage(index, value) {
-    console.log(`>> question click no.${index + 1} <<`);
     const answersPerPage = this.state.answersPerPage.slice();
 
     /**
@@ -389,9 +380,9 @@ class TesPage extends Component {
           autoHideDuration={8000}
           message={
             <span className={classes.snackbarMessage}>
-              Hai {newPlayer.name}, selamat datang di Persona Web App.
-              Di sini, Anda akan mendapatkan poin dengan berinteraksi dengan aplikasi.
-              Kumpulkan poin sebanyak-banyaknya sambil menemukan karir terbaik Anda!
+              Hai {newPlayer.name}, selamat datang di Persona Web App. Di sini, Anda akan
+              mendapatkan poin dengan berinteraksi dengan aplikasi. Kumpulkan poin
+              sebanyak-banyaknya sambil menemukan karir terbaik Anda!
             </span>
           }
           action={

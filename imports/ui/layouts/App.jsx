@@ -20,7 +20,6 @@ import DaftarPageContainer from '../containers/DaftarPageContainer.jsx';
 // App component - represents the whole app
 class App extends Component {
   componentDidMount() {
-    // Meteor.subscribe('userData');
   }
 
   render() {
@@ -39,10 +38,6 @@ class App extends Component {
       tempUser = {};
       tempUser.name = newPlayerName;
       tempUser.score = newPlayerScore;
-    }
-
-    if (currentUser) {
-      console.log(`currentUser: ${currentUser.username}`);
     }
 
     return (

@@ -7,19 +7,18 @@ import classnames from 'classnames';
 import { Redirect } from 'react-router-dom';
 
 import { withStyles } from 'material-ui/styles';
-import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
-import Hidden from 'material-ui/Hidden';
-import TextField from 'material-ui/TextField';
-import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
+import Grid from 'material-ui/Grid';
+import Hidden from 'material-ui/Hidden';
 import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/Menu/MenuItem';
+import Paper from 'material-ui/Paper';
 import Snackbar from 'material-ui/Snackbar';
+import TextField from 'material-ui/TextField';
+import Typography from 'material-ui/Typography';
 import { grey } from 'material-ui/colors';
 import ArrowBack from 'material-ui-icons/ArrowBack';
 
-// import { myPrimaryColor } from '../themes/primary-color-palette';
 import { registerPoint } from '../../lib/points-const';
 
 const styles = theme => ({
@@ -525,7 +524,6 @@ class DaftarPage extends Component {
 DaftarPage.propTypes = {
   classes: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
-  // loading: PropTypes.bool.isRequired,
   newPlayerExists: PropTypes.bool.isRequired,
   newPlayer: PropTypes.object,
 };

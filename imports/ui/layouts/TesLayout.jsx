@@ -33,9 +33,6 @@ class TesLayout extends Component {
     Session.setPersistent('currentNewPlayer_isTestFinished', newPlayer.isTestFinished);
     Session.setPersistent('currentNewPlayer_name', newPlayer.name);
     Session.setPersistent('currentNewPlayer_score', newPlayer.score);
-
-    console.log(`Session.currentNewPlayer_id: ${Session.get('currentNewPlayer_id')}`);
-    console.log(`Session.currentNewPlayer_isTestFinished: ${Session.get('currentNewPlayer_isTestFinished')}`);
   }
 
   renderChildPage() {
@@ -83,7 +80,6 @@ TesLayout.propTypes = {
   loading: PropTypes.bool.isRequired,
   newPlayerExists: PropTypes.bool.isRequired,
   isDrawerOpen: PropTypes.bool,
-  // user: PropTypes.object,
   newPlayer: PropTypes.object,
   questionLoading: PropTypes.bool,
   questionHandle: PropTypes.object,

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Divider from 'material-ui/Divider';
-
 import QuestionItem from '../components/QuestionItem.jsx';
 
 class QuestionList extends Component {
@@ -12,7 +10,6 @@ class QuestionList extends Component {
 
   render() {
     const { questionsPerPage, questionStartIndex, answersPerPage } = this.props;
-    console.log(`answersThisPage: ${answersPerPage}`);
 
     return questionsPerPage.map((question, index) => (
       <div key={question._id}>
@@ -23,7 +20,6 @@ class QuestionList extends Component {
           value={answersPerPage[index]}
           updateAnswersToQuestionList={this.updateAnswersHere}
         />
-        {/* <Divider /> */}
       </div>
     ));
   }

@@ -25,10 +25,6 @@ const styles = theme => ({
     height: '100vh',
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: myPrimaryColor[900]
-    // background: 'linear-gradient(240deg,  #7474bf, #348ac7, #44449B)'
-    // background:
-    //   'linear-gradient(90deg, rgba(116,116,191,1), rgba(52,138,199,1))'
   },
   background: {
     zIndex: -10,
@@ -83,10 +79,6 @@ const styles = theme => ({
       height: 'auto',
     },
     backgroundColor: 'rgba(255,255,255,1)',
-    // backgroundSize: 'auto',
-    // backgroundPosition: 'left',
-    // backgroundImage: 'url("/img/mulai-tes-bg-bw-kraken.jpg")',
-    // backgroundAttachment: 'fixed'
   },
   petunjukContent: {
     zIndex: 2,
@@ -94,8 +86,6 @@ const styles = theme => ({
   overlay: {
     height: '100%',
     width: '100%',
-    // background:
-    //   'linear-gradient(30deg, rgba(116,116,191,1), rgba(52,138,199,.625))',
     background: 'linear-gradient(30deg, rgba(255,255,255,.92), rgba(255,255,255,.66))',
     position: 'absolute',
     top: 0,
@@ -176,14 +166,11 @@ class MulaiTesPage extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    // const name = ReactDOM.findDOMNode(this.refs.nameInput).value.trim();
     const name = this.nameInput.value.trim();
     const { age } = this.state;
     const id = Meteor.apply('newPlayers.insert', [name, age], {
       returnStubValue: true,
     });
-
-    console.log(`newPlayerId: ${id}`);
 
     this.setState({
       id,
@@ -192,7 +179,6 @@ class MulaiTesPage extends Component {
   }
 
   handleBackButton = () => {
-    console.log('back');
     this.props.history.go(-1);
   };
 

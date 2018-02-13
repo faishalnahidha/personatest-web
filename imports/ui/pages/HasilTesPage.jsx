@@ -4,10 +4,10 @@ import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
 import { withStyles } from 'material-ui/styles';
+import { CircularProgress } from 'material-ui/Progress';
+import Divider from 'material-ui/Divider';
 import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
-import Divider from 'material-ui/Divider';
-import { CircularProgress } from 'material-ui/Progress';
 
 import { PublicContents } from '../../api/public-contents.js';
 
