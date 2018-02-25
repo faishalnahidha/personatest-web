@@ -87,7 +87,7 @@ function MenuDrawer(props) {
     <Drawer type="persistent" classes={{ paper: classes.drawerPaper }} anchor="left" open={isOpen}>
       <div className={classes.drawerInner}>
         <div className={classes.drawerHeader}>
-          <Typography type="title">Persona Web</Typography>
+          <Typography type="title">Persona Test</Typography>
           <IconButton onClick={handleDrawerClose} className={classes.chevronButton}>
             <ChevronLeftIcon />
           </IconButton>
@@ -111,7 +111,7 @@ function MenuDrawer(props) {
     >
       <div className={classes.drawerInner}>
         <div className={classes.drawerHeader}>
-          <Typography type="title">Persona Web</Typography>
+          <Typography type="title">Persona Test</Typography>
         </div>
         <Divider />
         <MenuDrawerList

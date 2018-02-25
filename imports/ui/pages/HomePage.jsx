@@ -74,10 +74,11 @@ class HomePage extends Component {
           <Grid item xs={11} sm={10} md={8} lg={6} className={classes.titleContainer}>
             <Grid container spacing={0} direction="column" alignItems="center">
               <Typography type="display2" color="inherit" align="center" gutterBottom>
-                Persona - Panduan Karir
+                Persona Test
               </Typography>
               <Typography type="headline" color="inherit" align="center" gutterBottom>
-                Panduan 16 Tipe Kepribadian & Bakat Manusia dalam Memilih Karir Terbaik
+                Aplikasi Tes Kepribadian MBTI <em>Online</em> & Panduan Potensi Diri dalam Mencapai
+                Karir Terbaik
               </Typography>
               <Button
                 raised
