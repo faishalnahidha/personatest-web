@@ -158,7 +158,7 @@ class MainLayout extends Component {
         )}
         {currentUser && (
           <Snackbar
-            key="snackbar1"
+            key="snackbar2"
             anchorOrigin={{
               vertical: 'bottom',
               horizontal: 'left',

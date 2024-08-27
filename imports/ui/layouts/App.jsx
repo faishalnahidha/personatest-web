@@ -8,7 +8,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Reboot from 'material-ui/Reboot';
 
 /* Stylesheet imports */
-import 'typeface-roboto';
 import '../stylesheets/transition.css';
 
 import { myTheme } from '../themes/theme';
