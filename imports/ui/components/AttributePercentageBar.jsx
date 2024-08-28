@@ -73,10 +73,10 @@ class AttributePercentageBar extends Component {
           </div>
         </div>
         <div className={classes.labelContainer}>
-          <Typography type="caption" align="left" className={classes.leftLabel}>
+          <Typography variant="caption" align="left" className={classes.leftLabel}>
             {leftAttribute}
           </Typography>
-          <Typography type="caption" align="right" className={classes.rightLabel}>
+          <Typography variant="caption" align="right" className={classes.rightLabel}>
             {rightAttribute}
           </Typography>
         </div>

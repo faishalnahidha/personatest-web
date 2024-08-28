@@ -73,16 +73,17 @@ class HomePage extends Component {
         >
           <Grid item xs={11} sm={10} md={8} lg={6} className={classes.titleContainer}>
             <Grid container spacing={0} direction="column" alignItems="center">
-              <Typography type="display2" color="inherit" align="center" gutterBottom>
+              <Typography variant="display2" color="inherit" align="center" gutterBottom>
                 Persona Test
               </Typography>
-              <Typography type="headline" color="inherit" align="center" gutterBottom>
+              <Typography variant="headline" color="inherit" align="center" gutterBottom>
                 Aplikasi Tes Kepribadian MBTI <em>Online</em> & Panduan Potensi Diri dalam Mencapai
                 Karir Terbaik
               </Typography>
               <Button
-                raised
+                variant="raised"
                 color="secondary"
+                size="large"
                 component={Link}
                 to="/mulai-tes"
                 className={classes.buttonMulai}
@@ -95,7 +96,7 @@ class HomePage extends Component {
             <img src="/img/home-image.png" alt="persona home" className={classes.image} />
           </Grid>
         </Grid>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

@@ -39,8 +39,8 @@ class LeaderboardPanel extends Component {
       <Paper className={classes.paper}>
         <Grid container spacing={0}>
           <Grid item xs={6} sm={12} md={12}>
-            <Typography type="body2" align="center">
-              Persona <em>leaderboard</em>
+            <Typography variant="body2" style={{ paddingLeft: 16 }}>
+              Persona Leaderboard
             </Typography>
           </Grid>
           <Grid item xs={6} sm={12} md={12}>

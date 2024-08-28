@@ -171,24 +171,24 @@ class MainResultCard extends Component {
               className={classes.image}
             />
             <div className={classes.textInsidePictureContainer}>
-              <Typography type="display2" className={classes.textInsidePicture}>
+              <Typography variant="display2" className={classes.textInsidePicture}>
                 {content._id}
               </Typography>
               <br />
               <Typography
-                type="subheading"
+                variant="subheading"
                 className={classes.textInsidePicture}
                 style={{ marginTop: 8 }}
               >
                 {this.attribute[0]}
               </Typography>
-              <Typography type="subheading" className={classes.textInsidePicture}>
+              <Typography variant="subheading" className={classes.textInsidePicture}>
                 {this.attribute[1]}
               </Typography>
-              <Typography type="subheading" className={classes.textInsidePicture}>
+              <Typography variant="subheading" className={classes.textInsidePicture}>
                 {this.attribute[2]}
               </Typography>
-              <Typography type="subheading" className={classes.textInsidePicture}>
+              <Typography variant="subheading" className={classes.textInsidePicture}>
                 {this.attribute[3]}
               </Typography>
             </div>
@@ -196,11 +196,11 @@ class MainResultCard extends Component {
           <Grid item xs={12} sm={12} md={5}>
             <Grid container alignContent="space-between" spacing={0} style={{ height: '100%' }}>
               <Grid item xs={12} className={classes.textContainer}>
-                <Typography type="caption" gutterBottom>
+                <Typography variant="caption" gutterBottom>
                   Tipe kepribadian Anda:
                 </Typography>
-                <Typography type="headline" gutterBottom>
-                  {content.name.toUpperCase()}
+                <Typography variant="headline" component="h2" gutterBottom>
+                  {content.name}
                 </Typography>
                 <br />
                 {Parser(content.summary, {
@@ -215,12 +215,12 @@ class MainResultCard extends Component {
               <Grid item xs={12}>
                 <Grid container spacing={0} className={classes.buttonContainer}>
                   <Button
-                    dense
+                    size="small"
                     color="primary"
                     component={Link}
                     to={`/artikel/${content._id.toLowerCase()}`}
                   >
-                    Baca Lebih Lanjut
+                    Baca Selengkapnya
                   </Button>
                 </Grid>
               </Grid>
@@ -228,7 +228,7 @@ class MainResultCard extends Component {
           </Grid>
         </Grid>
         <Tooltip id="tooltip-share" title="Bagikan" placement="bottom">
-          <Button fab color="primary" aria-label="share" className={classes.shareFloatingButton}>
+          <Button variant="fab" color="primary" aria-label="share" className={classes.shareFloatingButton}>
             <Share />
           </Button>
         </Tooltip>

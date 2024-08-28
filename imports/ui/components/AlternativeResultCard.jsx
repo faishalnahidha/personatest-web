@@ -117,18 +117,18 @@ class AlternativeResultCard extends Component {
           />
         </div>
         <CardContent>
-          <Typography type="headline" component="h2" gutterBottom>
+          <Typography variant="title" component="h2" gutterBottom>
             {content._id} | {content.name}
           </Typography>
-          <Typography className={classes.greyText}>{content.shortDescription}</Typography>
+          <Typography paragraph>{content.shortDescription}</Typography>
         </CardContent>
         <CardActions className={classes.action}>
-          <Button dense color="primary" component={Link} to={`/artikel/${content._id}`}>
-            Baca
+          <Button size="small" color="primary" component={Link} to={`/artikel/${content._id}`}>
+            Baca Selengkapnya
           </Button>
-          <Button dense color="primary">
+          {/* <Button size="small" color="primary">
             Bagikan
-          </Button>
+          </Button> */}
           <div className={classes.flexGrow} />
           <IconButton
             className={classnames(classes.expandButton, {

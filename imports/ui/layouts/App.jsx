@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 import { CSSTransitionGroup } from 'react-transition-group';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Reboot from 'material-ui/Reboot';
+import CssBaseline from 'material-ui/CssBaseline';
 
 /* Stylesheet imports */
 import '../stylesheets/transition.css';
@@ -41,7 +41,7 @@ class App extends Component {
 
     return (
       <div>
-        <Reboot>
+        <CssBaseline >
           <MuiThemeProvider theme={myTheme}>
             <Router>
               <CSSTransitionGroup
@@ -78,7 +78,7 @@ class App extends Component {
               </CSSTransitionGroup>
             </Router>
           </MuiThemeProvider>
-        </Reboot>
+        </CssBaseline >
       </div>
     );
   }

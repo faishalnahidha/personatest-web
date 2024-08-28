@@ -67,7 +67,7 @@ const styles = theme => ({
   },
   buttonBerikutnya: {
     width: '100%',
-    marginBottom: theme.spacing.unit * 2,
+    // marginBottom: theme.spacing.unit * 2,
   },
   circularProgress: {
     marginTop: 128,
@@ -283,7 +283,7 @@ class TesPage extends Component {
         </Grid>
         <Grid item xs={12} sm={6} md={5} style={{ padding: 16 }}>
           <Button
-            raised
+            variant="raised"
             color="primary"
             onClick={this.handleButtonBerikutnya}
             className={this.props.classes.buttonBerikutnya}
@@ -386,7 +386,7 @@ class TesPage extends Component {
             </span>
           }
           action={
-            <Button color="secondary" dense onClick={this.handleSnackbar3Close}>
+            <Button color="secondary" size="small" onClick={this.handleSnackbar3Close}>
               Tutup
             </Button>
           }
@@ -407,7 +407,7 @@ class TesPage extends Component {
             </span>
           }
           action={
-            <Button color="secondary" dense onClick={this.handleSnackbar4Close}>
+            <Button color="secondary" size="small" onClick={this.handleSnackbar4Close}>
               Tutup
             </Button>
           }

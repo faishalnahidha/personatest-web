@@ -84,10 +84,10 @@ function MenuDrawer(props) {
   };
 
   const drawerDesktop = (
-    <Drawer type="persistent" classes={{ paper: classes.drawerPaper }} anchor="left" open={isOpen}>
+    <Drawer variant="persistent" classes={{ paper: classes.drawerPaper }} anchor="left" open={isOpen}>
       <div className={classes.drawerInner}>
         <div className={classes.drawerHeader}>
-          <Typography type="title">Persona Test</Typography>
+          <Typography variant="title">Persona Test</Typography>
           <IconButton onClick={handleDrawerClose} className={classes.chevronButton}>
             <ChevronLeftIcon />
           </IconButton>
@@ -100,7 +100,7 @@ function MenuDrawer(props) {
 
   const drawerMobile = (
     <Drawer
-      type="temporary"
+      variant="temporary"
       classes={{ paper: classes.drawerPaper }}
       anchor="left"
       open={isOpen}
@@ -111,7 +111,7 @@ function MenuDrawer(props) {
     >
       <div className={classes.drawerInner}>
         <div className={classes.drawerHeader}>
-          <Typography type="title">Persona Test</Typography>
+          <Typography variant="title">Persona Test</Typography>
         </div>
         <Divider />
         <MenuDrawerList

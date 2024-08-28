@@ -50,10 +50,10 @@ function PrevContentNavButton(props) {
         <ArrowBack />
       </div>
       <div>
-        <Typography type="body1" gutterBottom className={classes.transparentText}>
+        <Typography variant="body1" className={classes.transparentText}>
           Sebelumnya
         </Typography>
-        <Typography type="title" gutterBottom className={classes.titleText}>
+        <Typography variant="subheading" gutterBottom className={classes.titleText}>
           {prevContentTitle}
         </Typography>
       </div>

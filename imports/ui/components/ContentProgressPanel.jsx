@@ -32,19 +32,19 @@ function ContentProgressPanel(props) {
     <Paper className={classes.paper}>
       <Grid container spacing={16}>
         <Grid item xs={6} sm={12} md={12}>
-          <Typography type="body2" align="center">
-            Detil <em>Progress</em> Anda
+          <Typography variant="body2">
+            Detail Progress Anda
           </Typography>
         </Grid>
         <Grid item xs={6} sm={12} md={12}>
-          <Typography type="body1">
+          <Typography variant="body1">
             Persona Test&nbsp; <span className={classes.percentageNumber}>{testPercentage}%</span>
           </Typography>
           <Line percent={testPercentage} strokeWidth="6" strokeColor={strokeColor} trailWidth="6" />
         </Grid>
 
         <Grid item xs={6} sm={12} md={12}>
-          <Typography type="body1">
+          <Typography variant="body1">
             Profil Khusus&nbsp;{' '}
             <span className={classes.percentageNumber}>{privateContentPercentage}%</span>
           </Typography>
@@ -57,7 +57,7 @@ function ContentProgressPanel(props) {
         </Grid>
 
         <Grid item xs={6} sm={12} md={12}>
-          <Typography type="body1">
+          <Typography variant="body1">
             Artikel Umum&nbsp;{' '}
             <span className={classes.percentageNumber}>{publicContentPercentage}%</span>
           </Typography>

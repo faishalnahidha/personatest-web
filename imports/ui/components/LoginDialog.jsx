@@ -20,14 +20,14 @@ const styles = {
     width: '100%',
     marginTop: 16,
     marginBottom: 8,
-    background: 'linear-gradient(90deg, #7474bf, #348ac7)',
+    // background: 'linear-gradient(90deg, #7474bf, #348ac7)',
   },
   linkContainer: {
     marginTop: 16,
     marginBottom: 16,
   },
   link: {
-    color: myPrimaryColor.A700,
+    color: myPrimaryColor[800],
     fontSize: '0.75rem',
     textDecoration: 'none',
   },
@@ -103,7 +103,7 @@ class LoginDialog extends Component {
               </Link>
             </div>
             <Button
-              raised
+              variant="raised"
               color="primary"
               className={classes.buttonMasuk}
               type="submit"

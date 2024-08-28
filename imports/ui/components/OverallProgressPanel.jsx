@@ -25,12 +25,12 @@ function OverallProgressPanel(props) {
       <Grid container spacing={16} justify="center" alignItems="center">
         <Grid item xs={6} sm={12} md={12}>
           {name && (
-            <Typography type="headline" align="center" gutterBottom>
+            <Typography variant="body2">
               Hai {getFirstName(name)}!
             </Typography>
           )}
-          <Typography type="caption" align="center">
-            <em>Progress </em> keseluruhan Anda di Persona Web
+          <Typography variant="body1" >
+            Progress Keseluruhan Anda
           </Typography>
         </Grid>
         <Grid item xs={4} sm={9} md={10}>

@@ -53,13 +53,13 @@ function TestResultPanel(props) {
               className={classes.avatar}
             />
             <Grid item xs={12} style={{ marginTop: 8 }}>
-              <Typography type="body2" align="center">
+              <Typography variant="body2" align="center">
                 {`${personalityTypeName.toUpperCase()} (${personalityTypeLetter})`}
               </Typography>
-              <Typography type="caption" align="center">
+              <Typography variant="caption" align="center">
                 Warna kepribadian:
               </Typography>
-              <Typography type="caption" align="center">
+              <Typography variant="caption" align="center">
                 {getPersonalityNameWithLetter(personalityColorType).toUpperCase()}
               </Typography>
             </Grid>

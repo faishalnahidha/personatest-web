@@ -52,7 +52,7 @@ const styles = theme => ({
   paper: {
     overflowY: 'hidden',
     borderRadius: 4,
-    backgroundColor: 'rgba(255,255,255,.75)',
+    backgroundColor: 'rgba(255,255,255,1)',
     margin: theme.spacing.unit * 2,
   },
   paperContentContainer: {
@@ -122,7 +122,7 @@ const styles = theme => ({
   button: {
     width: '100%',
     marginTop: theme.spacing.unit * 4,
-    background: 'linear-gradient(90deg, #7474bf, #348ac7)',
+    // background: 'linear-gradient(90deg, #7474bf, #348ac7)',
   },
   backButton: {
     position: 'absolute',
@@ -370,7 +370,7 @@ class DaftarPage extends Component {
                     </Typography>
                     <Hidden smUp>
                       <Typography
-                        type="body1"
+                        variant="body1"
                         gutterBottom
                         className={classnames(classes.whiteText, classes.rightContentParagraph)}
                       >
@@ -379,7 +379,7 @@ class DaftarPage extends Component {
                     </Hidden>
                     <Hidden xsDown>
                       <Typography
-                        type="body1"
+                        variant="body1"
                         style={{ marginTop: 16 }}
                         gutterBottom
                         className={classnames(classes.whiteText, classes.leftContentParagraph)}
@@ -474,7 +474,7 @@ class DaftarPage extends Component {
                           },
                         }}
                         helperText={
-                          <Typography type="caption">
+                          <Typography variant="caption">
                             Belum tahu tipe kepribadian anda? Klik <a href="/mulai-tes">di sini</a>{' '}
                           </Typography>
                         }
@@ -488,7 +488,7 @@ class DaftarPage extends Component {
                       </TextField>
 
                       <Button
-                        raised
+                        variant="raised"
                         className={classes.button}
                         color="primary"
                         type="submit"

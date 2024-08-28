@@ -15,7 +15,8 @@ import { myPrimaryColor } from '../themes/primary-color-palette';
 const styles = theme => ({
   questionItem: {
     position: 'relative',
-    marginBottom: theme.spacing.unit * 5,
+    paddingTop: theme.spacing.unit * 3,
+    paddingBottom: theme.spacing.unit * 4,
     // margin: '32px 16px',
   },
   questionBackground: {
@@ -24,18 +25,18 @@ const styles = theme => ({
     height: 144,
     top: 0,
     left: 0,
-    backgroundColor: myPrimaryColor[400],
+    // backgroundColor: myPrimaryColor[400],
   },
   questionForeground: {
     position: 'relative',
     zIndex: 10,
   },
   numberText: {
-    fontSize: theme.typography.pxToRem(45),
+    fontSize: theme.typography.pxToRem(40),
     fontWeight: theme.typography.fontWeightLight,
-    margin: theme.spacing.unit,
+    padding: theme.spacing.unit,
     // marginBottom: 0,
-    color: '#fff',
+    color: 'rgb(0,0,0,.54)',
   },
   questionTextContainer: {
     display: 'flex',
@@ -43,9 +44,9 @@ const styles = theme => ({
   },
   questionText: {
     fontSize: theme.typography.pxToRem(18),
-    margin: theme.spacing.unit * 2,
-    marginRight: theme.spacing.unit * 5,
-    color: '#fff',
+    padding: theme.spacing.unit,
+    paddingRight: theme.spacing.unit * 5,
+    // color: '#fff',
   },
   answerBoxContainer: {
     // marginTop: theme.spacing.unit * 2, // 16px
@@ -77,25 +78,26 @@ function QuestionItem(props) {
   const numberText = number < 10 ? `0${number}` : `${number}`;
 
   return (
-    <li className={classes.questionItem}>
-      <div className={classes.questionBackground} />
-      <div className={classes.questionForeground}>
-        <Grid container spacing={0} alignItems="center">
-          <Grid item xs={3}>
-            <Typography align="center" className={classes.numberText}>
-              {numberText}
-            </Typography>
+    <div>
+      <li className={classes.questionItem}>
+        {/* <div className={classes.questionBackground} /> */}
+        <div className={classes.questionForeground}>
+          <Grid container spacing={16} alignItems="center">
+            <Grid item xs={3}>
+              <Typography align="right" className={classes.numberText}>
+                {numberText}
+              </Typography>
+            </Grid>
+            <Grid item xs={9}>
+              <Typography className={classes.questionText}>{question.text}</Typography>
+            </Grid>
           </Grid>
-          <Grid item xs={9}>
-            <Typography className={classes.questionText}>{question.text}</Typography>
-          </Grid>
-        </Grid>
-        <Grid container spacing={0}>
-          <Grid item xs={1} sm={3} />
-          <Grid item xs={11} sm={9}>
-            <Paper className={classes.answerBoxContainer}>
+          <Grid container spacing={0}>
+            <Grid item xs={1} sm={3} />
+            <Grid item xs={11} sm={9}>
+              {/* <Paper className={classes.answerBoxContainer}> */}
               <List dense>
-                <ListItem key={question.answer[0].text} value={question.answer[0].value}>
+                <ListItem key={question.answer[0].text} value={question.answer[0].value} style={{ padding: '0 24px' }}>
                   {/* <ListItemAvatar>
                     <Avatar className={classnames(classes.avatar)} alt="A">
                       A
@@ -117,8 +119,7 @@ function QuestionItem(props) {
                     }
                   />
                 </ListItem>
-                <Divider />
-                <ListItem key={question.answer[1].text} value={question.answer[1].value}>
+                <ListItem key={question.answer[1].text} value={question.answer[1].value} style={{ padding: '0 24px' }}>
                   {/* <ListItemAvatar>
                     <Avatar className={classnames(classes.avatar)} alt="B">
                       B
@@ -138,11 +139,16 @@ function QuestionItem(props) {
                   {/* <ListItemText primary={question.answer[1].text} /> */}
                 </ListItem>
               </List>
-            </Paper>
+              {/* </Paper> */}
+            </Grid>
+
           </Grid>
-        </Grid>
-      </div>
-    </li>
+
+        </div>
+
+      </li>
+      <Divider />
+    </div>
   );
 }
 

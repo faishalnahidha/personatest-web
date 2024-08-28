@@ -290,7 +290,7 @@ class PrivateContentPage extends Component {
     }
 
     if (!contentExists) {
-      return <Typography type="display1">404 Not Found</Typography>;
+      return <Typography variant="display1">404 Not Found</Typography>;
     }
 
     if (contentExists) {
@@ -325,7 +325,7 @@ class PrivateContentPage extends Component {
                       </Grid>
                     ) : (
                       <Grid item xs={12} className={classes.displayTextContainer}>
-                        <Typography type="display2" component="h1">
+                        <Typography variant="display2" component="h1">
                           {content.contentTitle}
                         </Typography>
                         <Typography
@@ -421,7 +421,7 @@ class PrivateContentPage extends Component {
                         </Grid>
                       ) : (
                         <Grid item xs={12} className={classes.displayTextContainer}>
-                          <Typography type="display2" component="h1">
+                          <Typography variant="display2" component="h1">
                             {content.contentTitle}
                           </Typography>
                           <Typography
@@ -471,7 +471,7 @@ class PrivateContentPage extends Component {
                                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                                       <div className={classes.expansionContentContainer}>
                                         <Typography
-                                          type="subheading"
+                                          variant="subheading"
                                           component="h3"
                                           className={classes.expansionTitleText}
                                         >
@@ -588,7 +588,7 @@ class PrivateContentPage extends Component {
             }}
             message={<span id="message-id">Artikel ini telah selesai dibaca</span>}
             action={
-              <Button key="ok" color="secondary" dense onClick={this.handleSnackbar1Close}>
+              <Button key="ok" color="secondary" size="small" onClick={this.handleSnackbar1Close}>
                 OK
               </Button>
             }

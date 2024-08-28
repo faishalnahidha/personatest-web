@@ -174,7 +174,7 @@ class MainLayout extends Component {
               </span>
             }
             action={
-              <Button color="secondary" dense onClick={this.handleSnackbar2Close}>
+              <Button color="secondary" size="small" onClick={this.handleSnackbar2Close}>
                 Tutup
               </Button>
             }

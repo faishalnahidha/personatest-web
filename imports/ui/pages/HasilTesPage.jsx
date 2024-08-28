@@ -118,7 +118,7 @@ class HasilTesPage extends Component {
               <Grid container spacing={0}>
                 <MainResultCard content={mainType} />
                 <Grid item xs={12}>
-                  <Typography type="subheading" className={classes.bandingkanText}>
+                  <Typography variant="subheading" className={classes.bandingkanText}>
                     Bandingkan dengan tipe kepribadian lain
                   </Typography>
                 </Grid>

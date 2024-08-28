@@ -35,19 +35,19 @@ function TestProgressPanel(props) {
       <Grid container spacing={16} justify="center" alignItems="center">
         <Grid item xs={6} sm={12} md={12}>
           {name && (
-            <Typography type="headline" align="center" gutterBottom>
+            <Typography variant="body2">
               Hai {getFirstName(name)}!
             </Typography>
           )}
           {isTestFinished && (
-            <Typography type="caption" align="center">
+            <Typography type="body1">
               Anda telah menyelesaikan tes, <Link to="/daftar">daftar akun</Link> untuk melengkapi{' '}
               <em>progress</em>
             </Typography>
           )}
 
           {!isTestFinished && (
-            <Typography type="caption" align="center">
+            <Typography type="body1">
               <em>Progress</em> Anda dalam tes ini adalah:
             </Typography>
           )}

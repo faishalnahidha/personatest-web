@@ -262,7 +262,7 @@ class PublicContentPage extends Component {
     } = this.props;
 
     if (!publicContentExists) {
-      return <Typography type="display1">404 Not Found</Typography>;
+      return <Typography variant="display1">404 Not Found</Typography>;
     }
 
     if (publicContentExists) {
@@ -296,7 +296,7 @@ class PublicContentPage extends Component {
                     </Grid>
                   ) : (
                     <Grid item xs={12} className={classes.displayTextContainer}>
-                      <Typography type="display2" component="h1" gutterBottom>
+                      <Typography variant="display2" component="h1" gutterBottom>
                         {publicContent.name}
                       </Typography>
                     </Grid>
@@ -318,7 +318,7 @@ class PublicContentPage extends Component {
                         if (domNode.name === 'h2') {
                           return (
                             <div>
-                              <Typography type="display1" component="h2" gutterBottom>
+                              <Typography variant="display1" component="h2" gutterBottom>
                                 {domToReact(domNode.children)}
                               </Typography>
                               <br />
@@ -388,7 +388,7 @@ class PublicContentPage extends Component {
                     isTestFinished &&
                     publicContent.article !== 'pengenalan' && (
                       <Grid item xs={12} className={classes.textContainer}>
-                        <Typography type="body1" className={classes.greyText}>
+                        <Typography variant="body1" className={classes.greyText}>
                           <em>
                             *Anda dapat melihat deskripsi detail mengenai: kelebihan alami dan
                             tantangan kepribadian Anda, lingkungan kerja dan bos ideal, serta
@@ -460,7 +460,7 @@ class PublicContentPage extends Component {
                 }}
                 message={<span id="message-id">Artikel ini telah selesai dibaca</span>}
                 action={
-                  <Button key="ok" color="secondary" dense onClick={this.handleSnackbar1Close}>
+                  <Button key="ok" color="secondary" size="small" onClick={this.handleSnackbar1Close}>
                     OK
                   </Button>
                 }

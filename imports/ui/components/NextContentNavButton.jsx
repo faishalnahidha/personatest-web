@@ -44,10 +44,10 @@ function NextContentNavButton(props) {
       to={`/artikel/${nextContentRoute}`}
     >
       <div>
-        <Typography type="body1" align="right" gutterBottom className={classes.transparentText}>
+        <Typography variant="body1" align="right" className={classes.transparentText}>
           Berikutnya
         </Typography>
-        <Typography type="title" align="right" gutterBottom className={classes.whiteText}>
+        <Typography variant="subheading" align="right" gutterBottom className={classes.whiteText}>
           {nextContentTitle}
         </Typography>
       </div>

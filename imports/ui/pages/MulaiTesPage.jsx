@@ -33,7 +33,7 @@ const styles = theme => ({
     height: '100%',
 
     backgroundPosition: 'center',
-    backgroundImage: 'url("/img/mulai-tes-bg-bw-kraken.jpg")',
+    backgroundImage: 'url("/img/login-bg-kraken.jpg")',
     backgroundAttachment: 'fixed',
     [theme.breakpoints.up('md')]: {
       backgroundSize: '100% auto',
@@ -44,8 +44,10 @@ const styles = theme => ({
   },
   paper: {
     overflow: 'hidden',
-    borderRadius: 4,
-    backgroundColor: 'rgba(255,255,255,.75)',
+    // borderRadius: 4,
+    backdropFilter: 'blur(8px)',
+    // backgroundColor: 'rgba(255,255,255,.5)',
+    backgroundColor: 'rgba(255,255,255,1)',
   },
   paperContentContainer: {
     display: 'flex',
@@ -78,7 +80,7 @@ const styles = theme => ({
       padding: theme.spacing.unit * 3,
       height: 'auto',
     },
-    backgroundColor: 'rgba(255,255,255,1)',
+    // backgroundColor: 'rgba(255,255,255,1)',
   },
   petunjukContent: {
     zIndex: 2,
@@ -95,7 +97,7 @@ const styles = theme => ({
   button: {
     width: '100%',
     marginTop: theme.spacing.unit * 4,
-    background: 'linear-gradient(90deg, #7474bf, #348ac7)',
+    // background: 'linear-gradient(90deg, #7474bf, #348ac7)',
   },
   backButton: {
     position: 'absolute',
@@ -104,6 +106,8 @@ const styles = theme => ({
   },
   displayText: {
     fontWeight: 300,
+    lineHeight: 'normal',
+    paddingBottom: 8,
     [theme.breakpoints.up('md')]: {
       fontSize: 45,
     },
@@ -218,20 +222,14 @@ class MulaiTesPage extends Component {
                       </IconButton>
                     </Hidden>
                     <Typography
-                      color="primary"
-                      className={classnames(classes.displayText, classes.purpleText)}
-                    >
-                      Selamat datang
-                    </Typography>
-                    <Typography
-                      className={classnames(classes.subText, classes.purpleText)}
                       gutterBottom
+                      className={classnames(classes.displayText)}
                     >
-                      di Persona Test
+                      Selamat datang di Persona Test
                     </Typography>
                     <Hidden xsDown>
                       <Typography
-                        type="body1"
+                        variant="body1"
                         gutterBottom
                         className={classnames(classes.leftContentParagraph)}
                       >
@@ -240,7 +238,7 @@ class MulaiTesPage extends Component {
                         pertanyaan yang disediakan.
                       </Typography>
                     </Hidden>
-                    <Typography type="body1" className={classnames(classes.leftContentParagraph)}>
+                    <Typography variant="body1" className={classnames(classes.leftContentParagraph)}>
                       <strong>Kejujuran anda </strong>dalam menjawab pertanyaan-pertanyaan akan
                       menentukan keakuratan dari hasil analisis kepribadian anda.
                     </Typography>
@@ -252,7 +250,7 @@ class MulaiTesPage extends Component {
                     className={classnames(classes.paperContentContainer, classes.formContainer)}
                   >
                     <div>
-                      <Typography type="caption" gutterBottom>
+                      <Typography variant="body1" gutterBottom>
                         Silahkan isi profil anda
                       </Typography>
                       <TextField
@@ -279,7 +277,7 @@ class MulaiTesPage extends Component {
                       />
                     </div>
                     <Button
-                      raised
+                      variant="raised"
                       className={classes.button}
                       color="primary"
                       type="submit"
