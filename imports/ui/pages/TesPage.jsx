@@ -67,7 +67,7 @@ const styles = theme => ({
   },
   buttonBerikutnya: {
     width: '100%',
-    // marginBottom: theme.spacing.unit * 2,
+    //  marginBottom: theme.spacing.unit * 2,
   },
   circularProgress: {
     marginTop: 128,

@@ -96,7 +96,7 @@ class HomePage extends Component {
             <img src="/img/home-image.png" alt="persona home" className={classes.image} />
           </Grid>
         </Grid>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }

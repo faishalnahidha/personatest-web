@@ -13,7 +13,7 @@ import MenuDrawer, { drawerWidth } from '../components/MenuDrawer.jsx';
 import PublicContentPageContainer from '../containers/PublicContentPageContainer.jsx';
 import PrivateContentPageContainer from '../containers/PrivateContentPageContainer.jsx';
 import TesContainer from '../containers/TesContainer.jsx';
-import Footer from '../components/Footer.jsx';
+import FooterAlt from '../components/FooterAlt.jsx';
 
 import { mySecondaryColor } from '../themes/secondary-color-palette';
 import { registerPoint } from '../../lib/points-const';
@@ -137,7 +137,7 @@ class MainLayout extends Component {
             )}
           />
         </Switch>
-        <Footer />
+        <FooterAlt />
         {currentUser && (
           <Snackbar
             key="snackbar1"

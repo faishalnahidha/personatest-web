@@ -7,7 +7,7 @@ import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 
-// import { drawerWidth } from '../components/MenuDrawer.jsx';
+// import { drawerWidth } from './MenuDrawer.jsx';
 
 const styles = theme => ({
   footer: {
@@ -20,20 +20,21 @@ const styles = theme => ({
       padding: '24px 16px 24px 8px',
       // marginTop: theme.spacing.unit * 5,
     },
-    backgroundColor: grey[800],
+    marginTop: theme.spacing.unit * 5,
+    backgroundColor: grey[100],
     width: '100%',
     minHeight: 120,
   },
   buttonLink: {
-    color: '#fff',
+    // color: '#fff',
     textTransform: 'none',
   },
   text: {
-    color: '#fff',
+    // color: '#fff',
   },
 });
 
-function Footer(props) {
+function FooterAlt(props) {
   const { classes } = props;
   return (
     <div className={classes.footer}>
@@ -45,9 +46,9 @@ function Footer(props) {
         alignItems="center"
       >
         <Grid item xs={12} sm={6} md={6}>
-          <Button color="default" href="https://persona.my.id/" target="_blank" className={classes.buttonLink}>Buku Persona</Button>
-          <Button color="default" href="https://persona.my.id/blog/" target="_blank" className={classes.buttonLink}>Blog</Button>
-          <Button color="default" href="https://www.instagram.com/persona.id/" target="_blank" className={classes.buttonLink}>Instagram</Button>
+          <Button color="primary" href="https://persona.my.id/" target="_blank" className={classes.buttonLink}>Buku Persona</Button>
+          <Button color="primary" href="https://persona.my.id/blog/" target="_blank" className={classes.buttonLink}>Blog</Button>
+          <Button color="primary" href="https://www.instagram.com/persona.id/" target="_blank" className={classes.buttonLink}>Instagram</Button>
         </Grid>
         <Grid item xs={12} sm={6} md={6} style={{ display: 'flex', justifyContent: 'flex-end' }}>
           <Typography variant="body1" className={classes.text}>Persona © 2016–2024</Typography>
@@ -57,8 +58,8 @@ function Footer(props) {
   );
 }
 
-Footer.propTypes = {
+FooterAlt.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Footer);
+export default withStyles(styles)(FooterAlt);
