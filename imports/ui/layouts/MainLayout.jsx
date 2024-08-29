@@ -137,7 +137,7 @@ class MainLayout extends Component {
             )}
           />
         </Switch>
-        <FooterAlt />
+        <FooterAlt isDrawerOpen={isDrawerOpen} />
         {currentUser && (
           <Snackbar
             key="snackbar1"

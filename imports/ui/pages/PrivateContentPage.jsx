@@ -132,7 +132,8 @@ const styles = theme => ({
   },
   expansionTitleText: {
     color: myPrimaryColor[700],
-    fontWeight: 300,
+    fontWeight: 500,
+    // fontWeight: theme.typography.fontWeightRegular
   },
   paragraphText: {
     fontSize: theme.typography.pxToRem(16),
