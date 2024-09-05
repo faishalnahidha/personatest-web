@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 import Parser from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
 
-import { withStyles } from 'material-ui/styles';
-import { CircularProgress } from 'material-ui/Progress';
-import Button from 'material-ui/Button';
-import Divider from 'material-ui/Divider';
-import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
-import Snackbar from 'material-ui/Snackbar';
-import Typography from 'material-ui/Typography';
-import { grey } from 'material-ui/colors';
+import { withStyles } from '@material-ui/core/styles';
+import { grey } from '@material-ui/core/colors';
+import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Snackbar from '@material-ui/core/Snackbar';
+import Typography from '@material-ui/core/Typography';
 
 import NextContentNavButton from '../components/NextContentNavButton.jsx';
 import OverallProgressPanel from '../components/OverallProgressPanel.jsx';

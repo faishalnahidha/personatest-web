@@ -6,20 +6,20 @@ import { Redirect } from 'react-router-dom';
 import Parser from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
 
-import { withStyles } from 'material-ui/styles';
-import Button from 'material-ui/Button';
-import Divider from 'material-ui/Divider';
-import ExpansionPanel, {
-  ExpansionPanelSummary,
-  ExpansionPanelDetails,
-} from 'material-ui/ExpansionPanel';
-import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
-import { CircularProgress } from 'material-ui/Progress';
-import Snackbar from 'material-ui/Snackbar';
-import Typography from 'material-ui/Typography';
-import { grey } from 'material-ui/colors';
-import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
+import { withStyles } from '@material-ui/core/styles';
+import { grey } from '@material-ui/core/colors';
+import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Divider from '@material-ui/core/Divider';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Snackbar from '@material-ui/core/Snackbar';
+import Typography from '@material-ui/core/Typography';
+
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import { drawerWidth } from '../components/MenuDrawer.jsx';
 import NextContentNavButton from '../components/NextContentNavButton.jsx';

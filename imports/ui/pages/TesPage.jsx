@@ -114,6 +114,7 @@ class TesPage extends Component {
     this.updateSomeState(newPlayer);
     Session.set('headerTitle', 'Persona Test');
     if (!newPlayer.answers) {
+      // eslint-disable-next-line react/no-did-mount-set-state
       this.setState({ openSnackbar2: true, openSnackbar3: true }); // masih bisa run
     }
   }
