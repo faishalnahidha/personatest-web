@@ -5,14 +5,15 @@ import classnames from 'classnames';
 // import TransitionGroup from 'react-transition-group/TransitionGroup';
 import { CSSTransitionGroup } from 'react-transition-group';
 
-import { withStyles } from 'material-ui/styles';
-import Button from 'material-ui/Button';
-import { CircularProgress } from 'material-ui/Progress';
-import Grid from 'material-ui/Grid';
-import List from 'material-ui/List';
-import Paper from 'material-ui/Paper';
-import Snackbar from 'material-ui/Snackbar';
-import NavigateNext from 'material-ui-icons/NavigateNext';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Grid from '@material-ui/core/Grid';
+import List from '@material-ui/core/List';
+import Paper from '@material-ui/core/Paper';
+import Snackbar from '@material-ui/core/Snackbar';
+
+import NavigateNext from '@material-ui/icons/NavigateNext';
 
 import '../stylesheets/animate.css';
 
@@ -220,6 +221,7 @@ class TesPage extends Component {
         this.updateResult(answers);
       }
     } else {
+      // eslint-disable-next-line no-alert
       alert('Anda belum menjawab semua pertanyaan!');
     }
   }

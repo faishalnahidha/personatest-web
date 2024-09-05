@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { withStyles } from 'material-ui/styles';
-import Divider from 'material-ui/Divider';
-import Grid from 'material-ui/Grid';
-import List, { ListItem, ListItemText } from 'material-ui/List';
-import Paper from 'material-ui/Paper';
-import Typography from 'material-ui/Typography';
-import Radio from 'material-ui/Radio';
-import { FormControlLabel } from 'material-ui/Form';
-
-import { myPrimaryColor } from '../themes/primary-color-palette';
+import { withStyles } from '@material-ui/core/styles';
+import Divider from '@material-ui/core/Divider';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Grid from '@material-ui/core/Grid';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Radio from '@material-ui/core/Radio';
+import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   questionItem: {
@@ -25,7 +24,6 @@ const styles = theme => ({
     height: 144,
     top: 0,
     left: 0,
-    // backgroundColor: myPrimaryColor[400],
   },
   questionForeground: {
     position: 'relative',
@@ -35,7 +33,6 @@ const styles = theme => ({
     fontSize: theme.typography.pxToRem(40),
     fontWeight: theme.typography.fontWeightLight,
     padding: theme.spacing.unit,
-    // marginBottom: 0,
     color: 'rgb(0,0,0,.54)',
   },
   questionTextContainer: {

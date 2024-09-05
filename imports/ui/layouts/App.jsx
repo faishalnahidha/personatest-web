@@ -4,7 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group';
 
-import { MuiThemeProvider as MuiThemeProviderBeta } from 'material-ui/styles'; // v1-beta
+// import { MuiThemeProvider as MuiThemeProviderBeta } from 'material-ui/styles'; // v1-beta
 import { MuiThemeProvider } from '@material-ui/core/styles'; // v1.x
 import CssBaseline from '@material-ui/core/CssBaseline';
 
