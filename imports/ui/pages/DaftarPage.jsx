@@ -61,6 +61,7 @@ const styles = theme => ({
     backgroundPosition: 'left',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
+    // backgroundAttachment: 'fixed',
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing.unit * 6,
       height: 600,
@@ -83,18 +84,17 @@ const styles = theme => ({
     },
   },
   formContainer: {
-    justifyContent: 'center',
-
+    // justifyContent: 'center',
     [theme.breakpoints.up('lg')]: {
       height: '100%',
-      margin: '0 96px',
+      padding: '0 80px',
     },
     [theme.breakpoints.down('md')]: {
       height: '100%',
-      margin: '0 80px',
+      padding: '0 56px',
     },
     [theme.breakpoints.down('sm')]: {
-      margin: theme.spacing.unit * 4,
+      padding: theme.spacing.unit * 3,
     },
   },
   overlay: {

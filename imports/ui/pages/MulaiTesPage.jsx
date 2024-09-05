@@ -51,19 +51,18 @@ const styles = theme => ({
     justifyContent: 'center',
   },
   formContainer: {
-    justifyContent: 'center',
-
+    // justifyContent: 'center',
     [theme.breakpoints.up('lg')]: {
       height: 600,
-      margin: 'auto 96px',
+      padding: '0 72px 0 24px',
     },
     [theme.breakpoints.down('md')]: {
       height: 600,
-      margin: 'auto 80px',
+      padding: '0 56px 0 0',
     },
     [theme.breakpoints.down('sm')]: {
       height: 'auto',
-      margin: theme.spacing.unit * 4,
+      padding: '8px 24px 24px 24px',
     },
   },
   petunjukContainer: {
