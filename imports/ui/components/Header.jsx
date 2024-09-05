@@ -3,17 +3,19 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import { withStyles } from '@material-ui/core/styles';
+import { grey } from '@material-ui/core/colors';
 import AppBar from '@material-ui/core/AppBar';
 import Avatar from '@material-ui/core/Avatar';
-import Hidden from '@material-ui/core/Hidden';
 import Button from '@material-ui/core/Button';
+import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import Menu, { MenuItem } from 'material-ui/Menu';
-import { ListItemIcon, ListItemText } from 'material-ui/List';
-import Tooltip from '@material-ui/core/Tooltip';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import Toolbar from '@material-ui/core/Toolbar';
+import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
-import { grey } from '@material-ui/core/colors';
 
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuIcon from '@material-ui/icons/Menu';
