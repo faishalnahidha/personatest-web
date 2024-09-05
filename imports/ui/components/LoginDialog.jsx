@@ -4,11 +4,12 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Link } from 'react-router-dom';
 
-import { withStyles } from 'material-ui/styles';
-import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
-import Typography from 'material-ui/Typography';
-import Dialog, { DialogContent, DialogTitle } from 'material-ui/Dialog';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import TextField from '@material-ui/core/TextField';
 
 import { myPrimaryColor } from '../themes/primary-color-palette';
 
@@ -19,7 +20,6 @@ const styles = {
   buttonMasuk: {
     width: '100%',
     marginTop: 16,
-    marginBottom: 8,
     // background: 'linear-gradient(90deg, #7474bf, #348ac7)',
   },
   linkContainer: {
@@ -38,6 +38,7 @@ class LoginDialog extends Component {
     super(props);
 
     this.state = {
+      // eslint-disable-next-line react/no-unused-state
       errors: '',
     };
   }
@@ -52,6 +53,7 @@ class LoginDialog extends Component {
     Meteor.loginWithPassword(email, password, (err) => {
       if (err) {
         errors = err.reason;
+        // eslint-disable-next-line react/no-unused-state
         this.setState({ errors });
       } else {
         this.props.handleLoginDialogClose();
