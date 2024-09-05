@@ -4,9 +4,9 @@ import classnames from 'classnames';
 import { Session } from 'meteor/session';
 import { Route, Switch } from 'react-router-dom';
 
-import { withStyles } from 'material-ui/styles';
-import Button from 'material-ui/Button';
-import Snackbar from 'material-ui/Snackbar';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
 
 import Header from '../components/Header.jsx';
 import MenuDrawer, { drawerWidth } from '../components/MenuDrawer.jsx';
