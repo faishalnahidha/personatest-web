@@ -13,10 +13,11 @@ import { ListItemIcon, ListItemText } from 'material-ui/List';
 import Tooltip from 'material-ui/Tooltip';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import MenuIcon from 'material-ui-icons/Menu';
-import AccountCircle from 'material-ui-icons/AccountCircle';
 import { grey } from 'material-ui/colors';
-import Face from 'material-ui-icons/Face';
+
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import MenuIcon from '@material-ui/icons/Menu';
+
 
 // import anime from 'animejs';
 
