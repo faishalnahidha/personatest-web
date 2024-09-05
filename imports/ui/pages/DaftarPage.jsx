@@ -39,16 +39,10 @@ const styles = theme => ({
     position: 'fixed',
     width: '100%',
     height: '100%',
-    backgroundPosition: 'center',
     backgroundImage: 'url("/img/login-bg-kraken.jpg")',
-    backgroundAttachment: 'fixed',
-
-    [theme.breakpoints.up('md')]: {
-      backgroundSize: '100% auto',
-    },
-    [theme.breakpoints.down('sm')]: {
-      backgroundSize: 'auto 100%',
-    },
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
   },
   paper: {
     overflowY: 'hidden',
@@ -63,10 +57,10 @@ const styles = theme => ({
   },
   leftContentContainer: {
     position: 'relative',
-    backgroundSize: 'auto',
-    backgroundPosition: 'left',
     backgroundImage: 'url("/img/login-bg-kraken.jpg")',
-    backgroundAttachment: 'fixed',
+    backgroundPosition: 'left',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing.unit * 6,
       height: 600,
@@ -106,7 +100,7 @@ const styles = theme => ({
   overlay: {
     height: '100%',
     width: '100%',
-    background: 'linear-gradient(30deg, rgba(116,116,191,1), rgba(52,138,199,.75))',
+    background: 'linear-gradient(30deg, rgba(116,116,191,1), rgba(52,138,199,.80))',
     position: 'absolute',
     top: 0,
     left: 0,
@@ -114,7 +108,7 @@ const styles = theme => ({
   overlayBackground: {
     height: '100%',
     width: '100%',
-    background: 'linear-gradient(30deg, rgba(255,255,255,.92), rgba(255,255,255,.66))',
+    background: 'linear-gradient(30deg, rgba(255,255,255,1), rgba(255,255,255,.66))',
     position: 'fixed',
     top: 0,
     left: 0,

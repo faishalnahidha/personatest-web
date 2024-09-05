@@ -4,16 +4,17 @@ import { Meteor } from 'meteor/meteor';
 import { Redirect } from 'react-router';
 import classnames from 'classnames';
 
-import { withStyles } from 'material-ui/styles';
-import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
-import Hidden from 'material-ui/Hidden';
-import TextField from 'material-ui/TextField';
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
-import IconButton from 'material-ui/IconButton';
-import { grey } from 'material-ui/colors';
-import ArrowBack from 'material-ui-icons/ArrowBack';
+import { withStyles } from '@material-ui/core/styles';
+// import { grey } from '@material-ui/core/colors';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
+import IconButton from '@material-ui/core/IconButton';
+import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+
+import ArrowBack from '@material-ui/icons/ArrowBack';
 
 import { myPrimaryColor } from '../themes/primary-color-palette';
 
@@ -31,23 +32,18 @@ const styles = theme => ({
     position: 'fixed',
     width: '100%',
     height: '100%',
-
-    backgroundPosition: 'center',
     backgroundImage: 'url("/img/login-bg-kraken.jpg")',
-    backgroundAttachment: 'fixed',
-    [theme.breakpoints.up('md')]: {
-      backgroundSize: '100% auto',
-    },
-    [theme.breakpoints.down('sm')]: {
-      backgroundSize: 'auto 100%',
-    },
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
   },
   paper: {
     overflow: 'hidden',
-    // borderRadius: 4,
-    backdropFilter: 'blur(8px)',
-    // backgroundColor: 'rgba(255,255,255,.5)',
+    // borderRadius: 16,
     backgroundColor: 'rgba(255,255,255,1)',
+    // Glass effects
+    // backdropFilter: 'blur(8px)',
+    // backgroundColor: 'rgba(255,255,255,.5)',
   },
   paperContentContainer: {
     display: 'flex',
@@ -88,7 +84,7 @@ const styles = theme => ({
   overlay: {
     height: '100%',
     width: '100%',
-    background: 'linear-gradient(30deg, rgba(255,255,255,.92), rgba(255,255,255,.66))',
+    background: 'linear-gradient(30deg, rgba(255,255,255,1), rgba(255,255,255,.66))',
     position: 'absolute',
     top: 0,
     left: 0,
@@ -123,8 +119,7 @@ const styles = theme => ({
     color: myPrimaryColor[500],
   },
   leftContentParagraph: {
-    fontWeight: 400,
-    color: grey[800],
+    // color: grey[800],
     [theme.breakpoints.up('md')]: {
       marginTop: theme.spacing.unit * 2,
       width: '66%',
@@ -239,8 +234,8 @@ class MulaiTesPage extends Component {
                       </Typography>
                     </Hidden>
                     <Typography variant="body1" className={classnames(classes.leftContentParagraph)}>
-                      <strong>Kejujuran anda </strong>dalam menjawab pertanyaan-pertanyaan akan
-                      menentukan keakuratan dari hasil analisis kepribadian anda.
+                      <strong>Kejujuran Anda </strong>dalam menjawab pertanyaan-pertanyaan akan
+                      menentukan keakuratan dari hasil analisis kepribadian Anda.
                     </Typography>
                   </div>
                 </Grid>
@@ -251,7 +246,7 @@ class MulaiTesPage extends Component {
                   >
                     <div>
                       <Typography variant="body1" gutterBottom>
-                        Silahkan isi profil anda
+                        Silahkan isi profil Anda
                       </Typography>
                       <TextField
                         required
