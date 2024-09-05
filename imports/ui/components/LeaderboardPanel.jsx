@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { withStyles } from 'material-ui/styles';
-import Avatar from 'material-ui/Avatar';
-import { CircularProgress } from 'material-ui/Progress';
-import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
-import List, { ListItem, ListItemText, ListItemAvatar } from 'material-ui/List';
-import Typography from 'material-ui/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Grid from '@material-ui/core/Grid';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   paper: {
@@ -24,9 +26,7 @@ class LeaderboardPanel extends Component {
   renderList() {
     return this.props.topUsers.map(user => (
       <ListItem key={user.username}>
-        <ListItemAvatar>
-          <Avatar alt={user.username} src={user.profile.profilePicture} />
-        </ListItemAvatar>
+        <Avatar alt={user.username} src={user.profile.profilePicture} />
         <ListItemText primary={user.username} secondary={user.gameProfile.score} />
       </ListItem>
     ));

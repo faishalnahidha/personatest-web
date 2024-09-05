@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import Parser from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
 
-import { withStyles } from 'material-ui/styles';
-import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
-import Tooltip from 'material-ui/Tooltip';
-import IconButton from 'material-ui/IconButton';
-import Share from 'material-ui-icons/Share';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
+
+import Share from '@material-ui/icons/Share';
 
 import { personalityColor } from '../themes/personality-color.js';
 
@@ -178,7 +178,7 @@ class MainResultCard extends Component {
               <Typography
                 variant="subheading"
                 className={classes.textInsidePicture}
-                style={{ marginTop: 8 }}
+                style={{ marginTop: 0 }}
               >
                 {this.attribute[0]}
               </Typography>
@@ -199,7 +199,7 @@ class MainResultCard extends Component {
                 <Typography variant="caption" gutterBottom>
                   Tipe kepribadian Anda:
                 </Typography>
-                <Typography variant="headline" component="h2" gutterBottom>
+                <Typography variant="headline" component="h2">
                   {content.name}
                 </Typography>
                 <br />
