@@ -7,8 +7,6 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-import Share from '@material-ui/icons/Share';
-
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -50,10 +48,12 @@ const CopyIcon = () => (
 
 function ShareDialog(props) {
   const {
-    classes, isOpen, onClose, ...other
+    classes, isOpen, onClose, code, ...other
   } = props;
 
-  const url = 'https://test.persona.my.id/test/';
+  // url for shared link. In production it will be https://test.persona.my.id/tes/CODE
+  const url = `${window.location.origin}/tes/${code}`;
+  // console.log(url);
 
   return (
     <Dialog
@@ -113,6 +113,7 @@ ShareDialog.propTypes = {
   classes: PropTypes.object.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  code: PropTypes.string,
 };
 
 export default withStyles(styles)(ShareDialog);
