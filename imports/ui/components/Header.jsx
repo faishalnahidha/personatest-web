@@ -345,9 +345,9 @@ class Header extends Component {
           </Toolbar>
         </AppBar>
         <LoginDialog
-          isLoginDialogOpen={isLoginDialogOpen}
-          handleLoginDialogOpen={this.handleLoginDialogOpen}
-          handleLoginDialogClose={this.handleLoginDialogClose}
+          isOpen={isLoginDialogOpen}
+          // handleLoginDialogOpen={this.handleLoginDialogOpen}
+          onClose={this.handleLoginDialogClose}
         />
       </div>
     );

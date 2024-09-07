@@ -56,7 +56,7 @@ class LoginDialog extends Component {
         // eslint-disable-next-line react/no-unused-state
         this.setState({ errors });
       } else {
-        this.props.handleLoginDialogClose();
+        this.props.onClose();
       }
     });
 
@@ -67,13 +67,13 @@ class LoginDialog extends Component {
   };
 
   render() {
-    const { isLoginDialogOpen, handleLoginDialogClose, classes } = this.props;
+    const { isOpen, onClose, classes } = this.props;
 
     return (
       <Dialog
         maxWidth="xs"
-        open={isLoginDialogOpen}
-        onClose={handleLoginDialogClose}
+        open={isOpen}
+        onClose={onClose}
         aria-labelledby="login-dialog-title"
       >
         <DialogTitle id="login-dialog-title">Masuk</DialogTitle>
@@ -122,8 +122,8 @@ class LoginDialog extends Component {
 
 LoginDialog.propTypes = {
   classes: PropTypes.object.isRequired,
-  isLoginDialogOpen: PropTypes.bool.isRequired,
-  handleLoginDialogClose: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(LoginDialog);
