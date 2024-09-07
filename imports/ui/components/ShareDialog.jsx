@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Snackbar from '@material-ui/core/Snackbar';
 
 import {
   FacebookShareButton,
@@ -46,67 +48,96 @@ const CopyIcon = () => (
   </svg>
 );
 
-function ShareDialog(props) {
-  const {
-    classes, isOpen, onClose, code, ...other
-  } = props;
+class ShareDialog extends Component {
+  constructor(props) {
+    super(props);
 
-  // url for shared link. In production it will be https://test.persona.my.id/tes/CODE
-  const url = `${window.location.origin}/tes/${code}`;
-  // console.log(url);
+    this.state = {
+      openSnackbarCopied: false,
+    };
+  }
 
-  return (
-    <Dialog
-      open={isOpen}
-      onClose={onClose}
-      aria-labelledby="share-dialog-title"
-      {...other}
-    >
-      <DialogTitle id="share-dialog-title">Bagikan Hasil Tes</DialogTitle>
-      <DialogContent>
-        <div className={classes.flexContainer}>
-          <FacebookShareButton
-            url={url}
-            title="My Persona Test"
-            hashtag="#PersonaMyId #KenaliDirimu"
-            className={classes.socialMediaButton}
-          >
-            <FacebookIcon size={48} round />
-          </FacebookShareButton>
-          <TwitterShareButton
-            url={url}
-            title="My Persona Test"
-            hashtag="#PersonaMyId #KenaliDirimu"
-            className={classes.socialMediaButton}
-          >
-            <TwitterIcon size={48} round />
-          </TwitterShareButton>
-          <LinkedinShareButton
-            url={url}
-            sumary=""
-            source="Persona Test"
-            className={classes.socialMediaButton}
-          >
-            <LinkedinIcon size={48} round />
-          </LinkedinShareButton>
-          <WhatsappShareButton
-            url={url}
-            title="My Persona Test"
-            separator=" | "
-            className={classes.socialMediaButton}
-          >
-            <WhatsappIcon size={48} round />
-          </WhatsappShareButton>
-        </div>
-        <Button
-          color="primary"
-          variant="outlined"
-          fullWidth
-        ><CopyIcon />Salin Link
-        </Button>
-      </DialogContent>
-    </Dialog>
-  );
+  render() {
+    const {
+      classes, isOpen, onClose, code, ...other
+    } = this.props;
+
+    // url for shared link. In production it will be https://test.persona.my.id/tes/CODE
+    const url = `${window.location.origin}/tes/${code}`;
+
+    return (
+      <div>
+        <Dialog
+          open={isOpen}
+          onClose={onClose}
+          aria-labelledby="share-dialog-title"
+          {...other}
+        >
+          <DialogTitle id="share-dialog-title">Bagikan Hasil Tes</DialogTitle>
+          <DialogContent>
+            <div className={classes.flexContainer}>
+              <FacebookShareButton
+                url={url}
+                title="My Persona Test"
+                hashtag="#PersonaMyId #KenaliDirimu"
+                className={classes.socialMediaButton}
+              >
+                <FacebookIcon size={48} round />
+              </FacebookShareButton>
+              <TwitterShareButton
+                url={url}
+                title="My Persona Test"
+                hashtag="#PersonaMyId #KenaliDirimu"
+                className={classes.socialMediaButton}
+              >
+                <TwitterIcon size={48} round />
+              </TwitterShareButton>
+              <LinkedinShareButton
+                url={url}
+                summary=""
+                source="Persona Test"
+                className={classes.socialMediaButton}
+              >
+                <LinkedinIcon size={48} round />
+              </LinkedinShareButton>
+              <WhatsappShareButton
+                url={url}
+                title="My Persona Test"
+                separator=" | "
+                className={classes.socialMediaButton}
+              >
+                <WhatsappIcon size={48} round />
+              </WhatsappShareButton>
+            </div>
+            <CopyToClipboard
+              text={url}
+              onCopy={() => this.setState({ openSnackbarCopied: true })}
+            >
+              <Button
+                color="primary"
+                variant="outlined"
+                fullWidth
+              ><CopyIcon />Salin Link
+              </Button>
+            </CopyToClipboard>
+          </DialogContent>
+        </Dialog>
+        <Snackbar
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right',
+          }}
+          open={this.state.openSnackbarCopied}
+          autoHideDuration={3000}
+          onClose={() => this.setState({ openSnackbarCopied: false })}
+          ContentProps={{
+            'aria-describedby': 'message-id',
+          }}
+          message={<span id="message-id">Link disalin!</span>}
+        />
+      </div>
+    );
+  }
 }
 
 ShareDialog.propTypes = {
