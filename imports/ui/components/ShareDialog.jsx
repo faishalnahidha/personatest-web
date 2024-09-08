@@ -59,11 +59,12 @@ class ShareDialog extends Component {
 
   render() {
     const {
-      classes, isOpen, onClose, code, ...other
+      classes, isOpen, onClose, param, ...other
     } = this.props;
 
     // url for shared link. In production it will be https://test.persona.my.id/tes/CODE
-    const url = `${window.location.origin}/tes/${code}`;
+    const url = `${window.location.origin}/tes/${param}`;
+    console.log(`parameter: ${param}`);
 
     return (
       <div>
@@ -144,7 +145,7 @@ ShareDialog.propTypes = {
   classes: PropTypes.object.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  code: PropTypes.string,
+  param: PropTypes.string,
 };
 
 export default withStyles(styles)(ShareDialog);

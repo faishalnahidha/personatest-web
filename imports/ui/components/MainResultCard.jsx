@@ -164,7 +164,7 @@ class MainResultCard extends Component {
   };
 
   render() {
-    const { classes, content, code } = this.props;
+    const { classes, content, param } = this.props;
 
     return (
       <div>
@@ -254,7 +254,7 @@ class MainResultCard extends Component {
           </Tooltip>
         </Paper>
         <ShareDialog
-          code={code}
+          param={param}
           isOpen={this.state.isShareDialogOpen}
           onClose={this.handleShareDialogClose}
         />
@@ -266,6 +266,6 @@ class MainResultCard extends Component {
 MainResultCard.propTypes = {
   classes: PropTypes.object.isRequired,
   content: PropTypes.object.isRequired,
-  code: PropTypes.string,
+  param: PropTypes.string,
 };
 export default withStyles(styles)(MainResultCard);

@@ -92,7 +92,7 @@ class HasilTesPage extends Component {
     }
 
     const isUserLogin = !!Meteor.userId();
-    const newPlayerCode = newPlayer._id;
+    const newPlayerId = newPlayer._id;
 
     if (!resultLoading && newPlayer.result) {
       const mainType = PublicContents.findOne({ _id: newPlayer.result.type });
@@ -118,7 +118,7 @@ class HasilTesPage extends Component {
               })}
             >
               <Grid container spacing={0}>
-                <MainResultCard content={mainType} code={newPlayerCode} />
+                <MainResultCard content={mainType} param={newPlayerId} />
                 <Grid item xs={12}>
                   <Typography variant="subheading" className={classes.bandingkanText}>
                     Bandingkan dengan tipe kepribadian lain

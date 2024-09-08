@@ -279,6 +279,10 @@ class DaftarPage extends Component {
     const testResult = Object.assign(this.props.newPlayer.result);
     const score = this.props.newPlayer.score + DAFTAR_POINT;
 
+    // newPlayerId purpose is to save newPlayer._id into user object,
+    // so with this app can get hasil tes url for sharing
+    const newPlayerId = this.props.newPlayer._id;
+
     this.setState({ errors: 'test' });
 
     if (password === confirmPassword) {
@@ -292,6 +296,7 @@ class DaftarPage extends Component {
           age,
           score,
           testResult,
+          newPlayerId,
         },
         (err) => {
           if (err) {
