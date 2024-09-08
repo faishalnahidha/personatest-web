@@ -39,7 +39,7 @@ const styles = {
 const CopyIcon = () => (
   <svg
     style={{
- width: 24, height: 24, marginRight: 8, marginLeft: -6,
+ width: 18, height: 18, marginRight: 8, marginLeft: -4,
 }}
     viewBox="0 0 24 24"
   >
@@ -64,7 +64,7 @@ class ShareDialog extends Component {
 
     // url for shared link. In production it will be https://test.persona.my.id/tes/CODE
     const url = `${window.location.origin}/tes/${param}`;
-    console.log(`parameter: ${param}`);
+    // console.log(`parameter: ${param}`);
 
     return (
       <div>
