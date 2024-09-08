@@ -31,6 +31,10 @@ Accounts.onCreateUser((options, user) => {
     newUser.gameProfile.score = options.score;
   }
 
+  if (options.newPlayerId) {
+    newUser.newPlayerId = options.newPlayerId;
+  }
+
   if (options.testResult) {
     newUser.testResult = options.testResult;
   }
