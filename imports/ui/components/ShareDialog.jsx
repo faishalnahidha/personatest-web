@@ -29,10 +29,7 @@ const styles = {
     marginBottom: 8,
   },
   socialMediaButton: {
-    margin: 8,
-  },
-  leftIcon: {
-    marginRight: 80,
+    margin: 4,
   },
 };
 
