@@ -20,12 +20,17 @@ const styles = theme => ({
     borderRadius: 4,
     overflow: 'auto',
   },
+  listItem: {
+    paddingLeft: theme.spacing.unit * 2.0,
+  },
 });
 
 class LeaderboardPanel extends Component {
   renderList() {
+    const { classes } = this.props;
+
     return this.props.topUsers.map(user => (
-      <ListItem key={user.username}>
+      <ListItem className={classes.listItem} key={user.username}>
         <Avatar alt={user.username} src={user.profile.profilePicture} />
         <ListItemText primary={user.username} secondary={user.gameProfile.score} />
       </ListItem>
@@ -38,12 +43,12 @@ class LeaderboardPanel extends Component {
     return (
       <Paper className={classes.paper}>
         <Grid container spacing={0}>
-          <Grid item xs={6} sm={12} md={12}>
+          <Grid item xs={12}>
             <Typography variant="body2" style={{ paddingLeft: 16 }}>
               Persona Leaderboard
             </Typography>
           </Grid>
-          <Grid item xs={6} sm={12} md={12}>
+          <Grid item xs={12}>
             {topUsers ? (
               <List dense>{this.renderList()}</List>
             ) : (
@@ -72,7 +77,7 @@ export default withTracker(() => ({
           'profile.profilePicture': 1,
           'gameProfile.score': 1,
         },
-        // limit: 10,
+        limit: 10,
       },
     )
     .fetch(),
