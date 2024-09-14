@@ -8,6 +8,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Snackbar from '@material-ui/core/Snackbar';
+import SvgIcon from '@material-ui/core/SvgIcon';
 
 import {
   FacebookShareButton,
@@ -20,8 +21,6 @@ import {
   WhatsappIcon,
 } from 'react-share';
 
-import { myPrimaryColor } from '../themes/primary-color-palette';
-
 const styles = {
   flexContainer: {
     display: 'flex',
@@ -31,18 +30,16 @@ const styles = {
   socialMediaButton: {
     margin: 4,
   },
+  leftIcon: {
+    marginRight: 8,
+  },
 };
 
-const CopyIcon = () => (
-  <svg
-    style={{
- width: 18, height: 18, marginRight: 8, marginLeft: -4,
-}}
-    viewBox="0 0 24 24"
-  >
-    <path d="M0 0h24v24H0z" fill="none" />
-    <path fill={myPrimaryColor[500]} d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
-  </svg>
+const CopyIcon = props => (
+  <SvgIcon {...props}>
+    {/* <path d="M0 0h24v24H0z" fill="none" /> */}
+    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+  </SvgIcon>
 );
 
 class ShareDialog extends Component {
@@ -115,7 +112,7 @@ class ShareDialog extends Component {
                 color="primary"
                 variant="outlined"
                 fullWidth
-              ><CopyIcon />Salin Link
+              ><CopyIcon className={classes.leftIcon} />Salin Link
               </Button>
             </CopyToClipboard>
           </DialogContent>
