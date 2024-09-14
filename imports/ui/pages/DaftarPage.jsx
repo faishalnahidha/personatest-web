@@ -6,18 +6,19 @@ import { Session } from 'meteor/session';
 import classnames from 'classnames';
 import { Redirect } from 'react-router-dom';
 
-import { withStyles } from 'material-ui/styles';
-import Button from 'material-ui/Button';
-import Grid from 'material-ui/Grid';
-import Hidden from 'material-ui/Hidden';
-import IconButton from 'material-ui/IconButton';
-import MenuItem from 'material-ui/Menu/MenuItem';
-import Paper from 'material-ui/Paper';
-import Snackbar from 'material-ui/Snackbar';
-import TextField from 'material-ui/TextField';
-import Typography from 'material-ui/Typography';
-import { grey } from 'material-ui/colors';
-import ArrowBack from 'material-ui-icons/ArrowBack';
+import { withStyles } from '@material-ui/core/styles';
+import { grey } from '@material-ui/core/colors';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
+import IconButton from '@material-ui/core/IconButton';
+import MenuItem from '@material-ui/core/MenuItem';
+import Paper from '@material-ui/core/Paper';
+import Snackbar from '@material-ui/core/Snackbar';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+
+import ArrowBack from '@material-ui/icons/ArrowBack';
 
 import { registerPoint } from '../../lib/points-const';
 
@@ -38,16 +39,10 @@ const styles = theme => ({
     position: 'fixed',
     width: '100%',
     height: '100%',
-    backgroundPosition: 'center',
     backgroundImage: 'url("/img/login-bg-kraken.jpg")',
-    backgroundAttachment: 'fixed',
-
-    [theme.breakpoints.up('md')]: {
-      backgroundSize: '100% auto',
-    },
-    [theme.breakpoints.down('sm')]: {
-      backgroundSize: 'auto 100%',
-    },
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
   },
   paper: {
     overflowY: 'hidden',
@@ -62,10 +57,11 @@ const styles = theme => ({
   },
   leftContentContainer: {
     position: 'relative',
-    backgroundSize: 'auto',
-    backgroundPosition: 'left',
     backgroundImage: 'url("/img/login-bg-kraken.jpg")',
-    backgroundAttachment: 'fixed',
+    backgroundPosition: 'left',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    // backgroundAttachment: 'fixed',
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing.unit * 6,
       height: 600,
@@ -88,24 +84,23 @@ const styles = theme => ({
     },
   },
   formContainer: {
-    justifyContent: 'center',
-
+    // justifyContent: 'center',
     [theme.breakpoints.up('lg')]: {
       height: '100%',
-      margin: '0 96px',
+      padding: '0 80px',
     },
     [theme.breakpoints.down('md')]: {
       height: '100%',
-      margin: '0 80px',
+      padding: '0 56px',
     },
     [theme.breakpoints.down('sm')]: {
-      margin: theme.spacing.unit * 4,
+      padding: theme.spacing.unit * 3,
     },
   },
   overlay: {
     height: '100%',
     width: '100%',
-    background: 'linear-gradient(30deg, rgba(116,116,191,1), rgba(52,138,199,.75))',
+    background: 'linear-gradient(30deg, rgba(116,116,191,1), rgba(52,138,199,.80))',
     position: 'absolute',
     top: 0,
     left: 0,
@@ -113,7 +108,7 @@ const styles = theme => ({
   overlayBackground: {
     height: '100%',
     width: '100%',
-    background: 'linear-gradient(30deg, rgba(255,255,255,.92), rgba(255,255,255,.66))',
+    background: 'linear-gradient(30deg, rgba(255,255,255,1), rgba(255,255,255,.66))',
     position: 'fixed',
     top: 0,
     left: 0,
@@ -284,6 +279,10 @@ class DaftarPage extends Component {
     const testResult = Object.assign(this.props.newPlayer.result);
     const score = this.props.newPlayer.score + DAFTAR_POINT;
 
+    // newPlayerId purpose is to save newPlayer._id into user object,
+    // so with this app can get hasil tes url for sharing
+    const newPlayerId = this.props.newPlayer._id;
+
     this.setState({ errors: 'test' });
 
     if (password === confirmPassword) {
@@ -297,6 +296,7 @@ class DaftarPage extends Component {
           age,
           score,
           testResult,
+          newPlayerId,
         },
         (err) => {
           if (err) {

@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { withStyles } from 'material-ui/styles';
-import Hidden from 'material-ui/Hidden';
-import Drawer from 'material-ui/Drawer';
-import Typography from 'material-ui/Typography';
-import Divider from 'material-ui/Divider';
-import IconButton from 'material-ui/IconButton';
-import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
+import { withStyles } from '@material-ui/core/styles';
+import Divider from '@material-ui/core/Divider';
+import Drawer from '@material-ui/core/Drawer';
+import Hidden from '@material-ui/core/Hidden';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 import MenuDrawerList from '../components/MenuDrawerList.jsx';
 import { getPersonalityNameWithLetter } from '../../lib/get-personality-name';

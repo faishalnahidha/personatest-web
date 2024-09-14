@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 import { Meteor } from 'meteor/meteor';
 
 if (Meteor.isServer) {

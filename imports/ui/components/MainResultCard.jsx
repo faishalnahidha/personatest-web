@@ -4,16 +4,17 @@ import { Link } from 'react-router-dom';
 import Parser from 'html-react-parser';
 import domToReact from 'html-react-parser/lib/dom-to-react';
 
-import { withStyles } from 'material-ui/styles';
-import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
-import Tooltip from 'material-ui/Tooltip';
-import IconButton from 'material-ui/IconButton';
-import Share from 'material-ui-icons/Share';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
+
+import Share from '@material-ui/icons/Share';
 
 import { personalityColor } from '../themes/personality-color.js';
+import ShareDialog from '../components/ShareDialog.jsx';
 
 /* theme.spacing.unit = 8px */
 const styles = theme => ({
@@ -148,62 +149,75 @@ class MainResultCard extends Component {
       }
       return personalityColor.green;
     })();
+
+    this.state = {
+      isShareDialogOpen: false,
+    };
   }
 
+  handleShareDialogOpen = () => {
+    this.setState({ isShareDialogOpen: true });
+  };
+
+  handleShareDialogClose = () => {
+    this.setState({ isShareDialogOpen: false });
+  };
+
   render() {
-    const { classes, content } = this.props;
+    const { classes, content, param } = this.props;
 
     return (
-      <Paper className={classes.paper}>
-        <Grid container spacing={0}>
-          <Grid
-            item
-            xs={12}
-            sm={12}
-            md={7}
-            className={classes.pictureContainer}
-            style={{ backgroundColor: this.pictureBgColor }}
-          >
-            <img
-              src={`/img/illustration/mbti-illust-trans-bg-${content._id.toLowerCase()}.png`}
+      <div>
+        <Paper className={classes.paper}>
+          <Grid container spacing={0}>
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={7}
+              className={classes.pictureContainer}
+              style={{ backgroundColor: this.pictureBgColor }}
+            >
+              <img
+                src={`/img/illustration/mbti-illust-trans-bg-${content._id.toLowerCase()}.png`}
               // src="/img/illustration/mbti-illust-trans-bg-intp.png"
-              alt={`MBTI ${content._id} ${content.name}`}
-              className={classes.image}
-            />
-            <div className={classes.textInsidePictureContainer}>
-              <Typography variant="display2" className={classes.textInsidePicture}>
-                {content._id}
-              </Typography>
-              <br />
-              <Typography
-                variant="subheading"
-                className={classes.textInsidePicture}
-                style={{ marginTop: 8 }}
-              >
-                {this.attribute[0]}
-              </Typography>
-              <Typography variant="subheading" className={classes.textInsidePicture}>
-                {this.attribute[1]}
-              </Typography>
-              <Typography variant="subheading" className={classes.textInsidePicture}>
-                {this.attribute[2]}
-              </Typography>
-              <Typography variant="subheading" className={classes.textInsidePicture}>
-                {this.attribute[3]}
-              </Typography>
-            </div>
-          </Grid>
-          <Grid item xs={12} sm={12} md={5}>
-            <Grid container alignContent="space-between" spacing={0} style={{ height: '100%' }}>
-              <Grid item xs={12} className={classes.textContainer}>
-                <Typography variant="caption" gutterBottom>
-                  Tipe kepribadian Anda:
-                </Typography>
-                <Typography variant="headline" component="h2" gutterBottom>
-                  {content.name}
+                alt={`MBTI ${content._id} ${content.name}`}
+                className={classes.image}
+              />
+              <div className={classes.textInsidePictureContainer}>
+                <Typography variant="display2" className={classes.textInsidePicture}>
+                  {content._id}
                 </Typography>
                 <br />
-                {Parser(content.summary, {
+                <Typography
+                  variant="subheading"
+                  className={classes.textInsidePicture}
+                  style={{ marginTop: 0 }}
+                >
+                  {this.attribute[0]}
+                </Typography>
+                <Typography variant="subheading" className={classes.textInsidePicture}>
+                  {this.attribute[1]}
+                </Typography>
+                <Typography variant="subheading" className={classes.textInsidePicture}>
+                  {this.attribute[2]}
+                </Typography>
+                <Typography variant="subheading" className={classes.textInsidePicture}>
+                  {this.attribute[3]}
+                </Typography>
+              </div>
+            </Grid>
+            <Grid item xs={12} sm={12} md={5}>
+              <Grid container alignContent="space-between" spacing={0} style={{ height: '100%' }}>
+                <Grid item xs={12} className={classes.textContainer}>
+                  <Typography variant="caption" gutterBottom>
+                  Tipe kepribadian Anda:
+                  </Typography>
+                  <Typography variant="headline" component="h2">
+                    {content.name}
+                  </Typography>
+                  <br />
+                  {Parser(content.summary, {
                   replace: (domNode) => {
                     if (domNode.name === 'p') {
                       return <Typography paragraph>{domToReact(domNode.children)}</Typography>;
@@ -211,28 +225,40 @@ class MainResultCard extends Component {
                     return null;
                   },
                 })}
-              </Grid>
-              <Grid item xs={12}>
-                <Grid container spacing={0} className={classes.buttonContainer}>
-                  <Button
-                    size="small"
-                    color="primary"
-                    component={Link}
-                    to={`/artikel/${content._id.toLowerCase()}`}
-                  >
+                </Grid>
+                <Grid item xs={12}>
+                  <Grid container spacing={0} className={classes.buttonContainer}>
+                    <Button
+                      size="small"
+                      color="primary"
+                      component={Link}
+                      to={`/artikel/${content._id.toLowerCase()}`}
+                    >
                     Baca Selengkapnya
-                  </Button>
+                    </Button>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-        <Tooltip id="tooltip-share" title="Bagikan" placement="bottom">
-          <Button variant="fab" color="primary" aria-label="share" className={classes.shareFloatingButton}>
-            <Share />
-          </Button>
-        </Tooltip>
-      </Paper>
+          <Tooltip id="tooltip-share" title="Bagikan" placement="bottom">
+            <Button
+              variant="fab"
+              color="primary"
+              aria-label="share"
+              className={classes.shareFloatingButton}
+              onClick={this.handleShareDialogOpen}
+            >
+              <Share />
+            </Button>
+          </Tooltip>
+        </Paper>
+        <ShareDialog
+          param={param}
+          isOpen={this.state.isShareDialogOpen}
+          onClose={this.handleShareDialogClose}
+        />
+      </div>
     );
   }
 }
@@ -240,5 +266,6 @@ class MainResultCard extends Component {
 MainResultCard.propTypes = {
   classes: PropTypes.object.isRequired,
   content: PropTypes.object.isRequired,
+  param: PropTypes.string,
 };
 export default withStyles(styles)(MainResultCard);

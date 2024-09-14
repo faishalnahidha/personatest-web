@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { withStyles } from 'material-ui/styles';
-import Avatar from 'material-ui/Avatar';
-import { CircularProgress } from 'material-ui/Progress';
-import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
-import List, { ListItem, ListItemText, ListItemAvatar } from 'material-ui/List';
-import Typography from 'material-ui/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Grid from '@material-ui/core/Grid';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   paper: {
@@ -18,15 +20,18 @@ const styles = theme => ({
     borderRadius: 4,
     overflow: 'auto',
   },
+  listItem: {
+    paddingLeft: theme.spacing.unit * 2.0,
+  },
 });
 
 class LeaderboardPanel extends Component {
   renderList() {
+    const { classes } = this.props;
+
     return this.props.topUsers.map(user => (
-      <ListItem key={user.username}>
-        <ListItemAvatar>
-          <Avatar alt={user.username} src={user.profile.profilePicture} />
-        </ListItemAvatar>
+      <ListItem className={classes.listItem} key={user.username}>
+        <Avatar alt={user.username} src={user.profile.profilePicture} />
         <ListItemText primary={user.username} secondary={user.gameProfile.score} />
       </ListItem>
     ));
@@ -38,12 +43,12 @@ class LeaderboardPanel extends Component {
     return (
       <Paper className={classes.paper}>
         <Grid container spacing={0}>
-          <Grid item xs={6} sm={12} md={12}>
+          <Grid item xs={12}>
             <Typography variant="body2" style={{ paddingLeft: 16 }}>
               Persona Leaderboard
             </Typography>
           </Grid>
-          <Grid item xs={6} sm={12} md={12}>
+          <Grid item xs={12}>
             {topUsers ? (
               <List dense>{this.renderList()}</List>
             ) : (
@@ -72,7 +77,7 @@ export default withTracker(() => ({
           'profile.profilePicture': 1,
           'gameProfile.score': 1,
         },
-        // limit: 10,
+        limit: 10,
       },
     )
     .fetch(),

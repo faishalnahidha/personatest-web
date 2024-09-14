@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { withStyles } from 'material-ui/styles';
-import ButtonBase from 'material-ui/ButtonBase';
-import Typography from 'material-ui/Typography';
-import ArrowForward from 'material-ui-icons/ArrowForward';
+import { withStyles } from '@material-ui/core/styles';
+import ButtonBase from '@material-ui/core/ButtonBase';
+import Typography from '@material-ui/core/Typography';
+
+import ArrowForward from '@material-ui/icons/ArrowForward';
 
 import { myPrimaryColor } from '../themes/primary-color-palette';
 
@@ -18,10 +19,10 @@ const styles = theme => ({
     justifyContent: 'flex-end',
   },
   transparentText: {
-    color: myPrimaryColor[300],
+    color: myPrimaryColor.A200,
   },
-  whiteText: {
-    color: myPrimaryColor[500],
+  titleText: {
+    color: myPrimaryColor[600],
   },
   arrow: {
     paddingTop: 20,
@@ -47,7 +48,7 @@ function NextContentNavButton(props) {
         <Typography variant="body1" align="right" className={classes.transparentText}>
           Berikutnya
         </Typography>
-        <Typography variant="subheading" align="right" gutterBottom className={classes.whiteText}>
+        <Typography variant="subheading" align="right" gutterBottom className={classes.titleText}>
           {nextContentTitle}
         </Typography>
       </div>

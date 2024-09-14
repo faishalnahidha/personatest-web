@@ -26,6 +26,11 @@ const TesContainer = withTracker(({ match, currentUser }) => {
       newPlayer.result = currentUser.testResult;
       newPlayer.contentReadFlags = currentUser.contentReadFlags;
       newPlayer.isTestFinished = true;
+      if (currentUser.newPlayerId) {
+        newPlayer._id = currentUser.newPlayerId;
+      } else {
+        newPlayer._id = 'not-found';
+      }
     }
     loading = false;
     newPlayerExists = true;

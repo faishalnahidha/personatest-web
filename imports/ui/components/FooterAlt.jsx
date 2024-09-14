@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { grey } from 'material-ui/colors';
 
-import { withStyles } from 'material-ui/styles';
-import Grid from 'material-ui/Grid';
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
+import { withStyles } from '@material-ui/core/styles';
+import { grey } from '@material-ui/core/colors';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 import { drawerWidth } from './MenuDrawer.jsx';
 

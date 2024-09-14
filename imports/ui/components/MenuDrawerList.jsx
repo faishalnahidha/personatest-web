@@ -5,15 +5,19 @@ import { Session } from 'meteor/session';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 
-import { withStyles } from 'material-ui/styles';
-import Collapse from 'material-ui/transitions/Collapse';
-import Divider from 'material-ui/Divider';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import ListSubheader from 'material-ui/List/ListSubheader';
-import Typography from 'material-ui/Typography';
-import HomeIcon from 'material-ui-icons/Home';
-import AssignmentIcon from 'material-ui-icons/Assignment';
-import AssignmentTurnedInIcon from 'material-ui-icons/AssignmentTurnedIn';
+import { withStyles } from '@material-ui/core/styles';
+import Collapse from '@material-ui/core/Collapse';
+import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import Typography from '@material-ui/core/Typography';
+
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
+import HomeIcon from '@material-ui/icons/Home';
 
 import { myPrimaryColor } from '../themes/primary-color-palette';
 

@@ -1,13 +1,14 @@
+/* eslint-disable max-len */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
-import { withStyles } from 'material-ui/styles';
-import { CircularProgress } from 'material-ui/Progress';
-import Divider from 'material-ui/Divider';
-import Grid from 'material-ui/Grid';
-import Typography from 'material-ui/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 import { PublicContents } from '../../api/public-contents.js';
 
@@ -91,6 +92,7 @@ class HasilTesPage extends Component {
     }
 
     const isUserLogin = !!Meteor.userId();
+    const newPlayerId = newPlayer._id;
 
     if (!resultLoading && newPlayer.result) {
       const mainType = PublicContents.findOne({ _id: newPlayer.result.type });
@@ -116,7 +118,7 @@ class HasilTesPage extends Component {
               })}
             >
               <Grid container spacing={0}>
-                <MainResultCard content={mainType} />
+                <MainResultCard content={mainType} param={newPlayerId} />
                 <Grid item xs={12}>
                   <Typography variant="subheading" className={classes.bandingkanText}>
                     Bandingkan dengan tipe kepribadian lain

@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import { withStyles } from 'material-ui/styles';
-import AppBar from 'material-ui/AppBar';
-import Avatar from 'material-ui/Avatar';
-import Hidden from 'material-ui/Hidden';
-import Button from 'material-ui/Button';
-import IconButton from 'material-ui/IconButton';
-import Menu, { MenuItem } from 'material-ui/Menu';
-import { ListItemIcon, ListItemText } from 'material-ui/List';
-import Tooltip from 'material-ui/Tooltip';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-import MenuIcon from 'material-ui-icons/Menu';
-import AccountCircle from 'material-ui-icons/AccountCircle';
-import { grey } from 'material-ui/colors';
-import Face from 'material-ui-icons/Face';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import Hidden from '@material-ui/core/Hidden';
+import IconButton from '@material-ui/core/IconButton';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import SvgIcon from '@material-ui/core/SvgIcon';
+import Toolbar from '@material-ui/core/Toolbar';
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
 
-// import anime from 'animejs';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import MenuIcon from '@material-ui/icons/Menu';
 
 import { drawerWidth } from '../components/MenuDrawer.jsx';
 import { mySecondaryColor } from '../themes/secondary-color-palette';
@@ -103,21 +103,19 @@ const styles = theme => ({
   },
 });
 
-const LoginIcon = () => (
-  <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
+const LoginIcon = props => (
+  <SvgIcon {...props}>
     <path
-      fill={grey[600]}
       d="M19,3H5C3.89,3 3,3.89 3,5V9H5V5H19V19H5V15H3V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M10.08,15.58L11.5,17L16.5,12L11.5,7L10.08,8.41L12.67,11H3V13H12.67L10.08,15.58Z"
     />
-  </svg>
+  </SvgIcon>
 );
-const LogoutIcon = () => (
-  <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
+const LogoutIcon = props => (
+  <SvgIcon {...props}>
     <path
-      fill={grey[600]}
       d="M14.08,15.59L16.67,13H7V11H16.67L14.08,8.41L15.5,7L20.5,12L15.5,17L14.08,15.59M19,3A2,2 0 0,1 21,5V9.67L19,7.67V5H5V19H19V16.33L21,14.33V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5C3,3.89 3.89,3 5,3H19Z"
     />
-  </svg>
+  </SvgIcon>
 );
 
 class Header extends Component {
@@ -343,9 +341,9 @@ class Header extends Component {
           </Toolbar>
         </AppBar>
         <LoginDialog
-          isLoginDialogOpen={isLoginDialogOpen}
-          handleLoginDialogOpen={this.handleLoginDialogOpen}
-          handleLoginDialogClose={this.handleLoginDialogClose}
+          isOpen={isLoginDialogOpen}
+          // handleLoginDialogOpen={this.handleLoginDialogOpen}
+          onClose={this.handleLoginDialogClose}
         />
       </div>
     );
