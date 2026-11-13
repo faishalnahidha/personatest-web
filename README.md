@@ -1,10 +1,8 @@
 # Persona Test
 
-Aplikasi Tes Kepribadian MBTI Online & Panduan Potensi Diri dalam Mencapai Karir Terbaik\* — an online MBTI-style personality test and a guide to your strengths for a better career. Persona Test is an online personality test and a guide to finding a career that fits who you are.
+_Aplikasi Tes Kepribadian MBTI Online & Panduan Potensi Diri dalam Mencapai Karir Terbaik_ — Persona Test is an online MBTI-style personality test and a guide to your strengths for a better career.
 
 **Live app:** [test.persona.my.id](https://test.persona.my.id)
-
-_Aplikasi Tes Kepribadian MBTI Online & Panduan Potensi Diri dalam Mencapai Karir Terbaik_ — an online MBTI-style personality test and a guide to your strengths for a better career.
 
 ## What you can do
 
@@ -40,8 +38,9 @@ Reading articles and finishing the test also add points, so you can track how fa
 
 | Layer         | Tools                                |
 | ------------- | ------------------------------------ |
-| App framework | Meteor 1.9                           |
-| Interface     | React 16, Material-UI                |
+| App framework | Meteor.js 1.9                        |
+| Front-end     | React 16                             |
+| UI library    | Material-UI v1                       |
 | Pages         | React Router                         |
 | Data          | MongoDB                              |
 | Accounts      | Meteor accounts (email and password) |
